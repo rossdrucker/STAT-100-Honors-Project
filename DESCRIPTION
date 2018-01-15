@@ -1,0 +1,6 @@
+Package: stat-100-honors-project
+Type: Book
+Title: STAT 100 Honors Project.
+Version: 0.0.1
+Imports: bookdown, swirl
+Remotes: rstudio/bookdown
