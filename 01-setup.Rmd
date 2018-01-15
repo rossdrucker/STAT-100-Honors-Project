@@ -1,0 +1,51 @@
+# (PART) The Basics {-}
+
+```{r 01-setup, echo = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+# Downloading `R` and RStudio
+
+The first thing you'll need to do in order to begin using `R` is to actually download `R` itself. You can do this [from this link](https://cran.r-project.org/). Make sure that you install it for the type of operating system you have. That is, if you have a Windows computer, don't download the Mac or Linux versions. This downloads what's called a <span class = 'vocab'>**terminal**</span>, or the bare minimum interface that you need to write and run code in R. You're not encouraged to use this terminal when writing code.
+
+> "Wait, I thought you just said that this is how to write and run my code, and that's what this project is."
+>
+> <div style = "text-align: right"> --- You (probably) </div>
+
+This is because you should use RStudio to write, edit, and run your code. RStudio is what's called an <span class = 'vocab'>**IDE**</span> (Integrated Development Environment), and it relies on what you just downloaded to run in the background to run properly. You can download RStudio [here](https://www.rstudio.com/products/RStudio/). It makes *everything* in `R` --  from importing, manipulating, vizualizing, and analyzing data, to writing and debugging code, to creating documents (like this book!) -- significantly easier to do.
+
+## Getting Familiar with RStudio
+
+Once you've got `R` and RStudio downloaded, open RStudio up and click `RStudio` in the menu across the top. Click `Preferences` and then click `Pane layout` so you can see what each pane in RStudio is. On my computer, I've got `Source` on the top left, `Console` on the top right, `Environment, History, Build, VCS, Presentation` on the bottom left, and `Files, Plots, Packages, Help, Viewer` on the bottom right. To me, this layout is easy to follow and understand, but you can set yours up however you want and can always change it around. Here's what each of these panels actually does for you:
+
+## `Console`
+
+Remember that terminal you downloaded before downloading RStudio? This is what that looks like. Any time you see a `>` symbol, you can enter commands. `R` will then run the command, and if output is produced, it will be displayed here. Do a few simple math problems here to see an example:
+
+```{r 01-console-examples, eval = FALSE}
+1 + 1
+2 * 9
+sqrt(4)
+```
+
+While this may seem like a good place to write your code, it's a better practice to do it in the `Source` pane in a script (more on that in approximately 2 sentences). Doing quick computations or installing and loading packages in your console is totally fine, but the more code you run, the harder it will be to find earlier lines of code (and more importantly, the harder it will be to edit should you make a mistake). At the end of the day, all of the code you write, whether it be in the `Source` pane or the `Console` pane will run in the `Console`, but for the purposes of legibility and editing you should do everything in your `Source` pane.
+
+## `Source` {#src}
+
+This pane is where you will do a majority of your work in what's called a <span class = 'vocab'>**script**</span>. Think of a script like a Microsoft Word document, but instead of writing essays, you're writing code. To open a new script, go to `File`, then select `New File`, then `New R Script`. On a Mac, you can press `Cmd + Shift + N`, or on a Windows/Linux computer, you can press `Ctrl + Shift + N`. The beauty of using a script is that you can save what you do and easily edit it later, whereas writing directly into the console will be much more difficult to save, edit, or view later. To run code that you write in a script, highlight the line(s) that you'd like to run and click `Run` at the top of the script. You can also hold `Cmd + Enter` (Mac) or `Ctrl + Enter` (PC).
+
+In addition to a script, you can also create a <span class = 'vocab'>**markdown document**</span>. Markdown documents allow you to combine plain text, code, and equations. We'll cover this in more detail later, but these allow you to explain your analysis as you do it. Just to give you an idea of how powerful markdown documents are, this entire book was made using markdown documents.
+
+Lastly, this pane will be where the results from the `View()` command will display, and where you can view the actual contents of the datasets you're working with. Again, more on this in a little bit.
+
+<a name = 'env'></a>
+
+## `Environment, History, Build, VCS, Presentation`
+
+This pane is where you'll be able to see all of the datasets that you've imported, variables that you've created, and functions that you've written. They are stored in something called your <span class = 'vocab'>**global environment**</span>, or environment for short. Think of your environment as a folder on your computer that keeps track of all of the files you've created.
+
+While none of that will probably mean much to you at the moment, they will in the span of a few chapters. The more code you write and the more variables you create, the harder it will be to remember all of these components. This pane keeps track of them, as well as basic information that you may find useful later.
+
+## `Files, Plots, Packages, Help, Viewer`
+
+Lastly, the `Files, Plots, Packages, Help, Viewer` pane will display any plots, graphs, or other images you create in R. Plots will display in this pane under the `Plots` tab. If they don't pop up right away, try to increase the size of the pane by dragging the boundaries (like you'd resize your web browser). Markdown documents will be available in the `Viewer` tab, and help files will be in the `Help` tab. The `Files` tab shows the files in the <span class = 'vocab'>**directory**</span> (folder on your computer) that you're working in. We'll cover these in more detail later, but it's good to become familiar with this pane as well.

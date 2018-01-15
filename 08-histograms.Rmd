@@ -1,0 +1,134 @@
+# (PART) Exploring Data {-}
+
+```{r 08-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+library(magrittr)
+```
+
+# Bar Graphs vs. Histograms {#hists}
+
+## Drawing Bar Graphs and Histograms in `R` {-}
+One way to explore data in `R` is by creating quick vizualizations. We'll use `survey1`, the STAT 100 and 200 combined survey data from <a href = 'loading-data.html#loading-example'>before</a>, to demonstrate. The dataset has `r nrow(survey1)` observations of `r length(survey1)` variables, and a description of the variables in the dataset is available [here](http://courses.las.illinois.edu/stat/stat100/survey/archive/Stat100_200_2017fall_survey01.html).
+
+<div style = "text-align: center">Preview of `survey1`</div>
+```{r 08-survey1-preview, echo = FALSE}
+knitr::kable(head(survey1),
+             format = 'html',
+             align = 'c',
+             booktabs = TRUE) %>% kableExtra::kable_styling() %>% kableExtra::scroll_box(height = 7, width = 12)
+```
+
+Let's explore the `height` variable a little bit. One way that we can do it is by breaking up, or <span class = 'vocab'>**binning**</span>, the data into different groups, then plotting what percentage of the data is in each group. This creates what's called a <span class = 'vocab'>**histogram**</span>. To make a histogram in `R`, we can use the `hist()` function (see `?hist` for more information). All that `hist()` needs is an argument `x`, which is what you'd like to make a histogram of. Since we want the densities, we'll add in the `freq = FALSE` argument. This results with a histogram that looks like this:
+
+```{r 08-hist-ex1, fig.cap = 'A basic histogram'}
+hist(
+  survey1$height,
+  freq = FALSE
+)
+```
+
+Let's add a few extra arguments to make the plot a little clearer:
+
+- `main` and `xlab` create a title and an $x$-axis label respectively
+
+- `ylim` sets the range of $y$-values that are shown on the $y$-axis <span class = 'note'>*(Note:*</span> <span style = 'color: #a21bd7'>`xlim`</span> <span class = 'note'>*does the same for the $x$-axis)*</span>
+ 
+- `breaks` controls what numbers are used as part of the binning process. The first number is the smallest value in the data, and the last value is the largest. You can find these by employing `min()` and `max()` individually, or you can use the `range()` function and get both at the same time. <span class = 'note'>*Note: the break points we used were arbitrarily selected*</span>
+ 
+- `col` changes the colors of the bars. We change these to make them a little easier to identify, but it's purely cosmetic. Supplying a single value, which can be [any named color that `R` already recognizes](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf), an [RGB value](https://www.thoughtco.com/color-models-rgb-1697461) while using the `rgb()` function, or a [hexadecimal color value supplied as a `character`](http://www.color-hex.com/), preceded by a `#`. We'll leave it to you to learn about these color formats on your own, but kow that they're available to you. Supplying a single value will change the color for each bar, making all the bars the same color, while supplying a vecotr of the same length as the number of bars will change each color individually
+
+```{r 08-histogram-height, fig.height = 7, fig.width = 10, fig.cap = 'Well-formatted histogram (left) and density plot (right)'}
+par(mfrow = c(1, 2)) # Puts plots side-by-side
+
+# Histogram
+hist(
+  survey1$height,
+  main = 'Histogram of Heights',
+  xlab = 'Heights in Inches',
+  ylim = c(0, .1),
+  freq = FALSE,
+  breaks = c(49, 62, 65, 68, 70, 73, 95),
+  axes = FALSE, # Removes default axis numbers
+  labels = TRUE, # Put decimals above each bar
+  col = '#0088ce',
+  border = '#939598'
+)
+axis(2) # Puts y-axis numbers back
+axis(1, at = c(49, 62, 65, 68, 70, 73, 95)) # Puts x-axis numbers back
+
+# Bar plot
+hist(
+  survey1$height,
+  main = 'Bar Plot of Heights',
+  xlab = 'Heights in Inches',
+  ylim = c(0, 500),
+  freq = TRUE,
+  breaks = c(49, 62, 65, 68, 70, 73, 95),
+  labels = TRUE, # Put counts above each bar
+  axes = FALSE, # Removes default axis numbers
+  col = '#0088ce',
+  border = '#939598'
+)
+axis(2) # Puts y-axis numbers back
+axis(1, at = c(49, 62, 65, 68, 70, 73, 95)) # Puts x-axis numbers back
+```
+
+While the overall shapes of the two plots seem the same, there are a few important differences to take note of. The biggest one is the significance of each block's width and height. With a histogram, the height shows the percentage per unit inside of each block, while on a bar graph the heights have no meaning whatsoever. The numbers displayed on top show the total number of people inside each interval. The widths (and the $x$-axis altogether) of each plot also carry different meanings: barplots just show an interval, while a histogram represents unique heights. That is, even if a number doesn't appear on the $x$-axis in a histogram, that height is still represented. Since the heights and widths of each kind of plot differ, so too do the areas, since the areas are the width of the interval times the height of the interval. Histogram areas show percentages within each block, while bar plot areas are -- you guessed it -- irrelevant.
+
+We could also summarize our data as the following table:
+
+```{r 08-hist-summary, echo = FALSE, fig.show = 'hide'}
+hist1 = hist(
+  survey1$height,
+  main = 'Histogram of Heights',
+  xlab = 'Heights in Inches',
+  ylim = c(0, .1),
+  freq = FALSE,
+  breaks = c(49, 62, 65, 68, 70, 73, 95),
+  axes = FALSE, # Removes default axis numbers
+  labels = TRUE, # Put decimals above each bar
+  col = '#0088ce',
+  border = '#939598'
+)
+
+range = c('49-62', '62-65', '65-68', '68-70', '70-73', '73-95')
+area = c(
+  paste(round((hist1$density[1] * (hist1$breaks[2] - hist1$breaks[1])) * 100, 2), '%', sep = ''),
+  paste(round((hist1$density[2] * (hist1$breaks[3] - hist1$breaks[2])) * 100, 2), '%', sep = ''),
+  paste(round((hist1$density[3] * (hist1$breaks[4] - hist1$breaks[3])) * 100, 2), '%', sep = ''),
+  paste(round((hist1$density[4] * (hist1$breaks[5] - hist1$breaks[4])) * 100, 2), '%', sep = ''),
+  paste(round((hist1$density[5] * (hist1$breaks[6] - hist1$breaks[5])) * 100, 2), '%', sep = ''),
+  paste(round((hist1$density[6] * (hist1$breaks[7] - hist1$breaks[6])) * 100, 2), '%', sep = '')
+)
+count = hist1$counts
+
+hist_table = data.frame(range, area, count)
+names(hist_table) = c('Range', 'Area', 'Count')
+
+knitr::kable(hist_table, align = 'c', format = 'html', booktabs = TRUE)
+```
+
+<span class = 'note'>*Note: the areas of the blocks on the histogram sum to 100%*</span>
+
+This isn't to say that bar plots don't have their place, this just isn't it. Sorry bar graphs, you'll just have to wait until it's analysis time. We'll focus on histograms for the rest of this chapter.
+
+## Extracting Information From Histograms {-}
+
+In addition to being able to do visual analysis of a histogram, it may be more useful to use some of the information that the `hist()` function generates. Usually what we care about is the plot itself, but `hist()` calculates and stores a lot of information in addition to generating the plot. We'll store the results from histogram as something called `hist1`.
+
+```{r 08-hist-extraction, eval = FALSE}
+hist1 = hist(
+  survey1$height,
+  main = 'Histogram of Heights',
+  xlab = 'Heights in Inches',
+  ylim = c(0, .1),
+  freq = FALSE,
+  breaks = c(49, 62, 65, 68, 70, 73, 95),
+  axes = FALSE, # Removes default axis numbers
+  labels = TRUE, # Put decimals above each bar
+  col = '#0088ce',
+  border = '#939598'
+)
+```
+
+In addition to the plot, `hist1` contains a list with elements `breaks`, `counts`, `density`, `mids`, `xname`, and `equidist`. Check the help file for what these mean, but we should note that the total count of observations and the density of observations in a given range can be accessed by `hist1$counts` and `hist1$density` respectively. Check out the use of list element extraction using `$` here! These are vectors, and you can use the components as you need to.

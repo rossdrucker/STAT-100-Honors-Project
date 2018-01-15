@@ -1,0 +1,136 @@
+# Operators
+
+<a name = 'operators'></a>
+
+```{r 04-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+```{r 04-operators-gif, echo = FALSE}
+knitr::include_graphics('img/04-operators.gif')
+```
+
+## Mathematical Operators
+
+One thing that `R` is really good at doing is mathematical computations. Here's a few of the basic math operations that you'll want to get familiar with and be very comfortable comfortable using.
+
+```{r 04-math-ops-tbl, echo = FALSE}
+symbs = c('`+`', '`-`', '`*`', '`/`', '`**` or `^`', '`exp()`', '`log()`', '`log10()`', '`pi`', '`sqrt()`', '`abs()`')
+meaning = c(
+  'addition',
+  'subtraction',
+  'multiplication',
+  'division',
+  'exponent',
+  '$e$',
+  'natural log',
+  'log$_{10}$',
+  '$\\pi$',
+  'square root',
+  'absolute value ( $|x|$ )'
+)
+examples = c(
+  '`3 + 3` = $1 + 1$',
+  '`10 - 1` = $10 - 1$',
+  '`23 * 3` = $23 \\cdot 3$',
+  '`276 / 4` = $\\frac{276}{4}$',
+  '`2 ** 3` = `2 ^ 3` = $2^3$',
+  '`exp(2)` = $\\exp \\left( 2 \\right)$',
+  '`log(2.71)` = $\\ln{2.71} = e$',
+  '`log10(100)` = $\\log_{10} 100$',
+  '`2 * pi` = $2 \\cdot \\pi$',
+  '`sqrt(4)` = $\\sqrt{4}$',
+  '`abs(-6)` = |-6| = 6'
+)
+
+mathsymbs = data.frame(symbs, meaning, examples)
+names(mathsymbs) = c('Symbol', 'Meaning', 'Example')
+
+knitr::kable(mathsymbs, align = 'c', format = 'html', booktabs = TRUE)
+```
+
+`R` also works in the correct mathematical order of operations: PEMDAS. This stands for
+
+- **P**arentheses/brackets
+- **E**xponents
+- **M**ultiplication
+- **D**ivision
+- **A**ddition
+- **S**ubtraction
+
+Because of this, using exra parenthesis is ***never*** a bad idea. `R` also automatically closes a set of brackets, parenthesis, or braces (`{}`) when you open them, but if you're debugging and deleting make sure that you delete with caution. `R` will highlight the corresponding parenthesis when you highlight a different one, but these minor details can become major pains. Coder have caution!
+
+<a name = 'boolops'></a>
+
+## Logical (Boolean) Operators
+
+As we talked about before, `R` can evaluate logical statements in addition to performing math operations. Here's how this part works:
+
+```{r 04-bools-tbl, echo = FALSE}
+symbs = c('>', '<', '>=', '<=', '==', '!=', '&', '|')
+meaning = c(
+  'greater than',
+  'less than',
+  'greater than or equal to ($\\geq$)',
+  'less than or equal to ($\\leq$)',
+  'is ***exactly equal*** to',
+  'is ***not*** equal to ($\\ne$)',
+  'logical AND (used in conjunction with one of the above)',
+  'logical OR (used in conjunction with one of the above)'
+)
+examples = c(
+  '3 > 4 $\\implies$ `FALSE`',
+  '2 < 9 $\\implies$ `TRUE`',
+  '13 <= 13 $\\implies$ `TRUE`',
+  '14 >= 12 $\\implies$ `FALSE`',
+  '60 == 61 $\\implies$ `FALSE`',
+  '69 != 818 $\\implies$ `TRUE`',
+  'x > 12 & y == `TRUE` $\\implies$ `x` is `TRUE` and `y` is `TRUE` ',
+  'x == TRUE | y == `TRUE` $\\implies$ `x` is `TRUE` or `y` is `TRUE`'
+)
+
+boolsymbs = data.frame(symbs, meaning, examples)
+names(boolsymbs) = c('Symbol', 'Meaning', 'Example')
+
+knitr::kable(boolsymbs, format = 'html', align = 'c', booktabs = TRUE)
+```
+
+## Vectorization
+
+<a name = 'vectorization'></a>
+
+Now it's time to talk about one of the most useful features of `R`: the fact that it's a <span class = 'vocab'>**vectorized language**</span>. This sounds very complex, but what it really means is that you can operate on entire vectors at a time using the operators we just went through. Let's see a few examples using a vector of length 25. We'll create a vector `v1` that has the numbers 1 through 25, and we'll do a few operations on it to really see how powerful vectorized operations are.
+
+```{r 04-vectorization-ex-setup}
+v1 = 1:25
+```
+
+<a name = '04-vectorization-ex1'></a>
+
+First, let's see what simple addition does to the vector. Pretend we want to add 5 to each element?
+
+```{r 04-vectorization-ex1}
+v1 + 5
+```
+
+What about doubling each element?
+
+```{r 04-vectorization-ex2}
+v1 * 2
+```
+
+Cool! But what about that boolean thing we were talking about? Well, let's try an example. What if we want to find where all the values are greater than 12?
+
+```{r 04-vectorization-ex3}
+v1 > 12
+```
+
+This is the power of vectorization: you can do things to really large amounts of data in a relatively short amount of time. Obviously, the more complex the operation is, the longer it will take, but it still beats the alternative of having to do the manipulations and calculations by hand.
+
+There's one last important point to make about vectorization, and that's what happens when you add vectors of unequal length. We've actually already seen [examples](#04-vectorization-ex1) of this, but we just didn't realize it. What's happening is that `R` is treating the numbers that we've supplied above (5, 2, and 12 respectively) as vectors of length 1, and <span class = 'vocab'>**recycling**</span> them over and over in its calculations. If instead we had tried to do `v1 + c(5, 10)`, we'd wind up with something different.
+
+```{r 04-recycling-vectors}
+v1 + c(5, 10)
+```
+
+This is something that we need to be aware of: even though `R` can do a vectorized calculation, we need to make sure that it's performing the calculation we actually want it to do. Again, the `length()` function is your friend here!
