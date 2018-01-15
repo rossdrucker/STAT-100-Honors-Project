@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+*.html 
+*.pdf
+*.rds
+devel/*.html 
+devel/*.pdf 
+_book
+_bookdown_files
