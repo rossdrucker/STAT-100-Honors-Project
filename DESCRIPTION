@@ -3,7 +3,7 @@ Type: Book
 Title: STAT 100 Honors Project.
 Version: 0.0.1
 Imports:
-bookdown, 
+  bookdown, 
   rmarkdown,
   knitr,
   kableExtra,
