@@ -1,14 +1,10 @@
-# configure your name and email if you have not done so
-git config --global user.email "ross.a.drucker@gmail.com"
-git config --global user.name "Ross Drucker"
+language: r
+pandoc_version: 1.19.2.1
 
-# clone the repository to the book-output directory
-git clone -b gh-pages \
-  https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git \
-  book-output
-cd book-output
-git rm -rf *
-cp -r ../_book/* ./
-git add --all *
-git commit -m"Update the book"
-git push -q origin gh-pages
+before_script:
+  - chmod +x ./_build.sh
+  - chmod +x ./_deploy.sh
+
+script:
+  - ./_build.sh
+  - ./_deploy.sh
