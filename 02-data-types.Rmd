@@ -71,6 +71,8 @@ Each of the data types listed [above](#types) describes a single point of data, 
 
 ### Vectors {-}
 
+<a name = 'vectors'></a>
+
 A <span class = 'vocab'>**vector**</span> is a grouped set of data. Think about it as if it were the answer to a *single* question from a survey from all students in the class, or the heights of all basketball players in the NBA. We've actually been working with vectors all along! We'll discuss it more in [chapter 4](#Vectorization).
 
 `R` actually treats every value as a vector. That's why, as you may have noticed, lines of output begin with `[1]`. This indicates the <span class = 'vocab'>**index**</span> (position) in the vector that is at the start of the line. Any time we've had any type of data, `R` has just treated it as a vector of length 1.
