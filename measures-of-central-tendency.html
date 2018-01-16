@@ -474,7 +474,7 @@ Figure 9.1: Skewed and Symmetric Distributions
 <p>All fixed! Let’s put this into a function so that we can do it on any data set we’d like. We’ll call the function <code>stdv()</code>, which takes one argument (the <code>numeric</code> vector <code>x</code>), and returns the population standard deviation.</p>
 <p><a name = 'stdv-function'></a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stdv =<span class="st"> </span>function(x){
-  <span class="kw">sd</span>(x) *<span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(x) -<span class="st"> </span><span class="dv">1</span>)/<span class="st"> </span><span class="kw">length</span>(x))
+  <span class="kw">sd</span>(x) *<span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(x) -<span class="st"> </span><span class="dv">1</span>) /<span class="st"> </span><span class="kw">length</span>(x))
 }</code></pre></div>
 <p>The larger the standard deviation is, the more spread out our data is. The smaller the standard deviation, the less spread the deviation is. As an extreme case, a standard deviation of 0 means that there is no spread whatsoever. This is because all of the data would be located at the average.</p>
 </div>

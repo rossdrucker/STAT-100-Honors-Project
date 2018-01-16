@@ -211,7 +211,7 @@ All fixed! Let's put this into a function so that we can do it on any data set w
 
 ```{r 09-stdv-function}
 stdv = function(x){
-  sd(x) * sqrt((length(x) - 1)/ length(x))
+  sd(x) * sqrt((length(x) - 1) / length(x))
 }
 ```
 
