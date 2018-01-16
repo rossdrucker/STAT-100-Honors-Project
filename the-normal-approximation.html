@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STAT 100 Honors Project</title>
+  <meta name="description" content="STAT 100 Honors Project">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  
+  
+  
+
+<meta name="author" content="Ross Drucker">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+<link rel="prev" href="measures-of-central-tendency.html">
+<link rel="next" href="percentiles-and-box-plots.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">STAT 100 Honors Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
+<li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html"><i class="fa fa-check"></i><b>2</b> Functions and Data Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#functions"><i class="fa fa-check"></i><b>2.1</b> Functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#types"><i class="fa fa-check"></i><b>2.2</b> The Types</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors-lists-and-data-frames"><i class="fa fa-check"></i><b>2.3</b> Vectors, Lists, and Data Frames</a><ul>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#data-frames"><i class="fa fa-check"></i>Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#coercing-to-other-types"><i class="fa fa-check"></i><b>2.4</b> Coercing To Other Types</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#identical"><i class="fa fa-check"></i><b>2.5</b> <code>identical()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#naming"><i class="fa fa-check"></i><b>3.1</b> Naming</a></li>
+<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#vectors-lists-and-data-frame-names"><i class="fa fa-check"></i><b>3.2</b> Vectors, Lists and Data Frame Names</a><ul>
+<li class="chapter" data-level="" data-path="variables.html"><a href="variables.html#naming-list-elements-and-data-frame-columns"><i class="fa fa-check"></i>Naming List Elements and Data Frame Columns</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#mathematical-operators"><i class="fa fa-check"></i><b>4.1</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-boolean-operators"><i class="fa fa-check"></i><b>4.2</b> Logical (Boolean) Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#vectorization"><i class="fa fa-check"></i><b>4.3</b> Vectorization</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html"><i class="fa fa-check"></i><b>5</b> Packages and Getting Help</a><ul>
+<li class="chapter" data-level="5.1" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#helpfiles"><i class="fa fa-check"></i><b>5.2</b> Help Files</a><ul>
+<li class="chapter" data-level="" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#other-helpful-resources"><i class="fa fa-check"></i><b>5.3</b> Other Helpful Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>6</b> Loading Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data.html"><a href="loading-data.html#data-files"><i class="fa fa-check"></i><b>6.1</b> Data Files</a></li>
+<li class="chapter" data-level="6.2" data-path="loading-data.html"><a href="loading-data.html#reading-in-csv-files"><i class="fa fa-check"></i><b>6.2</b> Reading in CSV Files</a><ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#directories"><i class="fa fa-check"></i>Directories</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-example"><i class="fa fa-check"></i>Loading Example</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="loading-data.html"><a href="loading-data.html#writing-files"><i class="fa fa-check"></i><b>6.3</b> Writing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="coding-style.html"><a href="coding-style.html"><i class="fa fa-check"></i><b>7</b> Coding Style</a><ul>
+<li class="chapter" data-level="7.1" data-path="coding-style.html"><a href="coding-style.html#comments"><i class="fa fa-check"></i><b>7.1</b> Comments</a></li>
+<li class="chapter" data-level="7.2" data-path="coding-style.html"><a href="coding-style.html#spacing"><i class="fa fa-check"></i><b>7.2</b> Spacing</a></li>
+<li class="chapter" data-level="7.3" data-path="coding-style.html"><a href="coding-style.html#indentation"><i class="fa fa-check"></i><b>7.3</b> Indentation</a></li>
+<li class="chapter" data-level="7.4" data-path="coding-style.html"><a href="coding-style.html#consistency"><i class="fa fa-check"></i><b>7.4</b> Consistency</a></li>
+<li class="chapter" data-level="7.5" data-path="coding-style.html"><a href="coding-style.html#simplifying-coding-style"><i class="fa fa-check"></i><b>7.5</b> Simplifying Coding Style</a></li>
+</ul></li>
+<li class="part"><span><b>II Exploring Data</b></span></li>
+<li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
+<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
+<li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
+<li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#standard-deviation-and-sd"><i class="fa fa-check"></i><b>9.3</b> Standard Deviation and <code>sd()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-and-standard-deviation-after-changing-the-data"><i class="fa fa-check"></i><b>9.4</b> Mean and Standard Deviation After Changing The Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html"><i class="fa fa-check"></i><b>10</b> The Normal Approximation</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#the-sd-1-2-3-rule"><i class="fa fa-check"></i><b>10.1</b> The SD 1-2-3 Rule</a></li>
+<li class="chapter" data-level="10.2" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#z-scores"><i class="fa fa-check"></i><b>10.2</b> Z-scores</a></li>
+<li class="chapter" data-level="10.3" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#norms"><i class="fa fa-check"></i><b>10.3</b> The <code>_norm()</code> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
+<li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
+<li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Regression</b></span></li>
+<li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
+<li class="chapter" data-level="12.1" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#scatter-plots"><i class="fa fa-check"></i><b>12.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="12.2" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#correlation"><i class="fa fa-check"></i><b>12.2</b> Correlation</a></li>
+<li class="chapter" data-level="12.3" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#calculating-r-and-cor"><i class="fa fa-check"></i><b>12.3</b> Calculating <span class="math inline">\(r\)</span> and <code>cor()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#statistics-of-the-cloud-scatter-plot"><i class="fa fa-check"></i><b>12.4</b> Statistics of the “Cloud” Scatter Plot</a></li>
+<li class="chapter" data-level="12.5" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#the-sd-line"><i class="fa fa-check"></i><b>12.5</b> The SD Line</a></li>
+<li class="chapter" data-level="12.6" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting-and-ecological-correlations"><i class="fa fa-check"></i><b>12.6</b> Subsetting and Ecological Correlations</a><ul>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting"><i class="fa fa-check"></i>Subsetting</a></li>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#ecological-correrlations"><i class="fa fa-check"></i>Ecological Correrlations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#summary-of-correlation"><i class="fa fa-check"></i><b>12.7</b> Summary of Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a><ul>
+<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#regression"><i class="fa fa-check"></i><b>13.1</b> Regression</a></li>
+<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#using-r-to-make-predictions"><i class="fa fa-check"></i><b>13.2</b> Using <span class="math inline">\(r\)</span> to Make Predictions</a></li>
+<li class="chapter" data-level="13.3" data-path="linear-regression.html"><a href="linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>13.3</b> The Regression Line</a></li>
+<li class="chapter" data-level="13.4" data-path="linear-regression.html"><a href="linear-regression.html#lm"><i class="fa fa-check"></i><b>13.4</b> <code>lm()</code></a></li>
+<li class="chapter" data-level="13.5" data-path="linear-regression.html"><a href="linear-regression.html#using-predict-to-make-predictions"><i class="fa fa-check"></i><b>13.5</b> Using <code>predict()</code> to Make Predictions</a></li>
+<li class="chapter" data-level="13.6" data-path="linear-regression.html"><a href="linear-regression.html#switching-the-predictions"><i class="fa fa-check"></i><b>13.6</b> Switching the Predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html"><i class="fa fa-check"></i><b>14</b> Evaluating Predictions</a><ul>
+<li class="chapter" data-level="14.1" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#residuals"><i class="fa fa-check"></i><b>14.1</b> Residuals</a></li>
+<li class="chapter" data-level="14.2" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#root-mean-squared-error-rmse"><i class="fa fa-check"></i><b>14.2</b> Root Mean Squared Error (RMSE)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">STAT 100 Honors Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-normal-approximation" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> The Normal Approximation</h1>
+<p><img src="STAT_100_Honors_Project_files/figure-html/10-normal-curve-printout-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>The ideal histogram will have a bell shape like the one you see above. While not all histograms will have this shape, many will roughly approximate it. This shape is called a <span class="vocab"><strong>normal curve</strong></span>, also referred to as the <span class="vocab"><strong>normal approximation</strong></span>. There’s two major facts that we need to keep in mind about the normal curve:</p>
+<ol style="list-style-type: decimal">
+<li><p>It’s a symmetric distribution about the center (the average). This fact allows us to apply the logic that whatever we do to one side of the curve, we can safely do to another. We’ll keep coming back to this fact, so it’s really important to keep this in the back of your head.</p></li>
+<li><p>Just like a histogram, the total area underneath the curve adds to 100%. Again, this is something that we’ll keep coming back to. Burn this fact into your brain too.</p></li>
+</ol>
+<p>A few more things to note about the normal curve:</p>
+<ul>
+<li><p>While on the plot the range of the <span class="math inline">\(x\)</span>-axis goes from -3 to 3, the curve really extends out forever. It’s <span class="vocab"><strong>asymptotic</strong></span></p></li>
+<li><p>It’s a density plot and not a frequency plot (this is what allows the total area to be 100%)</p></li>
+<li><p>The highest point on our curve occurs at 0. Since the <span class="math inline">\(x\)</span>-axis is how many standard deviations away from the average a point is, we know then that the curve’s highest point (we say “it’s centered”) around 0</p></li>
+</ul>
+<div id="the-sd-1-2-3-rule" class="section level2">
+<h2><span class="header-section-number">10.1</span> The SD 1-2-3 Rule</h2>
+<p><img src="STAT_100_Honors_Project_files/figure-html/10-sd-1-2-3-rule-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>The <span class="vocab"><strong>SD 1-2-3 Rule</strong></span> tells us how much data is within 1, 2, and 3 standard deviations of the average. The <span style="color: #e04e39; font-weight: bold">orange</span> area of the above normal curve is &lt;span style = ‘color: #e04e39’; font-weight: bold’&gt;1 standard deviation</span> of the average, or roughly &lt;span style = ‘color: #e04e39; font-weight: bold’‘&gt;68%</span>. Within 2 standard deviations of the average (the &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;blue</span> area, plus the middle &lt;span style = ’color: #e04e39; font-weight: bold’‘&gt;orange</span> area), gives us approximately &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;95%</span> of the data, and the &lt;span style = ’color: #a5acaf; font-weight: bold’‘&gt;grey</span> area, plus the &lt;span style = ’color: #e04e39; font-weight: bold’‘&gt;orange</span> and &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;blue</span> areas, give &lt;span style =’#a5acaf; font-weight: bold’’&gt;99.7%</span> of the data.</p>
+<p>Quick summary:</p>
+<div style="text-align: center">
+<p>&lt;span style = ‘color: #e04e39; font-weight: bold’‘&gt;orange</span> = &lt;span style = ’color: #e04e39; font-weight: bold’’&gt;68%</span></p>
+<p>&lt;span style = ‘color: #e04e39; font-weight: bold’‘&gt;orange</span> + &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;blue</span> = &lt;span style = ’color: #13294b; font-weight: bold’’&gt;95%</span></p>
+<p>&lt;span style = ‘color: #e04e39; font-weight: bold’‘&gt;orange</span> + &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;blue</span> + &lt;span style = ’color: #a5acaf; font-weight: bold’‘&gt;grey</span> = &lt;span style = ’color: #a5acaf; font-weight: bold’’&gt;99%</span></p>
+</div>
+<p>In other words, &lt;span style = ‘color: #e04e39; font-weight: bold’‘&gt;68%</span> of the data is between &lt;span style = ’color: #e04e39; font-weight: bold’‘&gt;-1</span> and &lt;span style = ’color: #e04e39; font-weight: bold’‘&gt;1</span>, &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;95%</span> of the data is between &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;-2</span> and &lt;span style = ’color: #13294b; font-weight: bold’‘&gt;2</span>, and &lt;span style = ’color: #a5acaf; font-weight: bold’‘&gt;99%</span> of the data is between &lt;span style = ’color: #a5acaf; font-weight: bold’‘&gt;-3</span> and &lt;span style = ’color: #a5acaf; font-weight: bold’’&gt;3</span>.</p>
+<p>Now this is great and all, but what about if the data isn’t exactly 1, 2, or 3 standard deviations away from the average? Glad you asked. That’s where Z-scores make their money.</p>
+</div>
+<div id="z-scores" class="section level2">
+<h2><span class="header-section-number">10.2</span> Z-scores</h2>
+<p>A <span class="vocab"><strong>Z-score</strong></span>, also known as <span class="vocab"><strong>standard units</strong></span>, is a measure of how many standard deviations away from the average a particular point of data is. Like we just said, every point of data in the data set will correspond to a Z-score. If we want to know how many standard deviations away from the average a point of data is, we should start by figuring out how far the point itself is from the average in whatever units the data’s in (i.e. if we’re talking height, how many inches away from the average is this particular data point?).</p>
+<p><span class="math display">\[ \text{Distance from average} = \text{Value} - \text{Average} \]</span></p>
+<p>Then, if we want to figure out how many standard deviations the point (sometimes called <span class="math inline">\(x\)</span>) is away from the average (occasionally called <span class="math inline">\(\mu\)</span>), we just need to divide by the standard deviation (SD, AKA <span class="math inline">\(\sigma\)</span>) is. This is how we get the formula for a Z-score.</p>
+<p><a name = 'z-score-formula'></a></p>
+<p><span class="math display">\[ Z = \frac{\text{Distance from average}}{SD} = \frac{\text{Value} - \text{Average}}{\text{SD}} = \frac{x - \mu}{\sigma} \]</span></p>
+<p>So, all we need to calculate a Z-score is the data point, the average, and the standard deviation. But then how do we know what the corresponding area is? Luckily, we have <a href="img/10-z-chart.png">this handy chart</a> that tells us the <span class="vocab"><strong>middle area</strong></span>, which is the area between -Z and +Z. What a lifesaver! Just be sure that before you go to that chart, you’ve converted everything to a Z-score. We can then compute the middle areas – and therefore the remaining <span class="vocab"><strong>tails</strong></span> (remember our “area under the curve = 100%” fact?) – for <em>any</em> point in our data set.</p>
+<p>By hand, we can get the middle area from the chart, subtract it from 100% to get the remaining area in <em>both</em> tails, and divide by 2 (thank you curve symmetry!) to get the area of each tail. But that’s not what we’re here to learn: how do we do it in <code>R</code>?</p>
+</div>
+<div id="norms" class="section level2">
+<h2><span class="header-section-number">10.3</span> The <code>_norm()</code> Functions</h2>
+<p>There are four distinct functions that involve the normal approximation in <code>R</code>:</p>
+<ul>
+<li><code>dnorm()</code> returns the output of something called a <span class="vocab"><strong>density function</strong></span>, which is the equation that produces the normal curve. It needs one argument (<code>x</code>), and plugs it into the density equation. By default, the function’s <code>mean</code> and <code>sd</code> arguments are set to be 0 and 1 respectively, however you can override these defaults to be accurate to your data as needed. If <code>x</code> is a vector of numbers (i.e. <code>-3:3</code>), it will return the density function’s output for each number in the vector (thank you <a href = 'operators.html#vectorization'>vectorization</a>!). This function isn’t incredibly useful in computations, but it’s <em>really</em> useful when you need to plot a normal curve in <code>R</code>.</li>
+</ul>
+<p><a name = 'pnorm'></a></p>
+<ul>
+<li><code>pnorm()</code> returns the cumulative probability of the normal curve at a given Z-score (It’s the area to the left of Z). Graphically, at an arbitrary Z-value, it returns the <span style="color: #0088ce">blue shaded area</span> seen here:</li>
+</ul>
+<div style="text-align: center">
+Graphical Example of <code>pnorm()</code> Output
+</div>
+<p><img src="STAT_100_Honors_Project_files/figure-html/10-pnorm-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>This is the one that we’re going to want to use the most, but we have to modify it a little bit to reproduce both what we’ve learned in class and from the chart. This will appear later (and make your life easier too), but for now we need to adapt it to find middle areas. Luckily, it’s not a hard conversion, and we’ll make use of our two facts from before.</p>
+<p>To get the middle area, we first need to realize that the upper bound of it (the right side on the normal curve) will <em>always</em> have a positive Z-score. Consequently, the lower bound will always have a negative Z-score. The symmetry of the curve tells us that Z-score on the right has to be the same (but opposite sign) as the Z-score on the left. This makes our calculation of the middle area easy: <code>pnorm(positive z-score) - pnorm(negative z-score)</code>. If you want this value to be a percentage and exactly match the chart, take this output and multiply it by 100. Then, to get the tails, you simply take 100% (or 1 if you’re using the direct output) and subtract away the middle area, divide by two, and you’ve got everything you need.</p>
+<ul>
+<li><code>qnorm()</code> does the opposite of <code>pnorm()</code>: you supply it an area-to-the-left (out of 1) for which you’d like to know the corresponding Z-score, and it tells you what that Z-score is. For example, if we wanted to know what area gave us 95% to the left (or a 5% tail) quickly, we can find it with one line of code.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(.<span class="dv">95</span>)</code></pre></div>
+<pre><code>[1] 1.644854</code></pre>
+<p>Do a quick check by hand with the chart, and you should see that the middle area of 1.65 does in fact give us an upper (and lower) tail of 5%.</p>
+<ul>
+<li><code>rnorm()</code> is basically a random number generator. (The numbers are actually pseudo-random, but the patterns that they come from are not obvious, so we consider them random.) For this class, it won’t be particularly useful, but the more you learn in statistics and <code>R</code> the more useful this function will become. We may use it from time to time going forward to help us do a few things, so it’s worth mentioning now. Also worth mentioning is that this function won’t produce the same output every time you run it since, after all, it <em>is</em> a random number generator. To ensure <span class="vocab">reproducability</span> of your code, it’s a good habit to set the <span class="vocab">seed</span>, or starting value, of the random number generator with <code>set.seed()</code>. By supplying it an argument of any integer, it generates that many random numbers from a normal distribution. <code>mean</code> and <code>sd</code> again default to 0 and 1 respectively, but you can override these if you’d like.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>[1] -0.2423682 -0.5664037 -0.2053644</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>[1]  0.6296777 -1.0787336 -1.7275177</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>[1] -1.2508582  1.8306712  0.5032078</code></pre>
+<p>Now, if we set a seed, we should get the same results every time <em>as long as we set the seed every time we want the same numbers</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123456789</span>)
+<span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>[1] 0.5048723 0.3958758 1.4155378</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This one should give different numbers</span>
+<span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>[1] -0.7223243 -0.6183570 -1.5626204</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Back to the same numbers</span>
+<span class="kw">set.seed</span>(<span class="dv">123456789</span>)
+<span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>[1] 0.5048723 0.3958758 1.4155378</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># One more time</span>
+<span class="kw">set.seed</span>(<span class="dv">123456789</span>)
+<span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
+<pre><code>[1] 0.5048723 0.3958758 1.4155378</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="measures-of-central-tendency.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="percentiles-and-box-plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

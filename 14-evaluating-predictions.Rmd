@@ -1,0 +1,186 @@
+# Evaluating Predictions
+
+## Residuals
+
+```{r 14-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+Not every prediction is going to be perfect. That's actually built into the fabric of regression! What regression is *really* doing is predicting the average $y$ for each value of $x$. Have a quick look at the plot from the last chapter.
+
+```{r 14-regression-with-average, echo = FALSE}
+cuts = seq(from = min(survey1$height) - .5, to = max(survey1$height) + 1.5, by = 3)
+height_weight_df = survey1[, c('height', 'weight')]
+height_weight_df = height_weight_df[order(height_weight_df$height), ]
+
+for(i in 1:nrow(height_weight_df)){
+  for(j in 2:length(cuts)){
+    if((height_weight_df$height[i] >= cuts[j-1]) & (height_weight_df$height[i] <= cuts[j])){
+      height_weight_df[['Group']][i] = j-1
+    }
+  }
+}
+
+means_at_cuts = aggregate(height_weight_df$weight, list(height_weight_df$Group), mean)
+
+x0 = c(cuts[1],
+       cuts[3],
+       cuts[4],
+       cuts[5],
+       cuts[6],
+       cuts[7],
+       cuts[8],
+       cuts[9],
+       cuts[10],
+       cuts[11],
+       cuts[12],
+       cuts[13],
+       cuts[16])
+y0 = means_at_cuts$x
+x1 = c(cuts[2],
+       cuts[4],
+       cuts[5],
+       cuts[6],
+       cuts[7],
+       cuts[8],
+       cuts[9],
+       cuts[10],
+       cuts[11],
+       cuts[12],
+       cuts[13],
+       cuts[14],
+       cuts[17])
+y1 = means_at_cuts$x
+
+plot(weight ~ height,
+     data = survey1,
+     pch = 16,
+     xlab = 'Height in Inches',
+     ylab = 'Weight in Pounds',
+     main = 'Height vs. Weight',
+     col = '#0088ce'
+)
+
+abline(v = cuts, lty = 'dotted', lwd = .5)
+
+segments(x0 = x0, y0 = y0, x1 = x1, y1 = y1, lwd = 1.5, col = '#000000')
+
+abline(a = coef(mod1)[1],
+       b = coef(mod1)[2],
+       col = '#939598',
+       lwd = 2,
+       lty = 1
+)
+```
+
+Each of the horizontal lines represents the average of the bin (defined by the dotted, vertical lines) and the regression line is plotted in <span style = 'color: #939895'>grey</span>. As you can see, the line predicts the average value for a group of data (for the majority of it, anyways).
+
+However, obviously not every point is located right at that group's average value. This means we'll have some error in our prediction, called a <span class = 'vocab'>residual</span>. We calculate a residual to be the actual value minus the predicted value. Points that are above their predicted value (i.e. people that are heavier than we predict them to be) have positive residuals. Points that are below their predicted value have negative residuals. Points that fall on the line, or are exactly their predicted value, have no residual.
+
+Under the hood, when we fit the regression line with `lm()`, `R` knows to try and minimize the residual value of each point. In fact, the line finds a way to make the residuals sum (and therefore average) to be 0.
+
+## Root Mean Squared Error (RMSE)
+
+So, if the average of each $x$ value is really what the regression line is predicting, there's probably some spread around that prediction. Exactly right! The <span class = 'vocab'>standard deviation of the prediction errors</span>, or <span class = 'vocab'>root mean squared error (RMSE)</span> is what you're thinking of.
+
+Just like a standard deviation does with a normal curve, the RMSE lets us talk about a range of prediction errors and attach wiggle room to our predictions. To get the formula for this new RMSE thing, reverse the order of the words in the name. Start by finding the prediction **error**. That is, for each $y$ value in our data (we'll call it $y_i$), subtract off the predicted value. We called a prediction $\hat{y}$ earlier, so we'll call each individual prediction $\hat{y}_i$ now.
+
+$$ \text{Prediction Error} = \text{Actual} - \text{Predicted} = y_i - \hat{y}_i $$
+
+Then, **square** each prediction error:
+
+$$ \left( y_i - \hat{y}_i \right) ^ 2 $$
+
+Take the **mean** of these squared errors. We'll assume that there's $n$ predictions (read: observations) in our data.
+
+$$ \frac{1}{n} \sum_{i = 1} ^ n \left( y_i - \hat{y}_i \right) ^ 2 $$
+
+Finally, to get the RMSE, take the **square root** of this.
+
+$$ \text{RMSE} = \sqrt{\frac{1}{n} \sum_{i = 1} ^ n \left( y_i - \hat{y}_i \right) ^ 2} $$
+
+While this may seem daunting, this is one way to calculate the RMSE. It's easy to remember as long as you read the name in reverse order. However, there's another way to calculate the RMSE that we talk about in class.
+
+$$ \text{RMSE} = \sqrt{1 - r ^ 2} \cdot \text{SD}_y $$
+
+They should give us the same number, but do they? We'll find the RMSE of the data we've been working with to check. Remember, we're predicting `weight` from `height` in `survey1`, so `weight` is our $y$ variable. We'll make use of `R`'s vectorization again to do our calculations. Make sure that you pay attention to where the parentheses go!
+
+```{r 14-RMSE-checks}
+# Method 1
+sqrt(mean((survey1$weight - predict(mod1, newdata = survey1)) ^ 2 ))
+
+# Method 2
+sqrt(1 - cor(survey1$weight, survey1$height) ^ 2) * stdv(survey1$weight)
+```
+
+Pam, your thoughts?
+
+```{r 14-nice-gif, echo = FALSE}
+knitr::include_graphics('img/14-nice.gif')
+```
+
+The same rules apply to the RMSE that applied to standard deviations. 68% of our data will fall within 1 RMSE of its predicted value, 95% will fall within 2 RMSEs of its predicted value, and 99% will fall within 3 RMSEs of what we predict. To see it graphically, look no further.
+
+```{r 14-RMSE-on-graph, echo = FALSE}
+RMSE = sqrt(mean((survey1$weight - predict(mod1, newdata = survey1)) ^ 2 ))
+
+plot(weight ~ height,
+     data = survey1,
+     pch = 16,
+     xlab = 'Height in Inches',
+     ylab = 'Weight in Pounds',
+     main = 'Height vs. Weight',
+     col = '#0088ce'
+)
+
+abline(a = coef(mod1)[1],
+       b = coef(mod1)[2],
+       col = '#fb3640',
+       lwd = 1.5,
+       lty = 1
+)
+
+abline(a = coef(mod1)[1] - RMSE,
+       b = coef(mod1)[2],
+       col = '#605f5e',
+       lwd = 1.5,
+       lty = 2)
+
+abline(a = coef(mod1)[1] + RMSE,
+       b = coef(mod1)[2],
+       col = '#605f5e',
+       lwd = 1.5,
+       lty = 2)
+
+abline(a = coef(mod1)[1] - (2 * RMSE),
+       b = coef(mod1)[2],
+       col = '#247ba0',
+       lwd = 1.5,
+       lty = 3)
+
+abline(a = coef(mod1)[1] + (2 * RMSE),
+       b = coef(mod1)[2],
+       col = '#247ba0',
+       lwd = 1.5,
+       lty = 3)
+
+abline(a = coef(mod1)[1] - (3 * RMSE),
+       b = coef(mod1)[2],
+       col = '#0a2463',
+       lwd = 1.5,
+       lty = 4)
+
+abline(a = coef(mod1)[1] + (3 * RMSE),
+       b = coef(mod1)[2],
+       col = '#0a2463',
+       lwd = 1.5,
+       lty = 4)
+
+legend('bottomright',
+       legend = c('Regression Line', '1 RMSE', '2 RMSEs', '3 RMSEs'),
+       col = c('#fb3640', '#605f5e', '#247ba0', '#0a2463'),
+       lwd = rep(1.5, 4),
+       lty = 1:4
+)
+```
+

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STAT 100 Honors Project</title>
+  <meta name="description" content="STAT 100 Honors Project">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  
+  
+  
+
+<meta name="author" content="Ross Drucker">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+<link rel="prev" href="coding-style.html">
+<link rel="next" href="measures-of-central-tendency.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">STAT 100 Honors Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
+<li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html"><i class="fa fa-check"></i><b>2</b> Functions and Data Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#functions"><i class="fa fa-check"></i><b>2.1</b> Functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#types"><i class="fa fa-check"></i><b>2.2</b> The Types</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors-lists-and-data-frames"><i class="fa fa-check"></i><b>2.3</b> Vectors, Lists, and Data Frames</a><ul>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#data-frames"><i class="fa fa-check"></i>Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#coercing-to-other-types"><i class="fa fa-check"></i><b>2.4</b> Coercing To Other Types</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#identical"><i class="fa fa-check"></i><b>2.5</b> <code>identical()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#naming"><i class="fa fa-check"></i><b>3.1</b> Naming</a></li>
+<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#vectors-lists-and-data-frame-names"><i class="fa fa-check"></i><b>3.2</b> Vectors, Lists and Data Frame Names</a><ul>
+<li class="chapter" data-level="" data-path="variables.html"><a href="variables.html#naming-list-elements-and-data-frame-columns"><i class="fa fa-check"></i>Naming List Elements and Data Frame Columns</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#mathematical-operators"><i class="fa fa-check"></i><b>4.1</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-boolean-operators"><i class="fa fa-check"></i><b>4.2</b> Logical (Boolean) Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#vectorization"><i class="fa fa-check"></i><b>4.3</b> Vectorization</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html"><i class="fa fa-check"></i><b>5</b> Packages and Getting Help</a><ul>
+<li class="chapter" data-level="5.1" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#helpfiles"><i class="fa fa-check"></i><b>5.2</b> Help Files</a><ul>
+<li class="chapter" data-level="" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#other-helpful-resources"><i class="fa fa-check"></i><b>5.3</b> Other Helpful Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>6</b> Loading Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data.html"><a href="loading-data.html#data-files"><i class="fa fa-check"></i><b>6.1</b> Data Files</a></li>
+<li class="chapter" data-level="6.2" data-path="loading-data.html"><a href="loading-data.html#reading-in-csv-files"><i class="fa fa-check"></i><b>6.2</b> Reading in CSV Files</a><ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#directories"><i class="fa fa-check"></i>Directories</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-example"><i class="fa fa-check"></i>Loading Example</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="loading-data.html"><a href="loading-data.html#writing-files"><i class="fa fa-check"></i><b>6.3</b> Writing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="coding-style.html"><a href="coding-style.html"><i class="fa fa-check"></i><b>7</b> Coding Style</a><ul>
+<li class="chapter" data-level="7.1" data-path="coding-style.html"><a href="coding-style.html#comments"><i class="fa fa-check"></i><b>7.1</b> Comments</a></li>
+<li class="chapter" data-level="7.2" data-path="coding-style.html"><a href="coding-style.html#spacing"><i class="fa fa-check"></i><b>7.2</b> Spacing</a></li>
+<li class="chapter" data-level="7.3" data-path="coding-style.html"><a href="coding-style.html#indentation"><i class="fa fa-check"></i><b>7.3</b> Indentation</a></li>
+<li class="chapter" data-level="7.4" data-path="coding-style.html"><a href="coding-style.html#consistency"><i class="fa fa-check"></i><b>7.4</b> Consistency</a></li>
+<li class="chapter" data-level="7.5" data-path="coding-style.html"><a href="coding-style.html#simplifying-coding-style"><i class="fa fa-check"></i><b>7.5</b> Simplifying Coding Style</a></li>
+</ul></li>
+<li class="part"><span><b>II Exploring Data</b></span></li>
+<li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
+<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
+<li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
+<li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#standard-deviation-and-sd"><i class="fa fa-check"></i><b>9.3</b> Standard Deviation and <code>sd()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-and-standard-deviation-after-changing-the-data"><i class="fa fa-check"></i><b>9.4</b> Mean and Standard Deviation After Changing The Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html"><i class="fa fa-check"></i><b>10</b> The Normal Approximation</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#the-sd-1-2-3-rule"><i class="fa fa-check"></i><b>10.1</b> The SD 1-2-3 Rule</a></li>
+<li class="chapter" data-level="10.2" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#z-scores"><i class="fa fa-check"></i><b>10.2</b> Z-scores</a></li>
+<li class="chapter" data-level="10.3" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#norms"><i class="fa fa-check"></i><b>10.3</b> The <code>_norm()</code> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
+<li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
+<li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Regression</b></span></li>
+<li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
+<li class="chapter" data-level="12.1" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#scatter-plots"><i class="fa fa-check"></i><b>12.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="12.2" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#correlation"><i class="fa fa-check"></i><b>12.2</b> Correlation</a></li>
+<li class="chapter" data-level="12.3" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#calculating-r-and-cor"><i class="fa fa-check"></i><b>12.3</b> Calculating <span class="math inline">\(r\)</span> and <code>cor()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#statistics-of-the-cloud-scatter-plot"><i class="fa fa-check"></i><b>12.4</b> Statistics of the “Cloud” Scatter Plot</a></li>
+<li class="chapter" data-level="12.5" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#the-sd-line"><i class="fa fa-check"></i><b>12.5</b> The SD Line</a></li>
+<li class="chapter" data-level="12.6" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting-and-ecological-correlations"><i class="fa fa-check"></i><b>12.6</b> Subsetting and Ecological Correlations</a><ul>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting"><i class="fa fa-check"></i>Subsetting</a></li>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#ecological-correrlations"><i class="fa fa-check"></i>Ecological Correrlations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#summary-of-correlation"><i class="fa fa-check"></i><b>12.7</b> Summary of Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a><ul>
+<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#regression"><i class="fa fa-check"></i><b>13.1</b> Regression</a></li>
+<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#using-r-to-make-predictions"><i class="fa fa-check"></i><b>13.2</b> Using <span class="math inline">\(r\)</span> to Make Predictions</a></li>
+<li class="chapter" data-level="13.3" data-path="linear-regression.html"><a href="linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>13.3</b> The Regression Line</a></li>
+<li class="chapter" data-level="13.4" data-path="linear-regression.html"><a href="linear-regression.html#lm"><i class="fa fa-check"></i><b>13.4</b> <code>lm()</code></a></li>
+<li class="chapter" data-level="13.5" data-path="linear-regression.html"><a href="linear-regression.html#using-predict-to-make-predictions"><i class="fa fa-check"></i><b>13.5</b> Using <code>predict()</code> to Make Predictions</a></li>
+<li class="chapter" data-level="13.6" data-path="linear-regression.html"><a href="linear-regression.html#switching-the-predictions"><i class="fa fa-check"></i><b>13.6</b> Switching the Predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html"><i class="fa fa-check"></i><b>14</b> Evaluating Predictions</a><ul>
+<li class="chapter" data-level="14.1" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#residuals"><i class="fa fa-check"></i><b>14.1</b> Residuals</a></li>
+<li class="chapter" data-level="14.2" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#root-mean-squared-error-rmse"><i class="fa fa-check"></i><b>14.2</b> Root Mean Squared Error (RMSE)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">STAT 100 Honors Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hists" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Bar Graphs vs. Histograms</h1>
+<div id="drawing-bar-graphs-and-histograms-in-r" class="section level2">
+<h2><span class="header-section-number">8.1</span> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></h2>
+<p>One way to explore data in <code>R</code> is by creating quick vizualizations. We’ll use <code>survey1</code>, the STAT 100 and 200 combined survey data from <a href = 'loading-data.html#loading-example'>before</a>, to demonstrate. The dataset has 1628 observations of 24 variables, and a description of the variables in the dataset is available <a href="http://courses.las.illinois.edu/stat/stat100/survey/archive/Stat100_200_2017fall_survey01.html">here</a>.</p>
+<div style="text-align: center">
+Preview of <code>survey1</code>
+</div>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:7; overflow-x: scroll; width:12; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+gender
+</th>
+<th style="text-align:center;">
+genderID
+</th>
+<th style="text-align:center;">
+height
+</th>
+<th style="text-align:center;">
+weight
+</th>
+<th style="text-align:center;">
+shoeSize
+</th>
+<th style="text-align:center;">
+schoolYear
+</th>
+<th style="text-align:center;">
+studyHr
+</th>
+<th style="text-align:center;">
+GPA
+</th>
+<th style="text-align:center;">
+ACT
+</th>
+<th style="text-align:center;">
+pets
+</th>
+<th style="text-align:center;">
+siblings
+</th>
+<th style="text-align:center;">
+speed
+</th>
+<th style="text-align:center;">
+cash
+</th>
+<th style="text-align:center;">
+sleep
+</th>
+<th style="text-align:center;">
+shoeNums
+</th>
+<th style="text-align:center;">
+ageMother
+</th>
+<th style="text-align:center;">
+ageFather
+</th>
+<th style="text-align:center;">
+random
+</th>
+<th style="text-align:center;">
+love
+</th>
+<th style="text-align:center;">
+charity
+</th>
+<th style="text-align:center;">
+movie
+</th>
+<th style="text-align:center;">
+favTV1
+</th>
+<th style="text-align:center;">
+favTV2
+</th>
+<th style="text-align:center;">
+section
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Male
+</td>
+<td style="text-align:center;">
+Male
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+200
+</td>
+<td style="text-align:center;">
+10.5
+</td>
+<td style="text-align:center;">
+Sophomore
+</td>
+<td style="text-align:center;">
+2.5
+</td>
+<td style="text-align:center;">
+3.5
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+7.0
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+few
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+Life is Beautiful
+</td>
+<td style="text-align:center;">
+Narcos
+</td>
+<td style="text-align:center;">
+Daredevil
+</td>
+<td style="text-align:center;">
+Stat100_L1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+142
+</td>
+<td style="text-align:center;">
+7.5
+</td>
+<td style="text-align:center;">
+Freshman
+</td>
+<td style="text-align:center;">
+3.0
+</td>
+<td style="text-align:center;">
+3.8
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+4.5
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+few
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+The Giant
+</td>
+<td style="text-align:center;">
+Como dice el dicho
+</td>
+<td style="text-align:center;">
+Drake and Josh
+</td>
+<td style="text-align:center;">
+Stat100_L1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Male
+</td>
+<td style="text-align:center;">
+Male
+</td>
+<td style="text-align:center;">
+65
+</td>
+<td style="text-align:center;">
+160
+</td>
+<td style="text-align:center;">
+10.5
+</td>
+<td style="text-align:center;">
+Freshman
+</td>
+<td style="text-align:center;">
+3.0
+</td>
+<td style="text-align:center;">
+3.9
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+7.5
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+46
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+few
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+Interstellar
+</td>
+<td style="text-align:center;">
+none
+</td>
+<td style="text-align:center;">
+none
+</td>
+<td style="text-align:center;">
+Stat100_L1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+68
+</td>
+<td style="text-align:center;">
+118
+</td>
+<td style="text-align:center;">
+7.5
+</td>
+<td style="text-align:center;">
+Sophomore
+</td>
+<td style="text-align:center;">
+3.0
+</td>
+<td style="text-align:center;">
+3.9
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+105
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+7.5
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+53
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+few
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+La La Land
+</td>
+<td style="text-align:center;">
+Friends
+</td>
+<td style="text-align:center;">
+Parks and Recreation
+</td>
+<td style="text-align:center;">
+Stat100_L1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+61
+</td>
+<td style="text-align:center;">
+173
+</td>
+<td style="text-align:center;">
+9.0
+</td>
+<td style="text-align:center;">
+Sophomore
+</td>
+<td style="text-align:center;">
+0.5
+</td>
+<td style="text-align:center;">
+2.8
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+8.0
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+one
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+Get Out
+</td>
+<td style="text-align:center;">
+Attack on Titan
+</td>
+<td style="text-align:center;">
+Rick and Morty
+</td>
+<td style="text-align:center;">
+Stat100_L1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+Female
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+125
+</td>
+<td style="text-align:center;">
+8.0
+</td>
+<td style="text-align:center;">
+Sophomore
+</td>
+<td style="text-align:center;">
+2.5
+</td>
+<td style="text-align:center;">
+2.3
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+6.0
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+41
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+dozens
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+Hidden Figures
+</td>
+<td style="text-align:center;">
+The Cosby Show
+</td>
+<td style="text-align:center;">
+A Different World
+</td>
+<td style="text-align:center;">
+Stat100_L1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Let’s explore the <code>height</code> variable a little bit. One way that we can do it is by breaking up, or <span class="vocab"><strong>binning</strong></span>, the data into different groups, then plotting what percentage of the data is in each group. This creates what’s called a <span class="vocab"><strong>histogram</strong></span>. To make a histogram in <code>R</code>, we can use the <code>hist()</code> function (see <code>?hist</code> for more information). All that <code>hist()</code> needs is an argument <code>x</code>, which is what you’d like to make a histogram of. Since we want the densities, we’ll add in the <code>freq = FALSE</code> argument. This results with a histogram that looks like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(
+  survey1$height,
+  <span class="dt">freq =</span> <span class="ot">FALSE</span>
+)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:08-hist-ex1"></span>
+<img src="STAT_100_Honors_Project_files/figure-html/08-hist-ex1-1.png" alt="A basic histogram" width="1152" />
+<p class="caption">
+Figure 8.1: A basic histogram
+</p>
+</div>
+<p>Let’s add a few extra arguments to make the plot a little clearer:</p>
+<ul>
+<li><p><code>main</code> and <code>xlab</code> create a title and an <span class="math inline">\(x\)</span>-axis label respectively</p></li>
+<li><p><code>ylim</code> sets the range of <span class="math inline">\(y\)</span>-values that are shown on the <span class="math inline">\(y\)</span>-axis <span class="note"><em>(Note:</em></span> <span style="color: #a21bd7"><code>xlim</code></span> <span class="note"><em>does the same for the <span class="math inline">\(x\)</span>-axis)</em></span></p></li>
+<li><p><code>breaks</code> controls what numbers are used as part of the binning process. The first number is the smallest value in the data, and the last value is the largest. You can find these by employing <code>min()</code> and <code>max()</code> individually, or you can use the <code>range()</code> function and get both at the same time. <span class="note"><em>Note: the break points we used were arbitrarily selected</em></span></p></li>
+<li><p><code>col</code> changes the colors of the bars. We change these to make them a little easier to identify, but it’s purely cosmetic. Supplying a single value, which can be <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">any named color that <code>R</code> already recognizes</a>, an <a href="https://www.thoughtco.com/color-models-rgb-1697461">RGB value</a> while using the <code>rgb()</code> function, or a <a href="http://www.color-hex.com/">hexadecimal color value supplied as a <code>character</code></a>, preceded by a <code>#</code>. We’ll leave it to you to learn about these color formats on your own, but kow that they’re available to you. Supplying a single value will change the color for each bar, making all the bars the same color, while supplying a vecotr of the same length as the number of bars will change each color individually</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="co"># Puts plots side-by-side</span>
+
+<span class="co"># Histogram</span>
+<span class="kw">hist</span>(
+  survey1$height,
+  <span class="dt">main =</span> <span class="st">&#39;Histogram of Heights&#39;</span>,
+  <span class="dt">xlab =</span> <span class="st">&#39;Heights in Inches&#39;</span>,
+  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, .<span class="dv">1</span>),
+  <span class="dt">freq =</span> <span class="ot">FALSE</span>,
+  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>),
+  <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="co"># Removes default axis numbers</span>
+  <span class="dt">labels =</span> <span class="ot">TRUE</span>, <span class="co"># Put decimals above each bar</span>
+  <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>,
+  <span class="dt">border =</span> <span class="st">&#39;#939598&#39;</span>
+)
+<span class="kw">axis</span>(<span class="dv">2</span>) <span class="co"># Puts y-axis numbers back</span>
+<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>)) <span class="co"># Puts x-axis numbers back</span>
+
+<span class="co"># Bar plot</span>
+<span class="kw">hist</span>(
+  survey1$height,
+  <span class="dt">main =</span> <span class="st">&#39;Bar Plot of Heights&#39;</span>,
+  <span class="dt">xlab =</span> <span class="st">&#39;Heights in Inches&#39;</span>,
+  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),
+  <span class="dt">freq =</span> <span class="ot">TRUE</span>,
+  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>),
+  <span class="dt">labels =</span> <span class="ot">TRUE</span>, <span class="co"># Put counts above each bar</span>
+  <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="co"># Removes default axis numbers</span>
+  <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>,
+  <span class="dt">border =</span> <span class="st">&#39;#939598&#39;</span>
+)
+<span class="kw">axis</span>(<span class="dv">2</span>) <span class="co"># Puts y-axis numbers back</span>
+<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>)) <span class="co"># Puts x-axis numbers back</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:08-histogram-height"></span>
+<img src="STAT_100_Honors_Project_files/figure-html/08-histogram-height-1.png" alt="Well-formatted histogram (left) and density plot (right)" width="960" />
+<p class="caption">
+Figure 8.2: Well-formatted histogram (left) and density plot (right)
+</p>
+</div>
+<p>While the overall shapes of the two plots seem the same, there are a few important differences to take note of. The biggest one is the significance of each block’s width and height. With a histogram, the height shows the percentage per unit inside of each block, while on a bar graph the heights have no meaning whatsoever. The numbers displayed on top show the total number of people inside each interval. The widths (and the <span class="math inline">\(x\)</span>-axis altogether) of each plot also carry different meanings: barplots just show an interval, while a histogram represents unique heights. That is, even if a number doesn’t appear on the <span class="math inline">\(x\)</span>-axis in a histogram, that height is still represented. Since the heights and widths of each kind of plot differ, so too do the areas, since the areas are the width of the interval times the height of the interval. Histogram areas show percentages within each block, while bar plot areas are – you guessed it – irrelevant.</p>
+<p>We could also summarize our data as the following table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Range
+</th>
+<th style="text-align:center;">
+Area
+</th>
+<th style="text-align:center;">
+Count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+49-62
+</td>
+<td style="text-align:center;">
+14.8%
+</td>
+<td style="text-align:center;">
+241
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+62-65
+</td>
+<td style="text-align:center;">
+25%
+</td>
+<td style="text-align:center;">
+407
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+65-68
+</td>
+<td style="text-align:center;">
+27.15%
+</td>
+<td style="text-align:center;">
+442
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+68-70
+</td>
+<td style="text-align:center;">
+13.76%
+</td>
+<td style="text-align:center;">
+224
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+70-73
+</td>
+<td style="text-align:center;">
+12.71%
+</td>
+<td style="text-align:center;">
+207
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+73-95
+</td>
+<td style="text-align:center;">
+6.57%
+</td>
+<td style="text-align:center;">
+107
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="note"><em>Note: the areas of the blocks on the histogram sum to 100%</em></span></p>
+<p>This isn’t to say that bar plots don’t have their place, this just isn’t it. Sorry bar graphs, you’ll just have to wait until it’s analysis time. We’ll focus on histograms for the rest of this chapter.</p>
+</div>
+<div id="extracting-information-from-histograms" class="section level2 unnumbered">
+<h2>Extracting Information From Histograms</h2>
+<p>In addition to being able to do visual analysis of a histogram, it may be more useful to use some of the information that the <code>hist()</code> function generates. Usually what we care about is the plot itself, but <code>hist()</code> calculates and stores a lot of information in addition to generating the plot. We’ll store the results from histogram as something called <code>hist1</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hist1 =<span class="st"> </span><span class="kw">hist</span>(
+  survey1$height,
+  <span class="dt">main =</span> <span class="st">&#39;Histogram of Heights&#39;</span>,
+  <span class="dt">xlab =</span> <span class="st">&#39;Heights in Inches&#39;</span>,
+  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, .<span class="dv">1</span>),
+  <span class="dt">freq =</span> <span class="ot">FALSE</span>,
+  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>),
+  <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="co"># Removes default axis numbers</span>
+  <span class="dt">labels =</span> <span class="ot">TRUE</span>, <span class="co"># Put decimals above each bar</span>
+  <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>,
+  <span class="dt">border =</span> <span class="st">&#39;#939598&#39;</span>
+)</code></pre></div>
+<p>In addition to the plot, <code>hist1</code> contains a list with elements <code>breaks</code>, <code>counts</code>, <code>density</code>, <code>mids</code>, <code>xname</code>, and <code>equidist</code>. Check the help file for what these mean, but we should note that the total count of observations and the density of observations in a given range can be accessed by <code>hist1$counts</code> and <code>hist1$density</code> respectively. Check out the use of list element extraction using <code>$</code> here! These are vectors, and you can use the components as you need to.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="coding-style.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measures-of-central-tendency.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

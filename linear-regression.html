@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STAT 100 Honors Project</title>
+  <meta name="description" content="STAT 100 Honors Project">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  
+  
+  
+
+<meta name="author" content="Ross Drucker">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+<link rel="prev" href="scatter-plots-and-correlation.html">
+<link rel="next" href="evaluating-predictions.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">STAT 100 Honors Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
+<li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html"><i class="fa fa-check"></i><b>2</b> Functions and Data Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#functions"><i class="fa fa-check"></i><b>2.1</b> Functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#types"><i class="fa fa-check"></i><b>2.2</b> The Types</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors-lists-and-data-frames"><i class="fa fa-check"></i><b>2.3</b> Vectors, Lists, and Data Frames</a><ul>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#data-frames"><i class="fa fa-check"></i>Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#coercing-to-other-types"><i class="fa fa-check"></i><b>2.4</b> Coercing To Other Types</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#identical"><i class="fa fa-check"></i><b>2.5</b> <code>identical()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#naming"><i class="fa fa-check"></i><b>3.1</b> Naming</a></li>
+<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#vectors-lists-and-data-frame-names"><i class="fa fa-check"></i><b>3.2</b> Vectors, Lists and Data Frame Names</a><ul>
+<li class="chapter" data-level="" data-path="variables.html"><a href="variables.html#naming-list-elements-and-data-frame-columns"><i class="fa fa-check"></i>Naming List Elements and Data Frame Columns</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#mathematical-operators"><i class="fa fa-check"></i><b>4.1</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-boolean-operators"><i class="fa fa-check"></i><b>4.2</b> Logical (Boolean) Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#vectorization"><i class="fa fa-check"></i><b>4.3</b> Vectorization</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html"><i class="fa fa-check"></i><b>5</b> Packages and Getting Help</a><ul>
+<li class="chapter" data-level="5.1" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#helpfiles"><i class="fa fa-check"></i><b>5.2</b> Help Files</a><ul>
+<li class="chapter" data-level="" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#other-helpful-resources"><i class="fa fa-check"></i><b>5.3</b> Other Helpful Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>6</b> Loading Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data.html"><a href="loading-data.html#data-files"><i class="fa fa-check"></i><b>6.1</b> Data Files</a></li>
+<li class="chapter" data-level="6.2" data-path="loading-data.html"><a href="loading-data.html#reading-in-csv-files"><i class="fa fa-check"></i><b>6.2</b> Reading in CSV Files</a><ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#directories"><i class="fa fa-check"></i>Directories</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-example"><i class="fa fa-check"></i>Loading Example</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="loading-data.html"><a href="loading-data.html#writing-files"><i class="fa fa-check"></i><b>6.3</b> Writing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="coding-style.html"><a href="coding-style.html"><i class="fa fa-check"></i><b>7</b> Coding Style</a><ul>
+<li class="chapter" data-level="7.1" data-path="coding-style.html"><a href="coding-style.html#comments"><i class="fa fa-check"></i><b>7.1</b> Comments</a></li>
+<li class="chapter" data-level="7.2" data-path="coding-style.html"><a href="coding-style.html#spacing"><i class="fa fa-check"></i><b>7.2</b> Spacing</a></li>
+<li class="chapter" data-level="7.3" data-path="coding-style.html"><a href="coding-style.html#indentation"><i class="fa fa-check"></i><b>7.3</b> Indentation</a></li>
+<li class="chapter" data-level="7.4" data-path="coding-style.html"><a href="coding-style.html#consistency"><i class="fa fa-check"></i><b>7.4</b> Consistency</a></li>
+<li class="chapter" data-level="7.5" data-path="coding-style.html"><a href="coding-style.html#simplifying-coding-style"><i class="fa fa-check"></i><b>7.5</b> Simplifying Coding Style</a></li>
+</ul></li>
+<li class="part"><span><b>II Exploring Data</b></span></li>
+<li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
+<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
+<li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
+<li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#standard-deviation-and-sd"><i class="fa fa-check"></i><b>9.3</b> Standard Deviation and <code>sd()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-and-standard-deviation-after-changing-the-data"><i class="fa fa-check"></i><b>9.4</b> Mean and Standard Deviation After Changing The Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html"><i class="fa fa-check"></i><b>10</b> The Normal Approximation</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#the-sd-1-2-3-rule"><i class="fa fa-check"></i><b>10.1</b> The SD 1-2-3 Rule</a></li>
+<li class="chapter" data-level="10.2" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#z-scores"><i class="fa fa-check"></i><b>10.2</b> Z-scores</a></li>
+<li class="chapter" data-level="10.3" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#norms"><i class="fa fa-check"></i><b>10.3</b> The <code>_norm()</code> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
+<li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
+<li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Regression</b></span></li>
+<li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
+<li class="chapter" data-level="12.1" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#scatter-plots"><i class="fa fa-check"></i><b>12.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="12.2" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#correlation"><i class="fa fa-check"></i><b>12.2</b> Correlation</a></li>
+<li class="chapter" data-level="12.3" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#calculating-r-and-cor"><i class="fa fa-check"></i><b>12.3</b> Calculating <span class="math inline">\(r\)</span> and <code>cor()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#statistics-of-the-cloud-scatter-plot"><i class="fa fa-check"></i><b>12.4</b> Statistics of the “Cloud” Scatter Plot</a></li>
+<li class="chapter" data-level="12.5" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#the-sd-line"><i class="fa fa-check"></i><b>12.5</b> The SD Line</a></li>
+<li class="chapter" data-level="12.6" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting-and-ecological-correlations"><i class="fa fa-check"></i><b>12.6</b> Subsetting and Ecological Correlations</a><ul>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting"><i class="fa fa-check"></i>Subsetting</a></li>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#ecological-correrlations"><i class="fa fa-check"></i>Ecological Correrlations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#summary-of-correlation"><i class="fa fa-check"></i><b>12.7</b> Summary of Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a><ul>
+<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#regression"><i class="fa fa-check"></i><b>13.1</b> Regression</a></li>
+<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#using-r-to-make-predictions"><i class="fa fa-check"></i><b>13.2</b> Using <span class="math inline">\(r\)</span> to Make Predictions</a></li>
+<li class="chapter" data-level="13.3" data-path="linear-regression.html"><a href="linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>13.3</b> The Regression Line</a></li>
+<li class="chapter" data-level="13.4" data-path="linear-regression.html"><a href="linear-regression.html#lm"><i class="fa fa-check"></i><b>13.4</b> <code>lm()</code></a></li>
+<li class="chapter" data-level="13.5" data-path="linear-regression.html"><a href="linear-regression.html#using-predict-to-make-predictions"><i class="fa fa-check"></i><b>13.5</b> Using <code>predict()</code> to Make Predictions</a></li>
+<li class="chapter" data-level="13.6" data-path="linear-regression.html"><a href="linear-regression.html#switching-the-predictions"><i class="fa fa-check"></i><b>13.6</b> Switching the Predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html"><i class="fa fa-check"></i><b>14</b> Evaluating Predictions</a><ul>
+<li class="chapter" data-level="14.1" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#residuals"><i class="fa fa-check"></i><b>14.1</b> Residuals</a></li>
+<li class="chapter" data-level="14.2" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#root-mean-squared-error-rmse"><i class="fa fa-check"></i><b>14.2</b> Root Mean Squared Error (RMSE)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">STAT 100 Honors Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="linear-regression" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> Linear Regression</h1>
+<p>Statistics tries to do two things:</p>
+<ol style="list-style-type: decimal">
+<li><p>Explain the trends we observe within data</p></li>
+<li><p>Make predictions on new data based on the trends we see</p></li>
+</ol>
+<p>So far, much of what we’ve covered goes to objective #1. Let’s start working on the second part and using the trends we’ve observed to make predictions.</p>
+<p><a name = 'reg-line'></a></p>
+<div id="regression" class="section level2">
+<h2><span class="header-section-number">13.1</span> Regression</h2>
+<p><span class="vocab"><strong>Regression</strong></span> is the process of using a relationship between two or more variables (the predictor(s) and response variables) to make a better prediction of the response than guessing. We’re focused on what’s called <span class="vocab"><strong>simple linear regression (SLR)</strong></span>, which just means doing regression with one predictor. Knowing the <a href = 'correlation.html#correlation'>correlation</a> between two variables definitely helps make a better prediction since we know the trend between the two variables, but it doesn’t really help us make a prediction… Yet.</p>
+<p>Now it’s time to put <span class="math inline">\(r\)</span> to use. What the correlation coefficient <em>really</em> tells us is how much, on average, how many standard deviations of the response we move up (or down) when we increase by one standard deviation in the predictor. Admittedly, that’s confusing to type and involves a lot of math words, and it’s probably easier to understand with an example anyways, so we’ll go right to one.</p>
+<p>Pretend we’re looking at the relationship between your height and your shoe size. This has a positive correlation (think about it: an NBA player will have a bigger foot than a toddler), and since we’re making this example up, let’s say that the correlation is <span class="math inline">\(r\)</span> = .7. The average shoe size (Avg<span class="math inline">\(_\text{y}\)</span>) is 10, with standard deviation of .5, and the average height (Avg<span class="math inline">\(_\text{x}\)</span>) in our data set is 69&quot; with standard deviation 3“.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Average
+</th>
+<th style="text-align:center;">
+Standard Deviation
+</th>
+<th style="text-align:center;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Shoe Size
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+0.5
+</td>
+<td style="text-align:center;font-weight: bold;vertical-align: middle !important;" rowspan="2">
+<span class="math inline">\(r\)</span> = 0.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Height
+</td>
+<td style="text-align:center;">
+69
+</td>
+<td style="text-align:center;">
+4.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>What <span class="math inline">\(r\)</span> tells us here is that, for every 4 additional inches taller someone is, we’d expect their feet to be .7 <span class="math inline">\(\cdot\)</span> .5 sizes bigger on average. This should make some sense with other things we know too: if <span class="math inline">\(r\)</span> was <span class="math inline">\(\pm\)</span> 1, we know <em>exactly</em> what size shoe you’d wear based on your height every time. If the correlation were 0, we’d have no idea what your shoe size would be so we’d guess the average shoe size. When it’s in between, we don’t know for sure, so we can use <span class="math inline">\(r\)</span> to improve our guess to be somewhere in the middle.</p>
+<p>As you may have noticed, our guess is <em>always</em> going to be moving closer to the average. This effect, where bottom groups are expected to perform better and top groups are expected to perform worse, is called the <span class="vocab"><strong>regression effect</strong></span>.</p>
+<blockquote>
+<p>“This is all great, but I just want to know how to use it to make predictions.”</p>
+<div style="text-align: right">
+You (we’re guessing)
+</div>
+</blockquote>
+<p><img src="img/13-scroll-down.gif" width="20%" height="20%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="using-r-to-make-predictions" class="section level2">
+<h2><span class="header-section-number">13.2</span> Using <span class="math inline">\(r\)</span> to Make Predictions</h2>
+<p>One way to make a regression prediction is to start by converting the <span class="math inline">\(x\)</span> value at which you’re trying to predict be a Z-score. Take this Z-score, multiply it by <span class="math inline">\(r\)</span>, and boom! You’ve got your Z-score for <span class="math inline">\(y\)</span>. Finally, rearrange the <a href = 'the-normal-approximation.html#z-score-formula'>Z-score formula</a> to solve for the Value. This is your regression estimate. Going back to our example above, we can illustrate in a table. We’ll see what the predicted shoe size is for someone that’s 73&quot; tall.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Height
+</th>
+<th style="text-align:center;">
+Z<span class="math inline">\(_\text{Height}\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(r\)</span>
+</th>
+<th style="text-align:center;">
+Z<span class="math inline">\(_\text{Shoe Size}\)</span>
+</th>
+<th style="text-align:center;">
+Shoe Size
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+73
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0.7
+</td>
+<td style="text-align:center;">
+0.7
+</td>
+<td style="text-align:center;">
+10.35
+</td>
+</tr>
+</tbody>
+</table>
+<p>Like we outlined above: take the first column and convert to a Z-score, then put it in column 2. Multiply the Z-score in column 2 and multiply by <span class="math inline">\(r\)</span>, which is in column 3. The product is the new Z-score, which we put in column 4, and then we convert back to a value. We’d predict that someone that’s 73&quot; tall would have a size 10.35 shoe.</p>
+<p>This process does take a while to complete, however. It’s a multi-step procedure with a lot of switching back and forth between Z-scores and values. It’s pretty easy to make a mistake doing this, so let’s introduce another way to do regression.</p>
+</div>
+<div id="the-regression-line" class="section level2">
+<h2><span class="header-section-number">13.3</span> The Regression Line</h2>
+<p>Like we said above, <span class="math inline">\(r\)</span> tells us how much <span class="math inline">\(y\)</span> changes (in terms of standard deviations) for a 1-SD change in <span class="math inline">\(x\)</span>. Hopefully, this is screaming “IT’S A SLOPE!” loud and in your face, but in case it isn’t, this is the definition of a slope! Slopes are a characteristic of a line, so we can create a <span class="vocab"><strong>regression line</strong></span> to make predictions quickly and easily for every point we could want.</p>
+<p>We typically describe lines as taking the form</p>
+<p><span class="math display">\[ y = m \cdot x + b \]</span></p>
+<p>where <span class="math inline">\(x\)</span> is the value we’re making the prediction at, <span class="math inline">\(m\)</span> is the <span class="vocab">slope</span> of the line (how much <span class="math inline">\(y\)</span> changes for each 1-unit increase in <span class="math inline">\(x\)</span>), and <span class="math inline">\(b\)</span> is the <span class="vocab">intercept</span> (the predicted <span class="math inline">\(y\)</span> value when <span class="math inline">\(x\)</span> is 0). With what we just realized about <span class="math inline">\(r\)</span>, we can define the slope of our new friend – the regression line – to be</p>
+<p><span class="math display">\[ r \cdot \frac{\text{SD}_\text{y}}{\text{SD}_\text{x}} \]</span></p>
+<p>Great! Now all we need to do is figure out the intercept of the equation, and we’ll be on auto-pilot for predictions. Luckily, this isn’t hard to do. Just like the <a href = 'correlation.html#sd-line'>SD line</a>, the regression line also has to go through the point of averages. Since this point falls on the line, its <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> values are great to plug in. We then know <span class="math inline">\(y\)</span>, <span class="math inline">\(m\)</span>, and <span class="math inline">\(x\)</span>, which leaves us with one equation with one unknown variable. Thus, we can solve for <span class="math inline">\(b\)</span> and be on our merry way.</p>
+<p>Let’s try it with the example from above. We’re trying to predict shoe size from height, so our equation should take the form</p>
+<p><span class="math display">\[ \text{Shoe size} = \left( r \cdot \frac{\text{SD}_\text{Shoe size}}{\text{SD}_\text{Height}} \right) \cdot \text{Height} + \text{intercept} \]</span></p>
+<p><span class="math inline">\(r\)</span> was .7, and the SDs for shoe size and height were 4 and .5 respectively. <span class="math inline">\(.7 \cdot \frac{.5}{4} = 0.0875\)</span>, so this is our slope. We can get the intercept by plugging in 10 for shoe size and 69 for height.</p>
+<p><span class="math display">\[ 10 = .0875 \cdot 69 + \text{intercept} \\ 10 - \left( .0875 \cdot 69 \right) = \text{intercept} \\ \implies \text{intercept} = 3.9625 \]</span></p>
+<p>Awesome! Now, let’s make our prediction for a 73&quot; tall person. If everything worked out correctly, we should get 10.35 just like before.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(.<span class="dv">0875</span> *<span class="st"> </span><span class="dv">73</span>) +<span class="st"> </span><span class="fl">3.9625</span></code></pre></div>
+<pre><code>[1] 10.35</code></pre>
+<p><img src="img/13-booyah.gif" style="display: block; margin: auto;" /></p>
+</div>
+<div id="lm" class="section level2">
+<h2><span class="header-section-number">13.4</span> <code>lm()</code></h2>
+<p>While <code>R</code> does make computing the summary statistics for a data set very easy with <code>mean()</code>, <code>sd()</code> (with our modification, of course), and <code>cor()</code>, these can get frustrating to keep typing over and over to get regression equations. This is where the <code>lm()</code> function comes up clutch. <code>lm()</code> stands for <span class="vocab"><strong>linear model</strong></span>, which is exactly what we’ve just created. Essentially, this function allows us to create regression equations quickly and easily, while having additional functionality as well.</p>
+<p>Part of the reason that we create a model is to be able to use it to make predictions. In order to use it, however, it’s probably a good idea to store the model as a variable. Assignment works the same way it always has. To create a linear model, use formula syntax to specify which variables you’d like as your predictor and response.</p>
+<p><span class="note">Note: you could create the model by specifying the predictor (i.e. a variable called</span> <span style="color: #a21bd7"><code>predictor</code></span><span class="note">) and response (i.e. a variable called </span><span style="color: #a21bd7"><code>response</code></span><span class="note"> from a data frame called </span><span style="color: #a21bd7"> <code>df</code> </span><span class="note"> as </span><span style="color: #a21bd7"><code>lm(df$response ~ df$predictor)</code></span>, <span class="note">however it’s much cleaner and clearer to specify the same thing as</span> <span style="color: #a21bd7"> <code>lm(response ~ predictor, data = df)</code> </span><span class="note">.</span></p>
+<p>Let’s take our example that we did last chapter one step further. As a refresher, here’s what we were dealing with.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Average
+</th>
+<th style="text-align:center;">
+Standard Deviation
+</th>
+<th style="text-align:center;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>height</code>
+</td>
+<td style="text-align:center;">
+66.9
+</td>
+<td style="text-align:center;">
+4.1
+</td>
+<td style="text-align:center;font-weight: bold;vertical-align: middle !important;" rowspan="2">
+<span class="math inline">\(r\)</span> = 0.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>weight</code>
+</td>
+<td style="text-align:center;">
+147.2
+</td>
+<td style="text-align:center;">
+34.2
+</td>
+</tr>
+</tbody>
+</table>
+<p>Graphically, we had the following going on. The black line is the SD line, the vertical and horizontal lines are the averages in <code>height</code> and <code>weight</code> respectively, and the grey dot where the lines overlap is the point of averages.</p>
+<p><img src="STAT_100_Honors_Project_files/figure-html/13-height-weight-plot-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>As a quick practice round, let’s get the slope and intercept by hand first.</p>
+<p><span class="math display">\[
+r \cdot \frac{\text{SD}_\text{weight}}{\text{SD}_\text{height}} = 5.00 \\
+147.2 = \left( 5.00 \cdot 66.9 \right) + \text{intercept} \implies \text{intercept} = -187.63
+\]</span></p>
+<p>Awesome, but annoying to calculate by hand. Let’s make use of <code>lm()</code> and get the same results straight away. We’ll store our model as <code>mod1</code> so we can refer back to it, and we’ll follow the good coding style we just outlined a minute ago.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod1 =<span class="st"> </span><span class="kw">lm</span>(weight ~<span class="st"> </span>height, <span class="dt">data =</span> survey1)</code></pre></div>
+<p>To see what the model determined for the slope and intercept, we can use the <code>coef()</code> function, and just supply the name of our model to it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(mod1)</code></pre></div>
+<pre><code>(Intercept)      height 
+-165.680120    4.677275 </code></pre>
+<p>Hmmm… this is close to what we got, but it’s not exactly the same. Why is that? Easy: rounding. We’ve hidden some unecessary code throughout the book that’s rounded many results for us, but if we wanted to really calculate what the values would be, we’d do this. <span class="note">Note: The</span> <span style="color: #a21bd7"><code>stdv()</code></span> <span class="note">is the user-defined function for standard deviation we wrote in <a href = 'measures-of-central-tendency.html#stdv-function'>chapter 9</a>.</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get summary statistics</span>
+average_weight =<span class="st"> </span><span class="kw">mean</span>(survey1$weight)
+average_height =<span class="st"> </span><span class="kw">mean</span>(survey1$height)
+sd_weight =<span class="st"> </span><span class="kw">stdv</span>(survey1$weight)
+sd_height =<span class="st"> </span><span class="kw">stdv</span>(survey1$height)
+r =<span class="st"> </span><span class="kw">cor</span>(survey1$weight, survey1$height)
+
+<span class="co"># Get slope and intercept</span>
+slope =<span class="st"> </span>r *<span class="st"> </span>(sd_weight /<span class="st"> </span>sd_height)
+intercept =<span class="st"> </span>average_weight -<span class="st"> </span>(slope *<span class="st"> </span>average_height)
+<span class="kw">c</span>(intercept, slope)</code></pre></div>
+<pre><code>[1] -165.680120    4.677275</code></pre>
+<p>Since we know now that we’ll get the same result, let’s just keep going with <code>mod1</code>. We can add it to our plot with the <code>abline()</code> function. <code>coef</code> returns a vector, so we can use <code>[]</code> to access its elements.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(weight ~<span class="st"> </span>height,
+     <span class="dt">data =</span> survey1,
+     <span class="dt">pch =</span> <span class="dv">16</span>,
+     <span class="dt">xlab =</span> <span class="st">&#39;Height in Inches&#39;</span>,
+     <span class="dt">ylab =</span> <span class="st">&#39;Weight in Pounds&#39;</span>,
+     <span class="dt">main =</span> <span class="st">&#39;Height vs. Weight&#39;</span>
+)
+
+<span class="kw">abline</span>(<span class="dt">a =</span> <span class="kw">coef</span>(mod1)[<span class="dv">1</span>],
+       <span class="dt">b =</span> <span class="kw">coef</span>(mod1)[<span class="dv">2</span>],
+       <span class="dt">col =</span> <span class="st">&#39;#e04e39&#39;</span>,
+       <span class="dt">lwd =</span> <span class="fl">1.5</span>,
+       <span class="dt">lty =</span> <span class="dv">2</span>
+)</code></pre></div>
+<p><img src="STAT_100_Honors_Project_files/figure-html/13-reg-line-plot-code-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><a name = 'predict-function'></a></p>
+</div>
+<div id="using-predict-to-make-predictions" class="section level2">
+<h2><span class="header-section-number">13.5</span> Using <code>predict()</code> to Make Predictions</h2>
+<p>Rather than having to convert to Z-scores to make predictions, we can use the regression line to make predictions. By hand, we’d take our value for <span class="math inline">\(x\)</span> (<code>height</code> in our example), multiply by the slope, add the intercept, and then we’d have our predicted value of <span class="math inline">\(y\)</span>.</p>
+<p><span class="note">Note: To distinguish the original values in our dataset from our predictions, we often call our predictions <span class="math inline">\(\hat{y}\)</span>. </span></p>
+<p>In <code>R</code>, the <code>predict()</code> function allows us to make predictions quickly and easily. To use it, start with the model you’d like to use, followed by passing a data frame of the predictor(s) to <code>predict()</code>’s <code>newdata</code> argument. In the <code>newdata</code> argument, we can either create a data frame with <code>data.frame()</code>, or we can put the name of an already existing data frame. If you’re going to make your own data frame, however, make sure that you specify the names of the values you’re putting in as they were when the model was fit.</p>
+<p>If we wanted to use <code>mod1</code> to make a prediction for the weight of a 72&quot; person, we can make use of <code>predict()</code> like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(mod1, <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">height =</span> <span class="dv">72</span>))</code></pre></div>
+<pre><code>       1 
+171.0837 </code></pre>
+<p><span class="note">Note: With SLR like we’re doing, it may seem a little annoying to put it into a data frame, but when the problem involves multiple predictors, this can be much easier than typing out the whole calculation by hand. Don’t worry about that case though; that’s a problem for another day.</span></p>
+</div>
+<div id="switching-the-predictions" class="section level2">
+<h2><span class="header-section-number">13.6</span> Switching the Predictions</h2>
+<p>In the example above, we predicted someone’s weight from their height using two different methods: by using <span class="math inline">\(r\)</span>, and by finding the regression equation. Instead, what if we wanted to predict someone’s height from their weight? Would these methods still apply? In short, kind of.</p>
+<p>Method 1 (using <span class="math inline">\(r\)</span>) works identically, since it’s just based off of the Z-scores of each variable. Just do the exact same process backwards: convert the weight to a Z-score, multiply by <span class="math inline">\(r\)</span> to get the Z-score for height, then convert back to a value. Easy peasy.</p>
+<p>However, for Method 2, your <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> variables changed. This means that your slope changed, and your intercept changed as well. We would have to repeat the entire process of finding the slope and intercept, then plug in new values to make our predictions. The thing to remember here is that an equation to predict <span class="math inline">\(y\)</span> from <span class="math inline">\(x\)</span> is <strong><em>not</em></strong> the same as the equation to predict <span class="math inline">\(x\)</span> from <span class="math inline">\(y\)</span>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="scatter-plots-and-correlation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="evaluating-predictions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

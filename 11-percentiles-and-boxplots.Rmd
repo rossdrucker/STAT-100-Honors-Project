@@ -1,0 +1,154 @@
+# Percentiles and Box Plots
+
+```{r 11-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+## Percentiles
+
+Normal curves, averages, standard deviations, and Z-scores may seem like they provide all the in information needed to understand a simple set of data. But what about when it doesn't? Take for example a standardized test. We may not necessarily care what percentage a particular student got on the exam, but we're more likely concerned with comparing that student with the rest of their peers. Are they ahead? Are they behind? Luckily, we can make use of <span class = 'vocab'>**percentiles**</span> to help answer these types of questions.
+
+What is a percentile? It's the area to the left of a given Z-score, or the percentage of data *less* than the one you're examining. In other words, being in the $n$^th^ percentile means having a Z-score such that $n$% of the area is to our left. In our standardized test example, it's the percentage of people you scored better than. To calculate a percentile by hand, we'd first find the Z-score, then get the corresponding middle areas from our [chart](img/10-z-chart.png), compute the tails, and add the area to the left of our calculated Z-score.
+
+Graphically, it looks something like this:
+
+```{r 11-percentile, echo = FALSE}
+curve(dnorm(x), xlim = c(-3, 3), col = '#939598', xlab = 'Z', ylab = '', yaxt = 'n', bty = 'n')
+polygon(c(-3, seq(-3, 3, .01), 3), c(0, dnorm(seq(-3, 3, .01)), 0), col = '#ffffff')
+polygon(c(-3, seq(-3, 1.65, .01), 1.65), c(0, dnorm(seq(-3, 1.65, .01)), 0), col = '#0088ce')
+```
+
+Wait a second... We've seen this graph before! Where? Oh right, when we talked about the <a href = 'the-normal-approximation.html#pnorm'>`pnorm()`</a> function and its output. In fact, this *is* the output of `pnorm()`, so appropriately using the `pnorm()` function will quickly calculate the percentile for us.
+
+<span class = 'tip'>*Pro tip about percentiles: the Z-scores for opposite percentiles (i.e. for the 5^th^ and 95^th^ percentiles) are the same sign but opposite magnitude.*</span>
+
+To check this, we can pick an arbitrary Z-score (say, 1.7), calculate that percentile, and add the percentile of Z = -1.7, and the results should be 100%. Let's check:
+
+```{r 11-pnorm-examples}
+100 * (pnorm(1.7) + pnorm(-1.7))
+```
+
+
+## Quartiles
+
+There's a few "special" percentiles that we like to use a lot: the 25^th^, 50^th^, and 75^th^ percentiles. These are what we call <span class = 'vocab'>**quartiles**</span>. As you can see, these quartiles are each *quarter* of the way across the normal curve. We usually refer to them as Q1, Q2, and Q3 respectively. The <span class = 'vocab'>**interquartile range**</span>, or <span class = 'vocab'>**IQR**</span> for short, is defined to be Q3 - Q1.
+
+We use the IQR to determine if a data point is an <span class = 'vocab'>**outlier**</span>. Outliers come in two forms: lower outliers and upper outliers. To check if a point is a lower outlier, it must have a value that is less than Q1 - 1.5 $\cdot$ IQR. For upper outliers, a point must have a value of Q3 + 1.5 $\cdot$ IQR.
+
+## Box Plots and `boxplot()` {#boxplot}
+
+Quartiles are especially useful when we want to visualize our data in a different way than a histogram or normal curve. We can employ something called a <span class = 'vocab'>**box plot**</span>, which visually shows us a summary of our data. Let's take a look at one and how all its parts fit together. We'll use the combined survey results from Survey 2 from Fall 2017 to make a histogram of the `texts` variable. You can download the data [here](data/Combined Fall 2017 Survey 2.csv) and find the data description [here](http://courses.las.illinois.edu/stat/stat100/survey/archive/Stat100_200_2017fall_survey02.html).
+
+```{r 11-vert-box-plot-example, echo = FALSE}
+survey2 = read.csv('data/Combined Fall 2017 Survey 2.csv', stringsAsFactors = FALSE)
+boxplot(survey2$socialMedia, xlab = '', ylab = 'Hours Spent on Social Media')
+abline(
+  h = c(0, 2, 3, 4, 7, 8),
+  lty = 2,
+  col = c(
+    '#000000',
+    '#122a5e',
+    '#1c0a8a',
+    '#0a308a',
+    '#2563f4',
+    '#ead031'
+  )
+)
+text(x = 1.35,
+     y = 0.5,
+     labels = 'Minimum',
+     col = '#000000')
+text(x = 1.35,
+     y = 2.5,
+     labels = 'Q1 (25th percentile)',
+     col = '#122a5e')
+text(x = 1.35,
+     y = 3.5,
+     labels = 'Q2 (Median)',
+     col = '#1c0a8a')
+text(x = 1.35,
+     y = 4.5,
+     labels = 'Q3 (75th percentile)',
+     col = '#0a308a')
+text(x = 1.35,
+     y = 7.5,
+     labels = 'Maximum',
+     col = '#2563f4')
+text(x = 1.35,
+     y = 8.5,
+     labels = 'Outliers above here',
+     col = '#ead031')
+```
+
+We could also draw the same plot horizontally. It's good to be able to analyze a box plot in both ways
+
+```{r 11-horiz-box-plot-example, echo = FALSE}
+boxplot(survey2$socialMedia, ylab = '', xlab = 'Hours Spent on Social Media', horizontal = TRUE)
+abline(
+  v = c(0, 2, 3, 4, 7, 8),
+  lty = 2,
+  col = c(
+    '#000000',
+    '#122a5e',
+    '#1c0a8a',
+    '#0a308a',
+    '#2563f4',
+    '#ead031'
+  )
+)
+text(y = 1,
+     x = 0.2,
+     labels = 'Minimum',
+     col = '#000000',
+     srt = 90)
+text(y = 1,
+     x = 2.2,
+     labels = 'Q1 (25th percentile)',
+     col = '#122a5e',
+     srt = 90)
+text(y = 1,
+     x = 3.2,
+     labels = 'Q2 (Median)',
+     col = '#1c0a8a',
+     srt = 90)
+text(y = 1,
+     x = 4.2,
+     labels = 'Q3 (75th percentile)',
+     col = '#0a308a',
+     srt = 90)
+text(y = 1,
+     x = 7.2,
+     labels = 'Maximum',
+     col = '#2563f4',
+     srt = 90)
+text(y = 1,
+     x = 8.2,
+     labels = 'Outliers to the right of here',
+     col = '#ead031',
+     srt = 90)
+```
+
+To draw these box plots, we just make use of the `boxplot()` function. If you only wish to view a box plot for a given set of numbers (like we did above), you just need to supply the name of the vector that the data is contained in. `R` takes care of all of the computations and plotting for you, but you're more than welcome to play with the colors and labels as you see fit. 
+
+Box plots, however, are also useful at comparing groups. For example, if we wanted to split our data up according to the `gender` variable in the dataset, box plots will easily illustrate the differences between the genders. The `boxplot()` function handles this easily by making use of something called <a name = '11-formula-syntax'></a><span class = 'vocab'>**formula syntax**</span>. It reads as `y ~ x`, where `y` is the variable you want on the $y$-axis, the `~` means "on" or "versus", and the `x` is the variable you'd like on the $x$-axis. <span class = 'note'>*Note: the survey data has been imported as a data frame called*</span> <span style = 'color: #a21bd7'>`survey2`</span><span class = 'note'>.</span>
+
+```{r 11-box-plot-gender-split}
+boxplot(
+  survey2$socialMedia ~ survey2$gender,
+  xlab = 'Gender',
+  ylab = 'Hours Spent on Social Media',
+  main = 'Male vs. Female Social Media Usage'
+)
+```
+
+As you can see from this plot, females tend to spend more time on social media than males (see the higher Q2 bar?), although the middle 50% -- our good friend the IQR -- of each gender is within 3 hours of each other. For females, the IQR goes from 2 to 5, and for males, it goes from 1 to 4.
+
+## Summary and `summary()` {#sum}
+
+We've now got a wide variety of statistics --mean, median, minimum, maximum, Q1 and Q3 -- we know how to use and calculate both in `R` and by hand, but [wouldn't it be nice](https://www.youtube.com/watch?v=lD4sxxoJGkA) if there was a way to quickly calculate *all* of these functions for multiple (numeric) variables in our data frames all at once? Well, guess what? There is! It's the `summary()` command, and it does exactly that: provides a summary of the data. Here's the summary of `survey2`.
+
+```{r 11-survey-example}
+summary(survey2)
+```
+
+There you have it! A quick, easy way to get the information you need about the data that you care about.

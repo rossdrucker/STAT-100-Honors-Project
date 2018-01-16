@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STAT 100 Honors Project</title>
+  <meta name="description" content="STAT 100 Honors Project">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  
+  
+  
+
+<meta name="author" content="Ross Drucker">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+<link rel="prev" href="hists.html">
+<link rel="next" href="the-normal-approximation.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">STAT 100 Honors Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
+<li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html"><i class="fa fa-check"></i><b>2</b> Functions and Data Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#functions"><i class="fa fa-check"></i><b>2.1</b> Functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#types"><i class="fa fa-check"></i><b>2.2</b> The Types</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors-lists-and-data-frames"><i class="fa fa-check"></i><b>2.3</b> Vectors, Lists, and Data Frames</a><ul>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#data-frames"><i class="fa fa-check"></i>Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#coercing-to-other-types"><i class="fa fa-check"></i><b>2.4</b> Coercing To Other Types</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#identical"><i class="fa fa-check"></i><b>2.5</b> <code>identical()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#naming"><i class="fa fa-check"></i><b>3.1</b> Naming</a></li>
+<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#vectors-lists-and-data-frame-names"><i class="fa fa-check"></i><b>3.2</b> Vectors, Lists and Data Frame Names</a><ul>
+<li class="chapter" data-level="" data-path="variables.html"><a href="variables.html#naming-list-elements-and-data-frame-columns"><i class="fa fa-check"></i>Naming List Elements and Data Frame Columns</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#mathematical-operators"><i class="fa fa-check"></i><b>4.1</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-boolean-operators"><i class="fa fa-check"></i><b>4.2</b> Logical (Boolean) Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#vectorization"><i class="fa fa-check"></i><b>4.3</b> Vectorization</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html"><i class="fa fa-check"></i><b>5</b> Packages and Getting Help</a><ul>
+<li class="chapter" data-level="5.1" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#helpfiles"><i class="fa fa-check"></i><b>5.2</b> Help Files</a><ul>
+<li class="chapter" data-level="" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#other-helpful-resources"><i class="fa fa-check"></i><b>5.3</b> Other Helpful Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>6</b> Loading Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data.html"><a href="loading-data.html#data-files"><i class="fa fa-check"></i><b>6.1</b> Data Files</a></li>
+<li class="chapter" data-level="6.2" data-path="loading-data.html"><a href="loading-data.html#reading-in-csv-files"><i class="fa fa-check"></i><b>6.2</b> Reading in CSV Files</a><ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#directories"><i class="fa fa-check"></i>Directories</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-example"><i class="fa fa-check"></i>Loading Example</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="loading-data.html"><a href="loading-data.html#writing-files"><i class="fa fa-check"></i><b>6.3</b> Writing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="coding-style.html"><a href="coding-style.html"><i class="fa fa-check"></i><b>7</b> Coding Style</a><ul>
+<li class="chapter" data-level="7.1" data-path="coding-style.html"><a href="coding-style.html#comments"><i class="fa fa-check"></i><b>7.1</b> Comments</a></li>
+<li class="chapter" data-level="7.2" data-path="coding-style.html"><a href="coding-style.html#spacing"><i class="fa fa-check"></i><b>7.2</b> Spacing</a></li>
+<li class="chapter" data-level="7.3" data-path="coding-style.html"><a href="coding-style.html#indentation"><i class="fa fa-check"></i><b>7.3</b> Indentation</a></li>
+<li class="chapter" data-level="7.4" data-path="coding-style.html"><a href="coding-style.html#consistency"><i class="fa fa-check"></i><b>7.4</b> Consistency</a></li>
+<li class="chapter" data-level="7.5" data-path="coding-style.html"><a href="coding-style.html#simplifying-coding-style"><i class="fa fa-check"></i><b>7.5</b> Simplifying Coding Style</a></li>
+</ul></li>
+<li class="part"><span><b>II Exploring Data</b></span></li>
+<li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
+<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
+<li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
+<li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#standard-deviation-and-sd"><i class="fa fa-check"></i><b>9.3</b> Standard Deviation and <code>sd()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-and-standard-deviation-after-changing-the-data"><i class="fa fa-check"></i><b>9.4</b> Mean and Standard Deviation After Changing The Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html"><i class="fa fa-check"></i><b>10</b> The Normal Approximation</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#the-sd-1-2-3-rule"><i class="fa fa-check"></i><b>10.1</b> The SD 1-2-3 Rule</a></li>
+<li class="chapter" data-level="10.2" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#z-scores"><i class="fa fa-check"></i><b>10.2</b> Z-scores</a></li>
+<li class="chapter" data-level="10.3" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#norms"><i class="fa fa-check"></i><b>10.3</b> The <code>_norm()</code> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
+<li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
+<li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Regression</b></span></li>
+<li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
+<li class="chapter" data-level="12.1" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#scatter-plots"><i class="fa fa-check"></i><b>12.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="12.2" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#correlation"><i class="fa fa-check"></i><b>12.2</b> Correlation</a></li>
+<li class="chapter" data-level="12.3" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#calculating-r-and-cor"><i class="fa fa-check"></i><b>12.3</b> Calculating <span class="math inline">\(r\)</span> and <code>cor()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#statistics-of-the-cloud-scatter-plot"><i class="fa fa-check"></i><b>12.4</b> Statistics of the “Cloud” Scatter Plot</a></li>
+<li class="chapter" data-level="12.5" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#the-sd-line"><i class="fa fa-check"></i><b>12.5</b> The SD Line</a></li>
+<li class="chapter" data-level="12.6" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting-and-ecological-correlations"><i class="fa fa-check"></i><b>12.6</b> Subsetting and Ecological Correlations</a><ul>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting"><i class="fa fa-check"></i>Subsetting</a></li>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#ecological-correrlations"><i class="fa fa-check"></i>Ecological Correrlations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#summary-of-correlation"><i class="fa fa-check"></i><b>12.7</b> Summary of Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a><ul>
+<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#regression"><i class="fa fa-check"></i><b>13.1</b> Regression</a></li>
+<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#using-r-to-make-predictions"><i class="fa fa-check"></i><b>13.2</b> Using <span class="math inline">\(r\)</span> to Make Predictions</a></li>
+<li class="chapter" data-level="13.3" data-path="linear-regression.html"><a href="linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>13.3</b> The Regression Line</a></li>
+<li class="chapter" data-level="13.4" data-path="linear-regression.html"><a href="linear-regression.html#lm"><i class="fa fa-check"></i><b>13.4</b> <code>lm()</code></a></li>
+<li class="chapter" data-level="13.5" data-path="linear-regression.html"><a href="linear-regression.html#using-predict-to-make-predictions"><i class="fa fa-check"></i><b>13.5</b> Using <code>predict()</code> to Make Predictions</a></li>
+<li class="chapter" data-level="13.6" data-path="linear-regression.html"><a href="linear-regression.html#switching-the-predictions"><i class="fa fa-check"></i><b>13.6</b> Switching the Predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html"><i class="fa fa-check"></i><b>14</b> Evaluating Predictions</a><ul>
+<li class="chapter" data-level="14.1" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#residuals"><i class="fa fa-check"></i><b>14.1</b> Residuals</a></li>
+<li class="chapter" data-level="14.2" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#root-mean-squared-error-rmse"><i class="fa fa-check"></i><b>14.2</b> Root Mean Squared Error (RMSE)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">STAT 100 Honors Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="measures-of-central-tendency" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Measures of Central Tendency</h1>
+<p>A <span class="vocab"><strong>measure of central tendency</strong></span> is a way of talking about the common values from a set of data points. In this section, we’ll talk about two: the mean and the median.</p>
+<div id="the-mean-and-mean" class="section level2">
+<h2><span class="header-section-number">9.1</span> The Mean and <code>mean()</code></h2>
+<p>The most common measure of central tendency is the <span class="vocab"><strong>average</strong></span>, which is often referred to as the <span class="vocab"><strong>mean</strong></span>. Sometimes, you’ll see it represented as the greek letter mu <span class="math inline">\(\left( \mu \right)\)</span>, or as <span class="math inline">\(\bar{x}\)</span>. If we have a set of numbers – let’s say those numbers are 0, 5, -5, 10, -10, 40, and 100 – we compute the average as follows:</p>
+<p><span class="math display">\[
+\bar{x} = \frac{0 + 5 + \left( -5 \right) + 10 + \left( -10 \right) + 40 + 100}{7} = \frac{140}{7} = 20
+\]</span></p>
+<p>This may seem trivial, so let’s get to the fun part of doing it in <code>R</code>. First thing is first: we need our numbers to get loaded into <code>R</code>. Aha! A perfect time for a vector. Since we called the average <span class="math inline">\(\bar{x}\)</span>, let’s name this vector <code>x</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, -<span class="dv">5</span>, <span class="dv">10</span>, -<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">100</span>)</code></pre></div>
+<p>Now we need to go and actually <em>calculate</em> <span class="math inline">\(\bar{x}\)</span>. Well we’re calculating the <em>mean</em>, so we should try the <code>mean()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(x)</code></pre></div>
+<pre><code>[1] 20</code></pre>
+<p>This <span class="vocab"><strong>returns</strong></span> (gives back) the mean of <code>x</code>, and we can see that it is, in fact, 20. Another way that we could have done this is more like we would have done by hand: first we would have to <em>sum</em> the numbers, then we’d have to <em>divide</em> them by the number of numbers we just added together. Luckily, the <code>sum()</code> and <code>length()</code> functions save us a lot of time and energy.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(x) /<span class="st"> </span><span class="kw">length</span>(x)</code></pre></div>
+<pre><code>[1] 20</code></pre>
+<p>Again, we get that the average is 20, thus both methods are valid.</p>
+<div id="handling-na-values" class="section level3 unnumbered">
+<h3>Handling <code>NA</code> Values</h3>
+<p>What would happen in functions like <code>mean()</code>, <code>sum()</code>, <code>length()</code>, <code>min()</code>, or <code>max()</code> when <code>NA</code>s are present? Well let’s find out. We’ve inserted a few <code>NA</code>s into the same vector as above, but we’ve called it <code>y</code> now so as not to confuse the two.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="ot">NA</span>, -<span class="dv">5</span>, <span class="dv">10</span>, -<span class="dv">10</span>, <span class="ot">NA</span>, <span class="dv">40</span>, <span class="dv">100</span>)
+<span class="kw">mean</span>(y)</code></pre></div>
+<pre><code>[1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(y)</code></pre></div>
+<pre><code>[1] NA</code></pre>
+<p>They return <code>NA</code>! You may be asking yourself, <a href="https://www.youtube.com/watch?v=sluHwh3hJhI">why?</a> Well, the reason this happens is because you haven’t told <code>R</code> how to deal with a non-existent value (<a href = 'functions-and-data-types.html#na'>We told you they’d be pesky!</a>). You most likely want <code>R</code> to ignore the <code>NA</code> altogether, so we can take advantage of an argument called <code>na.rm</code> and set it equal to <code>TRUE</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>[1] 20</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>[1] 140</code></pre>
+<p>Great, everything is working again! Problem solved.</p>
+</div>
+<div id="mean-with-truefalse" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></h3>
+<p>It’s also good to note that <code>R</code> can take the mean of <code>logical</code> vectors. What happens is that <code>TRUE</code> is coerced to be 1, and <code>FALSE</code> is coerced to be 0. Then, the mean is taken just as before. This may seem boring, but it allows us to determine percentages quickly. Let’s say we want to find the percentage of students that responded to Survey 1 that maintained at least a 3.0 GPA. How would we figure this out if we were doing it by hand? Probably like this:</p>
+<ol style="list-style-type: decimal">
+<li>Get an observation of data (that is, go to the first response)</li>
+<li>Check the GPA for that responder
+<ul>
+<li>If the GPA is 3.0 or higher, we add 1 to our tally</li>
+<li>Otherwise, add 0</li>
+</ul></li>
+<li>After going through all observations, take the final tally and divide by the number of observations we observed (that had values)</li>
+</ol>
+<p>Luckily, there’s a very good way to do this in <code>R</code>, and it involves the <code>mean()</code> function. In addition to evaluating the mean of a vector of numbers, it can compute the percentage of observations that meet a certain condition, given by something called a <span class="vocab"><strong>conditional statement</strong></span>. We talked about them <a href = 'operators.html#booloops'>before</a>, so now it’s time to see why we spent the time learning how to write them. We’ll show the “complete” version of the process we just outlined, and then we’ll go through and do it the short way.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create TRUE/FALSE vector of places where students have GPAs above 3.0</span>
+bool_vec =<span class="st"> </span>survey1$GPA &gt;<span class="st"> </span><span class="fl">3.0</span>
+<span class="kw">head</span>(bool_vec)</code></pre></div>
+<pre><code>[1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Coerce the TRUE/FALSE vector to be 1s and 0s</span>
+bool_as_binary =<span class="st"> </span><span class="kw">as.numeric</span>(bool_vec)
+<span class="kw">head</span>(bool_as_binary)</code></pre></div>
+<pre><code>[1] 1 1 1 1 0 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the percentage</span>
+<span class="kw">sum</span>(bool_as_binary) /<span class="st"> </span><span class="kw">length</span>(bool_as_binary)</code></pre></div>
+<pre><code>[1] 0.7800983</code></pre>
+<p>This works, but there’s a faster way to do it. We can see that the last step of summing and dividing by the length is the same as the <code>mean()</code> function, so we can just change that to be <code>mean(bool_as_binary)</code> and get the same result. But <code>bool_as_binary</code> is just the numeric coersions of <code>bool_vec</code>, and <code>R</code> knows to do this coersion automatically when using a function like <code>mean()</code> on a vector of type logical. So it’s equally valid to say <code>mean(bool_vec)</code>, although we’ll take it one step farther. We’ll put the conditional statement that created <code>bool_vec</code> directly into the <code>mean()</code> function, and we <em>should</em> get the same result.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(survey1$GPA &gt;<span class="st"> </span><span class="fl">3.0</span>)</code></pre></div>
+<pre><code>[1] 0.7800983</code></pre>
+<p>Not only did we save four lines of code to get the same result, but we saved a little <span class="vocab"><strong>memory</strong></span> (storage space) in the process. This is because we didn’t need to store the result of the conditional or its coersion as vectors to be used later. <code>R</code> just handled it all internally. This exact procedure is very useful when you want to check how much data is above a threshhold in a quick way.</p>
+</div>
+</div>
+<div id="the-median-and-median" class="section level2">
+<h2><span class="header-section-number">9.2</span> The Median and <code>median()</code></h2>
+<p>The <span class="vocab"><strong>median</strong></span><span class="vocab">, or middle numb</span>er, is the other most common measure of central tendency. It’s the point in which our data gets split in half. To determine the median by hand, we’d follow the following process:</p>
+<ol style="list-style-type: decimal">
+<li>Arrange data in numerical order from smallest to greatest</li>
+<li>Cross off the two endpoints</li>
+<li>Move in one data point from each end of the range of data</li>
+<li>Repeat steps 2 and 3 until either:
+<ul>
+<li>One number remains in the middle, or</li>
+<li>Two numbers remain in the middle</li>
+</ul></li>
+<li>If one number remains, we’ve found our median. If two numbers remain, take the mean of the last two remaining data points.</li>
+</ol>
+<p>Let’s find the median of this list of numbers:</p>
+<div style="text-align: center">
+6, 5, 0, 12, 10, 11
+</div>
+<p>By hand, we’d put them in the following order:</p>
+<div style="text-align: center">
+0, 5, 6, 10, 11, 12
+</div>
+<p>Then we’d cross them off, endpoint pair by endpoint pair, until we reach the middle:</p>
+<div style="text-align: center">
+<strike>0</strike>, 5, 6, 10, 11,<strike>12</strike>
+</div>
+<div style="text-align: center">
+<strike>0</strike>, <strike>5</strike>, 6, 10, <strike>11</strike>, <strike>12</strike>
+</div>
+<p>We’re down to two numbers, so we just take the average of the remaining numbers, which are 6 and 10. We get <strong>8</strong>, so this is our median.</p>
+<p>As was the case with <code>mean()</code>, <code>R</code> comes with a great function – the <code>median()</code> function – to calculate the median of a list of numbers. We can supply the vector directly to <code>median()</code> and immediately get the median.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">11</span>))</code></pre></div>
+<pre><code>[1] 8</code></pre>
+<div id="skewed-histograms" class="section level3 unnumbered">
+<h3>Skewed Histograms</h3>
+<p>Sometimes, you’ll get data that’s heavily skewed one way or another. This means that the mean and the median are not in the same place. Let’s take a quick look:</p>
+<div class="figure" style="text-align: center"><span id="fig:09-skew-img"></span>
+<img src="img/09-skewed-histograms.png" alt="Skewed and Symmetric Distributions"  />
+<p class="caption">
+Figure 9.1: Skewed and Symmetric Distributions
+</p>
+</div>
+<p>The plot on the left shows a histogram that’s <span class="vocab"><strong>right-skewed</strong></span>. This means that the mean is <em>greater than</em> <span class="math inline">\(\left( \gt \right)\)</span> the median.</p>
+<p>The middle plot shows a <span class="vocab"><strong>symmetric distribution</strong></span>. This means that the mean is <em>equal to</em> the median.</p>
+<p>The plot on the right shows a histogram that’s <span class="vocab"><strong>left-skewed</strong></span>. This means that the mean is <em>less than</em> <span class="math inline">\(\left( \lt \right)\)</span> the median.</p>
+</div>
+</div>
+<div id="standard-deviation-and-sd" class="section level2">
+<h2><span class="header-section-number">9.3</span> Standard Deviation and <code>sd()</code></h2>
+<p>Lastly, we should talk about the <span class="vocab"><strong>standard deviation</strong></span>. This is how spread out around our average the data is. The standard deviation applies to the whole vector, not just an individual point. We’ll talk about how to use the concept of a standard deviation for just a single data point in the next chapter.</p>
+<p>Breaking the term down, we can understand a little bit more intuitively what exactly a standard deviation is. A deviation is how far a particular point is from another point (in our case, the average), and standard typically means the average, or divided by how many points there are. So really, a standard deviation is a way to look at the average difference of any data point from the average of the data. <span class="note"><em>Note: The standard deviation can <strong>never</strong> be negative, since it doesn’t make sense to be a negative distance from the average.</em></span></p>
+<p>The standard deviation is calculated as</p>
+<p><span class="math display">\[ \sqrt{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \bar{x} \right)^2} \]</span></p>
+<p>Now that the scary math is out of the way, let’s make it make sense. We’ll define a process to calculate the standard deviation, and rebuild that equation as we go.</p>
+<ol style="list-style-type: decimal">
+<li>Calculate the average, <span class="math inline">\(\bar{x}\)</span>, of all of the data points</li>
+<li>Take each point in the data, which we’ll call <span class="math inline">\(x_i\)</span> (think of <span class="math inline">\(i\)</span> as the <span class="math inline">\(i^{th}\)</span> element of the vector of data points), and subtract off the average. These are the <span class="vocab"><strong>deviations</strong></span>
+<ul>
+<li><span class="tip"><em>Pro tip: These deviations should always add to 0</em></span></li>
+</ul></li>
+<li>Square the difference in step 2. Mathematically, we’ve got <span class="math display">\[\left( x_i - \bar{x} \right)^2\]</span></li>
+<li>Take the average of the squared differences in step 3. That’s where the <span class="math inline">\(\frac{1}{n} \sum_{i = 1}^n\)</span> comes from, and it gives us what’s called the <span class="vocab"><strong>variance</strong></span>, and it’s a single number: <span class="math display">\[ \frac{1}{n} \sum_{i = 1}^n \left( x_i - \bar{x} \right)^2 \]</span></li>
+<li>Take the square root of the variance we just found in step 4. This is the standard deviation, and it’s given by <span class="math display">\[ \sqrt{\frac{1}{n} \sum_{i = 1}^n \left( x_i - \bar{x} \right)^2} \]</span></li>
+</ol>
+<p>We’ll do a quick example as a table with this list of numbers:</p>
+<div style="text-align: center">
+0, 1, 2, 3, 4, 5, 6
+</div>
+<p>.</p>
+<p>The average of the list is 3.</p>
+<p><a name = 'sd-by-hand'></a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(x_i - \bar{x}\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\left( x_i - \bar{x} \right)^2\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+-3
+</td>
+<td style="text-align:center;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+-2
+</td>
+<td style="text-align:center;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+-1
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+9
+</td>
+</tr>
+</tbody>
+</table>
+<p>We then average the last column to get 4, and take the square root to get a standard deviation of 2.</p>
+<p>Now that we see how the process works and can do it by hand, we’re ready to use the <code>R</code> function <code>sd()</code> to speed the process along. Just pass the vector of values to <code>sd()</code> and the standard deviation will be computed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</code></pre></div>
+<pre><code>[1] 2.160247</code></pre>
+<p><img src="img/09-surprise.gif" style="display: block; margin: auto;" /></p>
+<p>Hmmm… That’s not quite right. By hand, we got 4, but with <code>sd()</code>, we got 2.1602469. This is where we need to start being a little careful. Earlier, we defined standard deviation as the standard deviation of the <em>population</em> (frequently referred to as <span class="math inline">\(\sigma\)</span>), which is given by</p>
+<p><span class="math display">\[ \sigma = \sqrt{\frac{1}{n} \sum_{i = 1}^n \left(x_i - \bar{x} \right)^2} \]</span></p>
+<p>However, in <code>R</code>, the <code>sd()</code> function computes the <em>sample</em> standard deviation, which is slightly different. (We’ll cover it later on in the class, but to help you understand what <code>R</code> is doing, we need to introduce the difference now.) The sample standard deviation, <span class="math inline">\(s\)</span>, is given by</p>
+<p><span class="math display">\[ s = \sqrt{\frac{1}{n-1} \sum_{i = 1}^n \left(x_i - \bar{x} \right)^2} \]</span></p>
+<p>The the <code>sd()</code> function is actually computing <span class="math inline">\(s\)</span> and not <span class="math inline">\(\sigma\)</span>. That’s okay though! A quick bit of algebra helps us to make the conversion between the sample and the population.</p>
+<p><img src="img/09-do-the-math.gif" style="display: block; margin: auto;" /></p>
+<p>To get from <span class="math inline">\(s\)</span> to <span class="math inline">\(\sigma\)</span>, we just need to multiply by <span class="math inline">\(\sqrt{\frac{n - 1}{n}}\)</span>. The <span class="math inline">\(n - 1\)</span> in the numerator cancels the <span class="math inline">\(n - 1\)</span> in the denominator of <span class="math inline">\(s\)</span>, and then the <span class="math inline">\(n\)</span> in the denominator is the <span class="math inline">\(n\)</span> in <span class="math inline">\(\sigma\)</span>. So, to get the <em>population</em> standard deviation, we need to do this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) *<span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) -<span class="st"> </span><span class="dv">1</span>) /<span class="st"> </span><span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)))</code></pre></div>
+<pre><code>[1] 2</code></pre>
+<p>All fixed! Let’s put this into a function so that we can do it on any data set we’d like. We’ll call the function <code>stdv()</code>, which takes one argument (the <code>numeric</code> vector <code>x</code>), and returns the population standard deviation.</p>
+<p><a name = 'stdv-function'></a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stdv =<span class="st"> </span>function(x){
+  <span class="kw">sd</span>(x) *<span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(x) -<span class="st"> </span><span class="dv">1</span>)/<span class="st"> </span><span class="kw">length</span>(x))
+}</code></pre></div>
+<p>The larger the standard deviation is, the more spread out our data is. The smaller the standard deviation, the less spread the deviation is. As an extreme case, a standard deviation of 0 means that there is no spread whatsoever. This is because all of the data would be located at the average.</p>
+</div>
+<div id="mean-and-standard-deviation-after-changing-the-data" class="section level2">
+<h2><span class="header-section-number">9.4</span> Mean and Standard Deviation After Changing The Data</h2>
+<p>The mean and median change if we add, subtract, multiply, or divide the <em>same</em> number to <em>every</em> point in our data. They will change by the exact amount that we’ve added or subtracted (i.e. if we add 4 to every number, the average and median increase by 4. Dividing by 12 will divide the average and median by 12).</p>
+<p>The standard deviation changes differently under addition, subtraction, multiplication, and division. Addition and subtraction don’t have any impact on the standard deviation, while multiplication and division change the standard deviation by the same value (i.e. if we multiply every point by 6, the standard deviation is multiplied by 6 as well) If the factor that the data points are multiplied by is negative, the standard deviation is multiplied/divided by the absolute value of the factor.</p>
+<p><span class="note"><em>Note: We don’t immediately know how the average, median, or standard deviation change by doing any of these operations to just a <strong>single</strong> point in our data, but</span> <span style="color: #a21bd7"><code>R</code></span> <span class = 'note'>makes these computations easy.</em></span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hists.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-normal-approximation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

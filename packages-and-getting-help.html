@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STAT 100 Honors Project</title>
+  <meta name="description" content="STAT 100 Honors Project">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  
+  
+  
+
+<meta name="author" content="Ross Drucker">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+<link rel="prev" href="operators.html">
+<link rel="next" href="loading-data.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">STAT 100 Honors Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
+<li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html"><i class="fa fa-check"></i><b>2</b> Functions and Data Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#functions"><i class="fa fa-check"></i><b>2.1</b> Functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#types"><i class="fa fa-check"></i><b>2.2</b> The Types</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors-lists-and-data-frames"><i class="fa fa-check"></i><b>2.3</b> Vectors, Lists, and Data Frames</a><ul>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#data-frames"><i class="fa fa-check"></i>Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#coercing-to-other-types"><i class="fa fa-check"></i><b>2.4</b> Coercing To Other Types</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#identical"><i class="fa fa-check"></i><b>2.5</b> <code>identical()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#naming"><i class="fa fa-check"></i><b>3.1</b> Naming</a></li>
+<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#vectors-lists-and-data-frame-names"><i class="fa fa-check"></i><b>3.2</b> Vectors, Lists and Data Frame Names</a><ul>
+<li class="chapter" data-level="" data-path="variables.html"><a href="variables.html#naming-list-elements-and-data-frame-columns"><i class="fa fa-check"></i>Naming List Elements and Data Frame Columns</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#mathematical-operators"><i class="fa fa-check"></i><b>4.1</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-boolean-operators"><i class="fa fa-check"></i><b>4.2</b> Logical (Boolean) Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#vectorization"><i class="fa fa-check"></i><b>4.3</b> Vectorization</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html"><i class="fa fa-check"></i><b>5</b> Packages and Getting Help</a><ul>
+<li class="chapter" data-level="5.1" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#helpfiles"><i class="fa fa-check"></i><b>5.2</b> Help Files</a><ul>
+<li class="chapter" data-level="" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#other-helpful-resources"><i class="fa fa-check"></i><b>5.3</b> Other Helpful Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>6</b> Loading Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data.html"><a href="loading-data.html#data-files"><i class="fa fa-check"></i><b>6.1</b> Data Files</a></li>
+<li class="chapter" data-level="6.2" data-path="loading-data.html"><a href="loading-data.html#reading-in-csv-files"><i class="fa fa-check"></i><b>6.2</b> Reading in CSV Files</a><ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#directories"><i class="fa fa-check"></i>Directories</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-example"><i class="fa fa-check"></i>Loading Example</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="loading-data.html"><a href="loading-data.html#writing-files"><i class="fa fa-check"></i><b>6.3</b> Writing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="coding-style.html"><a href="coding-style.html"><i class="fa fa-check"></i><b>7</b> Coding Style</a><ul>
+<li class="chapter" data-level="7.1" data-path="coding-style.html"><a href="coding-style.html#comments"><i class="fa fa-check"></i><b>7.1</b> Comments</a></li>
+<li class="chapter" data-level="7.2" data-path="coding-style.html"><a href="coding-style.html#spacing"><i class="fa fa-check"></i><b>7.2</b> Spacing</a></li>
+<li class="chapter" data-level="7.3" data-path="coding-style.html"><a href="coding-style.html#indentation"><i class="fa fa-check"></i><b>7.3</b> Indentation</a></li>
+<li class="chapter" data-level="7.4" data-path="coding-style.html"><a href="coding-style.html#consistency"><i class="fa fa-check"></i><b>7.4</b> Consistency</a></li>
+<li class="chapter" data-level="7.5" data-path="coding-style.html"><a href="coding-style.html#simplifying-coding-style"><i class="fa fa-check"></i><b>7.5</b> Simplifying Coding Style</a></li>
+</ul></li>
+<li class="part"><span><b>II Exploring Data</b></span></li>
+<li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
+<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
+<li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
+<li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#standard-deviation-and-sd"><i class="fa fa-check"></i><b>9.3</b> Standard Deviation and <code>sd()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-and-standard-deviation-after-changing-the-data"><i class="fa fa-check"></i><b>9.4</b> Mean and Standard Deviation After Changing The Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html"><i class="fa fa-check"></i><b>10</b> The Normal Approximation</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#the-sd-1-2-3-rule"><i class="fa fa-check"></i><b>10.1</b> The SD 1-2-3 Rule</a></li>
+<li class="chapter" data-level="10.2" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#z-scores"><i class="fa fa-check"></i><b>10.2</b> Z-scores</a></li>
+<li class="chapter" data-level="10.3" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#norms"><i class="fa fa-check"></i><b>10.3</b> The <code>_norm()</code> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
+<li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
+<li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Regression</b></span></li>
+<li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
+<li class="chapter" data-level="12.1" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#scatter-plots"><i class="fa fa-check"></i><b>12.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="12.2" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#correlation"><i class="fa fa-check"></i><b>12.2</b> Correlation</a></li>
+<li class="chapter" data-level="12.3" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#calculating-r-and-cor"><i class="fa fa-check"></i><b>12.3</b> Calculating <span class="math inline">\(r\)</span> and <code>cor()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#statistics-of-the-cloud-scatter-plot"><i class="fa fa-check"></i><b>12.4</b> Statistics of the “Cloud” Scatter Plot</a></li>
+<li class="chapter" data-level="12.5" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#the-sd-line"><i class="fa fa-check"></i><b>12.5</b> The SD Line</a></li>
+<li class="chapter" data-level="12.6" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting-and-ecological-correlations"><i class="fa fa-check"></i><b>12.6</b> Subsetting and Ecological Correlations</a><ul>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting"><i class="fa fa-check"></i>Subsetting</a></li>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#ecological-correrlations"><i class="fa fa-check"></i>Ecological Correrlations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#summary-of-correlation"><i class="fa fa-check"></i><b>12.7</b> Summary of Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a><ul>
+<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#regression"><i class="fa fa-check"></i><b>13.1</b> Regression</a></li>
+<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#using-r-to-make-predictions"><i class="fa fa-check"></i><b>13.2</b> Using <span class="math inline">\(r\)</span> to Make Predictions</a></li>
+<li class="chapter" data-level="13.3" data-path="linear-regression.html"><a href="linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>13.3</b> The Regression Line</a></li>
+<li class="chapter" data-level="13.4" data-path="linear-regression.html"><a href="linear-regression.html#lm"><i class="fa fa-check"></i><b>13.4</b> <code>lm()</code></a></li>
+<li class="chapter" data-level="13.5" data-path="linear-regression.html"><a href="linear-regression.html#using-predict-to-make-predictions"><i class="fa fa-check"></i><b>13.5</b> Using <code>predict()</code> to Make Predictions</a></li>
+<li class="chapter" data-level="13.6" data-path="linear-regression.html"><a href="linear-regression.html#switching-the-predictions"><i class="fa fa-check"></i><b>13.6</b> Switching the Predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html"><i class="fa fa-check"></i><b>14</b> Evaluating Predictions</a><ul>
+<li class="chapter" data-level="14.1" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#residuals"><i class="fa fa-check"></i><b>14.1</b> Residuals</a></li>
+<li class="chapter" data-level="14.2" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#root-mean-squared-error-rmse"><i class="fa fa-check"></i><b>14.2</b> Root Mean Squared Error (RMSE)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">STAT 100 Honors Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="packages-and-getting-help" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Packages and Getting Help</h1>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">5.1</span> Packages</h2>
+<p>A <span class="vocab"><strong>package</strong></span> is just a collection of functions, data, and already-written code that is in a well-defined format. We’ll introduce a few packages as we go, but a lot of what we’ll cover will rely on the <code>base</code> package, which is just the functions that <code>R</code> already comes with. They’re the <em>base</em> of most analyses and other operations you’ll want to do in R, hence the name of the package. To install a new package, you want to use the <code>install.packages()</code> function, with the name of the package quoted and inside of the parenthesis.</p>
+<p>One package that you’ll want to install is the <code>swirl</code> package, which was developed as a self-guided class to help you learn R. To install this package, copy and paste the following line into your <code>Console</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;swirl&#39;</span>)</code></pre></div>
+<p>Once the package is installed, you’ll want to <span class="vocab"><strong>load</strong></span> the package (tell <code>R</code> that you’ll be using commands, data, and other information from the package). Copy/paste or type the following into your console to do so, and follow the prompts:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(swirl)</code></pre></div>
+</div>
+<div id="helpfiles" class="section level2">
+<h2><span class="header-section-number">5.2</span> Help Files</h2>
+<p>Another great aspect of <code>R</code> is how well-documented the language is. If you don’t know how to use a particular function, there are a lot of ways to learn how to use it and see it in action. The help files provide the <span class="vocab"><strong>syntax</strong></span> (what order to put things into the function), an explanation of the arguments, as well as information about the <span class="vocab"><strong>output</strong></span> (what the function gives back to you), and examples of the function in use.</p>
+<div id="an-example" class="section level3 unnumbered">
+<h3>An Example</h3>
+<p>Let’s say you wanted to learn more about the <code>mean()</code> function. You can type <code>?mean</code> into your console, and the help file will pull up in the <code>Help</code> tab. From there, you can learn all about the function.</p>
+<div style="text-align: center">
+The header of the <code>mean()</code> documentation
+</div>
+<p><img src="img/05-help1.png" style="display: block; margin: auto;" /></p>
+<p>As you can see, the top of the help function starts with the name of the function, with the package it comes from in brackets. Then it provides a brief description of what the function does. This one gets the mean (average) of a list of numbers.</p>
+<div style="text-align: center">
+Syntax for <code>mean()</code>
+</div>
+<p><img src="img/05-help2.png" style="display: block; margin: auto;" /></p>
+<p>This part tells us that all the function looks for is an object <code>x</code>, which is just the numbers you’d like to take the average of. Something to note: the <code>trim</code> argument has a default value of <code>0</code>, and <code>na.rm</code> is set to <code>FALSE</code>. As you hopefully remember from <a href = 'functions-and-data-types.html#default-argument-note'>chapter 2</a>, these will be the values that the function uses unless you specify differently. Then it explains the arguments it’s looking for as it does its job in the <strong>Arguments</strong> section:</p>
+<div style="text-align: center">
+Arguments for <code>mean()</code>
+</div>
+<p><img src="img/05-help3.png" style="display: block; margin: auto;" /></p>
+<p>Next is the <strong>Value</strong> section, which explains what the output of the function actually is.</p>
+<div style="text-align: center">
+Value for <code>mean()</code>
+</div>
+<p><img src="img/05-help4.png" style="display: block; margin: auto;" /></p>
+<p>Lastly, the documentation provides examples of it in use. You’ll understand this code by the end of the chapter, but for now trust that it’s doing its job appropriately.</p>
+<div style="text-align: center">
+Examples of <code>mean()</code>
+</div>
+<p><img src="img/05-help5.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="other-helpful-resources" class="section level2">
+<h2><span class="header-section-number">5.3</span> Other Helpful Resources</h2>
+<p>If the help file isn’t much help in solving your problem, there’s a plethora of other helpful resources available to you. What do you do when you don’t understand something? What about if you get an error message and your code doesn’t run properly?</p>
+<p>One of the most important things to remember is that you’re not the first person to struggle with wherever you’re stuck, or get the error message you just got. There may not always be a TA that’s available to help right when you need them, so it’s a good idea to start learning how to help yourself solve your problems.</p>
+<p><a href="https://stackoverflow.com/questions/tagged/r">StackOverflow</a> is one of the best resources available to you in terms of help. It’s an open, online forum for people to post and answer questions. Think of it like reddit, but for code. This is a fantastic place to start your search, and the questions range from the very simple beginner questions to incredibly technical and advanced concepts. If a post is too technical for you to understand, there’s almost always another one (or more!) that can help.</p>
+<p>It may seem odd, but Googling is also a great way to learn. Because of how powerful Google is, copying and pasting error messages will usually result in a good explanation of the error message, why you’re getting it, and multiple ways to correct it. <strong><a href="www.google.com"><span style="color:#4885ed">G</span><span style="color:#db3236">o</span><span style="color:#f4c20d">o</span><span style="color:#4885ed">g</span><span style="color:#3cba54">l</span><span style="color:#db3236">e</span></a> is your friend.</strong></p>
+<p>There’s also plenty of resources online to help you learn <code>R</code> programming as well. In addition to the <code>swirl</code> library we talked about earlier, there are some websites, like <a href="http://tryr.codeschool.com/levels/1/challenges/1">codeschool</a>, that allow you to practice writing <code>R</code> code. Feel free to use this one as much or as little as you’d like, but the best way to get better at programming is to practice as much as possible.</p>
+<p>Lastly, there’s also a variety of books that you can make use of to help learn and understand <code>R</code>, like <a href="https://leanpub.com/rprogramming">this book</a> It’s based off a Coursera course, and the author made videos that are linked in the book. You can download it for free by just sliding the price slider to 0 (or you can pay if you want).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="loading-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

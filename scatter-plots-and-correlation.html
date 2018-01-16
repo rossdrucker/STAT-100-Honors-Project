@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STAT 100 Honors Project</title>
+  <meta name="description" content="STAT 100 Honors Project">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  
+  
+  
+
+<meta name="author" content="Ross Drucker">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+<link rel="prev" href="percentiles-and-box-plots.html">
+<link rel="next" href="linear-regression.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">STAT 100 Honors Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+</ul></li>
+<li class="part"><span><b>I The Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
+<li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html"><i class="fa fa-check"></i><b>2</b> Functions and Data Types</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#functions"><i class="fa fa-check"></i><b>2.1</b> Functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#types"><i class="fa fa-check"></i><b>2.2</b> The Types</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors-lists-and-data-frames"><i class="fa fa-check"></i><b>2.3</b> Vectors, Lists, and Data Frames</a><ul>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#lists"><i class="fa fa-check"></i>Lists</a></li>
+<li class="chapter" data-level="" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#data-frames"><i class="fa fa-check"></i>Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#coercing-to-other-types"><i class="fa fa-check"></i><b>2.4</b> Coercing To Other Types</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#identical"><i class="fa fa-check"></i><b>2.5</b> <code>identical()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#naming"><i class="fa fa-check"></i><b>3.1</b> Naming</a></li>
+<li class="chapter" data-level="3.2" data-path="variables.html"><a href="variables.html#vectors-lists-and-data-frame-names"><i class="fa fa-check"></i><b>3.2</b> Vectors, Lists and Data Frame Names</a><ul>
+<li class="chapter" data-level="" data-path="variables.html"><a href="variables.html#naming-list-elements-and-data-frame-columns"><i class="fa fa-check"></i>Naming List Elements and Data Frame Columns</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i><b>4</b> Operators</a><ul>
+<li class="chapter" data-level="4.1" data-path="operators.html"><a href="operators.html#mathematical-operators"><i class="fa fa-check"></i><b>4.1</b> Mathematical Operators</a></li>
+<li class="chapter" data-level="4.2" data-path="operators.html"><a href="operators.html#logical-boolean-operators"><i class="fa fa-check"></i><b>4.2</b> Logical (Boolean) Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="operators.html"><a href="operators.html#vectorization"><i class="fa fa-check"></i><b>4.3</b> Vectorization</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html"><i class="fa fa-check"></i><b>5</b> Packages and Getting Help</a><ul>
+<li class="chapter" data-level="5.1" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#packages"><i class="fa fa-check"></i><b>5.1</b> Packages</a></li>
+<li class="chapter" data-level="5.2" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#helpfiles"><i class="fa fa-check"></i><b>5.2</b> Help Files</a><ul>
+<li class="chapter" data-level="" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#an-example"><i class="fa fa-check"></i>An Example</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="packages-and-getting-help.html"><a href="packages-and-getting-help.html#other-helpful-resources"><i class="fa fa-check"></i><b>5.3</b> Other Helpful Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loading-data.html"><a href="loading-data.html"><i class="fa fa-check"></i><b>6</b> Loading Data</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-data.html"><a href="loading-data.html#data-files"><i class="fa fa-check"></i><b>6.1</b> Data Files</a></li>
+<li class="chapter" data-level="6.2" data-path="loading-data.html"><a href="loading-data.html#reading-in-csv-files"><i class="fa fa-check"></i><b>6.2</b> Reading in CSV Files</a><ul>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#directories"><i class="fa fa-check"></i>Directories</a></li>
+<li class="chapter" data-level="" data-path="loading-data.html"><a href="loading-data.html#loading-example"><i class="fa fa-check"></i>Loading Example</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="loading-data.html"><a href="loading-data.html#writing-files"><i class="fa fa-check"></i><b>6.3</b> Writing Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="coding-style.html"><a href="coding-style.html"><i class="fa fa-check"></i><b>7</b> Coding Style</a><ul>
+<li class="chapter" data-level="7.1" data-path="coding-style.html"><a href="coding-style.html#comments"><i class="fa fa-check"></i><b>7.1</b> Comments</a></li>
+<li class="chapter" data-level="7.2" data-path="coding-style.html"><a href="coding-style.html#spacing"><i class="fa fa-check"></i><b>7.2</b> Spacing</a></li>
+<li class="chapter" data-level="7.3" data-path="coding-style.html"><a href="coding-style.html#indentation"><i class="fa fa-check"></i><b>7.3</b> Indentation</a></li>
+<li class="chapter" data-level="7.4" data-path="coding-style.html"><a href="coding-style.html#consistency"><i class="fa fa-check"></i><b>7.4</b> Consistency</a></li>
+<li class="chapter" data-level="7.5" data-path="coding-style.html"><a href="coding-style.html#simplifying-coding-style"><i class="fa fa-check"></i><b>7.5</b> Simplifying Coding Style</a></li>
+</ul></li>
+<li class="part"><span><b>II Exploring Data</b></span></li>
+<li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
+<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
+<li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
+<li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
+<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
+<li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#standard-deviation-and-sd"><i class="fa fa-check"></i><b>9.3</b> Standard Deviation and <code>sd()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-and-standard-deviation-after-changing-the-data"><i class="fa fa-check"></i><b>9.4</b> Mean and Standard Deviation After Changing The Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html"><i class="fa fa-check"></i><b>10</b> The Normal Approximation</a><ul>
+<li class="chapter" data-level="10.1" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#the-sd-1-2-3-rule"><i class="fa fa-check"></i><b>10.1</b> The SD 1-2-3 Rule</a></li>
+<li class="chapter" data-level="10.2" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#z-scores"><i class="fa fa-check"></i><b>10.2</b> Z-scores</a></li>
+<li class="chapter" data-level="10.3" data-path="the-normal-approximation.html"><a href="the-normal-approximation.html#norms"><i class="fa fa-check"></i><b>10.3</b> The <code>_norm()</code> Functions</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
+<li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
+<li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+</ul></li>
+<li class="part"><span><b>III Linear Regression</b></span></li>
+<li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
+<li class="chapter" data-level="12.1" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#scatter-plots"><i class="fa fa-check"></i><b>12.1</b> Scatter Plots</a></li>
+<li class="chapter" data-level="12.2" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#correlation"><i class="fa fa-check"></i><b>12.2</b> Correlation</a></li>
+<li class="chapter" data-level="12.3" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#calculating-r-and-cor"><i class="fa fa-check"></i><b>12.3</b> Calculating <span class="math inline">\(r\)</span> and <code>cor()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#statistics-of-the-cloud-scatter-plot"><i class="fa fa-check"></i><b>12.4</b> Statistics of the “Cloud” Scatter Plot</a></li>
+<li class="chapter" data-level="12.5" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#the-sd-line"><i class="fa fa-check"></i><b>12.5</b> The SD Line</a></li>
+<li class="chapter" data-level="12.6" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting-and-ecological-correlations"><i class="fa fa-check"></i><b>12.6</b> Subsetting and Ecological Correlations</a><ul>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#subsetting"><i class="fa fa-check"></i>Subsetting</a></li>
+<li class="chapter" data-level="" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#ecological-correrlations"><i class="fa fa-check"></i>Ecological Correrlations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html#summary-of-correlation"><i class="fa fa-check"></i><b>12.7</b> Summary of Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear Regression</a><ul>
+<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#regression"><i class="fa fa-check"></i><b>13.1</b> Regression</a></li>
+<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#using-r-to-make-predictions"><i class="fa fa-check"></i><b>13.2</b> Using <span class="math inline">\(r\)</span> to Make Predictions</a></li>
+<li class="chapter" data-level="13.3" data-path="linear-regression.html"><a href="linear-regression.html#the-regression-line"><i class="fa fa-check"></i><b>13.3</b> The Regression Line</a></li>
+<li class="chapter" data-level="13.4" data-path="linear-regression.html"><a href="linear-regression.html#lm"><i class="fa fa-check"></i><b>13.4</b> <code>lm()</code></a></li>
+<li class="chapter" data-level="13.5" data-path="linear-regression.html"><a href="linear-regression.html#using-predict-to-make-predictions"><i class="fa fa-check"></i><b>13.5</b> Using <code>predict()</code> to Make Predictions</a></li>
+<li class="chapter" data-level="13.6" data-path="linear-regression.html"><a href="linear-regression.html#switching-the-predictions"><i class="fa fa-check"></i><b>13.6</b> Switching the Predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html"><i class="fa fa-check"></i><b>14</b> Evaluating Predictions</a><ul>
+<li class="chapter" data-level="14.1" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#residuals"><i class="fa fa-check"></i><b>14.1</b> Residuals</a></li>
+<li class="chapter" data-level="14.2" data-path="evaluating-predictions.html"><a href="evaluating-predictions.html#root-mean-squared-error-rmse"><i class="fa fa-check"></i><b>14.2</b> Root Mean Squared Error (RMSE)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">STAT 100 Honors Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="scatter-plots-and-correlation" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Scatter Plots and Correlation</h1>
+<div id="scatter-plots" class="section level2">
+<h2><span class="header-section-number">12.1</span> Scatter Plots</h2>
+<p>Everything we’ve done to this point has examined one variable of a data set, or things that could be represented by a single vector. While this helps us to understand that one particular variable, it’s much more interesting to us to examine how variables relate to one another. One way to visualize how they relate is through a <span class="vocab"><strong>scatter plot</strong></span>. A scatter plot puts one variable – an <span class="vocab"><strong>independent variable</strong></span>, or <span class="vocab"><strong>predictor</strong></span>, on the <span class="math inline">\(x\)</span>-axis, and a second variable – the <span class="vocab"><strong>response</strong></span>, or <span class="vocab"><strong>dependent variable</strong></span>, on the <span class="math inline">\(y\)</span>-axis. Usually, we’re trying to show how the independent variable explains the dependent variable.</p>
+<p>Say, for example, we’re trying to find a relationship between a student’s midterm exam score and their final exam score. Let’s have a small class of seven students, with midterm and final scores according to the following table.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Midterm
+</th>
+<th style="text-align:center;">
+Final
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Student 1
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+62
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 2
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 3
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+65
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 4
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+70
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 5
+</td>
+<td style="text-align:center;">
+85
+</td>
+<td style="text-align:center;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 6
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 7
+</td>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+90
+</td>
+</tr>
+</tbody>
+</table>
+<p>It’s kind of hard to tell the general trend of the data from just looking at the table, so let’s plot the points. We’ll make the <span class="math inline">\(x\)</span>-axis the midterm scores and the <span class="math inline">\(y\)</span>-axis as the final scores. <span class="note"><em>Note: we have the midterm and final scores stored in a data frame called</em></span> <span style="color: #a21bd7"><code>test_scores</code>.</span></p>
+<p><span class="tip"><em>Pro tip: If you’re ever not sure which variable goes where, think about which variable you’d try in predict. In this example, we’re trying to predict a final score from a midterm score, so the final should go on the <span class="math inline">\(y\)</span>-axis.</em></span></p>
+<p>To make the scatter plot, we’ll use the <code>plot</code> function (see <code>?plot</code> for more information) and make use of the <a href = 'percentiles-and-box-plots.html#formula-syntax'>forumla syntax</a> we discussed before. Now, however, we can write it as <code>Dependent variable ~ independent variable</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Final ~<span class="st"> </span>Midterm,
+     <span class="dt">data =</span> test_scores,
+     <span class="dt">pch =</span> <span class="dv">16</span>, <span class="co"># Makes points into closed dots</span>
+     <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>,
+     <span class="dt">xlab =</span> <span class="st">&#39;Midterm&#39;</span>,
+     <span class="dt">ylab =</span> <span class="st">&#39;Final&#39;</span>,
+     <span class="dt">main =</span> <span class="st">&#39;Final vs. Midterm&#39;</span>,
+     <span class="dt">cex.axis =</span> <span class="fl">1.5</span>, <span class="co"># Controls font size of axis numbers</span>
+     <span class="dt">cex.main =</span> <span class="fl">1.5</span>, <span class="co"># Controls font size of title labels</span>
+     <span class="dt">cex.lab  =</span> <span class="fl">1.5</span>, <span class="co"># Controls font size of axis label labels</span>
+     <span class="dt">cex =</span> <span class="fl">1.5</span> <span class="co"># Controls size of points</span>
+)</code></pre></div>
+<p><img src="STAT_100_Honors_Project_files/figure-html/12-scatterplot-example-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>Now it’s much easier to see! Typically, the better a student did on the midterm (further to the right on the <span class="math inline">\(x\)</span>), the better they did on the final (higher up on the <span class="math inline">\(y\)</span>-axis). We can conclude that an increase in midterm scores is then <em>associated</em> with an increased final score. This is called a <span class="vocab"><strong>positive association</strong></span>. If instead increasing <span class="math inline">\(x\)</span> meant <em>decreasing</em> <span class="math inline">\(y\)</span>, we’d call this a <span class="vocab"><strong>negative association</strong></span>.</p>
+<p><a name = 'correlation'></a></p>
+</div>
+<div id="correlation" class="section level2">
+<h2><span class="header-section-number">12.2</span> Correlation</h2>
+<p>This is great, but it’s kind of general to just talk about associations. How do we tell if an association is strong or not? This is where the idea of <span class="vocab"><strong>correlation</strong></span> comes in. Correlation measures how closely the points follow a line, and they can be summarized by the <span class="vocab"><strong>correlation coefficient, <span class="math inline">\(r\)</span></strong></span>. It does <strong>not</strong> measure points that are clustered around a curve. A good rule of thumb is that if the data is roughly football shaped, you can use <span class="math inline">\(r\)</span>.</p>
+<p>If the points fall perfectly on a line and are negatively associated, <span class="math inline">\(r\)</span> = -1. If the points fall perfectly on a line and are positively associated, <span class="math inline">\(r\)</span> = +1. If there’s no association between the independent and dependent variables, the correlation is 0.</p>
+<p>In other words, a correlation of $r = $1 means that you can know <em>exactly</em> what <span class="math inline">\(y\)</span> is for any given <span class="math inline">\(x\)</span> value. Examples are converting units (i.e. temperature from Fahrenheit to Celsius or vice versa) or anything that’s described by a line (i.e. the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> values from the equation <span class="math inline">\(y = 6x + 9\)</span>). Things that aren’t related, such as weight of college freshmen and ACT scores or class attendance and number of pets you own, have a correlation coefficient of <span class="math inline">\(r\)</span> = 0.</p>
+<p><img src="STAT_100_Honors_Project_files/figure-html/12-correlation-plot-examples-1.png" width="1152" style="display: block; margin: auto;" /><img src="STAT_100_Honors_Project_files/figure-html/12-correlation-plot-examples-2.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="calculating-r-and-cor" class="section level2">
+<h2><span class="header-section-number">12.3</span> Calculating <span class="math inline">\(r\)</span> and <code>cor()</code></h2>
+<p>To calculate the correlation coefficient, just follow a simple 3-step process.</p>
+<ol style="list-style-type: decimal">
+<li><p>Convert both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> to Z-scores</p></li>
+<li><p>Multiply the Z-scores of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> together</p></li>
+<li><p>Take the average of the products you just found in step 2</p></li>
+</ol>
+<p>Like <a href = 'measures-of-central-tendency.html#sd-by-hand'>calculating a standard deviation by hand</a>, it’s easy to see (and do) the calculation of a <span class="math inline">\(r\)</span> in a table. Let’s make a small data set of 4 students’ scores on quiz 1 and quiz 2.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Quiz 1
+</th>
+<th style="text-align:center;">
+Quiz 2
+</th>
+<th style="text-align:center;">
+Z<span class="math inline">\(_\text{Quiz 1}\)</span>
+</th>
+<th style="text-align:center;">
+Z<span class="math inline">\(_\text{Quiz 2}\)</span>
+</th>
+<th style="text-align:center;">
+Z<span class="math inline">\(_\text{Quiz 1} \cdot\)</span> Z<span class="math inline">\(_\text{Quiz 2}\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Student 1
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+1.2
+</td>
+<td style="text-align:center;">
+1.3
+</td>
+<td style="text-align:center;">
+1.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 2
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+0.8
+</td>
+<td style="text-align:center;">
+-0.6
+</td>
+<td style="text-align:center;">
+-0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 3
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+-0.8
+</td>
+<td style="text-align:center;">
+0.6
+</td>
+<td style="text-align:center;">
+-0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Student 4
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+-1.2
+</td>
+<td style="text-align:center;">
+-1.3
+</td>
+<td style="text-align:center;">
+1.5
+</td>
+</tr>
+</tbody>
+</table>
+<p>Averaging the last column, Z<span class="math inline">\(_\text{Quiz 1} \cdot\)</span> Z<span class="math inline">\(_\text{Quiz 2}\)</span>, we get that the correlation coefficient is 0.5.</p>
+<p>Of course, <code>R</code> can calculate this for us. We can get <span class="math inline">\(r\)</span> through the <code>cor()</code> function, which just needs the two vectors for which you’d like to calculate the correlation.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">quiz1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">4</span>)
+quiz2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">6</span>)
+<span class="kw">cor</span>(quiz1, quiz2)</code></pre></div>
+<pre><code>[1] 0.5</code></pre>
+</div>
+<div id="statistics-of-the-cloud-scatter-plot" class="section level2">
+<h2><span class="header-section-number">12.4</span> Statistics of the “Cloud” Scatter Plot</h2>
+<p>When our data is roughly football-shaped (like we see below), there are five statistics, called the <span class="vocab"><strong>summary statistics</strong></span>, that we’ll want to pay attention to.</p>
+<ul>
+<li><p>The <span class="vocab"><strong>Avg<span class="math inline">\(_x\)</span></strong></span> is the average (mean) of the variable on the <span class="math inline">\(x\)</span>-axis</p></li>
+<li><p>The <span class="vocab"><strong>Avg<span class="math inline">\(_y\)</span></strong></span> is the average of the variable on the <span class="math inline">\(y\)</span>-axis</p>
+<ul>
+<li>The point (Avg<span class="math inline">\(_x\)</span>, Avg<span class="math inline">\(_y\)</span>) is referred to as the <span class="vocab"><strong>point of averages</strong></span></li>
+</ul></li>
+<li><p>The <span class="vocab"><strong>SD<span class="math inline">\(_x\)</span></strong></span> is the standard deviation of the variable on the <span class="math inline">\(x\)</span>-axis</p></li>
+<li><p>The <span class="vocab"><strong>SD<span class="math inline">\(_y\)</span></strong></span> is the standard deviation of the variable on the <span class="math inline">\(y\)</span>-axis</p></li>
+<li><p>The correlation coefficient, <span class="math inline">\(r\)</span>, which describes how closely <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> follow a line</p></li>
+</ul>
+<p>These statistics are usually given to you in class, but you’ll have to calculate them yourself or have <code>R</code> calculate them on any data set in practice! We’ll use the data from Survey 1 (loaded as <code>survey1</code>) as we did before, and focus on the <code>height</code> and <code>weight</code> variables, since these are probably correlated. We’ll make use of the <code>stdv()</code> function we wrote <a href = 'measures-of-central-tendency.html#stdv-function'>before</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">means =</span> <span class="kw">c</span>(<span class="kw">mean</span>(survey1$height), <span class="kw">mean</span>(survey1$weight)))</code></pre></div>
+<pre><code>[1]  66.89189 147.19165</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">stdvs =</span> <span class="kw">c</span>(<span class="kw">stdv</span>(survey1$height), <span class="kw">stdv</span>(survey1$weight)))</code></pre></div>
+<pre><code>[1]  4.148278 34.183133</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">cor =</span> <span class="kw">cor</span>(survey1$height, survey1$weight))</code></pre></div>
+<pre><code>[1] 0.5676085</code></pre>
+<p><span class="tip"><em>Pro tip: enclosing code in</em> <code>()</code> <em>while making an assignment both assigns the variable and displays the calculation</em></span></p>
+<p>Reformatting this information into a table, we’d summarize it as</p>
+<div style="text-align: center">
+Summary Statistics for <code>height</code> and <code>weight</code> from <code>survey1</code>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Average
+</th>
+<th style="text-align:center;">
+Standard Deviation
+</th>
+<th style="text-align:center;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>height</code>
+</td>
+<td style="text-align:center;">
+66.9
+</td>
+<td style="text-align:center;">
+4.1
+</td>
+<td style="text-align:center;font-weight: bold;vertical-align: middle !important;" rowspan="2">
+<span class="math inline">\(r\)</span> = 0.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>weight</code>
+</td>
+<td style="text-align:center;">
+147.2
+</td>
+<td style="text-align:center;">
+34.2
+</td>
+</tr>
+</tbody>
+</table>
+<p>One last step before we start using this information: let’s plot what this looks like so we can see what the data looks like. Let’s let our <span class="math inline">\(x\)</span>-axis be <code>height</code> and our <span class="math inline">\(y\)</span>-axis be <code>weight</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(
+  weight ~<span class="st"> </span>height,
+  <span class="dt">data =</span> survey1,
+  <span class="dt">pch =</span> <span class="dv">16</span>,
+  <span class="dt">xlab =</span> <span class="st">&#39;Height in Inches&#39;</span>,
+  <span class="dt">ylab =</span> <span class="st">&#39;Weight in Pounds&#39;</span>,
+  <span class="dt">main =</span> <span class="st">&#39;Height vs. Weight&#39;</span>,
+  <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>
+)</code></pre></div>
+<p><img src="STAT_100_Honors_Project_files/figure-html/12-summary-statistics-plot-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>The data is shaped roughly like a football, so we can continue!</p>
+<p>First, let’s add in the point of averages that we talked about before. We’ll make that point <span style="color: #939598">grey</span>, and show the intersecting lines on the plot with &lt;span style = ’color: #ffcc33&gt;gold</span> and <span style="color: #7a0019">maroon</span>.</p>
+<p><img src="STAT_100_Honors_Project_files/figure-html/12-summary-statistics-plot-point-of-averages-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><a name = 'sd-line'></a></p>
+</div>
+<div id="the-sd-line" class="section level2">
+<h2><span class="header-section-number">12.5</span> The SD Line</h2>
+<p>The <span class="vocab"><strong>SD line</strong></span> is the line that goes through the tips of the football, passing through the point of averages. Its slope is defined by</p>
+<p><span class="math display">\[
+\text{Slope of SD Line} = \begin{cases}
+  \frac{\text{SD}_\text{y}}{\text{SD}_\text{x}} &amp; r &gt; 0 \\
+  -\frac{\text{SD}_\text{y}}{\text{SD}_\text{x}} &amp; r &lt; 0
+\end{cases}
+\]</span></p>
+<p>In our example, the slope of the SD line is thus <span class="math inline">\(\frac{34.2}{4.1} =\)</span> 8.3. We can add this line to our plot with <code>abline()</code> function. <code>abline()</code> looks for arguments <code>a</code> (the intercept of the line) and <code>b</code> (the slope of the line). We’ve got the slope, but we just need to find the intercept.</p>
+<p>Some quick algebra gives us the following, assuming we know the slope, average in <span class="math inline">\(x\)</span>, and average in <span class="math inline">\(y\)</span>.</p>
+<div style="text-align: center">
+<p>y = slope <span class="math inline">\(\cdot\)</span> x + intercept</p>
+</div>
+<p>Plugging in the fact that the SD line <em>has</em> to go through the point of averages (i.e. the point (Avg<span class="math inline">\(_\text{x}\)</span>, Avg<span class="math inline">\(_\text{y}\)</span>) has to satisfy the equation we’re looking for), we can plug in (Avg<span class="math inline">\(_\text{x}\)</span>, Avg<span class="math inline">\(_\text{y}\)</span>) for x and y respectively.</p>
+<div style="text-align: center">
+<p>Avg<span class="math inline">\(_\text{y}\)</span> = slope <span class="math inline">\(\cdot\)</span> Avg<span class="math inline">\(_\text{x}\)</span> + intercept</p>
+<p>Avg<span class="math inline">\(_\text{y}\)</span> - slope <span class="math inline">\(\cdot\)</span> Avg<span class="math inline">\(_\text{x}\)</span> = intercept</p>
+</div>
+<p>In our case, this gives that 147.2 - (8.3 <span class="math inline">\(\cdot\)</span> 140) = <strong>-404.9</strong>. So adding the following line to our plot</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abline</span>(<span class="dt">a =</span> -<span class="fl">404.9</span>, <span class="dt">b =</span> <span class="fl">8.2</span>)</code></pre></div>
+<p>will add the SD line to our plot.</p>
+<p><img src="STAT_100_Honors_Project_files/figure-html/12-actually-add-abline-1.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="subsetting-and-ecological-correlations" class="section level2">
+<h2><span class="header-section-number">12.6</span> Subsetting and Ecological Correlations</h2>
+<div id="subsetting" class="section level3 unnumbered">
+<h3>Subsetting</h3>
+<p>Sometimes, we may think that it’s useful to summarize data into groups, then talk about the statistics of that group. For example, we may want to compare how different ethnicities in class scored on their midterms. In this case, we don’t necessarily care about how well each student did, but we’re interested in how groups of them did. This is easy to see with <a href="data/Combined%20Fall%202017%20Survey%204.csv">this data</a> from Bonus Survey 4. We’ll import it as <code>survey4</code>, and you can find the description of the dataset <a href="http://courses.las.illinois.edu/stat/stat100/survey/archive/Stat100_200_2017fall_survey04.html">here</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">survey4 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/Combined Fall 2017 Survey 4.csv&#39;</span>)</code></pre></div>
+<p>The <code>ethnicity</code> variable is the one that we’d like to group our data by. <code>ethnicity</code> in this data set can be any one of the following:</p>
+<ul>
+<li><p>Black</p></li>
+<li><p>East Asian</p></li>
+<li><p>Hispanic</p></li>
+<li><p>South Asian</p></li>
+<li><p>White</p></li>
+<li><p>Other</p></li>
+</ul>
+<p>We have a few options of how to group, or <span class="vocab"><strong>subset</strong></span>, the data, some of which are more memory-intensive than others. Method one is to use the <code>subset()</code> function. If, for example, we wanted to only look at East Asian students’ performance on exam 1, we could write something like</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">east_asian =<span class="st"> </span><span class="kw">subset</span>(survey4, survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>)
+<span class="kw">mean</span>(east_asian$Exam1)</code></pre></div>
+<pre><code>[1] 89.60363</code></pre>
+<p><span class="note"><em>Note: We used a double equals (</em></span><span style="color: #a21bd7"> <code>==</code> </span><span class = 'note'><em>) to evaluate the condition, and we passed the condition we were looking for as a string.</em></p>
+<p>This takes all of the data from <code>survey4</code>, finds which rows have <code>ethnicity</code> of <code>'East Asian'</code> (again, matching case), and puts them into their own data frame called <code>east_asian</code>. One great perk of this method is that it’s very easy to keep track of things, since you can then call on parts of the new, subsetted data frame just like you would have on the bigger data frame. Even the names of the features stay the same. However, this method can get fairly memory-intensive since it takes memory to store the data frame we created. The more subsets you’d like to have, the more memory you start to use up, and the slower your code may run.</p>
+<p>Method 2 is to take advantage of <a href = 'operators.html#vectorization'>vectorization</a> again. We can subset the data here by using <code>[]</code>, <code>$</code>, and even do calculations, all in one step. Let’s try to get the same result as above, but this time we use vectorization.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>])</code></pre></div>
+<pre><code>[1] 89.60363</code></pre>
+<p>If this is confusing, start from the inside and work your way out. First, we found the rows where <code>ethnicity</code> was <code>'East Asian'</code>. Then, from these row numbers (indexes), we took the <code>exam1</code> numbers, and lastly took the mean of them. As you can see, they produce the same result, but this one uses less memory and less lines of code. Pretty cool!</p>
+<p>The last point we should make about subsetting is that using <code>[]</code> is equivalent to <code>subset()</code>. If we wanted to make the same subset using <code>[]</code>, we could do something like this. Just so we don’t overwrite <code>east_asian</code>, we’ll call this one <code>e_a</code>, and use the <code>identical()</code> function to check if they’re the same.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">east_asian =<span class="st"> </span><span class="kw">subset</span>(survey4, survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>)
+e_a =<span class="st"> </span>survey4[survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>, ]
+<span class="kw">identical</span>(east_asian, e_a)</code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p><span class="note"><em>Note: in creating</em></span><span style="color: #a21bd7"> <code>e_a</code> </span><span class="note"><em>, we had to include the</em></span><span style="color: #a21bd7"> <code>,</code> </span><span class="note"><em>so that we could get all rows. If you wanted only certain columns, you could put something after the</em></span><span style="color: #a21bd7"> <code>,</code> </span><span class="note"> <em>to get only those columns.</em></span></p>
+</div>
+<div id="ecological-correrlations" class="section level3 unnumbered">
+<h3>Ecological Correrlations</h3>
+<p>Now that we know how to restrict data by conditions, we can go back to our original question of representing a bunch of data by the groups they belong to. If we wanted to visualize the original data by ethnicity, one option we have is to color the points accordingly. Remember, we’re interested in the relationship between scores on exams 1 and 2. If we treat each student as a unique data point, the data has correlation 0.7</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Exam2 ~<span class="st"> </span>Exam1, <span class="dt">data =</span> survey4,
+     <span class="dt">xlab =</span> <span class="st">&#39;Exam 1 Score&#39;</span>,
+     <span class="dt">ylab =</span> <span class="st">&#39;Exam 2 Score&#39;</span>,
+     <span class="dt">main =</span> <span class="st">&#39;Exam 1 and 2 Scores for All Students&#39;</span>,
+     <span class="dt">col =</span> survey4$ethnicity,
+     <span class="dt">pch =</span> <span class="dv">16</span>,
+     <span class="dt">cex =</span> .<span class="dv">8</span>
+)
+<span class="kw">legend</span>(<span class="dt">x =</span> <span class="dv">60</span>, <span class="dt">y =</span> <span class="dv">35</span>,
+       <span class="dt">legend =</span> <span class="kw">unique</span>(survey4$ethnicity),
+       <span class="dt">col =</span> <span class="kw">unique</span>(survey4$ethnicity),
+       <span class="dt">pch =</span> <span class="dv">16</span>
+)</code></pre></div>
+<p><img src="STAT_100_Honors_Project_files/figure-html/12-plot-color-by-factor-code-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>Another option we have, however, is to condense the plot to be the averages of each ethnicity for each exam.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exam_1_means =<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;Black&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;Hispanic&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;South Asian&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;White&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;Other&#39;</span>]))
+
+exam_2_means =<span class="st"> </span><span class="kw">c</span>(<span class="kw">mean</span>(survey4$Exam2[survey4$ethnicity ==<span class="st"> &#39;Black&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam2[survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam2[survey4$ethnicity ==<span class="st"> &#39;Hispanic&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam2[survey4$ethnicity ==<span class="st"> &#39;South Asian&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam2[survey4$ethnicity ==<span class="st"> &#39;White&#39;</span>]),
+                 <span class="kw">mean</span>(survey4$Exam2[survey4$ethnicity ==<span class="st"> &#39;Other&#39;</span>]))</code></pre></div>
+<p><img src="STAT_100_Honors_Project_files/figure-html/12-ecological-correlation-plot-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>These have a higher correlation (<span class="math inline">\(r\)</span> = 1) and visually look like they follow a line much closer. This makes sense: it takes two points to determine a line. The more points we have, the less they’ll fall on a line unless we know that they were generated by some rule or equation that directly ties them together. In subsetting our data, we went from 1518 data points to only 6. It’s much easier for 6 data points to fall on a line than it is for 1518. This is the effect of an <span class="vocab"><strong>ecological correlation</strong></span>.</p>
+<p>Higher correlation may seem better, but that’s not always true. By reducing each student to their ethnicity, we have lost a lot of data points from our data set (1512 to be exact). This makes it easy to talk about ethnicities, but we may lose the understanding of the performance of an individual in the class.</p>
+</div>
+</div>
+<div id="summary-of-correlation" class="section level2">
+<h2><span class="header-section-number">12.7</span> Summary of Correlation</h2>
+<p>Some facts about <span class="math inline">\(r\)</span> to keep in mind:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Correlation <em>is not</em> causation</strong></p></li>
+<li><p><span class="math inline">\(r\)</span> is unitless, since when switching to Z-scores, the data loses its units</p></li>
+<li><p><span class="math inline">\(r\)</span> does <em>not</em> change by doing any of the following:</p>
+<ul>
+<li>Adding/subtracting the same number from <em>all</em> values of <span class="math inline">\(x\)</span> and/or <span class="math inline">\(y\)</span></li>
+<li>Multiplying <em>all</em> values of <span class="math inline">\(x\)</span> and/or <span class="math inline">\(y\)</span> by the same number. <span class="note"><em>Note: multiplying either <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> (but not both) by a negative number changes the sign of</em></span> <span style="color: #a21bd7"><span class="math inline">\(r\)</span></span></li>
+<li>Changing units of the original data (see fact 2)</li>
+<li>Switching all of the <span class="math inline">\(x\)</span> values with all of the <span class="math inline">\(y\)</span> values</li>
+</ul></li>
+</ol>
+<p>If you don’t believe any of these facts, go ahead and prove them to yourself, or come in to office hours and ask a TA to help you!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="percentiles-and-box-plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

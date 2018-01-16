@@ -1,0 +1,114 @@
+# Variables
+
+```{r 03-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+Pretend that you have a number that you don't want to keep typing over and over and want `R` to remember what it means. You can store that value as a <span class = 'vocab'>**variable**</span> in `R` by declaring it (giving it a name) and assigning it a value. To make the assignment, you can use either `=` or `<-`. It's really personal preference as to which one you'd like to use, but for the duration of the book we'll use `=` (mostly out of habit). To assign a variable a value, we put the variable name on the left side of the assignment operator, and we put the value on the right side. As an example, if we want `R` to remember that some variable that we'll call $x$ should have the value 5, you can do it like this:
+
+```{r 03-variable-ex1}
+x = 5
+```
+
+To see what a variable contains, simply type the name of the variable.
+
+```{r 03-variable-print1}
+x
+```
+
+Variables don't only correspond to numeric data, however. We can have variables store [any valid type of data](#types).
+
+```{r 03-variable-ex2}
+numVar1 = 18
+numVar1
+numVar2 = 3.14
+numVar2
+stringVar1 = 'This is a string'
+stringVar1
+stringVar2 = "I'm learning what a string variable is"
+stringVar2
+boolVar1 = TRUE
+boolVar1
+boolVar2 = F
+boolVar2
+boolVar3 = 3 < 5
+boolVar3
+```
+
+## Naming
+
+You can name any variable you create whatever you'd like, but with this freedom comes great responsibility. Variable names *must* begin with either a letter. Often times, it's much more useful to name a variable what it represents, rather than just calling it `x`. For example, if you're dealing with a data set of attendance at Cubs games and you'd like to specify the attendance on July 12, you can name a variable `attendanceJuly12` and it's totally valid. You don't just have to name your variables as a single letter. That's a relief, because otherwise we'd only have 52 possible names!
+
+> "52 possible names? I thought there's only 26 letters in the alphabet..."
+>
+> <div style = "text-align: right"> --- You, Again (probably) </div>
+
+We'd have 52 possible names since in `R`, variable names are *case sensitive*. This means that naming one variable `x` and another `X` are interpereted differently. Going back to our example above, we could store `x` as 5 and `X` as 9. This is what it looks like:
+
+```{r 03-case-dec-ex}
+x = 5
+X = 9
+```
+```{r 03-case-dec-out}
+x
+X
+```
+
+Typically, variables are named in camel case and begin with a lowercase letter (i.e. `myFirstVariable` as opposed to `myfirstvariable`, although both are totally valid). Get in the habit of naming variables this way. It'll make it much easier to identify what variable you're talking about when you need to access it in your code.
+
+Variables can also be operated on together. If you have a variable `x` and it's equal to 10 and a variable `y` that's equal to 6, and you want to sum them, you can do so like this:
+
+```{r 03-var-addition}
+x = 10
+y = 6
+x + y
+```
+
+The last thing to beware of when naming variables is overwriting the name of another variable. If you have a variable that's already been declared, and then you want to declare a new variable, you will want to declare it with a new name. Continuing with our example from above, `x` currently holds value 10. If we now write
+
+```{r 03-var-overwrite}
+x = 100
+x
+```
+
+We can see that `x` now holds the value 100, not 10 anymore. This is why we cautioned you <a href = 'functions-and-data-types.html#logical'>earlier</a> about using `T` and `F` in place of `TRUE` or `FALSE`. If you create a variable named `T`, or even do something like `T = FALSE`, that will be used instead of the shorthand `T` for `TRUE`.
+
+The bottom line of names is this: they're important, useful, and completely up to you. Make the name short, sweet, and to the point: they shouldn't be full sentences, but should be more than a letter. A good rule of thumb is the KISS rule: Keep It Simple, Silly. 
+
+## Vectors, Lists and Data Frame Names
+
+Variables aren't just useful for one data point, but they're useful for vectors, lists, and data frames as well. Just as we just saw, you can assign a name to a vector, a list, or a data frame so that you can call on them later. In fact, it's a *really good idea* to name all of these types of things, as they're frequently how you'll have your data organized anyways. The naming procedures and conventions are exactly the same as described above.
+
+<a name = 'naming-lists-and-data-frames'></a>
+
+### Naming List Elements and Data Frame Columns {-}
+
+As we saw earlier, it's possible to name elements of a list or columns in a data frame as you create it. It's also possible to change the names of already-named parts of these data types by making use of the `names()` function. Put the name of the list/data frame in the parenthesis, and then assign new names by supplying them as a `character` vector like we've done <a href = 'functions-and-data-types.html#lists'>before</a>.
+
+The example we had before was a short list of fruits, prices, and aisles. We'll save it as a list called `groceries`:
+
+```{r 03-renaming-ex1}
+groceries = list(c('apple', 'banana'), c(1.25, 2.50), 3)
+```
+
+Now, we want to rename the elements as `fruits`, `prices`, and `aisle`. Rather than redeclaring our list, we'll just use the `names()` function:
+
+```{r 03-renaming-ex2}
+names(groceries) = c('fruits', 'prices', 'aisle')
+```
+
+We can also use the `names()` function to see what the names of the elements are:
+
+```{r 03-check-names}
+names(groceries)
+```
+
+Lastly, we can change individual names so we don't have to retype/rename every element when we only want to change one. If we wanted to change `prices` to `cost` to save a keystroke each time we type it, we can do this:
+
+```{r 03-renaming-element}
+names(groceries)[2] = 'cost'
+```
+
+As you can see, we did exactly what we wanted to do. Since data frames are really just lists, the same type of renaming applies.
+
+<span class = 'note'>*Note: *</span><span style = 'color: #a21bd7'>`R`</span> <span class = 'note'>*will treat a single value as a vector, even without using the *</span><span style = 'color: #a21bd7'>`c()`</span><span class = 'note'>*function. It's <a href = 'functions-and-data-types.html#coercion'>coercion</a> and <a href = 'operators.html#vectorization'>vectorization</a> in action.*</span>
