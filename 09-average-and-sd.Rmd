@@ -223,4 +223,4 @@ The mean and median change if we add, subtract, multiply, or divide the *same* n
 
 The standard deviation changes differently under addition, subtraction, multiplication, and division. Addition and subtraction don't have any impact on the standard deviation, while multiplication and division change the standard deviation by the same value (i.e. if we multiply every point by 6, the standard deviation is multiplied by 6 as well) If the factor that the data points are multiplied by is negative, the standard deviation is multiplied/divided by the absolute value of the factor.
 
-<span class = 'note'>*Note: We don't immediately know how the average, median, or standard deviation change by doing any of these operations to just a **single** point in our data, but</span> <span style = 'color: #a21bd7'>`R`</span> <span class = 'note'>makes these computations easy.*</span>
+<span class = 'note'>*Note: We don't immediately know how the average, median, or standard deviation change by doing any of these operations to just a **single** point in our data, but*</span> <span style = 'color: #a21bd7'>`R`</span> <span class = 'note'>*makes these computations easy.*</span>
