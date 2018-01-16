@@ -145,7 +145,7 @@ As you can see from this plot, females tend to spend more time on social media t
 
 ## Summary and `summary()` {#sum}
 
-We've now got a wide variety of statistics --mean, median, minimum, maximum, Q1 and Q3 -- we know how to use and calculate both in `R` and by hand, but [wouldn't it be nice](https://www.youtube.com/watch?v=lD4sxxoJGkA) if there was a way to quickly calculate *all* of these functions for multiple (numeric) variables in our data frames all at once? Well, guess what? There is! It's the `summary()` command, and it does exactly that: provides a summary of the data. Here's the summary of `survey2`.
+We've now got a wide variety of statistics -- mean, median, minimum, maximum, Q1 and Q3 -- we know how to use and calculate both in `R` and by hand, but [wouldn't it be nice](https://www.youtube.com/watch?v=lD4sxxoJGkA) if there was a way to quickly calculate *all* of these functions for multiple (numeric) variables in our data frames all at once? Well, guess what? There is! It's the `summary()` command, and it does exactly that: provides a summary of the data. Here's the summary of `survey2`.
 
 ```{r 11-survey-example}
 summary(survey2)
