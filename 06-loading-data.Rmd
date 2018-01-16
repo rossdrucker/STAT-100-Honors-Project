@@ -4,7 +4,7 @@ Like we learned <a href = 'downloading-r-and-rstudio.html#env'>before</a>, you'l
 
 ## Data Files
 
-Most of the time, you'll want to work with something called a <span class = 'vocab'>**CSV**</span> file. CSV stands for **C**omma **S**eparated **V**alue, which means that all of the data within an observation is separated by a comma [Here's an example CSV file](data/Combined Fall 2017 Survey 1.csv) that you can download. To see the raw file, you can open it in a program like TextEdit on a Mac or Notepad on PC. Usually, a CSV file will default to open in a spreadsheet program like Excel since it's easy to <span class = 'vocab'>**parse**</span> (read in and break up) into columns -- this is because of the commas!
+Most of the time, you'll want to work with something called a <span class = 'vocab'>**CSV**</span> file. CSV stands for **C**omma **S**eparated **V**alue, which means that all of the data within an observation is separated by a comma. <a href = '/data/Combined Fall 2017 Survey 1.csv'>Here's an example CSV file</a> that you can download. To see the raw file, you can open it in a program like TextEdit on a Mac or Notepad on PC. Usually, a CSV file will default to open in a spreadsheet program like Excel since it's easy to <span class = 'vocab'>**parse**</span> (read in and break up) into columns -- this is because of the commas!
 
 ## Reading in CSV Files
 
