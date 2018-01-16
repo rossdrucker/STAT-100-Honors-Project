@@ -1,4 +1,3 @@
 book_filename: "STAT 100 Honors Project"
-language:
-  ui:
-    chapter_name: "Chapter "
+chapter_name: "Chapter "
+repo: https://github.com/rossdrucker/STAT-100-Honors-Project
