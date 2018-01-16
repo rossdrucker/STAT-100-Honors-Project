@@ -1,10 +1,12 @@
 # (PART) Doing More With `R` {-}
 
-# Uses of `R`
-
 ```{r 15-setup, echo = FALSE}
 knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
+
+# Uses of `R`
+
+## Data Cleaning
 
 Now's a good time to change gears for a little. While we've done a lot already, it may seem like `R` is just good at helping with homework, speeding up calculations involving data. But it's easy to make use of `R` when you're instructed on how to do it and see specific use cases.
 
