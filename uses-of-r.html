@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-<link rel="prev" href="functions-and-data-types.html">
-<link rel="next" href="operators.html">
+<link rel="prev" href="part-doing-more-with-r.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -231,93 +231,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="variables" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Variables</h1>
-<p>Pretend that you have a number that you don’t want to keep typing over and over and want <code>R</code> to remember what it means. You can store that value as a <span class="vocab"><strong>variable</strong></span> in <code>R</code> by declaring it (giving it a name) and assigning it a value. To make the assignment, you can use either <code>=</code> or <code>&lt;-</code>. It’s really personal preference as to which one you’d like to use, but for the duration of the book we’ll use <code>=</code> (mostly out of habit). To assign a variable a value, we put the variable name on the left side of the assignment operator, and we put the value on the right side. As an example, if we want <code>R</code> to remember that some variable that we’ll call <span class="math inline">\(x\)</span> should have the value 5, you can do it like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<p>To see what a variable contains, simply type the name of the variable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
-<pre><code>[1] 5</code></pre>
-<p>Variables don’t only correspond to numeric data, however. We can have variables store <a href="functions-and-data-types.html#types">any valid type of data</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numVar1 =<span class="st"> </span><span class="dv">18</span>
-numVar1</code></pre></div>
-<pre><code>[1] 18</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numVar2 =<span class="st"> </span><span class="fl">3.14</span>
-numVar2</code></pre></div>
-<pre><code>[1] 3.14</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stringVar1 =<span class="st"> &#39;This is a string&#39;</span>
-stringVar1</code></pre></div>
-<pre><code>[1] &quot;This is a string&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stringVar2 =<span class="st"> &quot;I&#39;m learning what a string variable is&quot;</span>
-stringVar2</code></pre></div>
-<pre><code>[1] &quot;I&#39;m learning what a string variable is&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">boolVar1 =<span class="st"> </span><span class="ot">TRUE</span>
-boolVar1</code></pre></div>
-<pre><code>[1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">boolVar2 =<span class="st"> </span>F
-boolVar2</code></pre></div>
-<pre><code>[1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">boolVar3 =<span class="st"> </span><span class="dv">3</span> &lt;<span class="st"> </span><span class="dv">5</span>
-boolVar3</code></pre></div>
-<pre><code>[1] TRUE</code></pre>
-<div id="naming" class="section level2">
-<h2><span class="header-section-number">3.1</span> Naming</h2>
-<p>You can name any variable you create whatever you’d like, but with this freedom comes great responsibility. Variable names <em>must</em> begin with either a letter. Often times, it’s much more useful to name a variable what it represents, rather than just calling it <code>x</code>. For example, if you’re dealing with a data set of attendance at Cubs games and you’d like to specify the attendance on July 12, you can name a variable <code>attendanceJuly12</code> and it’s totally valid. You don’t just have to name your variables as a single letter. That’s a relief, because otherwise we’d only have 52 possible names!</p>
-<blockquote>
-<p>“52 possible names? I thought there’s only 26 letters in the alphabet…”</p>
-<div style="text-align: right">
-— You, Again (probably)
-</div>
-</blockquote>
-<p>We’d have 52 possible names since in <code>R</code>, variable names are <em>case sensitive</em>. This means that naming one variable <code>x</code> and another <code>X</code> are interpereted differently. Going back to our example above, we could store <code>x</code> as 5 and <code>X</code> as 9. This is what it looks like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">5</span>
-X =<span class="st"> </span><span class="dv">9</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
-<pre><code>[1] 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X</code></pre></div>
-<pre><code>[1] 9</code></pre>
-<p>Typically, variables are named in camel case and begin with a lowercase letter (i.e. <code>myFirstVariable</code> as opposed to <code>myfirstvariable</code>, although both are totally valid). Get in the habit of naming variables this way. It’ll make it much easier to identify what variable you’re talking about when you need to access it in your code.</p>
-<p>Variables can also be operated on together. If you have a variable <code>x</code> and it’s equal to 10 and a variable <code>y</code> that’s equal to 6, and you want to sum them, you can do so like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">10</span>
-y =<span class="st"> </span><span class="dv">6</span>
-x +<span class="st"> </span>y</code></pre></div>
-<pre><code>[1] 16</code></pre>
-<p>The last thing to beware of when naming variables is overwriting the name of another variable. If you have a variable that’s already been declared, and then you want to declare a new variable, you will want to declare it with a new name. Continuing with our example from above, <code>x</code> currently holds value 10. If we now write</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">100</span>
-x</code></pre></div>
-<pre><code>[1] 100</code></pre>
-<p>We can see that <code>x</code> now holds the value 100, not 10 anymore. This is why we cautioned you <a href = 'functions-and-data-types.html#logical'>earlier</a> about using <code>T</code> and <code>F</code> in place of <code>TRUE</code> or <code>FALSE</code>. If you create a variable named <code>T</code>, or even do something like <code>T = FALSE</code>, that will be used instead of the shorthand <code>T</code> for <code>TRUE</code>.</p>
-<p>The bottom line of names is this: they’re important, useful, and completely up to you. Make the name short, sweet, and to the point: they shouldn’t be full sentences, but should be more than a letter. A good rule of thumb is the KISS rule: Keep It Simple, Silly.</p>
-</div>
-<div id="vectors-lists-and-data-frame-names" class="section level2">
-<h2><span class="header-section-number">3.2</span> Vectors, Lists and Data Frame Names</h2>
-<p>Variables aren’t just useful for one data point, but they’re useful for vectors, lists, and data frames as well. Just as we just saw, you can assign a name to a vector, a list, or a data frame so that you can call on them later. In fact, it’s a <em>really good idea</em> to name all of these types of things, as they’re frequently how you’ll have your data organized anyways. The naming procedures and conventions are exactly the same as described above.</p>
-<p><a name = 'naming-lists-and-data-frames'></a></p>
-<div id="naming-list-elements-and-data-frame-columns" class="section level3 unnumbered">
-<h3>Naming List Elements and Data Frame Columns</h3>
-<p>As we saw earlier, it’s possible to name elements of a list or columns in a data frame as you create it. It’s also possible to change the names of already-named parts of these data types by making use of the <code>names()</code> function. Put the name of the list/data frame in the parenthesis, and then assign new names by supplying them as a <code>character</code> vector like we’ve done <a href = 'functions-and-data-types.html#lists'>before</a>.</p>
-<p>The example we had before was a short list of fruits, prices, and aisles. We’ll save it as a list called <code>groceries</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">groceries =<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dv">3</span>)</code></pre></div>
-<p>Now, we want to rename the elements as <code>fruits</code>, <code>prices</code>, and <code>aisle</code>. Rather than redeclaring our list, we’ll just use the <code>names()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(groceries) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;fruits&#39;</span>, <span class="st">&#39;prices&#39;</span>, <span class="st">&#39;aisle&#39;</span>)</code></pre></div>
-<p>We can also use the <code>names()</code> function to see what the names of the elements are:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(groceries)</code></pre></div>
-<pre><code>[1] &quot;fruits&quot; &quot;prices&quot; &quot;aisle&quot; </code></pre>
-<p>Lastly, we can change individual names so we don’t have to retype/rename every element when we only want to change one. If we wanted to change <code>prices</code> to <code>cost</code> to save a keystroke each time we type it, we can do this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(groceries)[<span class="dv">2</span>] =<span class="st"> &#39;cost&#39;</span></code></pre></div>
-<p>As you can see, we did exactly what we wanted to do. Since data frames are really just lists, the same type of renaming applies.</p>
-<p><span class="note"><em>Note: </em></span><span style="color: #a21bd7"><code>R</code></span> <span class="note"><em>will treat a single value as a vector, even without using the </em></span><span style="color: #a21bd7"><code>c()</code></span><span class="note"><em>function. It’s <a href = 'functions-and-data-types.html#coercion'>coercion</a> and <a href = 'operators.html#vectorization'>vectorization</a> in action.</em></span></p>
+<div id="uses-of-r" class="section level1">
+<h1><span class="header-section-number">Chapter 16</span> Uses of <code>R</code></h1>
+<p>Now’s a good time to change gears for a little. While we’ve done a lot already, it may seem like <code>R</code> is just good at helping with homework, speeding up calculations involving data. But it’s easy to make use of <code>R</code> when you’re instructed on how to do it and see specific use cases.</p>
+<p>At its core, <code>R</code> is great at computing statistics and making plots. After all, it was built by statisticians, for statisticians. But like any language, <code>R</code> has grown to be great for so much more than what you’ve seen. It has the power to manipulate entire datasets, create documents (like this entire book, your homework assignments, etc.), and even build websites and applications. We’ll cover how to do some of this in this section of the book.</p>
+<p>If you want to think of yourself as an <code>R</code> doctor, all of the patients (datasets) you’ve seen so far have come in healthy. You’ve learned how to find the information needed for their charts, and you should be very comfortable with how a healthy check-up should go. But what do you do when a patient comes in sick? They’ve got something wrong with them, and it’s your job to figure out what it is and how to fix it. This diagnosing process, as well as what we do to cure the patient, is known as <span class="vocab">data cleaning</span>.</p>
+<p>What we mean is that, in practice, data sets that we’d like to analyze are rarely clean when we first get them. Values can be of the wrong type, be missing altogether, or not be in the formats we want them to be. No worries though! We’ll see how to use <code>R</code> to do all of this for us!</p>
+<p>Ready? Let’s ride.</p>
+<p><img src="img/15-hit-it.gif" style="display: block; margin: auto;" /></p>
 
-</div>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="functions-and-data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="operators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="part-doing-more-with-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
