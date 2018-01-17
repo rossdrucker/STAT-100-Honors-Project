@@ -98,6 +98,8 @@ numbers
 
 <span class = 'note'>Note: We used the index</span> <span style = 'color: #a21bd7'>`length(numbers) - i + 1`</span> <span class = 'note'>since the first element we wanted to replace was the last element, or at position</span> <span style = 'color: #a21bd7'>`length(numbers)`</span><span class = 'note'>. Since</span> <span style = 'color: #a21bd7'>`i`</span><span class = 'note'> started at 1, and we needed it to change each time, we subtracted</span> <span style = 'color: #a21bd7'>`i`</span><span class = 'note'> and then added the 1 back in to take care of the first case. You can</span> <span class = 'vocab'>trace</span> <span class = 'note'> (follow) it if you write out the values that</span> <span style = 'color: #a21bd7'>`i`</span> <span class = 'note'> takes in each iteration.</span>
 
+<a name = 'nested-for-loops'></a>
+
 ## Nesting
 
 The last point we'll make about loops is that you can <span class = 'vocab'>nest</span> them, or put a `for` loop inside of another `for` loop. Just be sure that your indexes are different! Some example of when you may want to nest two `for` loops would be if you wanted to count the number of matching values in two different vectors, or if you wanted to go through each feature of each observation (i.e. go through each row, and within each row, go through each value) of a data frame. Again, be careful with your indentation. Check out this example, where we check go through the rows and columns of a data frame and add the row number plus the column number to it. That is, the data in the `i`^th^ row and the `j`^th^ column will have `i` + `j` added to it.
