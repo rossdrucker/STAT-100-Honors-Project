@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-<link rel="prev" href="functions-and-data-types.html">
-<link rel="next" href="operators.html">
+<link rel="prev" href="for-loops.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -242,84 +242,1152 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="variables" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Variables</h1>
-<p>Pretend that you have a number that you don’t want to keep typing over and over and want <code>R</code> to remember what it means. You can store that value as a <span class="vocab"><strong>variable</strong></span> in <code>R</code> by declaring it (giving it a name) and assigning it a value. To make the assignment, you can use either <code>=</code> or <code>&lt;-</code>. It’s really personal preference as to which one you’d like to use, but for the duration of the book we’ll use <code>=</code> (mostly out of habit). To assign a variable a value, we put the variable name on the left side of the assignment operator, and we put the value on the right side. As an example, if we want <code>R</code> to remember that some variable that we’ll call <span class="math inline">\(x\)</span> should have the value 5, you can do it like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<p>To see what a variable contains, simply type the name of the variable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
-<pre><code>[1] 5</code></pre>
-<p>Variables don’t only correspond to numeric data, however. We can have variables store <a href="functions-and-data-types.html#types">any valid type of data</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numVar1 =<span class="st"> </span><span class="dv">18</span>
-numVar1</code></pre></div>
-<pre><code>[1] 18</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numVar2 =<span class="st"> </span><span class="fl">3.14</span>
-numVar2</code></pre></div>
-<pre><code>[1] 3.14</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stringVar1 =<span class="st"> &#39;This is a string&#39;</span>
-stringVar1</code></pre></div>
-<pre><code>[1] &quot;This is a string&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stringVar2 =<span class="st"> &quot;I&#39;m learning what a string variable is&quot;</span>
-stringVar2</code></pre></div>
-<pre><code>[1] &quot;I&#39;m learning what a string variable is&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">boolVar1 =<span class="st"> </span><span class="ot">TRUE</span>
-boolVar1</code></pre></div>
-<pre><code>[1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">boolVar2 =<span class="st"> </span>F
-boolVar2</code></pre></div>
-<pre><code>[1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">boolVar3 =<span class="st"> </span><span class="dv">3</span> &lt;<span class="st"> </span><span class="dv">5</span>
-boolVar3</code></pre></div>
-<pre><code>[1] TRUE</code></pre>
-<div id="naming" class="section level2">
-<h2><span class="header-section-number">3.1</span> Naming</h2>
-<p>You can name any variable you create whatever you’d like, but with this freedom comes great responsibility. Variable names <em>must</em> begin with either a letter. Often times, it’s much more useful to name a variable what it represents, rather than just calling it <code>x</code>. For example, if you’re dealing with a data set of attendance at Cubs games and you’d like to specify the attendance on July 12, you can name a variable <code>attendanceJuly12</code> and it’s totally valid. You don’t just have to name your variables as a single letter. That’s a relief, because otherwise we’d only have 52 possible names!</p>
+<div id="conditional-statements" class="section level1">
+<h1><span class="header-section-number">Chapter 17</span> Conditional Statements</h1>
 <blockquote>
-<p>“52 possible names? I thought there’s only 26 letters in the alphabet…”</p>
-<div style="text-align: right">
-— You, Again (probably)
-</div>
+<p>A programmer is going to the grocery store and his wife tells him, “Buy a gallon of milk, and if there are eggs, buy a dozen.” So the programmer goes, buys everything, and drives back to his house. Upon arrival, his wife angrily asks him, “Why did you get 13 gallons of milk?” The programmer says, “There were eggs!”</p>
 </blockquote>
-<p>We’d have 52 possible names since in <code>R</code>, variable names are <em>case sensitive</em>. This means that naming one variable <code>x</code> and another <code>X</code> are interpereted differently. Going back to our example above, we could store <code>x</code> as 5 and <code>X</code> as 9. This is what it looks like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">5</span>
-X =<span class="st"> </span><span class="dv">9</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
-<pre><code>[1] 5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X</code></pre></div>
-<pre><code>[1] 9</code></pre>
-<p>Typically, variables are named in camel case and begin with a lowercase letter (i.e. <code>myFirstVariable</code> as opposed to <code>myfirstvariable</code>, although both are totally valid). Get in the habit of naming variables this way. It’ll make it much easier to identify what variable you’re talking about when you need to access it in your code.</p>
-<p>Variables can also be operated on together. If you have a variable <code>x</code> and it’s equal to 10 and a variable <code>y</code> that’s equal to 6, and you want to sum them, you can do so like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">10</span>
-y =<span class="st"> </span><span class="dv">6</span>
-x +<span class="st"> </span>y</code></pre></div>
-<pre><code>[1] 16</code></pre>
-<p>The last thing to beware of when naming variables is overwriting the name of another variable. If you have a variable that’s already been declared, and then you want to declare a new variable, you will want to declare it with a new name. Continuing with our example from above, <code>x</code> currently holds value 10. If we now write</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">100</span>
-x</code></pre></div>
-<pre><code>[1] 100</code></pre>
-<p>We can see that <code>x</code> now holds the value 100, not 10 anymore. This is why we cautioned you <a href = 'functions-and-data-types.html#logical'>earlier</a> about using <code>T</code> and <code>F</code> in place of <code>TRUE</code> or <code>FALSE</code>. If you create a variable named <code>T</code>, or even do something like <code>T = FALSE</code>, that will be used instead of the shorthand <code>T</code> for <code>TRUE</code>.</p>
-<p>The bottom line of names is this: they’re important, useful, and completely up to you. Make the name short, sweet, and to the point: they shouldn’t be full sentences, but should be more than a letter. A good rule of thumb is the KISS rule: Keep It Simple, Silly.</p>
+<div id="simple-conditions" class="section level2">
+<h2><span class="header-section-number">17.1</span> Simple Conditions</h2>
+<p>Going hand in hand with <code>for</code> loops are what we call <span class="vocab">conditional statements</span>, or statements that evaluate to <code>TRUE</code> or <code>FALSE</code>. These are really important, especially inside of <code>for</code> loops (and nested <code>for</code> loops too!), because what they allow us to do is operate only on certain observations of data that meet our criteria.</p>
+<p>You can think of conditionals like flow charts, where the statement is the <span class="vocab">node</span> (splitting point), and the operations and commands are what <code>R</code> does down the corresponding path. They’re essentially a bunch of statements that say “If my condition is true, then do this set of operations.”</p>
+<p>We’ve been using a few conditional statements all along, we just didn’t realize it. For example, after each iteration of our <code>for</code> loops, <code>R</code> checks the boundaries. If the next index is still within those boundaries, then <code>R</code> goes through the loop. Otherwise, it exits out of the loop and goes to the next line of code.</p>
+<p>Conditional statements are very similar to <code>for</code> loops. One way to use a conditional statement is by using the <code>ifelse()</code> function. The three arguments you’ll need (in order) are the condition you’d like to check, what to do if the condition is met, and what to do if the condition isn’t met. As a quick vectorized example, let’s say we have a vector <code>x</code> that has the numbers 1 through 10. We want to change all the numbers that are greater than (but not equal to) 6 to just be 6, otherwise we want to keep the value that’s in <code>x</code>. <code>ifelse()</code> is great at this! Take a look.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span>
+<span class="kw">ifelse</span>(x &gt;<span class="st"> </span><span class="dv">6</span>, <span class="dv">6</span>, x)</code></pre></div>
+<pre><code> [1] 1 2 3 4 5 6 6 6 6 6</code></pre>
+<p>Another way to insert a conditional statementis to use <code>if()</code> and put your condition(s) inside the parenthesis. Then, to specify what to do when that condition is met, use a set of curly braces (<code>{}</code>) and put the code you’d like to run inside of those braces.</p>
+<p>Let’s go back to the example from the last chapter with that multiplication table.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+1
+</th>
+<th style="text-align:center;">
+2
+</th>
+<th style="text-align:center;">
+3
+</th>
+<th style="text-align:center;">
+4
+</th>
+<th style="text-align:center;">
+5
+</th>
+<th style="text-align:center;">
+6
+</th>
+<th style="text-align:center;">
+7
+</th>
+<th style="text-align:center;">
+8
+</th>
+<th style="text-align:center;">
+9
+</th>
+<th style="text-align:center;">
+10
+</th>
+<th style="text-align:center;">
+11
+</th>
+<th style="text-align:center;">
+12
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+64
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+81
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+110
+</td>
+<td style="text-align:center;">
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+110
+</td>
+<td style="text-align:center;">
+121
+</td>
+<td style="text-align:center;">
+132
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+84
+</td>
+<td style="text-align:center;">
+96
+</td>
+<td style="text-align:center;">
+108
+</td>
+<td style="text-align:center;">
+120
+</td>
+<td style="text-align:center;">
+132
+</td>
+<td style="text-align:center;">
+144
+</td>
+</tr>
+</tbody>
+</table>
+<p>This time, however, let’s get more creative with our operation. Let’s replace the square numbers in the table with their square root. That is, if <code>i</code> and <code>j</code> are the same number, put <code>i</code> in that place instead of the squared value. We’ll have to use a nested loop again, but now we can check the condition and act accordingly.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">nrow</span>(multiplication_table)){
+  for(j in <span class="dv">1</span>:<span class="kw">ncol</span>(multiplication_table)){
+    if(i ==<span class="st"> </span>j){
+      multiplication_table[i, j] =<span class="st"> </span>i
+    }
+  }
+}</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+1
+</th>
+<th style="text-align:center;">
+2
+</th>
+<th style="text-align:center;">
+3
+</th>
+<th style="text-align:center;">
+4
+</th>
+<th style="text-align:center;">
+5
+</th>
+<th style="text-align:center;">
+6
+</th>
+<th style="text-align:center;">
+7
+</th>
+<th style="text-align:center;">
+8
+</th>
+<th style="text-align:center;">
+9
+</th>
+<th style="text-align:center;">
+10
+</th>
+<th style="text-align:center;">
+11
+</th>
+<th style="text-align:center;">
+12
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+110
+</td>
+<td style="text-align:center;">
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+110
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+132
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+84
+</td>
+<td style="text-align:center;">
+96
+</td>
+<td style="text-align:center;">
+108
+</td>
+<td style="text-align:center;">
+120
+</td>
+<td style="text-align:center;">
+132
+</td>
+<td style="text-align:center;">
+12
+</td>
+</tr>
+</tbody>
+</table>
+<p>Cool, it worked flawlessly! Also, make sure you see how the code is styled. The closing braces all line up vertically with what they open, and after each opening brace, we went to the next line and indented one tab. This makes it easy to see what happens where in the code, and allows us to easily edit it as we need to.</p>
+<p>Conditinoal statements are sometimes a little tricky though. For example, let’s say you want to check if the <span class="math inline">\(i\)</span><sup>th</sup> element of a vector called <code>x</code> is <code>NA</code>. You may think that you be tempted to write something like <code>if(x[i] == NA)</code>, but this is WRONG! Instead, you want to use the <code>is.na()</code> function. The line should read <code>if(is.na(x[i]))</code>.</p>
 </div>
-<div id="vectors-lists-and-data-frame-names" class="section level2">
-<h2><span class="header-section-number">3.2</span> Vectors, Lists and Data Frame Names</h2>
-<p>Variables aren’t just useful for one data point, but they’re useful for vectors, lists, and data frames as well. Just as we just saw, you can assign a name to a vector, a list, or a data frame so that you can call on them later. In fact, it’s a <em>really good idea</em> to name all of these types of things, as they’re frequently how you’ll have your data organized anyways. The naming procedures and conventions are exactly the same as described above.</p>
-<p><a name = 'naming-lists-and-data-frames'></a></p>
-<div id="naming-list-elements-and-data-frame-columns" class="section level3 unnumbered">
-<h3>Naming List Elements and Data Frame Columns</h3>
-<p>As we saw earlier, it’s possible to name elements of a list or columns in a data frame as you create it. It’s also possible to change the names of already-named parts of these data types by making use of the <code>names()</code> function. Put the name of the list/data frame in the parenthesis, and then assign new names by supplying them as a <code>character</code> vector like we’ve done <a href = 'functions-and-data-types.html#lists'>before</a>.</p>
-<p>The example we had before was a short list of fruits, prices, and aisles. We’ll save it as a list called <code>groceries</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">groceries =<span class="st"> </span><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dv">3</span>)</code></pre></div>
-<p>Now, we want to rename the elements as <code>fruits</code>, <code>prices</code>, and <code>aisle</code>. Rather than redeclaring our list, we’ll just use the <code>names()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(groceries) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;fruits&#39;</span>, <span class="st">&#39;prices&#39;</span>, <span class="st">&#39;aisle&#39;</span>)</code></pre></div>
-<p>We can also use the <code>names()</code> function to see what the names of the elements are:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(groceries)</code></pre></div>
-<pre><code>[1] &quot;fruits&quot; &quot;prices&quot; &quot;aisle&quot; </code></pre>
-<p>Lastly, we can change individual names so we don’t have to retype/rename every element when we only want to change one. If we wanted to change <code>prices</code> to <code>cost</code> to save a keystroke each time we type it, we can do this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(groceries)[<span class="dv">2</span>] =<span class="st"> &#39;cost&#39;</span></code></pre></div>
-<p>As you can see, we did exactly what we wanted to do. Since data frames are really just lists, the same type of renaming applies.</p>
-<p><span class="note"><em>Note: </em></span><span style="color: #a21bd7"><code>R</code></span> <span class="note"><em>will treat a single value as a vector, even without using the </em></span><span style="color: #a21bd7"><code>c()</code></span><span class="note"><em>function. It’s <a href = 'functions-and-data-types.html#coercion'>coercion</a> and <a href = 'operators.html#vectorization'>vectorization</a> in action.</em></span></p>
+<div id="compound-conditions" class="section level2">
+<h2><span class="header-section-number">17.2</span> Compound Conditions</h2>
+<p>Compound conditions are just combining conditions with <code>&amp;</code> or <code>|</code> (“and” and “or” in <code>R</code>). You can make conditions as compounded as you want, but just be careful that they don’t get to be <em>too</em> complex. If you’re trying to hone in on one particular point in your data, it may be a better idea to just manipulate that one point.</p>
+<p>It’s also a good idea to use parentheses extensively when writing your conditions, that way there’s no confusion as to which compounds go together. As an example, if you want to execute code if condition <code>a</code> is met and either <code>b</code> <em>or</em> conditon <code>c</code> are also met, you should write this condition as <code>if(a &amp; (b | c))</code> where <code>a</code>, <code>b</code>, and <code>c</code> are the conditions that you want to be met.</p>
+<p>Compounding conditions can help you to cover a lot of cases in your data, but the expressions can get confusing quick. Since conditional statements can be nested, it may be better to take the bigger conditions and then nest another conditional statement inside of the broader one.</p>
+<p>One very important thing about conditional statements (and really all code in general) is that they’re evaluated and executed in the exact order that you specify them in. That’s why it’s important to import a dataset before trying to do any kind of manipulation on it, or why you should have a variable declared before you try and use it. Conditional statements are no different. If we write</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="dv">10</span>){
+  if(condition A){
+    Do something here
+  }
+  if(condition B){
+    Do something different here
+  }
+}</code></pre></div>
+<p><code>R</code> will start by evaluating condition A, and then move to condition B. If we flipped them, <code>R</code> would evaluate condition B first. Be careful when you specify the conditions! If what you want to do where it says <code>Do something different here</code> depends on something you did where condition A was met, you may not get the result you wanted at the end.</p>
+<p>In this example, it’s also entirely possible we could meet condition A and condition B, but really we’d like to handle those conditions differently. That’s where <code>else if</code> comes in handy.</p>
+</div>
+<div id="else-and-else-if" class="section level2">
+<h2><span class="header-section-number">17.3</span> <code>else</code> and <code>else if</code></h2>
+<p>When we write these conditional statements, we may have more than two possible scenarios that we want to address. This is where <code>else if</code> makes itself useful. This basically says “If the condition we just checked isn’t met, but this new condition is met, do this thing I’m going to tell you to do.” <code>else</code> alone says “If none of the other conditions are met, do this last thing.” We can deploy them as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="dv">10</span>){
+  if(condition A){
+    Do stuff
+  }
+  else if(condition B){
+    Do other stuff
+  }
+  else if(condition C){
+    Do something different
+  }
+  else{
+    If conditions A, B, and C are not met, execute whatever is here
+  }
+}</code></pre></div>
+</div>
+<div id="extra-things-for-conditionals" class="section level2">
+<h2><span class="header-section-number">17.4</span> Extra Things for Conditionals</h2>
+<p>A few quick points things to remember:</p>
+<ul>
+<li><p><code>!</code> is called the <span class="vocab">negation operator</span>. It’s the <code>R</code> equivalent of the word “not.” That’s why <code>!=</code> is “does not equal.” However, it works with functions like <code>is.na()</code> as well. So if you wanted to do some calculations only if the <span class="math inline">\(i\)</span><sup>th</sup> element of <code>x</code> is <em>not</em> <code>NA</code>, you can count on <code>if(!is.na(x[i]))</code> to do the job.</p></li>
+<li><p><code>%in%</code> is a shortcut way to check if a value is in another vector. If we have a variable called <code>temp</code>, and we want to know if <code>temp</code> is in a vector <code>v1</code>, writing <code>if(temp %in% v1)</code> will do the trick. You can negate this by using <code>!</code> and enclosing your conditions</p></li>
+</ul>
 
-</div>
 </div>
 </div>
             </section>
@@ -327,8 +1395,8 @@ x</code></pre></div>
           </div>
         </div>
       </div>
-<a href="functions-and-data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="operators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="for-loops.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
