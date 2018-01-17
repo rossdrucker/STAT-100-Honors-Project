@@ -1,0 +1,134 @@
+# Functions
+
+We've been using a ton of functions throughout the text, and we were very quickly introduced to them in <a href = 'functions-and-data-types.html#functions'>chapter 2</a>, but as promised, we're going to take a deep dive into functions so that we can write and use our own. We'll go into more depth about things that we've already talked about and show you how to combine everything to make a function to do anything you'd like it to.
+
+## When to Write A Function
+
+Functions are super useful whenever there's a calculation that we're going to want to repeat on a variety of different things. Remember that `stdv()` function we wrote <a href = 'measures-of-central-tendency.html#stdv-function'>before</a>? That's a perfect example of a time to write a function, since that equation/conversion is something that we're going to want to do over and over again.
+
+The thing to be careful of, however, is that functions only work when they're either imported from a package or if you write them in the same file that you're working in. If you write a function in a file called `script1.R`, and you want to use it in `script2.R`, you have to redefine the function in `script2.R`.
+
+## Parts of a Function
+
+There's three main parts of a user-defined function. The first part we'll talk about is the function's <span class = 'vocab'>declaration</span>, or how specifically we create it. We do this by using the `function()` function, assiging the function a name (just like we do with variables and data frames), and declaring what its arguments will be. Just like a `for` loop or a conditional statement, end the line with a set of curly braces (`{}`)
+
+The next part of a function is its <span class = 'vocab'>body</span>. It's what goes in the `{}` and is what you want the function to do. This is where you'll want to put any manipulations, calculations, loops, conditionals, or anything else that your function needs to do its job. It can be as long or short as you want it to be, but if you don't specify what you'd like the function to do in its body, you can bet that it won't do it.
+
+The last thing that every function needs is something to <span class = 'vocab'>return</span>, or some kind of <span class = 'vocab'>output</span>. This may seem kind of obvious, but the reason we want to write functions is to give us something back. This can be anything: a list, a data frame, a plot, a model, or any number of other things we want it to give us.
+
+## Scope
+
+If you want to think of a function as a black box, the only things that the function can use are anything that's already inside of the box (the function's body), and anything that we add into the box (the function's arguments). Anything that's inside the box never gets to see anything outside the box, and anything that's outside the box never gets to see the inside of it. And unless we allow something to leave the box, anything inside of it will stay inside of it.
+
+This is the idea of <span class = 'vocab'>scope</span> in a nutshell. It's important to realize that any variable you create inside of a function will only be accessible *outside* of it if you allow it to come out. And anything that you create outside the function will not be used *inside* the function unless you specifically tell the function to use it. This is true of `for` loops and conditional statements as well. Here's the brief pseudocoded skeleton so you can see it and not just read it:
+
+```{r, eval = FALSE}
+someVariable = Some variable is defined here
+
+someFunction = function(arguments get put here){
+  This is where the body of the function goes
+  temp = Some temporary variable we wanted to create
+  Now we decide what we want to return and put it here
+}
+
+temp is not accessible here
+```
+
+The variable `temp` is only accessible inside the body of `someFunction` since that's where it was declared. We say that it's *inside* the scope of `someFunction`, but unless we make reference to it inside of `someFunction`, we say that `someVariable` is *outside* the scope of `someFunction` (since it was declared outside of the body of `someFunction`).
+
+## Arguments
+
+We've been talking a lot about arguments throughout the book, but what exactly are they? And how can we use them to help us write our own functions? Well, arguments are the parts of the function that can change each time you run it, but the operations that you do to them will be the same. In a sense, they're their own variables. Each time you call the function, you'll most likely want to specify what some (if not all) of the arguments are. Everything about an argument in a function you write -- the name, the order, how they're used, what type of data it can be, etc. -- is completely up to you! Just make sure that they do what you want them to do.
+
+## Return Statements
+
+The easiest way to specify the return of your function is to simply make it the last line of the function's body. When you do this, you don't have to save it as a variable. Simply put whatever you want the output to be, followed by a closing brace `}`. (If you're using good coding style, that brace should be on the next line.)
+
+Another option you have is to use `return()`. This just explicitly tells `R` to return whatever you put inside of the parenthesis. Most of the time, however, going with the first method will be easier and faster.
+
+## Writing Your Own Functions
+
+Woo! Now that we understand what a function is and what it's made up of, it's time to start writing your own functions. To write your own function, the procedure to follow is this:
+
+1) **Write out your algorithm**. This will save you so much time if you have a clear roadmap of what your function needs to do, and the order in which it needs to do it.
+
+2) Declare your function by giving it a name and using the `function()` function. If there's any arguments you know from the get-go you'll need, put those in.
+
+3) Writing the body of the function. If you realize as you're writing that you need to add an argument, make sure you add it to your arguments inside of `function()`.
+
+4) After you finish writing the body, make sure it returns what you'd like it to return (i.e. if you want it to return a number, make sure it's not returning a character)
+
+5) **Test it out**. This step allows you to go through and find mistakes in your function. Functions are great because they can (or at least should) work on small and large sets of data, so using a handful of small testing scenarios to make sure there's no <span class = 'vocab'>bugs</span>, or problems, in your code is always a good idea. If there are, make sure you address them!
+
+Let's start with a simple example: a function that takes a set of numbers and returns the average of those numbers. Sure, the `mean()` function does this already, but let's write a simple function that can do the same thing. First thing's first: we need to come up with our algorithm:
+
+1) Get set of numbers
+
+2) Add up all the numbers in the set
+
+3) Divide the sum from step 2 by how many numbers there are in our set
+
+4) Give back the result of step 3 as our answer.
+
+Now, we need a name to make our declaration. How about `averageCalc()`? Great. Declare it.
+
+```{r 18-averageCalc-dec, eval = FALSE}
+averageCalc = function(){
+  
+}
+```
+
+Step 1 of our algorithm tells us we need to get a set of numbers to work with. This is going to be an argument of the function, since we want `averageCalc()` to work on any set of numbers we pass to it. Remember, names of arguments should be descriptive, but concise. Since it's just a set of numbers, why not call it `nums`? Sounds good to us!
+
+```{r 18-averageCalc-args, eval = FALSE}
+averageCalc = function(nums){
+  
+}
+```
+
+Step 2 says we need to add up the numbers in our set, `nums`. And we know that `R` has a function, `sum()` that adds up all of the numbers in a vector! We'll want to use this sum later (in step 3), so we should probably store it as something. We'll call it `total`, since it's the total sum of the numbers in `nums`.
+
+```{r 18-averageCalc-sum, eval = FALSE}
+averageCalc = function(nums){
+  total = sum(nums)
+}
+```
+
+Now, we need to divide `total` by how many numbers there are in `nums`, but how many numbers are in `nums`? We don't know, so we should be generally specific: general enough where we know that it will work whether there's 10 or 10,000 numbers in the set, but specific enough where we know what exactly what we're doing with it. Luckily, the `length()` function tells us how many numbers there are in a vector, so we can use it here. We'll store this length in a variable called `length_nums`.
+
+```{r 18-averageCalc-length, eval = FALSE}
+averageCalc = function(nums){
+  total = sum(nums)
+  length_nums = length(nums)
+}
+```
+
+Lastly, we need to return `total` divided by `length_nums`. We know that if we want to return something, we can just put it as the last line of our function's body and not assign it a variable name. This gives us the complete function definition:
+
+```{r 18-averageCalc-function}
+averageCalc = function(nums){
+  total = sum(nums)
+  length_nums = length(nums)
+  total / length_nums
+}
+```
+
+Now let's make sure it worked. We'll use a vector of length 1 (`averageCalc` should just return the number) and the numbers 1, 2, and 3 (we should get 2, since 1 + 2 + 3 = 6, and 6 $\div$ 3 = 2). Just call your function, and pass the numbers in place of `nums`. To call your function, just type the name, immediately followed by a set of parentheses, and put the arguments you need inside the parentheses
+
+```{r 18-averageCalc-examples}
+averageCalc(12)
+averageCalc(c(1, 2, 3))
+```
+
+The more variables you create inside of your function, however, the slower they run and the more memory they use up. That's not to say that you should never create variables inside of your functions. You should! That's what they're there for! But an equally good function we could have written would be `averageCalc2.0`:
+
+```{r 18-averageCalc2.0}
+averageCalc2.0 = function(nums){
+  sum(nums) / length(nums)
+}
+
+averageCalc2.0(12)
+averageCalc2.0(c(1, 2, 3))
+```
+
+Beautiful, it all works! Functions are meant to make your life a lot easier, so the better you get at writing functions, the more the world of `R` will open up for you. You'll get plenty of pratice writing functions in the homework for this section.
