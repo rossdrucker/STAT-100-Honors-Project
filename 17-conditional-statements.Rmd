@@ -76,7 +76,7 @@ It's also a good idea to use parentheses extensively when writing your condition
 
 Compounding conditions can help you to cover a lot of cases in your data, but the expressions can get confusing quick. Since conditional statements can be nested, it may be better to take the bigger conditions and then nest another conditional statement inside of the broader one.
 
-One very important thing about conditional statements (and really all code in general) is that they're evaluated and executed in the exact order that you specify them in. That's why it's important to import a dataset before trying to do any kind of manipulation on it, or why you should have a variable declared before you try and use it. Conditional statements are no different. If we write
+One very important thing about conditional statements (and really all code in general) is that they're evaluated and executed in the exact order that you specify them in. That's why it's important to import a dataset before trying to do any kind of manipulation on it, or why you should have a variable declared before you try and use it. Conditional statements are no different. If we write the following <span class = 'vocab'>pseudocode</span> (code syntax but regular words),
 
 ```{r 17-conditional-order, eval = FALSE}
 for(i in 1:10){
@@ -95,7 +95,7 @@ In this example, it's also entirely possible we could meet condition A and condi
 
 ## `else` and `else if`
 
-When we write these conditional statements, we may have more than two possible scenarios that we want to address. This is where `else if` makes itself useful. This basically says "If the condition we just checked isn't met, but this new condition is met, do this thing I'm going to tell you to do." `else` alone says "If none of the other conditions are met, do this last thing." We can deploy them as follows:
+When we write these conditional statements, we may have more than two possible scenarios that we want to address. This is where `else if` makes itself useful. This basically says "If the condition we just checked isn't met, but this new condition is met, do this thing I'm going to tell you to do." `else` alone says "If none of the other conditions are met, do this last thing." We can deploy them (in pseudocode) as follows:
 
 ```{r 17-else-if-else, eval = FALSE}
 for(i in 1:10){
