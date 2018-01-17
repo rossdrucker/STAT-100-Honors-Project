@@ -14,7 +14,7 @@ Functions take <span class = 'vocab'>**arguments**</span>, which are data points
 
 <a name = 'default-argument-note'></a>
 
-<span class = 'note'>*Note: in *</span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>*, arguments of functions may have pre-defined values. In this case, unless you specify differently when you*</span> <span class = 'vocab'>call</span> <span class = 'note'>*(use) the function, this pre-defined, or</span> <span class = 'vocab'>default</span><span class = 'note'>, value will be used instead.*</span>
+<span class = 'note'>*Note: in *</span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>*, arguments of functions may have pre-defined values. In this case, unless you specify differently when you*</span> <span class = 'vocab'>call</span> <span class = 'note'>*(use) the function, this pre-defined, or*</span> <span class = 'vocab'>default</span><span class = 'note'>*, value will be used instead.*</span>
 
 To write your own functions, you need to make use of the `function()` function. You give your function a name, then specify its arguments as the arguments in `function()`, and include your steps inside of a set of curly braces (`{}`). To tell `R` what to return as the output of your new function, you have two options: you can either just leave it as the last line inside of the curly braces, or you can explicitly state it inside the parenthesis of `return()`.
 
