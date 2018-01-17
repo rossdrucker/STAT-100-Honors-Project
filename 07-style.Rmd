@@ -24,7 +24,7 @@ Spacing also refers to spacing lines of code out within your script. Have a line
 
 ## Indentation
 
-If you were an absolutely perfect code-writer, this part would take care of itself. However, there's no such thing as a perfect code-writer, therefore this is worth mentioning. In languages such as Python, **indentation. Is. Everything.** In `R`, it's not *as* imperative in terms of functionality, but it's equally imperative in terms of legibility. Once we get to control structures (ADD LINK TO CONTROL STRUCTURES HERE), you'll be able to see these with much more clarity, but it's a good idea that any time your code takes up more than one line and you're working inside of parenthesis, braces, or brackets, you indent your code one tab (four spaces) to the right. Open a new set of parenthesis/braces/brackets after you've indented once? Indent again! No harm, only help!
+If you were an absolutely perfect code-writer, this part would take care of itself. However, there's no such thing as a perfect code-writer, therefore this is worth mentioning. In languages such as Python, **indentation. Is. Everything.** In `R`, it's not *as* imperative in terms of functionality, but it's equally imperative in terms of legibility. Once we get to <a href = 'for-loops.html#nested-for-loops'>control structures</a>, you'll be able to see these with much more clarity, but it's a good idea that any time your code takes up more than one line and you're working inside of parenthesis, braces, or brackets, you indent your code one tab (four spaces) to the right. Open a new set of parenthesis/braces/brackets after you've indented once? Indent again! No harm, only help!
 
 ## Consistency
 
