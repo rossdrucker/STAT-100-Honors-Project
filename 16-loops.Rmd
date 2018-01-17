@@ -135,7 +135,7 @@ Now, our nested loops:
 
 ```{r 16-nested-for-loop}
 for(i in 1:nrow(multiplication_table)){
-  for(j in 1:nrow(multiplication_table)){
+  for(j in 1:ncol(multiplication_table)){
     multiplication_table[i, j] = multiplication_table[i, j] + i + j
   }
 }
