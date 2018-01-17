@@ -1,0 +1,123 @@
+# Conditional Statements
+
+> A programmer is going to the grocery store and his wife tells him, "Buy a gallon of milk, and if there are eggs, buy a dozen." So the programmer goes, buys everything, and drives back to his house. Upon arrival, his wife angrily asks him, "Why did you get 13 gallons of milk?" The programmer says, "There were eggs!"
+
+## Simple Conditions
+
+```{r 17-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+Going hand in hand with `for` loops are what we call <span class = 'vocab'>conditional statements</span>, or statements that evaluate to `TRUE` or `FALSE`. These are really important, especially inside of `for` loops (and nested `for` loops too!), because what they allow us to do is operate only on certain observations of data that meet our criteria.
+
+You can think of conditionals like flow charts, where the statement is the <span class = 'vocab'>node</span> (splitting point), and the operations and commands are what `R` does down the corresponding path. They're essentially a bunch of statements that say "If my condition is true, then do this set of operations."
+
+We've been using a few conditional statements all along, we just didn't realize it. For example, after each iteration of our `for` loops, `R` checks the boundaries. If the next index is still within those boundaries, then `R` goes through the loop. Otherwise, it exits out of the loop and goes to the next line of code.
+
+Conditional statements are very similar to `for` loops. One way to use a conditional statement is by using the `ifelse()` function. The three arguments you'll need (in order) are the condition you'd like to check, what to do if the condition is met, and what to do if the condition isn't met. As a quick vectorized example, let's say we have a vector `x` that has the numbers 1 through 10. We want to change all the numbers that are greater than (but not equal to) 6 to just be 6, otherwise we want to keep the value that's in `x`. `ifelse()` is great at this! Take a look.
+
+```{r 17-ifelse-example}
+x = 1:10
+ifelse(x > 6, 6, x)
+```
+
+Another way to insert a conditional statementis to use `if()` and put your condition(s) inside the parenthesis. Then, to specify what to do when that condition is met, use a set of curly braces (`{}`) and put the code you'd like to run inside of those braces.
+
+Let's go back to the example from the last chapter with that multiplication table.
+
+```{r 17-multiplication-table, echo = FALSE}
+multiplication_table = data.frame(
+  ones = seq(1, 12, by = 1),
+  twos = seq(2, 24, by = 2),
+  threes = seq(3, 36, by = 3),
+  fours = seq(4, 48, by = 4),
+  fives = seq(5, 60, by = 5),
+  sixes = seq(6, 72, by = 6),
+  sevens = seq(7, 84, by = 7),
+  eights = seq(8, 96, by = 8),
+  nines = seq(9, 108, by = 9),
+  tens = seq(10, 120, by = 10),
+  elevens = seq(11, 132, by = 11),
+  twelves = seq(12, 144, by = 12)
+)
+
+names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
+```
+
+This time, however, let's get more creative with our operation. Let's replace the square numbers in the table with their square root. That is, if `i` and `j` are the same number, put `i` in that place instead of the squared value. We'll have to use a nested loop again, but now we can check the condition and act accordingly.
+
+```{r 17-use-conditional-1}
+for(i in 1:nrow(multiplication_table)){
+  for(j in 1:ncol(multiplication_table)){
+    if(i == j){
+      multiplication_table[i, j] = i
+    }
+  }
+}
+```
+
+```{r 17-updated-multiplication-table, echo = FALSE}
+names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
+```
+
+Cool, it worked flawlessly! Also, make sure you see how the code is styled. The closing braces all line up vertically with what they open, and after each opening brace, we went to the next line and indented one tab. This makes it easy to see what happens where in the code, and allows us to easily edit it as we need to.
+
+Conditinoal statements are sometimes a little tricky though. For example, let's say you want to check if the $i$^th^ element of a vector called `x` is `NA`. You may think that you be tempted to write something like `if(x[i] == NA)`, but this is WRONG! Instead, you want to use the `is.na()` function. The line should read `if(is.na(x[i]))`.
+
+## Compound Conditions
+
+Compound conditions are just combining conditions with `&` or `|` ("and" and "or" in `R`). You can make conditions as compounded as you want, but just be careful that they don't get to be *too* complex. If you're trying to hone in on one particular point in your data, it may be a better idea to just manipulate that one point.
+
+It's also a good idea to use parentheses extensively when writing your conditions, that way there's no confusion as to which compounds go together. As an example, if you want to execute code if condition `a` is met and either `b` *or* conditon `c` are also met, you should write this condition as `if(a & (b | c))` where `a`, `b`, and `c` are the conditions that you want to be met. 
+
+Compounding conditions can help you to cover a lot of cases in your data, but the expressions can get confusing quick. Since conditional statements can be nested, it may be better to take the bigger conditions and then nest another conditional statement inside of the broader one.
+
+One very important thing about conditional statements (and really all code in general) is that they're evaluated and executed in the exact order that you specify them in. That's why it's important to import a dataset before trying to do any kind of manipulation on it, or why you should have a variable declared before you try and use it. Conditional statements are no different. If we write
+
+```{r 17-conditional-order, eval = FALSE}
+for(i in 1:10){
+  if(condition A){
+    Do something here
+  }
+  if(condition B){
+    Do something different here
+  }
+}
+```
+
+`R` will start by evaluating condition A, and then move to condition B. If we flipped them, `R` would evaluate condition B first. Be careful when you specify the conditions! If what you want to do where it says `Do something different here` depends on something you did where condition A was met, you may not get the result you wanted at the end.
+
+In this example, it's also entirely possible we could meet condition A and condition B, but really we'd like to handle those conditions differently. That's where `else if` comes in handy.
+
+## `else` and `else if`
+
+When we write these conditional statements, we may have more than two possible scenarios that we want to address. This is where `else if` makes itself useful. This basically says "If the condition we just checked isn't met, but this new condition is met, do this thing I'm going to tell you to do." `else` alone says "If none of the other conditions are met, do this last thing." We can deploy them as follows:
+
+```{r 17-else-if-else, eval = FALSE}
+for(i in 1:10){
+  if(condition A){
+    Do stuff
+  }
+  else if(condition B){
+    Do other stuff
+  }
+  else if(condition C){
+    Do something different
+  }
+  else{
+    If conditions A, B, and C are not met, execute whatever is here
+  }
+}
+```
+
+## Extra Things for Conditionals
+
+A few quick points things to remember:
+
+- `!` is called the <span class = 'vocab'>negation operator</span>. It's the `R` equivalent of the word "not." That's why `!=` is "does not equal." However, it works with functions like `is.na()` as well. So if you wanted to do some calculations only if the $i$^th^ element of `x` is *not* `NA`, you can count on `if(!is.na(x[i]))` to do the job.
+
+- `%in%` is a shortcut way to check if a value is in another vector. If we have a variable called `temp`, and we want to know if `temp` is in a vector `v1`, writing `if(temp %in% v1)` will do the trick. You can negate this by using `!` and enclosing your conditions 
