@@ -14,11 +14,11 @@ Functions take <span class = 'vocab'>**arguments**</span>, which are data points
 
 <a name = 'default-argument-note'></a>
 
-<span class = 'note'>*Note: in *</span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>*, arguments of functions may have pre-defined values. In this case, unless you specify differently when you</span> <span class = 'vocab'>**call**</span> <span class = 'note'>(use) the function, this pre-defined, or</span> <span class = 'vocab'>**default**</span><span class = 'note'>, value will be used instead.*</span>
+<span class = 'note'>*Note: in *</span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>*, arguments of functions may have pre-defined values. In this case, unless you specify differently when you*</span> <span class = 'vocab'>call</span> <span class = 'note'>*(use) the function, this pre-defined, or</span> <span class = 'vocab'>default</span><span class = 'note'>, value will be used instead.*</span>
 
 To write your own functions, you need to make use of the `function()` function. You give your function a name, then specify its arguments as the arguments in `function()`, and include your steps inside of a set of curly braces (`{}`). To tell `R` what to return as the output of your new function, you have two options: you can either just leave it as the last line inside of the curly braces, or you can explicitly state it inside the parenthesis of `return()`.
 
-We'll put a simple example of a <span class = 'vocab'>**user-defined function**</span> here to illustrate how simple and useful writing a function can be, although you may not completely understand what's going on right now. And **that's okay, and honestly that's *expected* at this point.** We haven't covered what's going on here (it's only Chapter 2!), but if we don't introduce functions conceptually, we can't refer to and/or write and teach them them as we go through the book. They're helpful tools that can save you a *ton* of time as you get better in `R`.
+We'll put a simple example of a <span class = 'vocab'>user-defined function</span> here to illustrate how simple and useful writing a function can be, although you may not completely understand what's going on right now. And **that's okay, and honestly that's *expected* at this point.** We haven't covered what's going on here (it's only Chapter 2!), but if we don't introduce functions conceptually, we can't refer to and/or write and teach them them as we go through the book. They're helpful tools that can save you a *ton* of time as you get better in `R`.
 
 The function we're going to build is called `doubler`. It will take one argument, `x`, and return whatever the double of `x` is. See if you can match the parts in this function to the process we just outlined and with the information about `doubler()` that we just gave you!
 
@@ -42,13 +42,13 @@ As you can see, `x` can be any number, and `doubler()` just takes the number (`x
 
 ## The Types {#types}
 
-Not all data is of the same <span class = 'vocab'>**type**</span>, or usage format. What this means is that different kinds of information from a dataset get evaluated differently in `R`. To check what type a piece of data is, you can use the `class()` function. Let's go through a few of the most common types of data:
+Not all data is of the same <span class = 'vocab'>type</span>, or usage format. What this means is that different kinds of information from a dataset get evaluated differently in `R`. To check what type a piece of data is, you can use the `class()` function. Let's go through a few of the most common types of data:
 
 - `numeric`: Numeric data is data that is *only* numbers. These can be positive, negative, 0, decimals, or even infinity ($\infty$)
 
 <a name = '02-character'></a>
 
-- `character`: Character data is anything that involves a letter or special character. These will be denoted by `''` (single quotation marks) or `""` (double quotation marks). Characters are also called <span class = 'vocab'>**strings**</span>. It's important to note that `2` is of type `numeric`, while `'2'` is of type `character`. A quick check using the `class()` function:
+- `character`: Character data is anything that involves a letter or special character. These will be denoted by `''` (single quotation marks) or `""` (double quotation marks). Characters are also called <span class = 'vocab'>strings</span>. It's important to note that `2` is of type `numeric`, while `'2'` is of type `character`. A quick check using the `class()` function:
 
 ```{r 02-type-check}
 class(2)
@@ -57,7 +57,7 @@ class('2')
 
 <a name = 'logical'></a>
 
-- `logical`: Logical data, also known as <span class = 'vocab'>**boolean data**</span>, is just a series of `TRUE` or `FALSE` values. While this may not necessarily seem like the most useful form of data right now, it's important to know that this type of data exists. `R` evaluates `T` to be `TRUE` and `F` to be `FALSE`, so it's equally valid to use `T` and `F` in place of `TRUE` and `FALSE`, but it's better practice to use `TRUE` and `FALSE` since we may want to use `T` and `F` as variables. More on this in a little
+- `logical`: Logical data, also known as <span class = 'vocab'>boolean data</span>, is just a series of `TRUE` or `FALSE` values. While this may not necessarily seem like the most useful form of data right now, it's important to know that this type of data exists. `R` evaluates `T` to be `TRUE` and `F` to be `FALSE`, so it's equally valid to use `T` and `F` in place of `TRUE` and `FALSE`, but it's better practice to use `TRUE` and `FALSE` since we may want to use `T` and `F` as variables. More on this in a little
 
 - `factor`: Factor data is simply categories. This type of data is really useful for later when we want to split the information on variables such as gender, location, or a variety of other categorical features in the data
 
@@ -67,17 +67,17 @@ class('2')
 
 ## Vectors, Lists, and Data Frames
 
-Each of the data types listed [above](#types) describes a single point of data, called a <span class = 'vocab'>**scalar**</span>. However, we usually we don't have data given to us as one-by-one pieces of information. We're normally given whole datasets at a time, or at least groups of related data, and they're much easier to work with.
+Each of the data types listed [above](#types) describes a single point of data, called a <span class = 'vocab'>scalar</span>. However, we usually we don't have data given to us as one-by-one pieces of information. We're normally given whole datasets at a time, or at least groups of related data, and they're much easier to work with.
 
 ### Vectors {-}
 
 <a name = 'vectors'></a>
 
-A <span class = 'vocab'>**vector**</span> is a grouped set of data. Think about it as if it were the answer to a *single* question from a survey from all students in the class, or the heights of all basketball players in the NBA. We've actually been working with vectors all along! We'll discuss it more in [chapter 4](#Vectorization).
+A <span class = 'vocab'>vector**</span> is a grouped set of data. Think about it as if it were the answer to a *single* question from a survey from all students in the class, or the heights of all basketball players in the NBA. We've actually been working with vectors all along! We'll discuss it more in [chapter 4](#Vectorization).
 
-`R` actually treats every value as a vector. That's why, as you may have noticed, lines of output begin with `[1]`. This indicates the <span class = 'vocab'>**index**</span> (position) in the vector that is at the start of the line. Any time we've had any type of data, `R` has just treated it as a vector of length 1.
+`R` actually treats every value as a vector. That's why, as you may have noticed, lines of output begin with `[1]`. This indicates the <span class = 'vocab'>index**</span> (position) in the vector that is at the start of the line. Any time we've had any type of data, `R` has just treated it as a vector of length 1.
 
-One important thing to note about vectors is that all members of the vector must be of the same type. If they aren't, they will be <span class = 'vocab'>**coerced**</span> (changed) to be of the same type. To create a vector, we can use the `c()` function. This function combines the <span class = 'vocab'>**elements**</span> (individual data points) and turns them into a vector. Separate the parts with a comma (`,`). Here's a few examples:
+One important thing to note about vectors is that all members of the vector must be of the same type. If they aren't, they will be <span class = 'vocab'>coerced**</span> (changed) to be of the same type. To create a vector, we can use the `c()` function. This function combines the <span class = 'vocab'>elements**</span> (individual data points) and turns them into a vector. Separate the parts with a comma (`,`). Here's a few examples:
 
 ```{r 02-vector-examples}
 c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
@@ -158,7 +158,7 @@ As you can see, both options return `'banana'`, so these options are equivalent.
 
 ### Data Frames {-}
 
-The last major type of combined data storing we need to talk about is a <span class = 'vocab'>**data frame**</span>. You can think of a data frame as a big table with the data you'd like. Each row of data is called an <span class = 'vocab'>**observation**</span>, and each column represents a <span class = 'vocab'>**feature**</span> or a variable. We'll use a few of our own data frames throughout the semester, but it's good to know that `R` comes with some of its own data frames already. This data comes from the `crabs` data frame in the `MASS` package (see <a href = 'packages-and-getting-help.html#Packages'>chapter 3</a> for more information on packages). The first 6 rows are shown below.
+The last major type of combined data storing we need to talk about is a <span class = 'vocab'>data frame</span>. You can think of a data frame as a big table with the data you'd like. Each row of data is called an <span class = 'vocab'>observation</span>, and each column represents a <span class = 'vocab'>feature</span> or a variable. We'll use a few of our own data frames throughout the semester, but it's good to know that `R` comes with some of its own data frames already. This data comes from the `crabs` data frame in the `MASS` package (see <a href = 'packages-and-getting-help.html#Packages'>chapter 3</a> for more information on packages). The first 6 rows are shown below.
 
 ```{r 02-data-frame-example, echo = FALSE}
 library(MASS)
@@ -169,7 +169,7 @@ To see a data frame, you'll want to use the `View()` command. This will open the
 
 A few things about data frames:
 
-- They're really just an easy-to-see list. You can access any column (feature) by using the `$` operator. The <span class = 'vocab'>**syntax**</span> (way to write the code) is: `df_name$column_name`, where `df_name` and `column_name` are the data frame name and column name respectively
+- They're really just an easy-to-see list. You can access any column (feature) by using the `$` operator. The <span class = 'vocab'>syntax</span> (way to write the code) is: `df_name$column_name`, where `df_name` and `column_name` are the data frame name and column name respectively
 
 - All columns (or list elements) must be of the same length. They may contain `NA` values, but their lengths *must* be the same
 
