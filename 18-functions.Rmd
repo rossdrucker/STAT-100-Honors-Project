@@ -72,7 +72,7 @@ Let's start with a simple example: a function that takes a set of numbers and re
 
 Now, we need a name to make our declaration. How about `averageCalc()`? Great. Declare it.
 
-```{r 18-averageCalc-dec, eval = FALSE}
+```{r 18-averageCalc-dec}
 averageCalc = function(){
   
 }
@@ -80,7 +80,7 @@ averageCalc = function(){
 
 Step 1 of our algorithm tells us we need to get a set of numbers to work with. This is going to be an argument of the function, since we want `averageCalc()` to work on any set of numbers we pass to it. Remember, names of arguments should be descriptive, but concise. Since it's just a set of numbers, why not call it `nums`? Sounds good to us!
 
-```{r 18-averageCalc-args, eval = FALSE}
+```{r 18-averageCalc-args}
 averageCalc = function(nums){
   
 }
@@ -88,7 +88,7 @@ averageCalc = function(nums){
 
 Step 2 says we need to add up the numbers in our set, `nums`. And we know that `R` has a function, `sum()` that adds up all of the numbers in a vector! We'll want to use this sum later (in step 3), so we should probably store it as something. We'll call it `total`, since it's the total sum of the numbers in `nums`.
 
-```{r 18-averageCalc-sum, eval = FALSE}
+```{r 18-averageCalc-sum}
 averageCalc = function(nums){
   total = sum(nums)
 }
@@ -96,7 +96,7 @@ averageCalc = function(nums){
 
 Now, we need to divide `total` by how many numbers there are in `nums`, but how many numbers are in `nums`? We don't know, so we should be generally specific: general enough where we know that it will work whether there's 10 or 10,000 numbers in the set, but specific enough where we know what exactly what we're doing with it. Luckily, the `length()` function tells us how many numbers there are in a vector, so we can use it here. We'll store this length in a variable called `length_nums`.
 
-```{r 18-averageCalc-length, eval = FALSE}
+```{r 18-averageCalc-length}
 averageCalc = function(nums){
   total = sum(nums)
   length_nums = length(nums)
