@@ -80,7 +80,7 @@ text(x = 1.35,
      col = '#ead031')
 ```
 
-We could also draw the same plot horizontally. It's good to be able to analyze a box plot in both ways
+We could also draw the same plot horizontally. It's good to be able to analyze a box plot in both ways.
 
 ```{r 11-horiz-box-plot-example, echo = FALSE}
 boxplot(survey2$socialMedia, ylab = '', xlab = 'Hours Spent on Social Media', horizontal = TRUE)
