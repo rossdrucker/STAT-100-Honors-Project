@@ -1,0 +1,149 @@
+# `for` Loops
+
+```{r 16-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+In order to clean up our datasets, we'll have to make use of <span class = 'vocab'>control structures</span>. This sounds super technical, but really what they help us do is navigate our way through the data in an organized, controlled fashion. They can do anything from helping us perform a series of operations on each observation to doing different operations based on criteria that we determine. There's two main components to control structures: `for` loops and conditional statements.
+
+<span style = 'color: #e04e39'>`for`</span> <span class = 'vocab'>loops</span> allow us to <span class = 'vocab'>iterate</span>, or cycle through, our data set. Inside of a `for` loop, we can create variables, do calculations, or even put other `for` loops (this is called nesting, and we'll come back to it in a little bit).
+
+We'll do a few simple examples of `for` loops just to demonstrate their usefulness. Let's take a a vector of numbers called `v1` and use a `for` loop to do something simple: add 1 to each of the numbers. 
+
+## Algorithms
+
+Now it's time to think like a computer and devise an <span class = 'vocab'>algorithm</span>, or set of strict steps. "Legal" operations are anything you'd be able to do by hand, such as:
+
+- "Getting" a number, which just means seeing what the number is
+
+- "Saving" a number, since you could write it down on a piece of paper to remember it
+
+- "Repeating" any step, since this is what `for` loops allow us to do
+
+- Any mathematical operation
+
+- Checking a condition (but more on that later)
+
+Our algorithm for this process looks like this:
+
+1) Get the first number in the vector `v1`
+2) Add 1 to this number
+3) Save this new number in the same place as the original number
+4) Repeat for all remaining numbers
+
+<span class = 'note'>While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style = 'color: #a21bd7'>`for`</span> <span class = 'note'>loop.</span>
+
+```{r 16-create-v1}
+(v1 = seq(1, 100, by = 7))
+```
+
+## Syntax
+
+To <span class = 'vocab'>declare</span> or <span class = 'vocab'>initialize</span> (make use of) a `for` loop, start the line with the word `for`, followed immediately by parentheses (`()`).
+
+```{r 16-for-loop-1, eval = FALSE}
+for()
+```
+
+Inside of the parentheses, we need to make use of an <span class = 'vocab'>iterable index</span>. You should be familiar with indexes from <a href = 'functions-and-data-types.html#vectors'>before</a>, but as a refresher, the index is just the location in the vector/data frame of the point that we're talking about. We've been using indicies that we knew we wanted (i.e. the 3rd location we used `[3]`), but now we want this iterable index to be "generally specific." That is, we want it to be specific enough to know what location we're at, but general enough so we don't have to write the same line of code for each different index. Essentially, this iterable index is just a variable, and each time we go through the `for` loop, the variable will increase by 1. We'll call this iterable index `i`.
+
+The other thing we need to supply is the boundaries (that are inclusive) we want to iterate over. If we want to go over all of the elements of `v1`, for example, we'd want to specify that by putting `in 1:15`, since there are 15 elements in `v1`. 
+
+<span class = 'tip'>Pro tip: it's a better idea to fill in the boundries as</span> <span style = 'color: #00ce45'>`1:length(v1)`</span> <span class = 'tip'>in case we need to change the number of elements in</span> <span style = 'color: #00ce45'>`v1`</span><span class = 'tip'> (maybe we meant to put 10 or 1000 instead of 100?). Writing the boundaries in this way is more flexible in the code while still providing the same desired output, so that's what we'll do.</span>
+
+To finish off this line and specify the exact operations we'd like to do to `v1`, we need to enclose the operations in curly braces (`{}`). Each time `R` hits that last, closing brace, it will increase `i` by 1 and go back to the top. As long as `i` stays within the boundaries, `R` will keep running the code inside the loop. All together, we've got this as our `for` loop declaration:
+
+```{r 16-for-loop-2, eval = FALSE}
+for(i in 1:length(v1)){}
+```
+
+Inside of the curly braces is where the metaphorical magic happens. We'll put our operations in there, and let `R` handle the rest. We want to add 1 to each element of `v1` and save it in its same location. Step-by-step, we're saying to replace the i^th^ element of `v1` with 1 + the i^th^ element of `v1`.
+
+```{r 16-for-loop-bad}
+for(i in 1:length(v1)){v1[i] = v1[i] + 1}
+v1
+```
+
+This is gross-looking, so let's practice good coding style like we talked about <a href = 'coding-style.html'>earlier</a> and show good spacing and indentation. Since we just acted on the initial `v1` and made our replacements in-place, we need to recreate the original `v1` vector.
+
+```{r 16-for-loop-good}
+v1 = seq(1, 100, by = 7)
+
+for(i in 1:length(v1)){
+  v1[i] = v1[i] + 1
+}
+
+v1
+```
+
+Another quick example following: let's reverse the order of a set of numbers. We'll create a vector called `numbers`, which will have the numbers 1 through 10. Our goal is to reverse the order. Think like a computer and see if you agree with our algorithm:
+
+1) Get the first number from `numbers`
+2) Get the last number from `numbers` (since this is the value we want to switch the first value with) and save it in a variable called `temp` (since if we just put the first value in here, we'd lose the value it originally had)
+3) Replace the last item with the first item
+4) Put the value from `temp` into the current location
+5) Repeat steps 1-4 until we get to the halfway point of `numbers` (since then we'd start switching everything back)
+
+All together, this is the resulting `for` loop. Match it up to make sure you agree!
+
+```{r 16-for-loop-example-2}
+(numbers = 1:10)
+for(i in 1:(length(numbers) / 2)){
+  temp = numbers[length(numbers) - i + 1]
+  numbers[length(numbers) - i + 1] = numbers[i]
+  numbers[i] = temp
+}
+numbers
+```
+
+<span class = 'note'>Note: We used the index</span> <span style = 'color: #a21bd7'>`length(numbers) - i + 1`</span> <span class = 'note'>since the first element we wanted to replace was the last element, or at position</span> <span style = 'color: #a21bd7'>`length(numbers)`</span><span class = 'note'>. Since</span> <span style = 'color: #a21bd7'>`i`</span><span class = 'note'> started at 1, and we needed it to change each time, we subtracted</span> <span style = 'color: #a21bd7'>`i`</span><span class = 'note'> and then added the 1 back in to take care of the first case. You can</span> <span class = 'vocab'>trace</span> <span class = 'note'> (follow) it if you write out the values that</span> <span style = 'color: #a21bd7'>`i`</span> <span class = 'note'> takes in each iteration.</span>
+
+## Nesting
+
+The last point we'll make about loops is that you can <span class = 'vocab'>nest</span> them, or put a `for` loop inside of another `for` loop. Just be sure that your indexes are different! Some example of when you may want to nest two `for` loops would be if you wanted to count the number of matching values in two different vectors, or if you wanted to go through each feature of each observation (i.e. go through each row, and within each row, go through each value) of a data frame. Again, be careful with your indentation. Check out this example, where we check go through the rows and columns of a data frame and add the row number plus the column number to it. That is, the data in the `i`^th^ row and the `j`^th^ column will have `i` + `j` added to it.
+
+First, we need to create all of the vectors and merge them together as a data frame:
+
+```{r 16-multiplication-table-creation}
+multiplication_table = data.frame(
+  ones = seq(1, 12, by = 1),
+  twos = seq(2, 24, by = 2),
+  threes = seq(3, 36, by = 3),
+  fours = seq(4, 48, by = 4),
+  fives = seq(5, 60, by = 5),
+  sixes = seq(6, 72, by = 6),
+  sevens = seq(7, 84, by = 7),
+  eights = seq(8, 96, by = 8),
+  nines = seq(9, 108, by = 9),
+  tens = seq(10, 120, by = 10),
+  elevens = seq(11, 132, by = 11),
+  twelves = seq(12, 144, by = 12)
+)
+```
+
+<div style = 'text-align: center'>Multiplication Table for Numbers 1 through 12</div>
+
+```{r 16-multiplication-table-view, echo = FALSE}
+names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
+```
+
+Now, our nested loops:
+
+```{r 16-nested-for-loop}
+for(i in 1:nrow(multiplication_table)){
+  for(j in 1:nrow(multiplication_table)){
+    multiplication_table[i, j] = multiplication_table[i, j] + i + j
+  }
+}
+```
+
+<div style = 'text-align: center'>After Nested `for` Loops</div>
+```{r 16-multiplication-table-after-loops, echo = FALSE}
+names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
+```
+
+Great, everything worked! To check if it did, just take any number in the table, and subtract off the row and column numbers. This may seem like a silly example, and it admittedly is, but nested `for` loops work even better when we want to only operate on data that meet certain conditions. You'll learn about this in the next chapter.
