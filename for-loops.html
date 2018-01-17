@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-<link rel="prev" href="coding-style.html">
-<link rel="next" href="measures-of-central-tendency.html">
+<link rel="prev" href="uses-of-r.html">
+<link rel="next" href="functions-1.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -237,120 +237,143 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hists" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Bar Graphs vs. Histograms</h1>
-<div id="drawing-bar-graphs-and-histograms-in-r" class="section level2">
-<h2><span class="header-section-number">8.1</span> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></h2>
-<p>One way to explore data in <code>R</code> is by creating quick vizualizations. We’ll use <code>survey1</code>, the STAT 100 and 200 combined survey data from <a href = 'loading-data.html#loading-example'>before</a>, to demonstrate. The dataset has 1628 observations of 24 variables, and a description of the variables in the dataset is available <a href="http://courses.las.illinois.edu/stat/stat100/survey/archive/Stat100_200_2017fall_survey01.html">here</a>.</p>
-<div style="text-align: center">
-Preview of <code>survey1</code>
+<div id="for-loops" class="section level1">
+<h1><span class="header-section-number">Chapter 16</span> <code>for</code> Loops</h1>
+<p>In order to clean up our datasets, we’ll have to make use of <span class="vocab">control structures</span>. This sounds super technical, but really what they help us do is navigate our way through the data in an organized, controlled fashion. They can do anything from helping us perform a series of operations on each observation to doing different operations based on criteria that we determine. There’s two main components to control structures: <code>for</code> loops and conditional statements.</p>
+<p><span style="color: #e04e39"><code>for</code></span> <span class="vocab">loops</span> allow us to <span class="vocab">iterate</span>, or cycle through, our data set. Inside of a <code>for</code> loop, we can create variables, do calculations, or even put other <code>for</code> loops (this is called nesting, and we’ll come back to it in a little bit).</p>
+<p>We’ll do a few simple examples of <code>for</code> loops just to demonstrate their usefulness. Let’s take a a vector of numbers called <code>v1</code> and use a <code>for</code> loop to do something simple: add 1 to each of the numbers.</p>
+<div id="algorithms" class="section level2">
+<h2><span class="header-section-number">16.1</span> Algorithms</h2>
+<p>Now it’s time to think like a computer and devise an <span class="vocab">algorithm</span>, or set of strict steps. “Legal” operations are anything you’d be able to do by hand, such as:</p>
+<ul>
+<li><p>“Getting” a number, which just means seeing what the number is</p></li>
+<li><p>“Saving” a number, since you could write it down on a piece of paper to remember it</p></li>
+<li><p>“Repeating” any step, since this is what <code>for</code> loops allow us to do</p></li>
+<li><p>Any mathematical operation</p></li>
+<li><p>Checking a condition (but more on that later)</p></li>
+</ul>
+<p>Our algorithm for this process looks like this:</p>
+<ol style="list-style-type: decimal">
+<li>Get the first number in the vector <code>v1</code></li>
+<li>Add 1 to this number</li>
+<li>Save this new number in the same place as the original number</li>
+<li>Repeat for all remaining numbers</li>
+</ol>
+<p><span class="note">While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style="color: #a21bd7"><code>for</code></span> <span class="note">loop.</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">v1 =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>))</code></pre></div>
+<pre><code> [1]  1  8 15 22 29 36 43 50 57 64 71 78 85 92 99</code></pre>
 </div>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:7; overflow-x: scroll; width:12; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<div id="syntax" class="section level2">
+<h2><span class="header-section-number">16.2</span> Syntax</h2>
+<p>To <span class="vocab">declare</span> or <span class="vocab">initialize</span> (make use of) a <code>for</code> loop, start the line with the word <code>for</code>, followed immediately by parentheses (<code>()</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for()</code></pre></div>
+<p>Inside of the parentheses, we need to make use of an <span class="vocab">iterable index</span>. You should be familiar with indexes from <a href = 'functions-and-data-types.html#vectors'>before</a>, but as a refresher, the index is just the location in the vector/data frame of the point that we’re talking about. We’ve been using indicies that we knew we wanted (i.e. the 3rd location we used <code>[3]</code>), but now we want this iterable index to be “generally specific.” That is, we want it to be specific enough to know what location we’re at, but general enough so we don’t have to write the same line of code for each different index. Essentially, this iterable index is just a variable, and each time we go through the <code>for</code> loop, the variable will increase by 1. We’ll call this iterable index <code>i</code>.</p>
+<p>The other thing we need to supply is the boundaries (that are inclusive) we want to iterate over. If we want to go over all of the elements of <code>v1</code>, for example, we’d want to specify that by putting <code>in 1:15</code>, since there are 15 elements in <code>v1</code>.</p>
+<p><span class="tip">Pro tip: it’s a better idea to fill in the boundries as</span> <span style="color: #00ce45"><code>1:length(v1)</code></span> <span class="tip">in case we need to change the number of elements in</span> <span style="color: #00ce45"><code>v1</code></span><span class="tip"> (maybe we meant to put 10 or 1000 instead of 100?). Writing the boundaries in this way is more flexible in the code while still providing the same desired output, so that’s what we’ll do.</span></p>
+<p>To finish off this line and specify the exact operations we’d like to do to <code>v1</code>, we need to enclose the operations in curly braces (<code>{}</code>). Each time <code>R</code> hits that last, closing brace, it will increase <code>i</code> by 1 and go back to the top. As long as <code>i</code> stays within the boundaries, <code>R</code> will keep running the code inside the loop. All together, we’ve got this as our <code>for</code> loop declaration:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){}</code></pre></div>
+<p>Inside of the curly braces is where the metaphorical magic happens. We’ll put our operations in there, and let <code>R</code> handle the rest. We want to add 1 to each element of <code>v1</code> and save it in its same location. Step-by-step, we’re saying to replace the i<sup>th</sup> element of <code>v1</code> with 1 + the i<sup>th</sup> element of <code>v1</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){v1[i] =<span class="st"> </span>v1[i] +<span class="st"> </span><span class="dv">1</span>}
+v1</code></pre></div>
+<pre><code> [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
+<p>This is gross-looking, so let’s practice good coding style like we talked about <a href = 'coding-style.html'>earlier</a> and show good spacing and indentation. Since we just acted on the initial <code>v1</code> and made our replacements in-place, we need to recreate the original <code>v1</code> vector.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>)
+
+for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){
+  v1[i] =<span class="st"> </span>v1[i] +<span class="st"> </span><span class="dv">1</span>
+}
+
+v1</code></pre></div>
+<pre><code> [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
+<p>Another quick example following: let’s reverse the order of a set of numbers. We’ll create a vector called <code>numbers</code>, which will have the numbers 1 through 10. Our goal is to reverse the order. Think like a computer and see if you agree with our algorithm:</p>
+<ol style="list-style-type: decimal">
+<li>Get the first number from <code>numbers</code></li>
+<li>Get the last number from <code>numbers</code> (since this is the value we want to switch the first value with) and save it in a variable called <code>temp</code> (since if we just put the first value in here, we’d lose the value it originally had)</li>
+<li>Replace the last item with the first item</li>
+<li>Put the value from <code>temp</code> into the current location</li>
+<li>Repeat steps 1-4 until we get to the halfway point of <code>numbers</code> (since then we’d start switching everything back)</li>
+</ol>
+<p>All together, this is the resulting <code>for</code> loop. Match it up to make sure you agree!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">numbers =</span> <span class="dv">1</span>:<span class="dv">10</span>)</code></pre></div>
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:(<span class="kw">length</span>(numbers) /<span class="st"> </span><span class="dv">2</span>)){
+  temp =<span class="st"> </span>numbers[<span class="kw">length</span>(numbers) -<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>]
+  numbers[<span class="kw">length</span>(numbers) -<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span>numbers[i]
+  numbers[i] =<span class="st"> </span>temp
+}
+numbers</code></pre></div>
+<pre><code> [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
+<p><span class="note">Note: We used the index</span> <span style="color: #a21bd7"><code>length(numbers) - i + 1</code></span> <span class="note">since the first element we wanted to replace was the last element, or at position</span> <span style="color: #a21bd7"><code>length(numbers)</code></span><span class="note">. Since</span> <span style="color: #a21bd7"><code>i</code></span><span class="note"> started at 1, and we needed it to change each time, we subtracted</span> <span style="color: #a21bd7"><code>i</code></span><span class="note"> and then added the 1 back in to take care of the first case. You can</span> <span class="vocab">trace</span> <span class="note"> (follow) it if you write out the values that</span> <span style="color: #a21bd7"><code>i</code></span> <span class="note"> takes in each iteration.</span></p>
+<p><a name = 'nested-for-loops'></a></p>
+</div>
+<div id="nesting" class="section level2">
+<h2><span class="header-section-number">16.3</span> Nesting</h2>
+<p>The last point we’ll make about loops is that you can <span class="vocab">nest</span> them, or put a <code>for</code> loop inside of another <code>for</code> loop. Just be sure that your indexes are different! Some example of when you may want to nest two <code>for</code> loops would be if you wanted to count the number of matching values in two different vectors, or if you wanted to go through each feature of each observation (i.e. go through each row, and within each row, go through each value) of a data frame. Again, be careful with your indentation. Check out this example, where we check go through the rows and columns of a data frame and add the row number plus the column number to it. That is, the data in the <code>i</code><sup>th</sup> row and the <code>j</code><sup>th</sup> column will have <code>i</code> + <code>j</code> added to it.</p>
+<p>First, we need to create all of the vectors and merge them together as a data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">multiplication_table =<span class="st"> </span><span class="kw">data.frame</span>(
+  <span class="dt">ones =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">12</span>, <span class="dt">by =</span> <span class="dv">1</span>),
+  <span class="dt">twos =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">24</span>, <span class="dt">by =</span> <span class="dv">2</span>),
+  <span class="dt">threes =</span> <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">36</span>, <span class="dt">by =</span> <span class="dv">3</span>),
+  <span class="dt">fours =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">48</span>, <span class="dt">by =</span> <span class="dv">4</span>),
+  <span class="dt">fives =</span> <span class="kw">seq</span>(<span class="dv">5</span>, <span class="dv">60</span>, <span class="dt">by =</span> <span class="dv">5</span>),
+  <span class="dt">sixes =</span> <span class="kw">seq</span>(<span class="dv">6</span>, <span class="dv">72</span>, <span class="dt">by =</span> <span class="dv">6</span>),
+  <span class="dt">sevens =</span> <span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">84</span>, <span class="dt">by =</span> <span class="dv">7</span>),
+  <span class="dt">eights =</span> <span class="kw">seq</span>(<span class="dv">8</span>, <span class="dv">96</span>, <span class="dt">by =</span> <span class="dv">8</span>),
+  <span class="dt">nines =</span> <span class="kw">seq</span>(<span class="dv">9</span>, <span class="dv">108</span>, <span class="dt">by =</span> <span class="dv">9</span>),
+  <span class="dt">tens =</span> <span class="kw">seq</span>(<span class="dv">10</span>, <span class="dv">120</span>, <span class="dt">by =</span> <span class="dv">10</span>),
+  <span class="dt">elevens =</span> <span class="kw">seq</span>(<span class="dv">11</span>, <span class="dv">132</span>, <span class="dt">by =</span> <span class="dv">11</span>),
+  <span class="dt">twelves =</span> <span class="kw">seq</span>(<span class="dv">12</span>, <span class="dv">144</span>, <span class="dt">by =</span> <span class="dv">12</span>)
+)</code></pre></div>
+<div style="text-align: center">
+Multiplication Table for Numbers 1 through 12
+</div>
+<table>
 <thead>
 <tr>
-<th style="text-align:center;">
-gender
+<th style="text-align:left;">
 </th>
 <th style="text-align:center;">
-genderID
+1
 </th>
 <th style="text-align:center;">
-height
+2
 </th>
 <th style="text-align:center;">
-weight
+3
 </th>
 <th style="text-align:center;">
-shoeSize
+4
 </th>
 <th style="text-align:center;">
-schoolYear
+5
 </th>
 <th style="text-align:center;">
-studyHr
+6
 </th>
 <th style="text-align:center;">
-GPA
+7
 </th>
 <th style="text-align:center;">
-ACT
+8
 </th>
 <th style="text-align:center;">
-pets
+9
 </th>
 <th style="text-align:center;">
-siblings
+10
 </th>
 <th style="text-align:center;">
-speed
+11
 </th>
 <th style="text-align:center;">
-cash
-</th>
-<th style="text-align:center;">
-sleep
-</th>
-<th style="text-align:center;">
-shoeNums
-</th>
-<th style="text-align:center;">
-ageMother
-</th>
-<th style="text-align:center;">
-ageFather
-</th>
-<th style="text-align:center;">
-random
-</th>
-<th style="text-align:center;">
-love
-</th>
-<th style="text-align:center;">
-charity
-</th>
-<th style="text-align:center;">
-movie
-</th>
-<th style="text-align:center;">
-favTV1
-</th>
-<th style="text-align:center;">
-favTV2
-</th>
-<th style="text-align:center;">
-section
+12
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-Male
-</td>
-<td style="text-align:center;">
-Male
-</td>
-<td style="text-align:center;">
-66
-</td>
-<td style="text-align:center;">
-200
-</td>
-<td style="text-align:center;">
-10.5
-</td>
-<td style="text-align:center;">
-Sophomore
-</td>
-<td style="text-align:center;">
-2.5
-</td>
-<td style="text-align:center;">
-3.5
-</td>
-<td style="text-align:center;">
-24
+<td style="text-align:left;">
+1
 </td>
 <td style="text-align:center;">
 1
@@ -359,579 +382,1037 @@ Sophomore
 2
 </td>
 <td style="text-align:center;">
-25
+3
+</td>
+<td style="text-align:center;">
+4
 </td>
 <td style="text-align:center;">
 5
 </td>
 <td style="text-align:center;">
-7.0
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-47
-</td>
-<td style="text-align:center;">
-49
-</td>
-<td style="text-align:center;">
 6
 </td>
 <td style="text-align:center;">
-few
-</td>
-<td style="text-align:center;">
-60
-</td>
-<td style="text-align:center;">
-Life is Beautiful
-</td>
-<td style="text-align:center;">
-Narcos
-</td>
-<td style="text-align:center;">
-Daredevil
-</td>
-<td style="text-align:center;">
-Stat100_L1
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Female
-</td>
-<td style="text-align:center;">
-Female
-</td>
-<td style="text-align:center;">
-66
-</td>
-<td style="text-align:center;">
-142
-</td>
-<td style="text-align:center;">
-7.5
-</td>
-<td style="text-align:center;">
-Freshman
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-3.8
-</td>
-<td style="text-align:center;">
-26
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-80
-</td>
-<td style="text-align:center;">
-11
-</td>
-<td style="text-align:center;">
-4.5
-</td>
-<td style="text-align:center;">
-21
-</td>
-<td style="text-align:center;">
-37
-</td>
-<td style="text-align:center;">
-47
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-few
-</td>
-<td style="text-align:center;">
-60
-</td>
-<td style="text-align:center;">
-The Giant
-</td>
-<td style="text-align:center;">
-Como dice el dicho
-</td>
-<td style="text-align:center;">
-Drake and Josh
-</td>
-<td style="text-align:center;">
-Stat100_L1
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Male
-</td>
-<td style="text-align:center;">
-Male
-</td>
-<td style="text-align:center;">
-65
-</td>
-<td style="text-align:center;">
-160
-</td>
-<td style="text-align:center;">
-10.5
-</td>
-<td style="text-align:center;">
-Freshman
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-3.9
-</td>
-<td style="text-align:center;">
-33
-</td>
-<td style="text-align:center;">
-6
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-45
-</td>
-<td style="text-align:center;">
-7.5
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-43
-</td>
-<td style="text-align:center;">
-46
+7
 </td>
 <td style="text-align:center;">
 8
-</td>
-<td style="text-align:center;">
-few
-</td>
-<td style="text-align:center;">
-10
-</td>
-<td style="text-align:center;">
-Interstellar
-</td>
-<td style="text-align:center;">
-none
-</td>
-<td style="text-align:center;">
-none
-</td>
-<td style="text-align:center;">
-Stat100_L1
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Female
-</td>
-<td style="text-align:center;">
-Female
-</td>
-<td style="text-align:center;">
-68
-</td>
-<td style="text-align:center;">
-118
-</td>
-<td style="text-align:center;">
-7.5
-</td>
-<td style="text-align:center;">
-Sophomore
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-3.9
-</td>
-<td style="text-align:center;">
-28
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-105
 </td>
 <td style="text-align:center;">
 9
 </td>
 <td style="text-align:center;">
-7.5
+10
 </td>
 <td style="text-align:center;">
-25
+11
 </td>
 <td style="text-align:center;">
-54
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
 </td>
 <td style="text-align:center;">
-53
+2
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+6
 </td>
 <td style="text-align:center;">
 8
 </td>
 <td style="text-align:center;">
-few
+10
 </td>
 <td style="text-align:center;">
-25
+12
 </td>
 <td style="text-align:center;">
-La La Land
+14
 </td>
 <td style="text-align:center;">
-Friends
+16
 </td>
 <td style="text-align:center;">
-Parks and Recreation
+18
 </td>
 <td style="text-align:center;">
-Stat100_L1
+20
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+24
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-Female
+<td style="text-align:left;">
+3
 </td>
 <td style="text-align:center;">
-Female
+3
 </td>
 <td style="text-align:center;">
-61
+6
 </td>
 <td style="text-align:center;">
-173
+9
 </td>
 <td style="text-align:center;">
-9.0
+12
 </td>
 <td style="text-align:center;">
-Sophomore
+15
 </td>
 <td style="text-align:center;">
-0.5
-</td>
-<td style="text-align:center;">
-2.8
+18
 </td>
 <td style="text-align:center;">
 21
 </td>
 <td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+16
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+56
+</td>
+<td style="text-align:center;">
+64
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+27
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+45
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+81
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;">
+40
+</td>
+<td style="text-align:center;">
+50
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+70
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+100
+</td>
+<td style="text-align:center;">
+110
+</td>
+<td style="text-align:center;">
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+22
+</td>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+66
+</td>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+88
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+110
+</td>
+<td style="text-align:center;">
+121
+</td>
+<td style="text-align:center;">
+132
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+48
+</td>
+<td style="text-align:center;">
+60
+</td>
+<td style="text-align:center;">
+72
+</td>
+<td style="text-align:center;">
+84
+</td>
+<td style="text-align:center;">
+96
+</td>
+<td style="text-align:center;">
+108
+</td>
+<td style="text-align:center;">
+120
+</td>
+<td style="text-align:center;">
+132
+</td>
+<td style="text-align:center;">
+144
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now, our nested loops:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">nrow</span>(multiplication_table)){
+  for(j in <span class="dv">1</span>:<span class="kw">ncol</span>(multiplication_table)){
+    multiplication_table[i, j] =<span class="st"> </span>multiplication_table[i, j] +<span class="st"> </span>i +<span class="st"> </span>j
+  }
+}</code></pre></div>
+<div style="text-align: center">
+After Nested <code>for</code> Loops
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+1
+</th>
+<th style="text-align:center;">
+2
+</th>
+<th style="text-align:center;">
+3
+</th>
+<th style="text-align:center;">
+4
+</th>
+<th style="text-align:center;">
+5
+</th>
+<th style="text-align:center;">
+6
+</th>
+<th style="text-align:center;">
+7
+</th>
+<th style="text-align:center;">
+8
+</th>
+<th style="text-align:center;">
+9
+</th>
+<th style="text-align:center;">
+10
+</th>
+<th style="text-align:center;">
+11
+</th>
+<th style="text-align:center;">
+12
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
 1
 </td>
 <td style="text-align:center;">
 3
 </td>
 <td style="text-align:center;">
-90
+5
 </td>
 <td style="text-align:center;">
 7
 </td>
 <td style="text-align:center;">
-8.0
+9
+</td>
+<td style="text-align:center;">
+11
 </td>
 <td style="text-align:center;">
 13
 </td>
 <td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+14
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+20
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
 35
 </td>
 <td style="text-align:center;">
-60
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
 </td>
 <td style="text-align:center;">
 7
 </td>
 <td style="text-align:center;">
-one
+11
 </td>
 <td style="text-align:center;">
-0
+15
 </td>
 <td style="text-align:center;">
-Get Out
+19
 </td>
 <td style="text-align:center;">
-Attack on Titan
+23
 </td>
 <td style="text-align:center;">
-Rick and Morty
+27
 </td>
 <td style="text-align:center;">
-Stat100_L1
+31
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+51
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-Female
+<td style="text-align:left;">
+4
 </td>
 <td style="text-align:center;">
-Female
+9
 </td>
 <td style="text-align:center;">
-66
+14
 </td>
 <td style="text-align:center;">
-125
+19
 </td>
 <td style="text-align:center;">
-8.0
+24
 </td>
 <td style="text-align:center;">
-Sophomore
+29
 </td>
 <td style="text-align:center;">
-2.5
+34
 </td>
 <td style="text-align:center;">
-2.3
+39
 </td>
 <td style="text-align:center;">
-20
+44
 </td>
 <td style="text-align:center;">
-0
+49
 </td>
 <td style="text-align:center;">
-0
+54
 </td>
 <td style="text-align:center;">
-50
+59
 </td>
 <td style="text-align:center;">
-3
+64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
 </td>
 <td style="text-align:center;">
-6.0
+11
 </td>
 <td style="text-align:center;">
-20
+17
 </td>
 <td style="text-align:center;">
-40
+23
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+35
 </td>
 <td style="text-align:center;">
 41
 </td>
 <td style="text-align:center;">
-3
+47
 </td>
 <td style="text-align:center;">
-dozens
+53
 </td>
 <td style="text-align:center;">
-50
+59
 </td>
 <td style="text-align:center;">
-Hidden Figures
+65
 </td>
 <td style="text-align:center;">
-The Cosby Show
+71
 </td>
 <td style="text-align:center;">
-A Different World
-</td>
-<td style="text-align:center;">
-Stat100_L1
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Let’s explore the <code>height</code> variable a little bit. One way that we can do it is by breaking up, or <span class="vocab"><strong>binning</strong></span>, the data into different groups, then plotting what percentage of the data is in each group. This creates what’s called a <span class="vocab"><strong>histogram</strong></span>. To make a histogram in <code>R</code>, we can use the <code>hist()</code> function (see <code>?hist</code> for more information). All that <code>hist()</code> needs is an argument <code>x</code>, which is what you’d like to make a histogram of. Since we want the densities, we’ll add in the <code>freq = FALSE</code> argument. This results with a histogram that looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(
-  survey1$height,
-  <span class="dt">freq =</span> <span class="ot">FALSE</span>
-)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:08-hist-ex1"></span>
-<img src="STAT_100_Honors_Project_files/figure-html/08-hist-ex1-1.png" alt="A basic histogram" width="1152" />
-<p class="caption">
-Figure 8.1: A basic histogram
-</p>
-</div>
-<p>Let’s add a few extra arguments to make the plot a little clearer:</p>
-<ul>
-<li><p><code>main</code> and <code>xlab</code> create a title and an <span class="math inline">\(x\)</span>-axis label respectively</p></li>
-<li><p><code>ylim</code> sets the range of <span class="math inline">\(y\)</span>-values that are shown on the <span class="math inline">\(y\)</span>-axis <span class="note"><em>(Note:</em></span> <span style="color: #a21bd7"><code>xlim</code></span> <span class="note"><em>does the same for the <span class="math inline">\(x\)</span>-axis)</em></span></p></li>
-<li><p><code>breaks</code> controls what numbers are used as part of the binning process. The first number is the smallest value in the data, and the last value is the largest. You can find these by employing <code>min()</code> and <code>max()</code> individually, or you can use the <code>range()</code> function and get both at the same time. <span class="note"><em>Note: the break points we used were arbitrarily selected</em></span></p></li>
-<li><p><code>col</code> changes the colors of the bars. We change these to make them a little easier to identify, but it’s purely cosmetic. Supplying a single value, which can be <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">any named color that <code>R</code> already recognizes</a>, an <a href="https://www.thoughtco.com/color-models-rgb-1697461">RGB value</a> while using the <code>rgb()</code> function, or a <a href="http://www.color-hex.com/">hexadecimal color value supplied as a <code>character</code></a>, preceded by a <code>#</code>. We’ll leave it to you to learn about these color formats on your own, but kow that they’re available to you. Supplying a single value will change the color for each bar, making all the bars the same color, while supplying a vecotr of the same length as the number of bars will change each color individually</p></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="co"># Puts plots side-by-side</span>
-
-<span class="co"># Histogram</span>
-<span class="kw">hist</span>(
-  survey1$height,
-  <span class="dt">main =</span> <span class="st">&#39;Histogram of Heights&#39;</span>,
-  <span class="dt">xlab =</span> <span class="st">&#39;Heights in Inches&#39;</span>,
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, .<span class="dv">1</span>),
-  <span class="dt">freq =</span> <span class="ot">FALSE</span>,
-  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>),
-  <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="co"># Removes default axis numbers</span>
-  <span class="dt">labels =</span> <span class="ot">TRUE</span>, <span class="co"># Put decimals above each bar</span>
-  <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>,
-  <span class="dt">border =</span> <span class="st">&#39;#939598&#39;</span>
-)
-<span class="kw">axis</span>(<span class="dv">2</span>) <span class="co"># Puts y-axis numbers back</span>
-<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>)) <span class="co"># Puts x-axis numbers back</span>
-
-<span class="co"># Bar plot</span>
-<span class="kw">hist</span>(
-  survey1$height,
-  <span class="dt">main =</span> <span class="st">&#39;Bar Plot of Heights&#39;</span>,
-  <span class="dt">xlab =</span> <span class="st">&#39;Heights in Inches&#39;</span>,
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),
-  <span class="dt">freq =</span> <span class="ot">TRUE</span>,
-  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>),
-  <span class="dt">labels =</span> <span class="ot">TRUE</span>, <span class="co"># Put counts above each bar</span>
-  <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="co"># Removes default axis numbers</span>
-  <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>,
-  <span class="dt">border =</span> <span class="st">&#39;#939598&#39;</span>
-)
-<span class="kw">axis</span>(<span class="dv">2</span>) <span class="co"># Puts y-axis numbers back</span>
-<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>)) <span class="co"># Puts x-axis numbers back</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:08-histogram-height"></span>
-<img src="STAT_100_Honors_Project_files/figure-html/08-histogram-height-1.png" alt="Well-formatted histogram (left) and density plot (right)" width="960" />
-<p class="caption">
-Figure 8.2: Well-formatted histogram (left) and density plot (right)
-</p>
-</div>
-<p>While the overall shapes of the two plots seem the same, there are a few important differences to take note of. The biggest one is the significance of each block’s width and height. With a histogram, the height shows the percentage per unit inside of each block, while on a bar graph the heights have no meaning whatsoever. The numbers displayed on top show the total number of people inside each interval. The widths (and the <span class="math inline">\(x\)</span>-axis altogether) of each plot also carry different meanings: barplots just show an interval, while a histogram represents unique heights. That is, even if a number doesn’t appear on the <span class="math inline">\(x\)</span>-axis in a histogram, that height is still represented. Since the heights and widths of each kind of plot differ, so too do the areas, since the areas are the width of the interval times the height of the interval. Histogram areas show percentages within each block, while bar plot areas are – you guessed it – irrelevant.</p>
-<p>We could also summarize our data as the following table:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center;">
-Range
-</th>
-<th style="text-align:center;">
-Area
-</th>
-<th style="text-align:center;">
-Count
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-49-62
-</td>
-<td style="text-align:center;">
-14.8%
-</td>
-<td style="text-align:center;">
-241
+77
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-62-65
+<td style="text-align:left;">
+6
 </td>
 <td style="text-align:center;">
-25%
+13
 </td>
 <td style="text-align:center;">
-407
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-65-68
+20
 </td>
 <td style="text-align:center;">
-27.15%
+27
 </td>
 <td style="text-align:center;">
-442
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-68-70
+34
 </td>
 <td style="text-align:center;">
-13.76%
+41
 </td>
 <td style="text-align:center;">
-224
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-70-73
+48
 </td>
 <td style="text-align:center;">
-12.71%
+55
 </td>
 <td style="text-align:center;">
-207
+62
+</td>
+<td style="text-align:center;">
+69
+</td>
+<td style="text-align:center;">
+76
+</td>
+<td style="text-align:center;">
+83
+</td>
+<td style="text-align:center;">
+90
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-73-95
+<td style="text-align:left;">
+7
 </td>
 <td style="text-align:center;">
-6.57%
+15
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+31
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+63
+</td>
+<td style="text-align:center;">
+71
+</td>
+<td style="text-align:center;">
+79
+</td>
+<td style="text-align:center;">
+87
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+103
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:center;">
+17
+</td>
+<td style="text-align:center;">
+26
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+44
+</td>
+<td style="text-align:center;">
+53
+</td>
+<td style="text-align:center;">
+62
+</td>
+<td style="text-align:center;">
+71
+</td>
+<td style="text-align:center;">
+80
+</td>
+<td style="text-align:center;">
+89
+</td>
+<td style="text-align:center;">
+98
 </td>
 <td style="text-align:center;">
 107
 </td>
+<td style="text-align:center;">
+116
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+39
+</td>
+<td style="text-align:center;">
+49
+</td>
+<td style="text-align:center;">
+59
+</td>
+<td style="text-align:center;">
+69
+</td>
+<td style="text-align:center;">
+79
+</td>
+<td style="text-align:center;">
+89
+</td>
+<td style="text-align:center;">
+99
+</td>
+<td style="text-align:center;">
+109
+</td>
+<td style="text-align:center;">
+119
+</td>
+<td style="text-align:center;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:center;">
+21
+</td>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+43
+</td>
+<td style="text-align:center;">
+54
+</td>
+<td style="text-align:center;">
+65
+</td>
+<td style="text-align:center;">
+76
+</td>
+<td style="text-align:center;">
+87
+</td>
+<td style="text-align:center;">
+98
+</td>
+<td style="text-align:center;">
+109
+</td>
+<td style="text-align:center;">
+120
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+142
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+47
+</td>
+<td style="text-align:center;">
+59
+</td>
+<td style="text-align:center;">
+71
+</td>
+<td style="text-align:center;">
+83
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+107
+</td>
+<td style="text-align:center;">
+119
+</td>
+<td style="text-align:center;">
+131
+</td>
+<td style="text-align:center;">
+143
+</td>
+<td style="text-align:center;">
+155
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:center;">
+25
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+51
+</td>
+<td style="text-align:center;">
+64
+</td>
+<td style="text-align:center;">
+77
+</td>
+<td style="text-align:center;">
+90
+</td>
+<td style="text-align:center;">
+103
+</td>
+<td style="text-align:center;">
+116
+</td>
+<td style="text-align:center;">
+129
+</td>
+<td style="text-align:center;">
+142
+</td>
+<td style="text-align:center;">
+155
+</td>
+<td style="text-align:center;">
+168
+</td>
 </tr>
 </tbody>
 </table>
-<p><span class="note"><em>Note: the areas of the blocks on the histogram sum to 100%</em></span></p>
-<p>This isn’t to say that bar plots don’t have their place, this just isn’t it. Sorry bar graphs, you’ll just have to wait until it’s analysis time. We’ll focus on histograms for the rest of this chapter.</p>
-</div>
-<div id="extracting-information-from-histograms" class="section level2 unnumbered">
-<h2>Extracting Information From Histograms</h2>
-<p>In addition to being able to do visual analysis of a histogram, it may be more useful to use some of the information that the <code>hist()</code> function generates. Usually what we care about is the plot itself, but <code>hist()</code> calculates and stores a lot of information in addition to generating the plot. We’ll store the results from histogram as something called <code>hist1</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hist1 =<span class="st"> </span><span class="kw">hist</span>(
-  survey1$height,
-  <span class="dt">main =</span> <span class="st">&#39;Histogram of Heights&#39;</span>,
-  <span class="dt">xlab =</span> <span class="st">&#39;Heights in Inches&#39;</span>,
-  <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, .<span class="dv">1</span>),
-  <span class="dt">freq =</span> <span class="ot">FALSE</span>,
-  <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">95</span>),
-  <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="co"># Removes default axis numbers</span>
-  <span class="dt">labels =</span> <span class="ot">TRUE</span>, <span class="co"># Put decimals above each bar</span>
-  <span class="dt">col =</span> <span class="st">&#39;#0088ce&#39;</span>,
-  <span class="dt">border =</span> <span class="st">&#39;#939598&#39;</span>
-)</code></pre></div>
-<p>In addition to the plot, <code>hist1</code> contains a list with elements <code>breaks</code>, <code>counts</code>, <code>density</code>, <code>mids</code>, <code>xname</code>, and <code>equidist</code>. Check the help file for what these mean, but we should note that the total count of observations and the density of observations in a given range can be accessed by <code>hist1$counts</code> and <code>hist1$density</code> respectively. Check out the use of list element extraction using <code>$</code> here! These are vectors, and you can use the components as you need to.</p>
+<p>Great, everything worked! To check if it did, just take any number in the table, and subtract off the row and column numbers. This may seem like a silly example, and it admittedly is, but nested <code>for</code> loops work even better when we want to only operate on data that meet certain conditions. You’ll learn about this in the next chapter.</p>
 
 </div>
 </div>
@@ -940,8 +1421,8 @@ Count
           </div>
         </div>
       </div>
-<a href="coding-style.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="measures-of-central-tendency.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="uses-of-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
