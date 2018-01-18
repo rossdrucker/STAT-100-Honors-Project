@@ -6,7 +6,13 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE, fig.height = 7, fig.widt
 
 # Downloading `R` and RStudio
 
-The first thing you'll need to do in order to begin using `R` is to actually download `R` itself. You can do this [from this link](https://cran.r-project.org/). Make sure that you install it for the type of operating system you have. That is, if you have a Windows computer, don't download the Mac or Linux versions. This downloads what's called a <span class = 'vocab'>**terminal**</span>, or the bare minimum interface that you need to write and run code in R. You're not encouraged to use this terminal when writing code.
+The first thing you'll need to do in order to begin using `R` is to actually download `R` itself. You can do this [from this link](https://cran.r-project.org/). It's <span class = 'vocab'>open-source</span>, which means anyone can access and use it for free!
+
+```{r 01-free-gif, echo = FALSE}
+knitr::include_graphic('img/01-free-dance.gif')
+```
+
+Make sure that you install it for the type of operating system you have. That is, if you have a Windows computer, don't download the Mac or Linux versions. This downloads what's called a <span class = 'vocab'>**terminal**</span>, or the bare minimum interface that you need to write and run code in R. You're not encouraged to use this terminal when writing code.
 
 > "Wait, I thought you just said that this is how to write and run my code, and that's what this project is."
 >
