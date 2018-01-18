@@ -8,13 +8,13 @@ knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fi
 
 ## Functions
 
-A <span class = 'vocab'>**function**</span> in `R` is a set of steps, operations, and procedures that are done to data in a specific order. `R` has some functions that are built into the language (many of which we'll go through in this book), but you are also able to write your own functions as well.
+A <span class = 'vocab'>function</span> in `R` is a set of steps, operations, and procedures that are done to data in a specific order. `R` has some functions that are built into the language (many of which we'll go through in this book), but you are also able to write your own functions as well.
 
-Functions take <span class = 'vocab'>**arguments**</span>, which are data points and other items that the function needs to do its job. Think of them like a variable, where you can change the value that they take each time you need to run the function. These can be anything from data points themselves, to colors and sizes for plots, to even other functions if necessary. After performing the steps and calculations that they're supposed to do, they <span class = 'vocab'>**return**</span>, or give out, the information.
+Functions take <span class = 'vocab'>arguments</span>, which are data points and other items that the function needs to do its job. Think of them like a variable, where you can change the value that they take each time you need to run the function. These can be anything from data points themselves, to colors and sizes for plots, to even other functions if necessary. After performing the steps and calculations that they're supposed to do, they <span class = 'vocab'>return</span>, or give out, the information.
 
 <a name = 'default-argument-note'></a>
 
-<span class = 'note'>*Note: in *</span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>*, arguments of functions may have pre-defined values. In this case, unless you specify differently when you*</span> <span class = 'vocab'>call</span> <span class = 'note'>*(use) the function, this pre-defined, or*</span> <span class = 'vocab'>default</span><span class = 'note'>*, value will be used instead.*</span>
+<span class = 'note'>Note: in </span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>, arguments of functions may have pre-defined values. In this case, unless you specify differently when you</span> <span class = 'vocab'>call</span> <span class = 'note'>(use) the function, this pre-defined, or </span><span class = 'vocab'>default</span><span class = 'note'>, value will be used instead.
 
 To write your own functions, you need to make use of the `function()` function. You give your function a name, then specify its arguments as the arguments in `function()`, and include your steps inside of a set of curly braces (`{}`). To tell `R` what to return as the output of your new function, you have two options: you can either just leave it as the last line inside of the curly braces, or you can explicitly state it inside the parenthesis of `return()`.
 
@@ -73,11 +73,11 @@ Each of the data types listed [above](#types) describes a single point of data, 
 
 <a name = 'vectors'></a>
 
-A <span class = 'vocab'>vector**</span> is a grouped set of data. Think about it as if it were the answer to a *single* question from a survey from all students in the class, or the heights of all basketball players in the NBA. We've actually been working with vectors all along! We'll discuss it more in [chapter 4](#Vectorization).
+A <span class = 'vocab'>vector</span> is a grouped set of data. Think about it as if it were the answer to a *single* question from a survey from all students in the class, or the heights of all basketball players in the NBA. We've actually been working with vectors all along! We'll discuss it more in [chapter 4](#Vectorization).
 
-`R` actually treats every value as a vector. That's why, as you may have noticed, lines of output begin with `[1]`. This indicates the <span class = 'vocab'>index**</span> (position) in the vector that is at the start of the line. Any time we've had any type of data, `R` has just treated it as a vector of length 1.
+`R` actually treats every value as a vector. That's why, as you may have noticed, lines of output begin with `[1]`. This indicates the <span class = 'vocab'>index</span> (position) in the vector that is at the start of the line. Any time we've had any type of data, `R` has just treated it as a vector of length 1.
 
-One important thing to note about vectors is that all members of the vector must be of the same type. If they aren't, they will be <span class = 'vocab'>coerced**</span> (changed) to be of the same type. To create a vector, we can use the `c()` function. This function combines the <span class = 'vocab'>elements**</span> (individual data points) and turns them into a vector. Separate the parts with a comma (`,`). Here's a few examples:
+One important thing to note about vectors is that all members of the vector must be of the same type. If they aren't, they will be <span class = 'vocab'>coerced</span> (changed) to be of the same type. To create a vector, we can use the `c()` function. This function combines the <span class = 'vocab'>elements</span> (individual data points) and turns them into a vector. Separate the parts with a comma (`,`). Here's a few examples:
 
 ```{r 02-vector-examples}
 c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
