@@ -19,9 +19,10 @@ knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, messa
 library(magrittr)
 ```
 
-## Syllabus
+## Syllabus {-}
 
 **Coordinator**: Ross Drucker
+
 **Email**: ross.a.drucker@gmail.com
 
 **Office Hours**: MWF from 2:00pm-5:00pm, TR from 3:30pm-5:00pm in 23 Illini Hall (CITES Computer Lab), or by appointment
