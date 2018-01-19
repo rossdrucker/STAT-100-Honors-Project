@@ -102,9 +102,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">STAT 100 Honors Project</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#overview"><i class="fa fa-check"></i>Overview</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions"><i class="fa fa-check"></i>Conventions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview and Syllabus</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conventions-for-this-book"><i class="fa fa-check"></i>Conventions For This Book</a></li>
 </ul></li>
 <li class="part"><span><b>I The Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
@@ -254,15 +254,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 class="title">STAT 100 Honors Project</h1>
 <h4 class="author"><em><a href="mailto:ross.a.drucker@gmail.com">Ross Drucker</a></em></h4>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>Welcome to the STAT 100 Honors Project! Make sure that you’ve gotten your HCLA approved and submitted to your college.</p>
-<div id="overview" class="section level2 unnumbered">
-<h2>Overview</h2>
+<div id="overview-and-syllabus" class="section level1 unnumbered">
+<h1>Overview and Syllabus</h1>
+<p><strong>Coordinator</strong>: Ross Drucker <strong>Email</strong>: <a href="mailto:ross.a.drucker@gmail.com">ross.a.drucker@gmail.com</a></p>
+<p><strong>Office Hours</strong>: MWF from 2:00pm-5:00pm, TR from 3:30pm-5:00pm in 23 Illini Hall (CITES Computer Lab), or by appointment</p>
+<p><strong>Website(s)</strong>: General information about the project will be posted on <a href="https://compass2g.illinois.edu/webapps/login/">Compass2g</a>. Assignments will be posted on <a href="lon-capa.illinois.edu">Lon-Capa</a> under the James Scholar folder. The textbook can be found at <a href="https://rossdrucker.github.io/STAT-100-Honors-Project/" class="uri">https://rossdrucker.github.io/STAT-100-Honors-Project/</a></p>
+<p><strong>Project Objective</strong>: The goal of this project is to make students comfortable using the R programming language for a variety of uses. By the end, students should be able to perform basic calculations in R for both STAT 100 concepts and personal use.</p>
+<p><strong>HCLA</strong>: In order to receive credit for this project, you must get an HCLA (either paper form or electronic) signed no later than <strong>Monday, January 29th at 11:59pm</strong>. Since the project is meant to run alongside class material, signups after this date will not be accepted.</p>
+<p><strong>Topics</strong> (not in order; these may be updated throughout the semester):</p>
+<ol style="list-style-type: decimal">
+<li>R’s interface and using R as a calculator</li>
+<li>Data types</li>
+<li>Descriptive statistics</li>
+<li>Regression and model creation</li>
+<li>Plotting, histograms, and visualization</li>
+<li>Functions and control structures</li>
+<li>Document rendering and scripting</li>
+<li>Coding Style</li>
+<li>Hypothesis testing</li>
+<li>Probability</li>
+</ol>
+<p><strong>Grading Policy</strong>: - Since this is the first semester for this version of the honors project, there’s not a set number of assignments. There will most likely be around 8-12 assignments (due every 1 to 1.5 weeks) - Each week, students should expect to spend 2-3 hours on readings and assignments - All assignments will be posted on (and therefore submitted to) Lon-Capa. - Point values will vary by assignment - In order to receive credit for the project, you must complete all assignments with an average an 85% or higher - Assignments will be available for one week after posting. No late assignments will be accepted</p>
+<p><strong>Academic Integrity</strong>: All students are expected to abide by the campus regulations on academic integrity, which can be found <a href="http://studentcode.illinois.edu/article1_part4_1-401.html">here</a>. These standards will be enforced and infractions of these rules will not be tolerated in this course. Such behavior includes sharing or copying any part of another student’s assignment or allowing another student to copy any part of your assignment.</p>
+<p><strong>Changes</strong>: The coordinator reserves the right to change any of the information in this syllabus. It is the student’s responsibility to refer back to the syllabus to see pending changes.</p>
+<div id="about-this-book" class="section level2 unnumbered">
+<h2>About This Book</h2>
 <p>This book is meant to run parallel to the <a href="http://courses.las.illinois.edu/stat/stat100/">STAT 100</a> course notes. The hope is that STAT 100 students learn how the concepts they learned are put to use in modern statistical settings. Throughout, students will not only gain familiarity with the concepts in the notebook, but will also gain an understanding on how to use the <code>R</code> programming language to solve every-day problems in the real world.</p>
 </div>
-<div id="conventions" class="section level2 unnumbered">
-<h2>Conventions</h2>
+<div id="conventions-for-this-book" class="section level2 unnumbered">
+<h2>Conventions For This Book</h2>
 <p>A few things to note throughout this book:</p>
 <ul>
 <li>Code that is written in <code>monospace</code> font refers to either RStudio keyboard shortcuts or R code, and it will be syntax-highlighted when appropriate</li>
@@ -275,8 +295,8 @@ a +<span class="st"> </span>b
 <ul>
 <li><p>Output will begin with <code>##</code> on the side</p></li>
 <li><p>Vocab words will appear like <span class="vocab">this</span> throughout the text</p></li>
-<li><p><span class="tip"><em>Helpful hints (“Pro tips”) will appear in this color and be in italics. They are usually shortcuts to use in</em></span> <span style="color: #00ce45"><code>R</code></span> <span class="tip"><em>to help make code writing and editing easier to do</em></span></p></li>
-<li><p><span class="note"><em>Things to keep in mind or pay attention to will look like this. They’ll usually begin “Note:”</em></span></p></li>
+<li><p><span class="tip">Helpful hints (“Pro tips”) will appear in this color and be in italics. They are usually shortcuts to use in</span> <span style="color: #00ce45"><code>R</code></span> <span class="tip">to help make code writing and editing easier to do</span></p></li>
+<li><p><span class="note">Things to keep in mind or pay attention to will look like this. They’ll usually begin “Note:”</span></p></li>
 </ul>
 
 </div>
