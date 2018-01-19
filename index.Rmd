@@ -10,7 +10,7 @@ favicon: img/favicon.png
 #biblio-style: apalike
 link-citations: yes
 highlight: haddock
-github-repo: rstudio/bookdown-demo
+github-repo: rossdrucker/STAT-100-Honors-Project
 ---
 # Overview and Syllabus {-}
 
