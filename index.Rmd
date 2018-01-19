@@ -60,10 +60,15 @@ You can send emails from any email address you have. Allow up to 24 hours for a 
 
 **Grading Policy**: 
 -	Since this is the first semester for this version of the honors project, there's not a set number of assignments. There will most likely be around 8-12 assignments (due every 1 to 1.5 weeks)
+
 -	Each week, students should expect to spend 2-3 hours on readings and assignments
+
 -	All assignments will be posted on (and therefore submitted to) Lon-Capa. 
+
 -	Point values will vary by assignment
+
 -	In order to receive credit for the project, you must complete all assignments with an (combined) average of 85% or higher
+
 -	Assignments will be available for one week after posting. No late assignments will be accepted
 
 **Academic Integrity**: All students are expected to abide by the campus regulations on academic integrity, which can be found [here](http://studentcode.illinois.edu/article1_part4_1-401.html). These standards will be enforced and infractions of these rules will not be tolerated in this course. Such behavior includes sharing or copying any part of another student's assignment or allowing another student to copy any part of your assignment.
