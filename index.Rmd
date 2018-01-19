@@ -12,12 +12,14 @@ link-citations: yes
 highlight: haddock
 github-repo: rossdrucker/STAT-100-Honors-Project
 ---
-# Overview and Syllabus {-}
+# Introduction {-}
 
 ```{r index-setup, echo = FALSE}
 knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 library(magrittr)
 ```
+
+## Syllabus
 
 **Coordinator**: Ross Drucker
 **Email**: ross.a.drucker@gmail.com
