@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-<link rel="prev" href="operators.html">
-<link rel="next" href="loading-data.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="downloading-r-and-rstudio.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -251,66 +251,60 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="packages-and-getting-help" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Packages and Getting Help</h1>
-<div id="packages" class="section level2">
-<h2><span class="header-section-number">6.1</span> Packages</h2>
-<p>A <span class="vocab">package</span> is just a collection of functions, data, and already-written code that is in a well-defined format. We’ll introduce a few packages as we go, but a lot of what we’ll cover will rely on the <code>base</code> package, which is just the functions that <code>R</code> already comes with. They’re the <em>base</em> of most analyses and other operations you’ll want to do in R, hence the name of the package. To install a new package, you want to use the <code>install.packages()</code> function, with the name of the package quoted and inside of the parenthesis.</p>
-<p>One package that you’ll want to install is the <code>swirl</code> package, which was developed as a self-guided class to help you learn R. To install this package, copy and paste the following line into your <code>Console</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;swirl&#39;</span>)</code></pre></div>
-<p>Once the package is installed, you’ll want to <span class="vocab">load</span> the package (tell <code>R</code> that you’ll be using commands, data, and other information from the package). Copy/paste or type the following into your console to do so, and follow the prompts:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(swirl)</code></pre></div>
-</div>
-<div id="helpfiles" class="section level2">
-<h2><span class="header-section-number">6.2</span> Help Files</h2>
-<p>Another great aspect of <code>R</code> is how well-documented the language is. If you don’t know how to use a particular function, there are a lot of ways to learn how to use it and see it in action. The help files provide the <span class="vocab">syntax</span> (what order to put things into the function), an explanation of the arguments, as well as information about the <span class="vocab">output</span> (what the function gives back to you), and examples of the function in use.</p>
-<div id="an-example" class="section level3 unnumbered">
-<h3>An Example</h3>
-<p>Let’s say you wanted to learn more about the <code>mean()</code> function. You can type <code>?mean</code> into your console, and the help file will pull up in the <code>Help</code> tab. From there, you can learn all about the function.</p>
-<div style="text-align: center">
-The header of the <code>mean()</code> documentation
-</div>
-<p><img src="img/05-help1.png" style="display: block; margin: auto;" /></p>
-<p>As you can see, the top of the help function starts with the name of the function, with the package it comes from in brackets. Then it provides a brief description of what the function does. This one gets the mean (average) of a list of numbers.</p>
-<div style="text-align: center">
-Syntax for <code>mean()</code>
-</div>
-<p><img src="img/05-help2.png" style="display: block; margin: auto;" /></p>
-<p>This part tells us that all the function looks for is an object <code>x</code>, which is just the numbers you’d like to take the average of. Something to note: the <code>trim</code> argument has a default value of <code>0</code>, and <code>na.rm</code> is set to <code>FALSE</code>. As you hopefully remember from <a href = 'functions-and-data-types.html#default-argument-note'>chapter 2</a>, these will be the values that the function uses unless you specify differently. Then it explains the arguments it’s looking for as it does its job in the <strong>Arguments</strong> section:</p>
-<div style="text-align: center">
-Arguments for <code>mean()</code>
-</div>
-<p><img src="img/05-help3.png" style="display: block; margin: auto;" /></p>
-<p>Next is the <strong>Value</strong> section, which explains what the output of the function actually is.</p>
-<div style="text-align: center">
-Value for <code>mean()</code>
-</div>
-<p><img src="img/05-help4.png" style="display: block; margin: auto;" /></p>
-<p>Lastly, the documentation provides examples of it in use. You’ll understand this code by the end of the chapter, but for now trust that it’s doing its job appropriately.</p>
-<div style="text-align: center">
-Examples of <code>mean()</code>
-</div>
-<p><img src="img/05-help5.png" style="display: block; margin: auto;" /></p>
-</div>
-</div>
-<div id="other-helpful-resources" class="section level2">
-<h2><span class="header-section-number">6.3</span> Other Helpful Resources</h2>
-<p>If the help file isn’t much help in solving your problem, there’s a plethora of other helpful resources available to you. What do you do when you don’t understand something? What about if you get an error message and your code doesn’t run properly?</p>
-<p>One of the most important things to remember is that you’re not the first person to struggle with wherever you’re stuck, or get the error message you just got. There may not always be a TA that’s available to help right when you need them, so it’s a good idea to start learning how to help yourself solve your problems.</p>
-<p><a href="https://stackoverflow.com/questions/tagged/r">StackOverflow</a> is one of the best resources available to you in terms of help. It’s an open, online forum for people to post and answer questions. Think of it like reddit, but for code. This is a fantastic place to start your search, and the questions range from the very simple beginner questions to incredibly technical and advanced concepts. If a post is too technical for you to understand, there’s almost always another one (or more!) that can help.</p>
-<p>It may seem odd, but Googling is also a great way to learn. Because of how powerful Google is, copying and pasting error messages will usually result in a good explanation of the error message, why you’re getting it, and multiple ways to correct it. <strong><a href="www.google.com"><span style="color:#4885ed">G</span><span style="color:#db3236">o</span><span style="color:#f4c20d">o</span><span style="color:#4885ed">g</span><span style="color:#3cba54">l</span><span style="color:#db3236">e</span></a> is your friend.</strong></p>
-<p>There’s also plenty of resources online to help you learn <code>R</code> programming as well. In addition to the <code>swirl</code> library we talked about earlier, there are some websites, like <a href="http://tryr.codeschool.com/levels/1/challenges/1">codeschool</a>, that allow you to practice writing <code>R</code> code. Feel free to use this one as much or as little as you’d like, but the best way to get better at programming is to practice as much as possible.</p>
-<p>Lastly, there’s also a variety of books that you can make use of to help learn and understand <code>R</code>, like <a href="https://leanpub.com/rprogramming">this book</a> It’s based off a Coursera course, and the author made videos that are linked in the book. You can download it for free by just sliding the price slider to 0 (or you can pay if you want).</p>
+<div id="syllabus" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Syllabus</h1>
+<p><strong>Coordinator</strong>: Ross Drucker</p>
+<p><strong>Email</strong>: <a href="mailto:ross.a.drucker@gmail.com">ross.a.drucker@gmail.com</a></p>
+<p><strong>Email Policy</strong>: Start your subject with [STAT 100 Honors Project]. Also provide a quick synopsis of what you’re emailing about. For example, a few subject lines could look like:</p>
+<ul>
+<li><p>[STAT 100 Honors Project] Homework 1 Problem 2</p></li>
+<li><p>[STAT 100 Honors Project] Question about histograms</p></li>
+</ul>
+<p>Bad subject lines can look like this:</p>
+<ul>
+<li><p>HELP ME PLZ</p></li>
+<li><p>idk wut i’m doing 4 hw1</p></li>
+</ul>
+<p>In your email, please include a description of the problem you’re having and any relevant code and/or error messages in the form of scripts or screenshots. Failure to do so may result in longer response times and/or no response altogether. You can send emails from any email address you have. Allow up to 24 hours for a response if you send an email Monday through Thursday. Over the weekend, response times may be longer. Please be patient.</p>
+<p><strong>Office Hours</strong>: MWF from 2:00pm-5:00pm, TR from 3:30pm-5:00pm in 23 Illini Hall (CITES Computer Lab), or by appointment</p>
+<p><strong>Website(s)</strong>: General information about the project will be posted on <a href="https://compass2g.illinois.edu/webapps/login/">Compass2g</a>. Assignments will be posted on <a href="lon-capa.illinois.edu">Lon-Capa</a> under the James Scholar folder. The textbook can be found at <a href="https://rossdrucker.github.io/STAT-100-Honors-Project/" class="uri">https://rossdrucker.github.io/STAT-100-Honors-Project/</a></p>
+<p><strong>Project Objective</strong>: The goal of this project is to make students comfortable using the R programming language for a variety of uses. By the end, students should be able to perform basic calculations in R for both STAT 100 concepts and personal use.</p>
+<p><strong>HCLA</strong>: In order to receive credit for this project, you must get an HCLA (either paper form or electronic) signed no later than <strong>Monday, January 29th at 11:59pm</strong>. Since the project is meant to run alongside class material, signups after this date will not be accepted.</p>
+<p><strong>Topics</strong> (not in order; these may be updated throughout the semester):</p>
+<ol style="list-style-type: decimal">
+<li><p>R’s interface and using R as a calculator</p></li>
+<li><p>Data types</p></li>
+<li><p>Descriptive statistics</p></li>
+<li><p>Regression and model creation</p></li>
+<li><p>Plotting, histograms, and visualization</p></li>
+<li><p>Functions and control structures</p></li>
+<li><p>Document rendering and scripting</p></li>
+<li><p>Coding Style</p></li>
+<li><p>Hypothesis testing</p></li>
+<li><p>Probability</p></li>
+</ol>
+<p><strong>Grading Policy</strong>: - Since this is the first semester for this version of the honors project, there’s not a set number of assignments. There will most likely be around 8-12 assignments (due every 1 to 1.5 weeks)</p>
+<ul>
+<li><p>Each week, students should expect to spend 2-3 hours on readings and assignments</p></li>
+<li><p>All assignments will be posted on (and therefore submitted to) Lon-Capa.</p></li>
+<li><p>Point values will vary by assignment</p></li>
+<li><p>In order to receive credit for the project, you must complete all assignments with an (combined) average of 85% or higher</p></li>
+<li><p>Assignments will be available for one week after posting. No late assignments will be accepted</p></li>
+</ul>
+<p><strong>Academic Integrity</strong>: All students are expected to abide by the campus regulations on academic integrity, which can be found <a href="http://studentcode.illinois.edu/article1_part4_1-401.html">here</a>. These standards will be enforced and infractions of these rules will not be tolerated in this course. Such behavior includes sharing or copying any part of another student’s assignment or allowing another student to copy any part of your assignment.</p>
+<p><strong>Changes</strong>: The coordinator reserves the right to change any of the information in this syllabus. It is the student’s responsibility to refer back to the syllabus to see pending changes.</p>
 
 </div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loading-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="downloading-r-and-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
