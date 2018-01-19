@@ -6,7 +6,7 @@ knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, ca
 
 ## Packages
 
-A <span class = 'vocab'>**package**</span> is just a collection of functions, data, and already-written code that is in a well-defined format. We'll introduce a few packages as we go, but a lot of what we'll cover will rely on the `base` package, which is just the functions that `R` already comes with. They're the *base* of most analyses and other operations you'll want to do in R, hence the name of the package. To install a new package, you want to use the `install.packages()` function, with the name of the package quoted and inside of the parenthesis. 
+A <span class = 'vocab'>package</span> is just a collection of functions, data, and already-written code that is in a well-defined format. We'll introduce a few packages as we go, but a lot of what we'll cover will rely on the `base` package, which is just the functions that `R` already comes with. They're the *base* of most analyses and other operations you'll want to do in R, hence the name of the package. To install a new package, you want to use the `install.packages()` function, with the name of the package quoted and inside of the parenthesis. 
 
 One package that you'll want to install is the `swirl` package, which was developed as a self-guided class to help you learn R. To install this package, copy and paste the following line into your `Console`.
 
@@ -14,7 +14,7 @@ One package that you'll want to install is the `swirl` package, which was develo
 install.packages('swirl')
 ```
 
-Once the package is installed, you'll want to <span class = 'vocab'>**load**</span> the package (tell `R` that you'll be using commands, data, and other information from the package). Copy/paste or type the following into your console to do so, and follow the prompts:
+Once the package is installed, you'll want to <span class = 'vocab'>load</span> the package (tell `R` that you'll be using commands, data, and other information from the package). Copy/paste or type the following into your console to do so, and follow the prompts:
 
 ```{r 05-load-swirl, eval = FALSE}
 library(swirl)
@@ -22,7 +22,7 @@ library(swirl)
 
 ## Help Files {#helpfiles}
 
-Another great aspect of `R` is how well-documented the language is. If you don't know how to use a particular function, there are a lot of ways to learn how to use it and see it in action. The help files provide the <span class = 'vocab'>**syntax**</span> (what order to put things into the function), an explanation of the arguments, as well as information about the <span class = 'vocab'>**output**</span> (what the function gives back to you), and examples of the function in use.
+Another great aspect of `R` is how well-documented the language is. If you don't know how to use a particular function, there are a lot of ways to learn how to use it and see it in action. The help files provide the <span class = 'vocab'>syntax</span> (what order to put things into the function), an explanation of the arguments, as well as information about the <span class = 'vocab'>output</span> (what the function gives back to you), and examples of the function in use.
 
 ### An Example {-}
 
