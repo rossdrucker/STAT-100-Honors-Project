@@ -48,14 +48,23 @@ You can send emails from any email address you have. Allow up to 24 hours for a 
 **Topics** (not in order; these may be updated throughout the semester):
 
 1)	R's interface and using R as a calculator
+
 2)	Data types
+
 3)	Descriptive statistics
+
 4)	Regression and model creation
+
 5)	Plotting, histograms, and visualization
+
 6)	Functions and control structures
+
 7)	Document rendering and scripting
+
 8)	Coding Style
+
 9)	Hypothesis testing
+
 10)	Probability
 
 **Grading Policy**: 
