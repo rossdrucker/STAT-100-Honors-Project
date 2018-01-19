@@ -24,13 +24,13 @@ library(magrittr)
 
 **The what**: Our James Scholar Honors Project teaches you to use the statistical software, `R`. Be prepared to spend approximately 2 hours per week on this project.
 
-**The when**: Sign up ASAP by getting a HCLA form from your dean/advisor. As soon as the paperwork goes through, you're ready to go! The deadline to sign up is **Monday, January 29^th^ at 11:59pm**. There will be weekly assignments for the remainder of the semester.
+**The when**: Sign up ASAP by getting a HCLA form from your dean/advisor. As soon as the paperwork goes through, you're ready to go! The deadline to sign up is **Monday, January 29^th^ at 11:59pm**.
 
-**The how**: The project consists of weekly notes to read ($\approx$1 hour) and weekly assignments to do on Lon-Capa ($\approx$1 hour). You need to complete all the assignments and turn them in before the due date each week. Late assignments will not be accepted on Lon Capa, so make sure to keep a close eye on the calendar. All assignments are due on Sundays at 11:59pm. The first one is due **Sunday February 4^th^, 2018**. It will be posted on Friday January 19th.
+**The how**: The project consists of weekly notes to read ($\approx$1 hour) and weekly assignments to do on Lon-Capa ($\approx$1 hour). You need to complete all the assignments and turn them in before the due date each week. Late assignments will not be accepted on Lon-Capa, so make sure to keep a close eye on the calendar. All assignments are due on Sundays at 11:59pm. The first one is due **Sunday February 4^th^, 2018**. It will be posted on Friday January 19th.
 
 **The where**: No need to leave home and get out of your PJs for this one. All notes and assignments can be found online!
 
-**The why**: Why not!? It's a great way to get your James Scholar credit, as well as to learn a useful program in the process. Knowledge of R is a very marketable skill. Also, the project is in sync with class. You'll be able to see how what you learn in class can be done in `R`. This will help reinforce the concepts that you need to know to succeed in Stat 100 and give you an introduction to programming
+**The why**: Why not!? It's a great way to get your James Scholar credit, as well as to learn a useful program in the process. Knowledge of `R` is a very marketable skill. Also, the project is in sync with class. You'll be able to see how what you learn in class can be done in `R`. This will help reinforce the concepts that you need to know to succeed in Stat 100 and give you an introduction to programming
 
 ## About This Book {-}
 
