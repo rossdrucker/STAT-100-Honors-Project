@@ -4,7 +4,7 @@
 knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
-Pretend that you have a number that you don't want to keep typing over and over and want `R` to remember what it means. You can store that value as a <span class = 'vocab'>**variable**</span> in `R` by declaring it (giving it a name) and assigning it a value. To make the assignment, you can use either `=` or `<-`. It's really personal preference as to which one you'd like to use, but for the duration of the book we'll use `=` (mostly out of habit). To assign a variable a value, we put the variable name on the left side of the assignment operator, and we put the value on the right side. As an example, if we want `R` to remember that some variable that we'll call $x$ should have the value 5, you can do it like this:
+Pretend that you have a number that you don't want to keep typing over and over and want `R` to remember what it means. You can store that value as a <span class = 'vocab'>variable</span> in `R` by declaring it (giving it a name) and assigning it a value. To make the assignment, you can use either `=` or `<-`. It's really personal preference as to which one you'd like to use, but for the duration of the book we'll use `=` (mostly out of habit). To assign a variable a value, we put the variable name on the left side of the assignment operator, and we put the value on the right side. As an example, if we want `R` to remember that some variable that we'll call $x$ should have the value 5, you can do it like this:
 
 ```{r 03-variable-ex1}
 x = 5
@@ -111,4 +111,4 @@ names(groceries)[2] = 'cost'
 
 As you can see, we did exactly what we wanted to do. Since data frames are really just lists, the same type of renaming applies.
 
-<span class = 'note'>*Note: *</span><span style = 'color: #a21bd7'>`R`</span> <span class = 'note'>*will treat a single value as a vector, even without using the *</span><span style = 'color: #a21bd7'>`c()`</span><span class = 'note'>*function. It's <a href = 'functions-and-data-types.html#coercion'>coercion</a> and <a href = 'operators.html#vectorization'>vectorization</a> in action.*</span>
+<span class = 'note'>Note: </span><span style = 'color: #a21bd7'>`R`</span> <span class = 'note'>will treat a single value as a vector, even without using the </span><span style = 'color: #a21bd7'>`c()`</span><span class = 'note'>function. It's <a href = 'functions-and-data-types.html#coercion'>coercion</a> and <a href = 'operators.html#vectorization'>vectorization</a> in action.</span>
