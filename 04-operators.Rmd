@@ -99,7 +99,7 @@ knitr::kable(boolsymbs, format = 'html', align = 'c', booktabs = TRUE)
 
 <a name = 'vectorization'></a>
 
-Now it's time to talk about one of the most useful features of `R`: the fact that it's a <span class = 'vocab'>**vectorized language**</span>. This sounds very complex, but what it really means is that you can operate on entire vectors at a time using the operators we just went through. Let's see a few examples using a vector of length 25. We'll create a vector `v1` that has the numbers 1 through 25, and we'll do a few operations on it to really see how powerful vectorized operations are.
+Now it's time to talk about one of the most useful features of `R`: the fact that it's a <span class = 'vocab'>vectorized language</span>. This sounds very complex, but what it really means is that you can operate on entire vectors at a time using the operators we just went through. Let's see a few examples using a vector of length 25. We'll create a vector `v1` that has the numbers 1 through 25, and we'll do a few operations on it to really see how powerful vectorized operations are.
 
 ```{r 04-vectorization-ex-setup}
 v1 = 1:25
@@ -127,7 +127,7 @@ v1 > 12
 
 This is the power of vectorization: you can do things to really large amounts of data in a relatively short amount of time. Obviously, the more complex the operation is, the longer it will take, but it still beats the alternative of having to do the manipulations and calculations by hand.
 
-There's one last important point to make about vectorization, and that's what happens when you add vectors of unequal length. We've actually already seen [examples](#04-vectorization-ex1) of this, but we just didn't realize it. What's happening is that `R` is treating the numbers that we've supplied above (5, 2, and 12 respectively) as vectors of length 1, and <span class = 'vocab'>**recycling**</span> them over and over in its calculations. If instead we had tried to do `v1 + c(5, 10)`, we'd wind up with something different.
+There's one last important point to make about vectorization, and that's what happens when you add vectors of unequal length. We've actually already seen [examples](#04-vectorization-ex1) of this, but we just didn't realize it. What's happening is that `R` is treating the numbers that we've supplied above (5, 2, and 12 respectively) as vectors of length 1, and <span class = 'vocab'>recycling</span> them over and over in its calculations. If instead we had tried to do `v1 + c(5, 10)`, we'd wind up with something different.
 
 ```{r 04-recycling-vectors}
 v1 + c(5, 10)
