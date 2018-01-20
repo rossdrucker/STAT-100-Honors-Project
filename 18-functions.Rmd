@@ -1,5 +1,9 @@
 # Functions
 
+```{r 18-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
 We've been using a ton of functions throughout the text, and we were very quickly introduced to them in <a href = 'functions-and-data-types.html#functions'>chapter 2</a>, but as promised, we're going to take a deep dive into functions so that we can write and use our own. We'll go into more depth about things that we've already talked about and show you how to combine everything to make a function to do anything you'd like it to.
 
 ## When to Write A Function
