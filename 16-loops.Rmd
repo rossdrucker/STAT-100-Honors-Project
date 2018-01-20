@@ -1,7 +1,7 @@
 # `for` Loops
 
 ```{r 16-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 In order to clean up our datasets, we'll have to make use of <span class = 'vocab'>control structures</span>. This sounds super technical, but really what they help us do is navigate our way through the data in an organized, controlled fashion. They can do anything from helping us perform a series of operations on each observation to doing different operations based on criteria that we determine. There's two main components to control structures: `for` loops and conditional statements.

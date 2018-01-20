@@ -1,7 +1,7 @@
 # (PART) More on Programming {-}
 
 ```{r 15-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 # Uses of `R`

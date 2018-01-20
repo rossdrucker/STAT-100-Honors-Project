@@ -5,7 +5,7 @@
 ## Simple Conditions
 
 ```{r 17-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 Going hand in hand with `for` loops are what we call <span class = 'vocab'>conditional statements</span>, or statements that evaluate to `TRUE` or `FALSE`. These are really important, especially inside of `for` loops (and nested `for` loops too!), because what they allow us to do is operate only on certain observations of data that meet our criteria.
