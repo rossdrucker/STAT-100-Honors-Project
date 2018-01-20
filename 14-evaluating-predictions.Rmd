@@ -3,7 +3,7 @@
 ## Residuals
 
 ```{r 14-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 Not every prediction is going to be perfect. That's actually built into the fabric of regression! What regression is *really* doing is predicting the average $y$ for each value of $x$. Have a quick look at the plot from the last chapter.
