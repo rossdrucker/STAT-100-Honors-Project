@@ -308,32 +308,32 @@ Graphical Example of <code>pnorm()</code> Output
 <li><code>qnorm()</code> does the opposite of <code>pnorm()</code>: you supply it an area-to-the-left (out of 1) for which you’d like to know the corresponding Z-score, and it tells you what that Z-score is. For example, if we wanted to know what area gave us 95% to the left (or a 5% tail) quickly, we can find it with one line of code.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qnorm</span>(.<span class="dv">95</span>)</code></pre></div>
-<pre><code>[1] 1.644854</code></pre>
+<pre><code>## [1] 1.644854</code></pre>
 <p>Do a quick check by hand with the chart, and you should see that the middle area of 1.65 does in fact give us an upper (and lower) tail of 5%.</p>
 <ul>
 <li><code>rnorm()</code> is basically a random number generator. (The numbers are actually pseudo-random, but the patterns that they come from are not obvious, so we consider them random.) For this class, it won’t be particularly useful, but the more you learn in statistics and <code>R</code> the more useful this function will become. We may use it from time to time going forward to help us do a few things, so it’s worth mentioning now. Also worth mentioning is that this function won’t produce the same output every time you run it since, after all, it <em>is</em> a random number generator. To ensure <span class="vocab">reproducability</span> of your code, it’s a good habit to set the <span class="vocab">seed</span>, or starting value, of the random number generator with <code>set.seed()</code>. By supplying it an argument of any integer, it generates that many random numbers from a normal distribution. <code>mean</code> and <code>sd</code> again default to 0 and 1 respectively, but you can override these if you’d like.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>[1] -0.2423682 -0.5664037 -0.2053644</code></pre>
+<pre><code>## [1] -1.65668800 -0.06445288  1.87927037</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>[1]  0.6296777 -1.0787336 -1.7275177</code></pre>
+<pre><code>## [1] -0.89831110  0.06812615 -1.84331084</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>[1] -1.2508582  1.8306712  0.5032078</code></pre>
+<pre><code>## [1] -0.3722395  0.8747182  2.0149970</code></pre>
 <p>Now, if we set a seed, we should get the same results every time <em>as long as we set the seed every time we want the same numbers</em>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123456789</span>)
 <span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>[1] 0.5048723 0.3958758 1.4155378</code></pre>
+<pre><code>## [1] 0.5048723 0.3958758 1.4155378</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This one should give different numbers</span>
 <span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>[1] -0.7223243 -0.6183570 -1.5626204</code></pre>
+<pre><code>## [1] -0.7223243 -0.6183570 -1.5626204</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Back to the same numbers</span>
 <span class="kw">set.seed</span>(<span class="dv">123456789</span>)
 <span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>[1] 0.5048723 0.3958758 1.4155378</code></pre>
+<pre><code>## [1] 0.5048723 0.3958758 1.4155378</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># One more time</span>
 <span class="kw">set.seed</span>(<span class="dv">123456789</span>)
 <span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>[1] 0.5048723 0.3958758 1.4155378</code></pre>
+<pre><code>## [1] 0.5048723 0.3958758 1.4155378</code></pre>
 
 </div>
 </div>

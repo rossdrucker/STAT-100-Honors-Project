@@ -378,7 +378,7 @@ Shoe Size
 <p><span class="math display">\[ 10 = .0875 \cdot 69 + \text{intercept} \\ 10 - \left( .0875 \cdot 69 \right) = \text{intercept} \\ \implies \text{intercept} = 3.9625 \]</span></p>
 <p>Awesome! Now, let’s make our prediction for a 73&quot; tall person. If everything worked out correctly, we should get 10.35 just like before.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(.<span class="dv">0875</span> *<span class="st"> </span><span class="dv">73</span>) +<span class="st"> </span><span class="fl">3.9625</span></code></pre></div>
-<pre><code>[1] 10.35</code></pre>
+<pre><code>## [1] 10.35</code></pre>
 <p><img src="img/13-booyah.gif" style="display: block; margin: auto;" /></p>
 </div>
 <div id="lm" class="section level2">
@@ -441,8 +441,8 @@ r \cdot \frac{\text{SD}_\text{weight}}{\text{SD}_\text{height}} = 5.00 \\
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod1 =<span class="st"> </span><span class="kw">lm</span>(weight ~<span class="st"> </span>height, <span class="dt">data =</span> survey1)</code></pre></div>
 <p>To see what the model determined for the slope and intercept, we can use the <code>coef()</code> function, and just supply the name of our model to it.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(mod1)</code></pre></div>
-<pre><code>(Intercept)      height 
--165.680120    4.677275 </code></pre>
+<pre><code>## (Intercept)      height 
+## -165.680120    4.677275</code></pre>
 <p>Hmmm… this is close to what we got, but it’s not exactly the same. Why is that? Easy: rounding. We’ve hidden some unecessary code throughout the book that’s rounded many results for us, but if we wanted to really calculate what the values would be, we’d do this. <span class="note">Note: The</span> <span style="color: #a21bd7"><code>stdv()</code></span> <span class="note">is the user-defined function for standard deviation we wrote in <a href = 'measures-of-central-tendency.html#stdv-function'>chapter 9</a>.</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get summary statistics</span>
 average_weight =<span class="st"> </span><span class="kw">mean</span>(survey1$weight)
@@ -455,7 +455,7 @@ r =<span class="st"> </span><span class="kw">cor</span>(survey1$weight, survey1$
 slope =<span class="st"> </span>r *<span class="st"> </span>(sd_weight /<span class="st"> </span>sd_height)
 intercept =<span class="st"> </span>average_weight -<span class="st"> </span>(slope *<span class="st"> </span>average_height)
 <span class="kw">c</span>(intercept, slope)</code></pre></div>
-<pre><code>[1] -165.680120    4.677275</code></pre>
+<pre><code>## [1] -165.680120    4.677275</code></pre>
 <p>Since we know now that we’ll get the same result, let’s just keep going with <code>mod1</code>. We can add it to our plot with the <code>abline()</code> function. <code>coef</code> returns a vector, so we can use <code>[]</code> to access its elements.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(weight ~<span class="st"> </span>height,
      <span class="dt">data =</span> survey1,
@@ -481,8 +481,8 @@ intercept =<span class="st"> </span>average_weight -<span class="st"> </span>(sl
 <p>In <code>R</code>, the <code>predict()</code> function allows us to make predictions quickly and easily. To use it, start with the model you’d like to use, followed by passing a data frame of the predictor(s) to <code>predict()</code>’s <code>newdata</code> argument. In the <code>newdata</code> argument, we can either create a data frame with <code>data.frame()</code>, or we can put the name of an already existing data frame. If you’re going to make your own data frame, however, make sure that you specify the names of the values you’re putting in as they were when the model was fit.</p>
 <p>If we wanted to use <code>mod1</code> to make a prediction for the weight of a 72&quot; person, we can make use of <code>predict()</code> like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(mod1, <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">height =</span> <span class="dv">72</span>))</code></pre></div>
-<pre><code>       1 
-171.0837 </code></pre>
+<pre><code>##        1 
+## 171.0837</code></pre>
 <p><span class="note">Note: With SLR like we’re doing, it may seem a little annoying to put it into a data frame, but when the problem involves multiple predictors, this can be much easier than typing out the whole calculation by hand. Don’t worry about that case though; that’s a problem for another day.</span></p>
 </div>
 <div id="switching-the-predictions" class="section level2">

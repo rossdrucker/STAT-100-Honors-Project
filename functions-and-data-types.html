@@ -268,11 +268,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 }</code></pre></div>
 <p>Then, to call the function, you simply put the name of the function, then without a space, put a set of parenthesis. Inside of these parenthesis, specify the arguments required to make the function run properly. Here’s an example of how to call the <code>doubler()</code> function we just wrote:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">doubler</span>(<span class="dt">x =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code>[1] 4</code></pre>
+<pre><code>## [1] 4</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">doubler</span>(<span class="dv">4</span>)</code></pre></div>
-<pre><code>[1] 8</code></pre>
+<pre><code>## [1] 8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">doubler</span>(<span class="dv">100</span>)</code></pre></div>
-<pre><code>[1] 200</code></pre>
+<pre><code>## [1] 200</code></pre>
 <p>As you can see, <code>x</code> can be any number, and <code>doubler()</code> just takes the number (<code>x</code>) and doubles it.</p>
 <p><span class="tip"><em>Pro tip: you don’t always need to specify the name of an argument. In the second example of using</em></span> <span style="color: #00ce45"><code>doubler()</code></span><span class="tip">,</span> <span style="color: #00ce45"><code>R</code></span> <span class="tip"><em>interprets</em></span> <span style="color: #00ce45"><code>4</code></span> <span class="tip"><em>to be what</em></span> <span style="color: #00ce45"><code>x</code></span> <span class="tip"><em>is supposed to be. When there’s more than one argument needed for a function, you can either give them in the same order the function looks for them (which you’ll learn about <a href="packages-and-getting-help.html#helpfiles">here</a>), or you can specify them by name.</em></span></p>
 </div>
@@ -287,9 +287,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>character</code>: Character data is anything that involves a letter or special character. These will be denoted by <code>''</code> (single quotation marks) or <code>&quot;&quot;</code> (double quotation marks). Characters are also called <span class="vocab">strings</span>. It’s important to note that <code>2</code> is of type <code>numeric</code>, while <code>'2'</code> is of type <code>character</code>. A quick check using the <code>class()</code> function:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">2</span>)</code></pre></div>
-<pre><code>[1] &quot;numeric&quot;</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="st">&#39;2&#39;</span>)</code></pre></div>
-<pre><code>[1] &quot;character&quot;</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
 <p><a name = 'logical'></a></p>
 <ul>
 <li><p><code>logical</code>: Logical data, also known as <span class="vocab">boolean data</span>, is just a series of <code>TRUE</code> or <code>FALSE</code> values. While this may not necessarily seem like the most useful form of data right now, it’s important to know that this type of data exists. <code>R</code> evaluates <code>T</code> to be <code>TRUE</code> and <code>F</code> to be <code>FALSE</code>, so it’s equally valid to use <code>T</code> and <code>F</code> in place of <code>TRUE</code> and <code>FALSE</code>, but it’s better practice to use <code>TRUE</code> and <code>FALSE</code> since we may want to use <code>T</code> and <code>F</code> as variables. More on this in a little</p></li>
@@ -310,72 +310,72 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><code>R</code> actually treats every value as a vector. That’s why, as you may have noticed, lines of output begin with <code>[1]</code>. This indicates the <span class="vocab">index</span> (position) in the vector that is at the start of the line. Any time we’ve had any type of data, <code>R</code> has just treated it as a vector of length 1.</p>
 <p>One important thing to note about vectors is that all members of the vector must be of the same type. If they aren’t, they will be <span class="vocab">coerced</span> (changed) to be of the same type. To create a vector, we can use the <code>c()</code> function. This function combines the <span class="vocab">elements</span> (individual data points) and turns them into a vector. Separate the parts with a comma (<code>,</code>). Here’s a few examples:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</code></pre></div>
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, T, F, T, <span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>[1]  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&#39;R&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;fun&#39;</span>)</code></pre></div>
-<pre><code>[1] &quot;R&quot;   &quot;is&quot;  &quot;fun&quot;</code></pre>
+<pre><code>## [1] &quot;R&quot;   &quot;is&quot;  &quot;fun&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&#39;apple&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;banana&#39;</span>)</code></pre></div>
-<pre><code>[1] &quot;1&quot;      &quot;apple&quot;  &quot;2&quot;      &quot;banana&quot;</code></pre>
+<pre><code>## [1] &quot;1&quot;      &quot;apple&quot;  &quot;2&quot;      &quot;banana&quot;</code></pre>
 <p>Note how in the last example, everything appears inside of double quotation marks. This is an example of coersion in action. <code>1</code> and <code>2</code> are recognized as type <code>integer</code>, and <code>'apple'</code> and <code>'banana'</code> are recognized as type <code>character</code>. Since it’s easier to change a number to a character than it is to go the other way, <code>1</code> and <code>2</code> become characters.</p>
 <p>It may seem cumbersome, time-consuming, and tedious to type out numbers in order as we did in the first vector. <code>:</code> to the rescue! Another way that we can create that vector is by putting the first number we’d like in our vector on the left side of the <code>:</code>, and the last number on the right.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</code></pre></div>
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">10</span></code></pre></div>
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>As you can see, they both produce the same output. Let’s say we wanted to only include even numbers. Luckily, there’s a function that allows us to do that as well, and that’s the <code>seq()</code> function. To use it, we start by putting the first number in our vector, then the last number we want in the vector, and finally the amount we want to increment by in each place. To get the even numbers between 1 and 10, we want the following sequence:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)</code></pre></div>
-<pre><code>[1]  2  4  6  8 10</code></pre>
+<pre><code>## [1]  2  4  6  8 10</code></pre>
 <p>Now, let’s say that we want to actually get at the contents of a part of a vector. We can accesss it by using its index. Unlike some other languages (Python, for example), <code>R</code> starts its indexing at 1, not 0. If we want to access the 3<span class="math inline">\(^{\text{rd}}\)</span> element of the vector we just created, use the index of the part we’re interested in (3) and put it inside of a single set of square brackets (<code>[]</code>) next to the vector. This will return the element in that location.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)[<span class="dv">3</span>]</code></pre></div>
-<pre><code>[1] 6</code></pre>
+<pre><code>## [1] 6</code></pre>
 <p>To figure out how many elements are contained in a vector, we can use the <code>length()</code> function. This information is also displayed in the <code>Environment</code> tab we configured in <a href="#env">chapter 1</a>, assuming that the vector is stored as something in the global environment.</p>
 <p>The last function we should mention here is the <code>rep()</code> function. Similar to <code>seq()</code>, this function allows you to create a vector of the same number, repeated any number of times. Want the number 10 to be repeated 30 times? <code>rep()</code> makes this easy, as you can write <code>rep(10, 30)</code>. The first argument is the number or vector you’d like to repeat, and the second is the number of times you’d like to repeat it. If the first argument is a vector, and you’d like to repeat each element a certain number of times, include the <code>each =</code> argument, with the number of times that you’d like each element to repeat. Let’s see <code>rep()</code> in action:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dv">2</span>, <span class="dv">10</span>)</code></pre></div>
-<pre><code> [1] 2 2 2 2 2 2 2 2 2 2</code></pre>
+<pre><code>##  [1] 2 2 2 2 2 2 2 2 2 2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">3</span>)</code></pre></div>
-<pre><code>[1] 1 2 3 1 2 3 1 2 3</code></pre>
+<pre><code>## [1] 1 2 3 1 2 3 1 2 3</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">2</span>)</code></pre></div>
-<pre><code> [1] 1 1 2 2 3 3 1 1 2 2 3 3 1 1 2 2 3 3</code></pre>
+<pre><code>##  [1] 1 1 2 2 3 3 1 1 2 2 3 3 1 1 2 2 3 3</code></pre>
 </div>
 <div id="lists" class="section level3 unnumbered">
 <h3>Lists</h3>
 <p><a name = 'lists'></a></p>
 <p>On the surface, there’s not much difference between a list and a vector. The biggest difference is that a list can contain different types of data, whereas a vector cannot. To create a list, we can simply use the <code>list()</code> function, again putting all the different parts we want included inside the parenthesis, separated by a comma.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">10</span>)</code></pre></div>
-<pre><code>[[1]]
- [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre><code>## [[1]]
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&#39;apple&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;banana&#39;</span>)</code></pre></div>
-<pre><code>[[1]]
-[1] 1
-
-[[2]]
-[1] &quot;apple&quot;
-
-[[3]]
-[1] 2
-
-[[4]]
-[1] &quot;banana&quot;</code></pre>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;apple&quot;
+## 
+## [[3]]
+## [1] 2
+## 
+## [[4]]
+## [1] &quot;banana&quot;</code></pre>
 <p>Lists can be made up of vectors as well. That is, each element of a list is able to be a vector, since a list doesn’t care what type of data each of its elements is. To access a list’s elements, we want to use a double set of square brackets (<code>[[]]</code>) with the index we’d like to access.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dv">3</span>)[[<span class="dv">2</span>]]</code></pre></div>
-<pre><code>[1] 1.25 2.50</code></pre>
+<pre><code>## [1] 1.25 2.50</code></pre>
 <p>The above example also illustrates that lists don’t need all list elements to be of the same length. Note that the third element of the list is only of length 1 (it’s just the number 3), but the other two elements are of length 2.</p>
 <p>Lastly, lists are able to have named elements. To name an element, all you have to do is type <code>NAME OF ELEMENT =</code> before each element, where <code>NAME OF ELEMENT</code> is whatever name you’d like to assign it. In the above example, let’s say we wanted to call the first element <code>fruits</code>, the second element <code>prices</code>, and the third element <code>aisle</code>. Then, our list would look like this:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)</code></pre></div>
-<pre><code>$fruits
-[1] &quot;apple&quot;  &quot;banana&quot;
-
-$prices
-[1] 1.25 2.50
-
-$aisle
-[1] 3</code></pre>
+<pre><code>## $fruits
+## [1] &quot;apple&quot;  &quot;banana&quot;
+## 
+## $prices
+## [1] 1.25 2.50
+## 
+## $aisle
+## [1] 3</code></pre>
 <p>We can then use a <code>$</code> to go into the list and “pull out” that element (the vector with the corresponding name). We can then use vector indexing rules to get a particular element from the vector. If we wanted to get <code>'banana'</code> from our list above, we have two options.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)$fruits[<span class="dv">2</span>]</code></pre></div>
-<pre><code>[1] &quot;banana&quot;</code></pre>
+<pre><code>## [1] &quot;banana&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]</code></pre></div>
-<pre><code>[1] &quot;banana&quot;</code></pre>
+<pre><code>## [1] &quot;banana&quot;</code></pre>
 <p>As you can see, both options return <code>'banana'</code>, so these options are equivalent.</p>
 </div>
 <div id="data-frames" class="section level3 unnumbered">
@@ -584,20 +584,20 @@ M
 <h2><span class="header-section-number">2.4</span> Coercing To Other Types</h2>
 <p>The last point we’ll make about different kinds of data is that you can coerce it yourself to be of another type. There are a lot of functions, the <code>as._()</code> functions, that are helpful here. Have a character string that’s just a number? No problem! we saw before that <code>class('2')</code> was of type <code>character</code>. What about if we wanted it to be of type <code>numeric</code>?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.numeric</span>(<span class="st">&#39;2&#39;</span>))</code></pre></div>
-<pre><code>[1] &quot;numeric&quot;</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>Awesome.</p>
 </div>
 <div id="identical" class="section level2">
 <h2><span class="header-section-number">2.5</span> <code>identical()</code></h2>
 <p>This is as good a time as any to introduce the <code>identical()</code> function. What this does is checks if the things supplied to it are the identical. It returns <code>TRUE</code> if the arguments are identical, and <code>FALSE</code> if they’re different. Examples, with some of the syntax described above, are as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(<span class="dv">1</span>, <span class="dv">1</span>)</code></pre></div>
-<pre><code>[1] TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span> <span class="co"># This has length 10</span>
 y =<span class="st"> </span><span class="dv">2</span>:<span class="dv">10</span> <span class="co"># This has length 9</span>
 <span class="kw">identical</span>(x, y)</code></pre></div>
-<pre><code>[1] FALSE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(x[<span class="dv">10</span>], y[<span class="dv">9</span>])</code></pre></div>
-<pre><code>[1] TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <p>This function is very helpful when you want to check if two vectors or lists have the same information. It’s also particularly useful when you want to check if the outputs or results of different functions are the same if you’re reorganizing/rewriting code.</p>
 
 </div>

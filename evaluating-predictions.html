@@ -277,10 +277,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>They should give us the same number, but do they? We’ll find the RMSE of the data we’ve been working with to check. Remember, we’re predicting <code>weight</code> from <code>height</code> in <code>survey1</code>, so <code>weight</code> is our <span class="math inline">\(y\)</span> variable. We’ll make use of <code>R</code>’s vectorization again to do our calculations. Make sure that you pay attention to where the parentheses go!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Method 1</span>
 <span class="kw">sqrt</span>(<span class="kw">mean</span>((survey1$weight -<span class="st"> </span><span class="kw">predict</span>(mod1, <span class="dt">newdata =</span> survey1)) ^<span class="st"> </span><span class="dv">2</span> ))</code></pre></div>
-<pre><code>[1] 28.14292</code></pre>
+<pre><code>## [1] 28.14292</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Method 2</span>
 <span class="kw">sqrt</span>(<span class="dv">1</span> -<span class="st"> </span><span class="kw">cor</span>(survey1$weight, survey1$height) ^<span class="st"> </span><span class="dv">2</span>) *<span class="st"> </span><span class="kw">stdv</span>(survey1$weight)</code></pre></div>
-<pre><code>[1] 28.14292</code></pre>
+<pre><code>## [1] 28.14292</code></pre>
 <p>Pam, your thoughts?</p>
 <p><img src="img/14-nice.gif" style="display: block; margin: auto;" /></p>
 <p>The same rules apply to the RMSE that applied to standard deviations. 68% of our data will fall within 1 RMSE of its predicted value, 95% will fall within 2 RMSEs of its predicted value, and 99% will fall within 3 RMSEs of what we predict. To see it graphically, look no further.</p>

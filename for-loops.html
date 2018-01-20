@@ -275,7 +275,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p><span class="note">While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style="color: #a21bd7"><code>for</code></span> <span class="note">loop.</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">v1 =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>))</code></pre></div>
-<pre><code> [1]  1  8 15 22 29 36 43 50 57 64 71 78 85 92 99</code></pre>
+<pre><code>##  [1]  1  8 15 22 29 36 43 50 57 64 71 78 85 92 99</code></pre>
 </div>
 <div id="syntax" class="section level2">
 <h2><span class="header-section-number">16.2</span> Syntax</h2>
@@ -289,7 +289,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Inside of the curly braces is where the metaphorical magic happens. We’ll put our operations in there, and let <code>R</code> handle the rest. We want to add 1 to each element of <code>v1</code> and save it in its same location. Step-by-step, we’re saying to replace the i<sup>th</sup> element of <code>v1</code> with 1 + the i<sup>th</sup> element of <code>v1</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){v1[i] =<span class="st"> </span>v1[i] +<span class="st"> </span><span class="dv">1</span>}
 v1</code></pre></div>
-<pre><code> [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
+<pre><code>##  [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
 <p>This is gross-looking, so let’s practice good coding style like we talked about <a href = 'coding-style.html'>earlier</a> and show good spacing and indentation. Since we just acted on the initial <code>v1</code> and made our replacements in-place, we need to recreate the original <code>v1</code> vector.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>)
 
@@ -298,7 +298,7 @@ for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){
 }
 
 v1</code></pre></div>
-<pre><code> [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
+<pre><code>##  [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
 <p>Another quick example following: let’s reverse the order of a set of numbers. We’ll create a vector called <code>numbers</code>, which will have the numbers 1 through 10. Our goal is to reverse the order. Think like a computer and see if you agree with our algorithm:</p>
 <ol style="list-style-type: decimal">
 <li>Get the first number from <code>numbers</code></li>
@@ -309,14 +309,14 @@ v1</code></pre></div>
 </ol>
 <p>All together, this is the resulting <code>for</code> loop. Match it up to make sure you agree!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">numbers =</span> <span class="dv">1</span>:<span class="dv">10</span>)</code></pre></div>
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:(<span class="kw">length</span>(numbers) /<span class="st"> </span><span class="dv">2</span>)){
   temp =<span class="st"> </span>numbers[<span class="kw">length</span>(numbers) -<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>]
   numbers[<span class="kw">length</span>(numbers) -<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span>numbers[i]
   numbers[i] =<span class="st"> </span>temp
 }
 numbers</code></pre></div>
-<pre><code> [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
+<pre><code>##  [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
 <p><span class="note">Note: We used the index</span> <span style="color: #a21bd7"><code>length(numbers) - i + 1</code></span> <span class="note">since the first element we wanted to replace was the last element, or at position</span> <span style="color: #a21bd7"><code>length(numbers)</code></span><span class="note">. Since</span> <span style="color: #a21bd7"><code>i</code></span><span class="note"> started at 1, and we needed it to change each time, we subtracted</span> <span style="color: #a21bd7"><code>i</code></span><span class="note"> and then added the 1 back in to take care of the first case. You can</span> <span class="vocab">trace</span> <span class="note"> (follow) it if you write out the values that</span> <span style="color: #a21bd7"><code>i</code></span> <span class="note"> takes in each iteration.</span></p>
 <p><a name = 'nested-for-loops'></a></p>
 </div>

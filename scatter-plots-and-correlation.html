@@ -495,7 +495,7 @@ Student 4
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">quiz1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">4</span>)
 quiz2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">6</span>)
 <span class="kw">cor</span>(quiz1, quiz2)</code></pre></div>
-<pre><code>[1] 0.5</code></pre>
+<pre><code>## [1] 0.5</code></pre>
 </div>
 <div id="statistics-of-the-cloud-scatter-plot" class="section level2">
 <h2><span class="header-section-number">12.4</span> Statistics of the “Cloud” Scatter Plot</h2>
@@ -512,11 +512,11 @@ quiz2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</s
 </ul>
 <p>These statistics are usually given to you in class, but you’ll have to calculate them yourself or have <code>R</code> calculate them on any data set in practice! We’ll use the data from Survey 1 (loaded as <code>survey1</code>) as we did before, and focus on the <code>height</code> and <code>weight</code> variables, since these are probably correlated. We’ll make use of the <code>stdv()</code> function we wrote <a href = 'measures-of-central-tendency.html#stdv-function'>before</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">means =</span> <span class="kw">c</span>(<span class="kw">mean</span>(survey1$height), <span class="kw">mean</span>(survey1$weight)))</code></pre></div>
-<pre><code>[1]  66.89189 147.19165</code></pre>
+<pre><code>## [1]  66.89189 147.19165</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">stdvs =</span> <span class="kw">c</span>(<span class="kw">stdv</span>(survey1$height), <span class="kw">stdv</span>(survey1$weight)))</code></pre></div>
-<pre><code>[1]  4.148278 34.183133</code></pre>
+<pre><code>## [1]  4.148278 34.183133</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">cor =</span> <span class="kw">cor</span>(survey1$height, survey1$weight))</code></pre></div>
-<pre><code>[1] 0.5676085</code></pre>
+<pre><code>## [1] 0.5676085</code></pre>
 <p><span class="tip"><em>Pro tip: enclosing code in</em> <code>()</code> <em>while making an assignment both assigns the variable and displays the calculation</em></span></p>
 <p>Reformatting this information into a table, we’d summarize it as</p>
 <div style="text-align: center">
@@ -623,18 +623,18 @@ Standard Deviation
 <p>We have a few options of how to group, or <span class="vocab"><strong>subset</strong></span>, the data, some of which are more memory-intensive than others. Method one is to use the <code>subset()</code> function. If, for example, we wanted to only look at East Asian students’ performance on exam 1, we could write something like</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">east_asian =<span class="st"> </span><span class="kw">subset</span>(survey4, survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>)
 <span class="kw">mean</span>(east_asian$Exam1)</code></pre></div>
-<pre><code>[1] 89.60363</code></pre>
+<pre><code>## [1] 89.60363</code></pre>
 <p><span class="note"><em>Note: We used a double equals (</em></span><span style="color: #a21bd7"> <code>==</code> </span><span class = 'note'><em>) to evaluate the condition, and we passed the condition we were looking for as a string.</em></p>
 <p>This takes all of the data from <code>survey4</code>, finds which rows have <code>ethnicity</code> of <code>'East Asian'</code> (again, matching case), and puts them into their own data frame called <code>east_asian</code>. One great perk of this method is that it’s very easy to keep track of things, since you can then call on parts of the new, subsetted data frame just like you would have on the bigger data frame. Even the names of the features stay the same. However, this method can get fairly memory-intensive since it takes memory to store the data frame we created. The more subsets you’d like to have, the more memory you start to use up, and the slower your code may run.</p>
 <p>Method 2 is to take advantage of <a href = 'operators.html#vectorization'>vectorization</a> again. We can subset the data here by using <code>[]</code>, <code>$</code>, and even do calculations, all in one step. Let’s try to get the same result as above, but this time we use vectorization.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(survey4$Exam1[survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>])</code></pre></div>
-<pre><code>[1] 89.60363</code></pre>
+<pre><code>## [1] 89.60363</code></pre>
 <p>If this is confusing, start from the inside and work your way out. First, we found the rows where <code>ethnicity</code> was <code>'East Asian'</code>. Then, from these row numbers (indexes), we took the <code>exam1</code> numbers, and lastly took the mean of them. As you can see, they produce the same result, but this one uses less memory and less lines of code. Pretty cool!</p>
 <p>The last point we should make about subsetting is that using <code>[]</code> is equivalent to <code>subset()</code>. If we wanted to make the same subset using <code>[]</code>, we could do something like this. Just so we don’t overwrite <code>east_asian</code>, we’ll call this one <code>e_a</code>, and use the <code>identical()</code> function to check if they’re the same.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">east_asian =<span class="st"> </span><span class="kw">subset</span>(survey4, survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>)
 e_a =<span class="st"> </span>survey4[survey4$ethnicity ==<span class="st"> &#39;East Asian&#39;</span>, ]
 <span class="kw">identical</span>(east_asian, e_a)</code></pre></div>
-<pre><code>[1] TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <p><span class="note"><em>Note: in creating</em></span><span style="color: #a21bd7"> <code>e_a</code> </span><span class="note"><em>, we had to include the</em></span><span style="color: #a21bd7"> <code>,</code> </span><span class="note"><em>so that we could get all rows. If you wanted only certain columns, you could put something after the</em></span><span style="color: #a21bd7"> <code>,</code> </span><span class="note"> <em>to get only those columns.</em></span></p>
 </div>
 <div id="ecological-correrlations" class="section level3 unnumbered">
