@@ -59,7 +59,7 @@ as we did it!
 
 ## Text Formatting, Lists Links, and Images
 
-There's also a few special characters in markdown that you may find helpful as you write your documents. If you use [reddit](www.reddit.com/r/uiuc), these should all be fairly familiar, as this is how you can create and format a text post.
+There's also a few special characters in markdown that you may find helpful as you write your documents. If you use [reddit](https://www.reddit.com/r/UIUC/), these should all be fairly familiar, as this is how you can create and format a text post.
 
 One of the most common is the asterisk (`*`). Surrounding any regular text in a single set of asterisks italicizes the text. For example, `*this text will be italicized*` will appear as *this text will be italicized* in your final document. Using two asterisks will keep the text in a regular font, but will make it bold. `**Bolded Phrase**` will become **Bolded Phrase**. Using a triple set of asterisks will both italicize and bold the enclosed text: `***bolded and italicized***` becomes ***bolded and italicized***. Putting three (or more) asterisks on their own line will create a horizontal line on the page, like the one right below this paragraph.
 
