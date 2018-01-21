@@ -18,7 +18,7 @@ Just to give you an idea of how powerful R Markdown is, it's what was used to cr
 
 <span class = 'note'>Note: the markdown files that make up this book are actually from a package called</span> <span style = 'color: #a21bd7'> `bookdown` </span><span class = 'note'>, which you can read more about [here](https://bookdown.org/yihui/bookdown/) if you want to learn more. While </span><span style = 'color: #a21bd7'> `bookdown` </span><span class = 'note'> is way beyond the focus of this project, it's a really cool way to combine markdown files.</span>
 
-Since this *is* going to be one of the longer chapters in the book, we've provided a <a href = 'https://github.com/rossdrucker/STAT-100-Honors-Project/blob/master/R%20Markdown%20Example.zip?raw=true'>downloadable example</span> for you to look at as you go. While the content of the document itself doesn't exactly mean anything, we've tried to demonstrate as much of the formatting we cover and usefulness of R Markdown as we possibly can within it.
+Since this *is* going to be one of the longer chapters in the book, we've provided a <a href = 'https://github.com/rossdrucker/STAT-100-Honors-Project/blob/master/R%20Markdown%20Example.zip?raw=true'>downloadable example</a> for you to look at as you go. While the content of the document itself doesn't exactly mean anything, we've tried to demonstrate as much of the formatting we cover and usefulness of R Markdown as we possibly can within it.
 
 ## Knitting
 
