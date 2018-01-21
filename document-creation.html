@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-<link rel="prev" href="conditional-statements.html">
-<link rel="next" href="document-creation.html">
+<link rel="prev" href="functions-1.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -260,99 +260,93 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="functions-1" class="section level1">
-<h1><span class="header-section-number">Chapter 18</span> Functions</h1>
-<p>We’ve been using a ton of functions throughout the text, and we were very quickly introduced to them in <a href = 'functions-and-data-types.html#functions'>chapter 2</a>, but as promised, we’re going to take a deep dive into functions so that we can write and use our own. We’ll go into more depth about things that we’ve already talked about and show you how to combine everything to make a function to do anything you’d like it to.</p>
-<div id="when-to-write-a-function" class="section level2">
-<h2><span class="header-section-number">18.1</span> When to Write A Function</h2>
-<p>Functions are super useful whenever there’s a calculation that we’re going to want to repeat on a variety of different things. Remember that <code>stdv()</code> function we wrote <a href = 'measures-of-central-tendency.html#stdv-function'>before</a>? That’s a perfect example of a time to write a function, since that equation/conversion is something that we’re going to want to do over and over again.</p>
-<p>The thing to be careful of, however, is that functions only work when they’re either imported from a package or if you write them in the same file that you’re working in. If you write a function in a file called <code>script1.R</code>, and you want to use it in <code>script2.R</code>, you have to redefine the function in <code>script2.R</code>.</p>
+<div id="document-creation" class="section level1">
+<h1><span class="header-section-number">Chapter 19</span> Document Creation</h1>
+<p>Another great feature of <code>R</code> is the ability to make nicely-formatted documents through the use of the <code>rmarkdown</code> package. This allows you to become a literate programmer, where you can write code and explain what you’re doing, why you’re doing it, and explain the results all in the same place. Before we can really start showing how powerful these documents are, you need to install <code>rmarkdown</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;rmarkdown&#39;</span>)</code></pre></div>
+<p>This package allows you to create an <span class="vocab">R markdown</span> document. (They’ll have the file extension <span style="color: #e04e39"><code>.Rmd</code></span>). We’ll refer to them as markdown documents since they make use of markdown syntax (we’ll go over this; hang tight for now!). They allow you to weave together code and commentary/explanation into a single file, allowing you to explain your work as you go. To create a markdown document, go to <code>File &gt; New File &gt; R Markdown...</code>.</p>
+<p>R Markdown documents can be <span class="vocab">rendered</span>, or put together, into 3 formats: HTML, PDF, and Word. When you create your document, you’ll be asked which format you’d like it to render as. For our purposes, we’ll use HTML, since they open very nicely in a web browser. You’ll be asked to pick a format when you create a new markdown file. You’ll also be asked to title your document. Don’t freak out about naming it; you can always change it later.</p>
+<p>Just to give you an idea of how powerful R Markdown is, it’s what was used to create this entire textbook. Seriously! If you want to see them, you can find the source files by clicking <a href = 'https://github.com/rossdrucker/STAT-100-Honors-Project'>this link</a>. To download them, click any file that ends in <code>.Rmd</code>, then right click the <code>Raw</code> button, and click <code>Save Link As...</code>. This will save the file for you to see how the whole document is put together.</p>
+<p><span class="note">Note: the markdown files that make up this book are actually from a package called</span> <span style="color: #a21bd7"> <code>bookdown</code> </span><span class="note">, which you can read more about <a href="https://bookdown.org/yihui/bookdown/">here</a> if you want to learn more. While </span><span style="color: #a21bd7"> <code>bookdown</code> </span><span class="note"> is way beyond the focus of this project, it’s a really cool way to combine markdown files.</span></p>
+<p>Since this <em>is</em> going to be one of the longer chapters in the book, we’ve provided a <a href = 'https://github.com/rossdrucker/STAT-100-Honors-Project/blob/master/R%20Markdown%20Example.zip?raw=true'>downloadable example</span> for you to look at as you go. While the content of the document itself doesn’t exactly mean anything, we’ve tried to demonstrate as much of the formatting we cover and usefulness of R Markdown as we possibly can within it.</p>
+<div id="knitting" class="section level2">
+<h2><span class="header-section-number">19.1</span> Knitting</h2>
+<p>We’re going to start a little bit backwards and teach you how to <span class="vocab">knit</span> a document first before we teach you how to write them and make good use of them. In <code>R</code>, knitting a document means <em>knitting</em> together the code and the context that the document contains and rendering the document in the format that you specified when you created it. You can render it in other formats after you create it too! To knit your document, you can use the knit button <img src="img/19-knit-button.png" alt="" />.</p>
+<p><span class="tip">Pro tip: you can also knit your documents using keyboard shortcuts. On a Mac, use</span> <span style="color: #00ce45"><code>Cmd + Shift + K</code></span><span class="tip">, or on a PC, use</span> <span style="color: #00ce45"><code>Ctrl + Shift + K</code></span><span class="tip">.</span></p>
+<p>We have one more point to make before we go and start with the components of a markdown document, and that is where the markdown file looks for files that it needs to run (like data files, images, etc.). When knitting your document, <code>R</code> will look for any files in the <em>same</em> directory that the document is contained in unless you tell it otherwise.</p>
+<p>What this means is that if the markdown file is contained in the directory <code>/User/Desktop/STAT 100</code>, <code>R</code> will automatically look for any files just specified by name in the <code>/User/Desktop/STAT 100</code> directory. If inside of this directory, there’s a folder called <code>data</code> that we want to get data from (the data is saved as <code>data-to-use.csv</code>), we can specify a <span class="vocab">relative filepath</span>, or a filepath that’s <em>relative</em> to the one that we’re working in. We could say <code>data = read.csv('data/data-to-use.csv')</code> in our file, and it would work identically to <code>data = read.csv('User/Desktop/STAT 100/data/data-to-use.csv')</code>. It’s preferred to use the relative filepath, since the full one may be more specific to your computer.</p>
+<p>Now that we know how to create and render a markdown file, let’s take a closer look at its parts and how to make the best use of them.</p>
 </div>
-<div id="parts-of-a-function" class="section level2">
-<h2><span class="header-section-number">18.2</span> Parts of a Function</h2>
-<p>There’s three main parts of a user-defined function. The first part we’ll talk about is the function’s <span class="vocab">declaration</span>, or how specifically we create it. We do this by using the <code>function()</code> function, assiging the function a name (just like we do with variables and data frames), and declaring what its arguments will be. Just like a <code>for</code> loop or a conditional statement, end the line with a set of curly braces (<code>{}</code>)</p>
-<p>The next part of a function is its <span class="vocab">body</span>. It’s what goes in the <code>{}</code> and is what you want the function to do. This is where you’ll want to put any manipulations, calculations, loops, conditionals, or anything else that your function needs to do its job. It can be as long or short as you want it to be, but if you don’t specify what you’d like the function to do in its body, you can bet that it won’t do it.</p>
-<p>The last thing that every function needs is something to <span class="vocab">return</span>, or some kind of <span class="vocab">output</span>. This may seem kind of obvious, but the reason we want to write functions is to give us something back. This can be anything: a list, a data frame, a plot, a model, or any number of other things we want it to give us.</p>
-</div>
-<div id="scope" class="section level2">
-<h2><span class="header-section-number">18.3</span> Scope</h2>
-<p>If you want to think of a function as a black box, the only things that the function can use are anything that’s already inside of the box (the function’s body), and anything that we add into the box (the function’s arguments). Anything that’s inside the box never gets to see anything outside the box, and anything that’s outside the box never gets to see the inside of it. And unless we allow something to leave the box, anything inside of it will stay inside of it.</p>
-<p>This is the idea of <span class="vocab">scope</span> in a nutshell. It’s important to realize that any variable you create inside of a function will only be accessible <em>outside</em> of it if you allow it to come out. And anything that you create outside the function will not be used <em>inside</em> the function unless you specifically tell the function to use it. This is true of <code>for</code> loops and conditional statements as well. Here’s the brief pseudocoded skeleton so you can see it and not just read it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">someVariable =<span class="st"> </span>Some variable is defined here
+<div id="document-elements" class="section level2">
+<h2><span class="header-section-number">19.2</span> Document Elements</h2>
+<p>When you create a document, the first thing that gets put at the top is what’s called a <span class="vocab">YAML header</span>. This header contains some very basic information about the document that follows, such as the author, the title of the document, the date it was created, and what kind of output should be created. You’re welcome to edit this header as you need to. For example, if you’d like to change the title from the one you originally gave, just change what goes inside the quotation marks next to <code>title:</code> in the YAML header. This header is always enclosed by three dashes on each side of it (<code>---</code>).</p>
+<p>Next, we can put <span class="vocab">(section) headers</span> to create different sections of our document. To create a header, we start the line with a pound sign (<code>#</code>), then follow it with the header you’d like to use. Headers of the same level nest inside each other. Depending on the number of pound signs you use, your header will be a different <span class="vocab">level</span>, or size. More <code>#</code>s means a smaller size header, or a lower header level. Play around with them to see what we mean!</p>
+<pre><code># This is a first-level header
+## This is a second-level header
+## A nested second-level header here
+### This is a third-level header
+# Now we&#39;re back to a first-level header</code></pre>
+<p>After a header, we may want to give a little overview of what we’re going to be talking about throughout the rest of the document. There’s nothing really special about this body of text, but we <em>know</em> that it’s not meant to be interpreted as a section header or as code. We can just type regular text in the section, skipping 2 lines to do so. For example, if our header is “Overview”, we could put this into our markdown document and start writing our problem up.</p>
+<pre><code># Overview
 
-someFunction =<span class="st"> </span>function(arguments get put here){
-  This is where the body of the function goes
-  temp =<span class="st"> </span>Some temporary variable we wanted to create
-  Now we decide what we want to return and put it here
-}
+In this section, we&#39;ll provide a brief overview of the problem. 
+We used methods x, y, and z to solve it, and we&#39;re having a lot 
+of fun writing up this markdown document to explain what we did 
+as we did it!</code></pre>
+</div>
+<div id="text-formatting-lists-links-and-images" class="section level2">
+<h2><span class="header-section-number">19.3</span> Text Formatting, Lists Links, and Images</h2>
+<p>There’s also a few special characters in markdown that you may find helpful as you write your documents. If you use <a href="www.reddit.com/r/uiuc">reddit</a>, these should all be fairly familiar, as this is how you can create and format a text post.</p>
+<p>One of the most common is the asterisk (<code>*</code>). Surrounding any regular text in a single set of asterisks italicizes the text. For example, <code>*this text will be italicized*</code> will appear as <em>this text will be italicized</em> in your final document. Using two asterisks will keep the text in a regular font, but will make it bold. <code>**Bolded Phrase**</code> will become <strong>Bolded Phrase</strong>. Using a triple set of asterisks will both italicize and bold the enclosed text: <code>***bolded and italicized***</code> becomes <strong><em>bolded and italicized</em></strong>. Putting three (or more) asterisks on their own line will create a horizontal line on the page, like the one right below this paragraph.</p>
+<hr />
+<p><span class="note">Note: instead of using asterisks, you could also use the same number of underscores</span> <span style="color: #a21bd7"> (<code>_</code>) </span><span class = 'note'> to accomplish the same stylization.</p>
+<p>Another common markdown character is the caret (<code>^</code>). Enclosing text in a single set of carets will superscript the text. As an example, <code>i^th^</code> will become i<sup>th</sup> when we’re all done here.</p>
+<p>The last common character is the tilde (<code>~</code>) character. A single set will subscript the enclosed text (<code>X~i~</code> will look like X<sub>i</sub>), and a double set of tildes strikes through whatever it encloses. To see an example, include <code>~~strikethrough~~</code> in your document and it should appear as <del>strikethrough</del>.</p>
+<blockquote>
+<p>Starting a line with <code>&gt;</code> will make it look like a block quote, and will appear like this line in your text.</p>
+</blockquote>
+<p>Should you want to provide a hyperlink to something in your document, put the text you’d like displayed inside a single set of square brackets (<code>[]</code>), followed immediately by a set of parentheses that contain the link you’d like it to go to. If we wanted a link that says “Click Here” and have it take us to Google, for example, we’d put <code>[Click Here](www.google.com)</code> into our document. We can also link to files using the same syntax, but instead of putting a website in the parentheses, we’d put the filepath.</p>
+<p>Images work the same way as links, we just lead with a <code>!</code>. So, if we have an image file called <code>image-to-use.png</code> in a subdirectory called <code>img</code> that’s inside our working directory, we’d want to put <code>![](img/image-to-use.png)</code> in our text where we want the image to be displayed. If you want your image to have a caption, you can put it inside of the brackets.</p>
+<p>Items in a bulleted, unnumbered/unordered list should begin with <code>-</code> and each be put on their own line. To create a sublisted item, move down two lines, tab twice, and put another <code>-</code>, like so:</p>
+<pre><code>- Main item
 
-temp is not accessible here</code></pre></div>
-<p>The variable <code>temp</code> is only accessible inside the body of <code>someFunction</code> since that’s where it was declared. We say that it’s <em>inside</em> the scope of <code>someFunction</code>, but unless we make reference to it inside of <code>someFunction</code>, we say that <code>someVariable</code> is <em>outside</em> the scope of <code>someFunction</code> (since it was declared outside of the body of <code>someFunction</code>).</p>
+    - Sub-item 1</code></pre>
+<p>Numbered lists work the same way, but instead of starting the item with a <code>-</code>, start the item with the number it should take in the list.</p>
 </div>
-<div id="arguments" class="section level2">
-<h2><span class="header-section-number">18.4</span> Arguments</h2>
-<p>We’ve been talking a lot about arguments throughout the book, but what exactly are they? And how can we use them to help us write our own functions? Well, arguments are the parts of the function that can change each time you run it, but the operations that you do to them will be the same. In a sense, they’re their own variables. Each time you call the function, you’ll most likely want to specify what some (if not all) of the arguments are. Everything about an argument in a function you write – the name, the order, how they’re used, what type of data it can be, etc. – is completely up to you! Just make sure that they do what you want them to do.</p>
+<div id="code-chunks" class="section level2">
+<h2><span class="header-section-number">19.4</span> Code Chunks</h2>
+<p>Great! Now we can write as much text as we want, but how’s that better than a Word document? Well, Word documents can’t process <code>R</code> code like R markdown documents can. To include code, you need to make use of a <span class="vocab">code chunk</span>. You can create them by creating a <span class="vocab">fence</span>, which is just three backticks (<code>`</code>) in a row.</p>
+<p>Chunks need a <span class="vocab">chunk header</span>, which just tells the document that whatever’s inside the fence should be processed as <code>R</code> code. The header goes next to the opening fence and inside a set of curly braces (<code>{}</code>), and should begin with <code>r</code>. Inside this header, you can include a <span class="vocab">chunk label</span> and other <span class="vocab">chunk options</span> that help control output (these should be separated by a comma). While only the <code>r</code> is necessary, the chunk label helps you to remember what that chunk does, and the chunk options allow you to format the code and output accordingly. You can learn more about chunk options <a href = 'https://yihui.name/knitr/options/'>here</a>.</p>
+<div style="text-align: center">
+A template of a code chunk with a label and chunk options
 </div>
-<div id="return-statements" class="section level2">
-<h2><span class="header-section-number">18.5</span> Return Statements</h2>
-<p>The easiest way to specify the return of your function is to simply make it the last line of the function’s body. When you do this, you don’t have to save it as a variable. Simply put whatever you want the output to be, followed by a closing brace <code>}</code>. (If you’re using good coding style, that brace should be on the next line.)</p>
-<p>Another option you have is to use <code>return()</code>. This just explicitly tells <code>R</code> to return whatever you put inside of the parenthesis. Most of the time, however, going with the first method will be easier and faster.</p>
+<p><img src="img/19-chunk-example.png" style="display: block; margin: auto;" /></p>
+<p>While chunks can contain as much or as little code as you’d like them to, it’s a better practice to keep chunks short in your document and explain the parts as you go. Part of the beauty of R Markdown documents is that the code/results from a previous chunk is saved and can be accessed/used later in the document. Again, they’re great at allowing you to be a <em>literate</em> programmer, explaining code and results as you go.</p>
+<p>In addition to having code chunks like the one illustrated above, you can also have code run directly in your document. Instead of having to calculate a value or type out the full value of a variable, you can use an <span class="vocab">in-line code chunk</span> to do the dirty work for you. It will just display that value in your document as if it were the values you typed yourself! Just type <code>`r `</code>, but before that closing backtick, just put the code you’d like to run (example: <code>mean(x)</code>).</p>
+<p>Another quick note about using backticks: if you want to just have text in monospace font within a paragraph (like we’ve done to show the difference between code and regular commentary), you can just enclose it in a set of backticks. As long as you don’t start it with <code>`r`</code> followed by a space, it will just appear as plain text.</p>
+<p>One last thing: in a script, you’ve probably been using the <code>View()</code> command to look at the data. <strong>DO NOT DO THIS IN MARKDOWN</strong>. Instead, use the <code>kable()</code> function from the <code>knitr</code> package. Everything formats nicely with it. To make one, call <code>knitr::kable(DATA FRAME GOES HERE)</code> in a code chunk, and set <code>echo = FALSE</code> in that chunk’s header. While hiding the code is arbitrary, we don’t necessarily need to see every line of code you wrote. We just need to see how you got to your final answer. Being able to see the raw data most likely didn’t help you like a <code>for</code> loop did, so we’d rather see the <code>for</code> loop and save the space on the document.</p>
+<p>Again, markdown allows you to be a <em>literate</em> programmer. This means that <em>you</em> get to decide what the important parts of your code are, and what code the reader sees. R Markdown will still run all of the code you wrote in the background, but adding lines of output or extra code actually weaken the strength of your document (and cause it to take longer to render).</p>
 </div>
-<div id="writing-your-own-functions" class="section level2">
-<h2><span class="header-section-number">18.6</span> Writing Your Own Functions</h2>
-<p>Woo! Now that we understand what a function is and what it’s made up of, it’s time to start writing your own functions. To write your own function, the procedure to follow is this:</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Write out your algorithm</strong>. This will save you so much time if you have a clear roadmap of what your function needs to do, and the order in which it needs to do it.</p></li>
-<li><p>Declare your function by giving it a name and using the <code>function()</code> function. If there’s any arguments you know from the get-go you’ll need, put those in.</p></li>
-<li><p>Writing the body of the function. If you realize as you’re writing that you need to add an argument, make sure you add it to your arguments inside of <code>function()</code>.</p></li>
-<li><p>After you finish writing the body, make sure it returns what you’d like it to return (i.e. if you want it to return a number, make sure it’s not returning a character)</p></li>
-<li><p><strong>Test it out</strong>. This step allows you to go through and find mistakes in your function. Functions are great because they can (or at least should) work on small and large sets of data, so using a handful of small testing scenarios to make sure there’s no <span class="vocab">bugs</span>, or problems, in your code is always a good idea. If there are, make sure you address them!</p></li>
-</ol>
-<p>Let’s start with a simple example: a function that takes a set of numbers and returns the average of those numbers. Sure, the <code>mean()</code> function does this already, but let’s write a simple function that can do the same thing. First thing’s first: we need to come up with our algorithm:</p>
-<ol style="list-style-type: decimal">
-<li><p>Get set of numbers</p></li>
-<li><p>Add up all the numbers in the set</p></li>
-<li><p>Divide the sum from step 2 by how many numbers there are in our set</p></li>
-<li><p>Give back the result of step 3 as our answer.</p></li>
-</ol>
-<p>Now, we need a name to make our declaration. How about <code>averageCalc()</code>? Great. Declare it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">averageCalc =<span class="st"> </span>function(){
-  
-}</code></pre></div>
-<p>Step 1 of our algorithm tells us we need to get a set of numbers to work with. This is going to be an argument of the function, since we want <code>averageCalc()</code> to work on any set of numbers we pass to it. Remember, names of arguments should be descriptive, but concise. Since it’s just a set of numbers, why not call it <code>nums</code>? Sounds good to us!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">averageCalc =<span class="st"> </span>function(nums){
-  
-}</code></pre></div>
-<p>Step 2 says we need to add up the numbers in our set, <code>nums</code>. And we know that <code>R</code> has a function, <code>sum()</code> that adds up all of the numbers in a vector! We’ll want to use this sum later (in step 3), so we should probably store it as something. We’ll call it <code>total</code>, since it’s the total sum of the numbers in <code>nums</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">averageCalc =<span class="st"> </span>function(nums){
-  total =<span class="st"> </span><span class="kw">sum</span>(nums)
-}</code></pre></div>
-<p>Now, we need to divide <code>total</code> by how many numbers there are in <code>nums</code>, but how many numbers are in <code>nums</code>? We don’t know, so we should be generally specific: general enough where we know that it will work whether there’s 10 or 10,000 numbers in the set, but specific enough where we know what exactly what we’re doing with it. Luckily, the <code>length()</code> function tells us how many numbers there are in a vector, so we can use it here. We’ll store this length in a variable called <code>length_nums</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">averageCalc =<span class="st"> </span>function(nums){
-  total =<span class="st"> </span><span class="kw">sum</span>(nums)
-  length_nums =<span class="st"> </span><span class="kw">length</span>(nums)
-}</code></pre></div>
-<p>Lastly, we need to return <code>total</code> divided by <code>length_nums</code>. We know that if we want to return something, we can just put it as the last line of our function’s body and not assign it a variable name. This gives us the complete function definition:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">averageCalc =<span class="st"> </span>function(nums){
-  total =<span class="st"> </span><span class="kw">sum</span>(nums)
-  length_nums =<span class="st"> </span><span class="kw">length</span>(nums)
-  total /<span class="st"> </span>length_nums
-}</code></pre></div>
-<p>Now let’s make sure it worked. We’ll use a vector of length 1 (<code>averageCalc</code> should just return the number) and the numbers 1, 2, and 3 (we should get 2, since 1 + 2 + 3 = 6, and 6 <span class="math inline">\(\div\)</span> 3 = 2). Just call your function, and pass the numbers in place of <code>nums</code>. To call your function, just type the name, immediately followed by a set of parentheses, and put the arguments you need inside the parentheses</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">averageCalc</span>(<span class="dv">12</span>)</code></pre></div>
-<pre><code>## [1] 12</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">averageCalc</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p>The more variables you create inside of your function, however, the slower they run and the more memory they use up. That’s not to say that you should never create variables inside of your functions. You should! That’s what they’re there for! But an equally good function we could have written would be <code>averageCalc2.0</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">averageCalc2<span class="fl">.0</span> =<span class="st"> </span>function(nums){
-  <span class="kw">sum</span>(nums) /<span class="st"> </span><span class="kw">length</span>(nums)
-}
-
-<span class="kw">averageCalc2.0</span>(<span class="dv">12</span>)</code></pre></div>
-<pre><code>## [1] 12</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">averageCalc2.0</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p>Beautiful, it all works! Functions are meant to make your life a lot easier, so the better you get at writing functions, the more the world of <code>R</code> will open up for you. You’ll get plenty of pratice writing functions in the homework for this section.</p>
+<div id="latex-and-equation-formatting" class="section level2">
+<h2><span class="header-section-number">19.5</span> <span class="math inline">\(\LaTeX\)</span> and Equation Formatting</h2>
+<p>The final stylistic element of an R Markdown document is being able to quickly and easily include <span class="vocab"><span class="math inline">\(\LaTeX\)</span></span> (pronounced as LAY-tek)</span> formatting. What is <span class="math inline">\(\LaTeX\)</span> formatting? Glad you asked! Essentially <span class="math inline">\(\LaTeX\)</span> formatting allows us to include equations, other special characters (i.e. characters from other languages), mathematical expressions, constants, and other operations easily into our document. To format something with <span class="math inline">\(\LaTeX\)</span> in the line you’re working on, just enclose it in a set of <code>$</code>s. For example, if you wanted to make the letter <span class="math inline">\(\pi\)</span> appear, you’d use the <span class="math inline">\(\LaTeX\)</span> command <code>$\pi$</code>. Note the <code>\</code>: this tells <span class="math inline">\(\LaTeX\)</span> that the following part (the <code>pi</code>) is actually a code word for something that <span class="math inline">\(\LaTeX\)</span> understands. Some other common ones you may see are as follows:</p>
+<ul>
+<li><p><code>{}</code> essentially means “Whatever’s enclosed in here, treat together and do the <span class="math inline">\(\LaTeX\)</span> command to it”</p></li>
+<li><p><code>\sqrt{}</code> puts everything inside of the curly braces under a radical. <code>$\sqrt{4}$</code> will appear as <span class="math inline">\(\sqrt{4}\)</span></p></li>
+<li><p><code>\frac{}{}</code> nicely formats fractions. The numerator goes in the first set of braces, and the denominator goes in the second set. If you wanted to express 0.5 as a fraction, you could write in in <span class="math inline">\(\LaTeX\)</span> as <code>$\frac{1}{2}$</code></p></li>
+<li><p><code>\cdot</code> puts a multiplication operator (<span class="math inline">\(\cdot\)</span>) into your equation</p></li>
+<li><p><code>\text{}</code> reformats anything inside of the braces to appear as plain text. For example, using the <span class="math inline">\(\LaTeX\)</span> command <code>$Z-score = \frac{Val - Avg}{SD}$</code> will appear as <span class="math inline">\(Z-score = \frac{Val - Avg}{SD}\)</span>, however enclosing the phrases in the equation in the <code>\text{}</code> command (i.e. using <code>$\text{Z-score} = \frac{\text{Val} - \text{Avg}}{\text{SD}}$</code>) we get <span class="math inline">\(\text{Z-score} = \frac{\text{Val} - \text{Avg}}{\text{SD}}\)</span>, which is how we’re used to seeing it.</p></li>
+<li><p><code>^</code> and <code>_</code> are superscript and subscript respectively. Without using <code>{}</code>, these will only take the first character that follows them and super/subscript it. Remember: <code>{}</code> means “treat as a group”</p></li>
+</ul>
+<p>If instead of enclosing the <span class="math inline">\(\LaTeX\)</span> commands in one <code>$</code>, and instead they were enclosed by <code>$$</code>, the <span class="math inline">\(\LaTeX\)</span> would still work fine, but would actually format to be centered and on it’s own line.</p>
+</div>
+<div id="html-tags-and-css" class="section level2">
+<h2><span class="header-section-number">19.6</span> HTML Tags and CSS</h2>
+<p>If you’re familiar with HTML and/or CSS, you can use these to customize your R Markdown documents. We won’t go over how to do this, but you can feel free to look it up and use it as you want to. We’ve used both to help style the textbook, so if you see something in a .Rmd file that looks like <code>&lt;a name/href = 'something in here'&gt;&lt;/a&gt;</code> or <code>&lt;span class = 'class name here'&gt;&lt;/span&gt;</code>, that’s what these are.</p>
+</div>
+<div id="cheat-sheets" class="section level2">
+<h2><span class="header-section-number">19.7</span> Cheat Sheets</h2>
+<p>This chapter contained a TON of information. Feel free to refer back to it as you need to, but (as always in <code>R</code>) there’s a good resource or two to use. Specifically for R Markdown, there are cheat sheets that have pretty much everything that we’ve covered in this chapter, plus a few extra bits, for you to refer back to. You can find it <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">here</a>. It’s a really good idea to get comfortable in markdown, since we’ll be doing more and more with it now that you’ve learned about it.</p>
 
 </div>
 </div>
@@ -361,8 +355,8 @@ temp is not accessible here</code></pre></div>
           </div>
         </div>
       </div>
-<a href="conditional-statements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="document-creation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="functions-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
