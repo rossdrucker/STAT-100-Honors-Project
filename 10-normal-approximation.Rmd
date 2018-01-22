@@ -32,21 +32,21 @@ polygon(c(-2, seq(-2, 2, .01), 2), c(0, dnorm(seq(-2, 2, .01)), 0), col = '#1329
 polygon(c(-1, seq(-1, 1, .01), 1), c(0, dnorm(seq(-1, 1, .01)), 0), col = '#e04e39')
 ```
 
-The <span class = 'vocab'>**SD 1-2-3 Rule**</span> tells us how much data is within 1, 2, and 3 standard deviations of the average. The <span style = 'color: #e04e39; font-weight: bold'>orange</span> area of the above normal curve is <span style = 'color: #e04e39'; font-weight: bold'>1 standard deviation</span> of the average, or roughly <span style = 'color: #e04e39; font-weight: bold''>68%</span>. Within 2 standard deviations of the average (the <span style = 'color: #13294b; font-weight: bold''>blue</span> area, plus the middle <span style = 'color: #e04e39; font-weight: bold''>orange</span> area), gives us approximately <span style = 'color: #13294b; font-weight: bold''>95%</span> of the data, and the <span style = 'color: #a5acaf; font-weight: bold''>grey</span> area, plus the <span style = 'color: #e04e39; font-weight: bold''>orange</span> and <span style = 'color: #13294b; font-weight: bold''>blue</span> areas, give <span style = '#a5acaf; font-weight: bold''>99.7%</span> of the data.
+The <span class = 'vocab'>**SD 1-2-3 Rule**</span> tells us how much data is within 1, 2, and 3 standard deviations of the average. The <span style = 'color: #e04e39; font-weight: bold'>orange</span> area of the above normal curve is <span style = 'color: #e04e39'; font-weight: bold'>1 standard deviation</span> of the average, or roughly <span style = 'color: #e04e39; font-weight: bold'>68%</span>. Within 2 standard deviations of the average (the <span style = 'color: #13294b; font-weight: bold'>blue</span> area, plus the middle <span style = 'color: #e04e39; font-weight: bold'>orange</span> area), gives us approximately <span style = 'color: #13294b; font-weight: bold'>95%</span> of the data, and the <span style = 'color: #a5acaf; font-weight: bold'>grey</span> area, plus the <span style = 'color: #e04e39; font-weight: bold'>orange</span> and <span style = 'color: #13294b; font-weight: bold'>blue</span> areas, give <span style = '#a5acaf; font-weight: bold'>99.7%</span> of the data.
 
 Quick summary:
 
 <div style = 'text-align: center'>
 
-<span style = 'color: #e04e39; font-weight: bold''>orange</span> = <span style = 'color: #e04e39; font-weight: bold''>68%</span>
+<span style = 'color: #e04e39; font-weight: bold'>orange</span> = <span style = 'color: #e04e39; font-weight: bold'>68%</span>
 
-<span style = 'color: #e04e39; font-weight: bold''>orange</span> + <span style = 'color: #13294b; font-weight: bold''>blue</span> = <span style = 'color: #13294b; font-weight: bold''>95%</span>
+<span style = 'color: #e04e39; font-weight: bold'>orange</span> + <span style = 'color: #13294b; font-weight: bold'>blue</span> = <span style = 'color: #13294b; font-weight: bold'>95%</span>
 
-<span style = 'color: #e04e39; font-weight: bold''>orange</span> + <span style = 'color: #13294b; font-weight: bold''>blue</span> + <span style = 'color: #a5acaf; font-weight: bold''>grey</span> = <span style = 'color: #a5acaf; font-weight: bold''>99%</span>
+<span style = 'color: #e04e39; font-weight: bold'>orange</span> + <span style = 'color: #13294b; font-weight: bold'>blue</span> + <span style = 'color: #a5acaf; font-weight: bold'>grey</span> = <span style = 'color: #a5acaf; font-weight: bold'>99%</span>
 
 </div>
 
-In other words, <span style = 'color: #e04e39; font-weight: bold''>68%</span> of the data is between <span style = 'color: #e04e39; font-weight: bold''>-1</span> and <span style = 'color: #e04e39; font-weight: bold''>1</span>, <span style = 'color: #13294b; font-weight: bold''>95%</span> of the data is between <span style = 'color: #13294b; font-weight: bold''>-2</span> and <span style = 'color: #13294b; font-weight: bold''>2</span>, and <span style = 'color: #a5acaf; font-weight: bold''>99%</span> of the data is between <span style = 'color: #a5acaf; font-weight: bold''>-3</span> and <span style = 'color: #a5acaf; font-weight: bold''>3</span>.
+In other words, <span style = 'color: #e04e39; font-weight: bold'>68%</span> of the data is between <span style = 'color: #e04e39; font-weight: bold'>-1</span> and <span style = 'color: #e04e39; font-weight: bold'>1</span>, <span style = 'color: #13294b; font-weight: bold'>95%</span> of the data is between <span style = 'color: #13294b; font-weight: bold'>-2</span> and <span style = 'color: #13294b; font-weight: bold'>2</span>, and <span style = 'color: #a5acaf; font-weight: bold'>99%</span> of the data is between <span style = 'color: #a5acaf; font-weight: bold'>-3</span> and <span style = 'color: #a5acaf; font-weight: bold'>3</span>.
 
 Now this is great and all, but what about if the data isn't exactly 1, 2, or 3 standard deviations away from the average? Glad you asked. That's where Z-scores make their money.
 
