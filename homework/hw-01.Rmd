@@ -1,0 +1,57 @@
+---
+title: "Assignment 1"
+output: html_document
+---
+
+This assignment is due on **February 4, 2018 at 11:59pm**. You can upload your submission as many times as you'd like to Lon-Capa. Assignments uploaded after the deadline won't be accepted by Lon Capa, so make sure to upload before the last minute!
+
+Make sure to complete and upload this assignment as an `R` script. Go to `File > New File > New R Script` to create one. Save it as `hw01-YOUR-NETID-HERE.R`. Do what is asked of you using `R` code for each problem. Denote the start of a problem with a comment. While it seems like there's a lot of questions, they should go pretty quickly.
+
+## Problem 1
+
+Calculate $\sqrt{\frac{\left((2 + 3) \cdot 7\right)^4}{9}}$
+
+## Problem 2
+
+What's the area of a pizza that has *diameter* 12 inches?
+
+## Problem 3
+
+Save the the phrase "The quick brown fox jumped over the lazy dog" as a variable called `sentence`.
+
+## Problem 4
+
+What type of variable did we create in Problem 3? Put your answer in as a comment, and justify your answer with an appropriate `R` command.
+
+## Problem 5
+
+Store the following set of numbers in a variable (you get to pick the name!):
+
+$$
+0, \hspace{2mm} 4, \hspace{2mm} 8, \hspace{2mm} 12, \hspace{2mm} ..., \hspace{2mm} 96, \hspace{2mm} 100
+$$
+
+## Problem 6
+
+In one line of code, square all of the numbers from problem 5 (you don't have to save the squared numbers)
+
+## Problem 7
+
+Provide the code to look up the documentation for the `median()` function.
+
+## Problem 8
+
+Make a list of your [favorite things](https://www.youtube.com/watch?v=33o32C0ogVM) called `favorites`. Include your top four favorite foods, your three favorite movies, and two dream vacation locations. Call the items in your list `foods`, `movies`, and `places`.
+
+## Problem 9
+
+Are `v1` and `v2` the same?
+
+```{r problem-9, eval = FALSE}
+v1 = 1:10
+v2 = c(1, 3, 5, 7, 9, 10, 8, 6, 4, 2)
+```
+
+## Problem 10
+
+Who doesn't like free points? To get some free points, put a comment saying "Points me please!"
