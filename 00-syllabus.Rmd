@@ -57,7 +57,7 @@ In your email, please include a description of the problem you're having and any
 
 -	Point values will vary by assignment
 
--	In order to receive credit for the project, you must complete all assignments with an (combined) average of 85% or higher
+-	In order to receive credit for the project, you must complete all assignments with an (combined) average of 80% or higher
 
 -	Assignments will be available for one week after posting. No late assignments will be accepted
 
