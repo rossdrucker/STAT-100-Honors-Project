@@ -60,7 +60,7 @@ This is great, but it's kind of general to just talk about associations. How do 
 
 If the points fall perfectly on a line and are negatively associated, $r$ = -1. If the points fall perfectly on a line and are positively associated, $r$ = +1. If there's no association between the independent and dependent variables, the correlation is 0.
 
-In other words, a correlation of $r$ = $\pm$1 means that you can know *exactly* what $y$ is for any given $x$ value. Examples are converting units (i.e. temperature from Fahrenheit to Celsius or vice versa) or anything that's described by a line (i.e. the $x$ and $y$ values from the equation $y = 6x + 9$). Things that aren't related, such as weight of college freshmen and ACT scores or class attendance and number of pets you own, have a correlation coefficient of $r$ = 0.
+In other words, a correlation of $r$ = $\pm$ 1 means that you can know *exactly* what $y$ is for any given $x$ value. Examples are converting units (i.e. temperature from Fahrenheit to Celsius or vice versa) or anything that's described by a line (i.e. the $x$ and $y$ values from the equation $y = 6x + 9$). Things that aren't related, such as weight of college freshmen and ACT scores or class attendance and number of pets you own, have a correlation coefficient of $r$ = 0.
 
 ```{r 12-correlation-plot-examples, echo = FALSE}
 set.seed(696969696)
