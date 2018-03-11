@@ -8,7 +8,7 @@ In order to clean up our datasets, we'll have to make use of <span class = 'voca
 
 <span style = 'color: #e04e39'>`for`</span> <span class = 'vocab'>loops</span> allow us to <span class = 'vocab'>iterate</span>, or cycle through, our data set. Inside of a `for` loop, we can create variables, do calculations, or even put other `for` loops (this is called nesting, and we'll come back to it in a little bit).
 
-We'll do a few simple examples of `for` loops just to demonstrate their usefulness. Let's take a a vector of numbers called `v1` and use a `for` loop to do something simple: add 1 to each of the numbers. 
+We'll do a few simple examples of `for` loops just to demonstrate their usefulness. Let's take a vector of numbers called `v1` and use a `for` loop to do something simple: add 1 to each of the numbers. 
 
 ## Algorithms
 
@@ -31,7 +31,7 @@ Our algorithm for this process looks like this:
 3) Save this new number in the same place as the original number
 4) Repeat for all remaining numbers
 
-<span class = 'note'>While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style = 'color: #a21bd7'>`for`</span> <span class = 'note'>loop.</span>
+<span class = 'note'>Note: While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style = 'color: #a21bd7'>`for`</span> <span class = 'note'>loop.</span>
 
 ```{r 16-create-v1}
 (v1 = seq(1, 100, by = 7))
