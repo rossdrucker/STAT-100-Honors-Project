@@ -264,7 +264,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 16</span> <code>for</code> Loops</h1>
 <p>In order to clean up our datasets, we’ll have to make use of <span class="vocab">control structures</span>. This sounds super technical, but really what they help us do is navigate our way through the data in an organized, controlled fashion. They can do anything from helping us perform a series of operations on each observation to doing different operations based on criteria that we determine. There’s two main components to control structures: <code>for</code> loops and conditional statements.</p>
 <p><span style="color: #e04e39"><code>for</code></span> <span class="vocab">loops</span> allow us to <span class="vocab">iterate</span>, or cycle through, our data set. Inside of a <code>for</code> loop, we can create variables, do calculations, or even put other <code>for</code> loops (this is called nesting, and we’ll come back to it in a little bit).</p>
-<p>We’ll do a few simple examples of <code>for</code> loops just to demonstrate their usefulness. Let’s take a a vector of numbers called <code>v1</code> and use a <code>for</code> loop to do something simple: add 1 to each of the numbers.</p>
+<p>We’ll do a few simple examples of <code>for</code> loops just to demonstrate their usefulness. Let’s take a vector of numbers called <code>v1</code> and use a <code>for</code> loop to do something simple: add 1 to each of the numbers.</p>
 <div id="algorithms" class="section level2">
 <h2><span class="header-section-number">16.1</span> Algorithms</h2>
 <p>Now it’s time to think like a computer and devise an <span class="vocab">algorithm</span>, or set of strict steps. “Legal” operations are anything you’d be able to do by hand, such as:</p>
@@ -282,7 +282,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Save this new number in the same place as the original number</li>
 <li>Repeat for all remaining numbers</li>
 </ol>
-<p><span class="note">While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style="color: #a21bd7"><code>for</code></span> <span class="note">loop.</span></p>
+<p><span class="note">Note: While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style="color: #a21bd7"><code>for</code></span> <span class="note">loop.</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">v1 =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>))</code></pre></div>
 <pre><code>##  [1]  1  8 15 22 29 36 43 50 57 64 71 78 85 92 99</code></pre>
 </div>
