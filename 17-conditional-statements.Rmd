@@ -42,7 +42,7 @@ multiplication_table = data.frame(
 )
 
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
 knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
 ```
 
@@ -60,8 +60,8 @@ for(i in 1:nrow(multiplication_table)){
 
 ```{r 17-updated-multiplication-table, echo = FALSE}
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE) %>% kableExtra::kable_styling(c('hover', 'striped', 'bordered'), full_width = FALSE)
 ```
 
 Cool, it worked flawlessly! Also, make sure you see how the code is styled. The closing braces all line up vertically with what they open, and after each opening brace, we went to the next line and indented one tab. This makes it easy to see what happens where in the code, and allows us to easily edit it as we need to.
