@@ -42,8 +42,8 @@ multiplication_table = data.frame(
 )
 
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE) %>% kableExtra::kable_styling(c('hover', 'striped', 'bordered'), full_width = FALSE)
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
 ```
 
 This time, however, let's get more creative with our operation. Let's replace the square numbers in the table with their square root. That is, if `i` and `j` are the same number, put `i` in that place instead of the squared value. We'll have to use a nested loop again, but now we can check the condition and act accordingly.
@@ -60,7 +60,7 @@ for(i in 1:nrow(multiplication_table)){
 
 ```{r 17-updated-multiplication-table, echo = FALSE}
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
 knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE) %>% kableExtra::kable_styling(c('hover', 'striped', 'bordered'), full_width = FALSE)
 ```
 
