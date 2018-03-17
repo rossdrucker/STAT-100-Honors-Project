@@ -323,11 +323,11 @@ Graphical Example of <code>pnorm()</code> Output
 <li><code>rnorm()</code> is basically a random number generator. (The numbers are actually pseudo-random, but the patterns that they come from are not obvious, so we consider them random.) For this class, it won’t be particularly useful, but the more you learn in statistics and <code>R</code> the more useful this function will become. We may use it from time to time going forward to help us do a few things, so it’s worth mentioning now. Also worth mentioning is that this function won’t produce the same output every time you run it since, after all, it <em>is</em> a random number generator. To ensure <span class="vocab">reproducability</span> of your code, it’s a good habit to set the <span class="vocab">seed</span>, or starting value, of the random number generator with <code>set.seed()</code>. By supplying it an argument of any integer, it generates that many random numbers from a normal distribution. <code>mean</code> and <code>sd</code> again default to 0 and 1 respectively, but you can override these if you’d like.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] 1.075182 0.808716 1.222409</code></pre>
+<pre><code>## [1]  0.6456568 -0.4546447 -1.0444065</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1] -0.2339338  1.3419157  0.4723212</code></pre>
+<pre><code>## [1] -0.5182627  0.4242372  0.7175743</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>
-<pre><code>## [1]  1.37278367 -0.09654822 -0.19739247</code></pre>
+<pre><code>## [1]  1.2956477 -0.4988964 -1.5136444</code></pre>
 <p>Now, if we set a seed, we should get the same results every time <em>as long as we set the seed every time we want the same numbers</em>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123456789</span>)
 <span class="kw">rnorm</span>(<span class="dv">3</span>)</code></pre></div>

@@ -127,8 +127,8 @@ multiplication_table = data.frame(
 
 ```{r 16-multiplication-table-view, echo = FALSE}
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
-knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
+row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE) %>% kableExtra::kable_styling(c('hover', 'striped', 'bordered'), full_width = FALSE)
 ```
 
 Now, our nested loops:
@@ -144,8 +144,8 @@ for(i in 1:nrow(multiplication_table)){
 <div style = 'text-align: center'>After Nested `for` Loops</div>
 ```{r 16-multiplication-table-after-loops, echo = FALSE}
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
-knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
+row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE) %>% kableExtra::kable_styling(c('hover', 'striped', 'bordered'), full_width = FALSE)
 ```
 
 Great, everything worked! To check if it did, just take any number in the table, and subtract off the row and column numbers. This may seem like a silly example, and it admittedly is, but nested `for` loops work even better when we want to only operate on data that meet certain conditions. You'll learn about this in the next chapter.
