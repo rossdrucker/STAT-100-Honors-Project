@@ -34,7 +34,19 @@ Now that we know how to create and render a markdown file, let's take a closer l
 
 ## Document Elements
 
-When you create a document, the first thing that gets put at the top is what's called a <span class = 'vocab'>YAML header</span>. This header contains some very basic information about the document that follows, such as the author, the title of the document, the date it was created, and what kind of output should be created. You're welcome to edit this header as you need to. For example, if you'd like to change the title from the one you originally gave, just change what goes inside the quotation marks next to `title:` in the YAML header. This header is always enclosed by three dashes on each side of it (`---`).
+When you create a document, the first thing that gets put at the top is what's called a <span class = 'vocab'>YAML header</span>. This header contains some very basic information about the document that follows, such as the author, the title of the document, the date it was created, and what kind of output should be created. You're welcome to edit this header as you need to. For example, if you'd like to change the title from the one you originally gave, just change what goes inside the quotation marks next to `title:` in the YAML header. This header is always enclosed by three dashes on each side of it (`---`). In your YAML header, you can also create a table of contents, like so:
+
+```
+---
+title: "Your title here"
+author: "Your name here"
+output:
+    html_document:
+        toc: yes
+---
+```
+
+Any first-level section headers (which you'll read about in a minute) will be used as the indexes, with second-level headers being nested inside of those, and so on.
 
 Next, we can put <span class = 'vocab'>(section) headers</span> to create different sections of our document. To create a header, we start the line with a pound sign (`#`), then follow it with the header you'd like to use. Headers of the same level nest inside each other. Depending on the number of pound signs you use, your header will be a different <span class = 'vocab'>level</span>, or size. More `#`s means a smaller size header, or a lower header level. Play around with them to see what we mean!
 
