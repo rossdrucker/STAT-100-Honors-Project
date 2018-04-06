@@ -165,9 +165,16 @@ A few examples before we move on to sampling.
 ```{r}
 set.seed(42) # Set seed for reproducibility
 
-sample(1:6, 3, replace = TRUE) # Rolling a die 3 times
+# Rolling a die 3 times
+sample(1:6, 3, replace = TRUE)
 
-sample(1:52, 5, replace = FALSE) # Draw 5 cards without replacement
+# Draw 5 cards without replacement
+# 1-13 is A-K of Clubs
+# 14-26 is A-K of Spades
+# 27-39 is A-K of Hearts
+# 40-52 is A-K of Diamonds
+sample(1:52, 5, replace = FALSE)
 
-sample(c('Hot Dog', 'Hamburger', 'Quesadilla', 'Ribs', 'Soup'), 1) # Help me decide what to eat for dinner
+# Help me decide what to eat for dinner
+sample(c('Hot Dog', 'Hamburger', 'Quesadilla', 'Ribs', 'Soup'), 1)
 ```
