@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-<link rel="prev" href="variables.html">
-<link rel="next" href="packages-and-getting-help.html">
+<link rel="prev" href="document-creation.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -270,297 +270,684 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="operators" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Operators</h1>
-<p><a name = 'operators'></a></p>
-<p><img src="img/04-operators.gif" style="display: block; margin: auto;" /></p>
-<div id="mathematical-operators" class="section level2">
-<h2><span class="header-section-number">4.1</span> Mathematical Operators</h2>
-<p>One thing that <code>R</code> is really good at doing is mathematical computations. Here’s a few of the basic math operations that you’ll want to get familiar with and be very comfortable comfortable using.</p>
+<div id="probability-and-chance" class="section level1">
+<h1><span class="header-section-number">Chapter 20</span> Probability And Chance</h1>
+<p>In the last few chapters, we’ve been talking about how to make predictions using features in data, such as predicting weight from height, GPA from hours studied, or how many pairs of shoes you own based on how big your foot is. Now, let’s change what we’re predicting. Rather than predicting what a particular value is going to be, let’s talk about chance.</p>
+<p><img src="img/20-chance-what-up.gif" style="display: block; margin: auto;" /></p>
+<p>No, not <em>that</em> Chance… We meant chance as in <span class="vocab">probability</span>, or how likely we are to observe a particular number in our data. But maybe Chance the Rapper can still help us out. Whaddaya say, Chance?</p>
+<p><img src="img/20-chance-lets-go.gif" style="display: block; margin: auto;" /></p>
+<div id="probability" class="section level2">
+<h2><span class="header-section-number">20.1</span> Probability</h2>
+<p>We’ll define probability according to this definition:</p>
+<p><span class="math display">\[\text{Probability} = \frac{\text{Outcomes we want to happen}}{\text{All possible outcomes that could happen}}\]</span></p>
+<p>One of the easiest probability scenarios to think about is a rolling a die. Let’s pretend we’re playing a game against each other with a fair, six-sided die. If we roll an odd number, we win the game. If we roll an even number, Chance wins the game. What’s the probability, or what’s the chance, that Chance wins the game?</p>
+<p>Start by listing out all of the possible outcomes of our roll: 1, 2, 3, 4, 5, or a 6. Of those possible outcomes, if the die comes up a 2, a 4, or a 6, Chance wins. So that gives 3 outcomes out of 6 total outcomes. We write this as <span class="math inline">\(P(\text{You win}) = \frac{3}{6} = \frac{1}{2}\)</span>. Simple stuff.</p>
+<p><img src="img/20-chance-clapping.gif" style="display: block; margin: auto;" /></p>
+<p>Let’s move on to something a little more challenging: casino games. We’ll start with a standard deck of 52 playing cards. For the unfamiliar, a deck of cards has 4 different suits, or pictures, and each suit is made up of 13 unique cards. They look like this:</p>
+<p><img src="img/20-cards.jpg" style="display: block; margin: auto;" /></p>
+<p>We’ll represent them in the following table to make them easier to visualize.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:center;">
-Symbol
+Clubs
 </th>
 <th style="text-align:center;">
-Meaning
+Spades
 </th>
 <th style="text-align:center;">
-Example
+Hearts
+</th>
+<th style="text-align:center;">
+Diamonds
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-<code>+</code>
+<td style="text-align:center;font-weight: bold;">
+A
 </td>
-<td style="text-align:center;">
-addition
+<td style="text-align:center;font-weight: bold;">
+A
 </td>
-<td style="text-align:center;">
-<code>3 + 3</code> = <span class="math inline">\(1 + 1\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+A
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-<code>-</code>
-</td>
-<td style="text-align:center;">
-subtraction
-</td>
-<td style="text-align:center;">
-<code>10 - 1</code> = <span class="math inline">\(10 - 1\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+A
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-<code>*</code>
+<td style="text-align:center;font-weight: bold;">
+2
 </td>
-<td style="text-align:center;">
-multiplication
+<td style="text-align:center;font-weight: bold;">
+2
 </td>
-<td style="text-align:center;">
-<code>23 * 3</code> = <span class="math inline">\(23 \cdot 3\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+2
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-<code>/</code>
-</td>
-<td style="text-align:center;">
-division
-</td>
-<td style="text-align:center;">
-<code>276 / 4</code> = <span class="math inline">\(\frac{276}{4}\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-<code>**</code> or <code>^</code>
+<td style="text-align:center;font-weight: bold;">
+3
 </td>
-<td style="text-align:center;">
-exponent
+<td style="text-align:center;font-weight: bold;">
+3
 </td>
-<td style="text-align:center;">
-<code>2 ** 3</code> = <code>2 ^ 3</code> = <span class="math inline">\(2^3\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+3
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-<code>exp()</code>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(e\)</span>
-</td>
-<td style="text-align:center;">
-<code>exp(2)</code> = <span class="math inline">\(\exp \left( 2 \right)\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+3
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-<code>log()</code>
+<td style="text-align:center;font-weight: bold;">
+4
 </td>
-<td style="text-align:center;">
-natural log
+<td style="text-align:center;font-weight: bold;">
+4
 </td>
-<td style="text-align:center;">
-<code>log(2.71)</code> = <span class="math inline">\(\ln{2.71} = e\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+4
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-<code>log10()</code>
-</td>
-<td style="text-align:center;">
-log<span class="math inline">\(_{10}\)</span>
-</td>
-<td style="text-align:center;">
-<code>log10(100)</code> = <span class="math inline">\(\log_{10} 100\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+4
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-<code>pi</code>
+<td style="text-align:center;font-weight: bold;">
+5
 </td>
-<td style="text-align:center;">
-<span class="math inline">\(\pi\)</span>
+<td style="text-align:center;font-weight: bold;">
+5
 </td>
-<td style="text-align:center;">
-<code>2 * pi</code> = <span class="math inline">\(2 \cdot \pi\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+5
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-<code>sqrt()</code>
-</td>
-<td style="text-align:center;">
-square root
-</td>
-<td style="text-align:center;">
-<code>sqrt(4)</code> = <span class="math inline">\(\sqrt{4}\)</span>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+5
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-<code>abs()</code>
+<td style="text-align:center;font-weight: bold;">
+6
 </td>
-<td style="text-align:center;">
-absolute value ( <span class="math inline">\(|x|\)</span> )
+<td style="text-align:center;font-weight: bold;">
+6
 </td>
-<td style="text-align:center;">
-<code>abs(-6)</code> = |-6| = 6
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+6
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+J
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+Q
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+K
 </td>
 </tr>
 </tbody>
 </table>
-<p><code>R</code> also works in the correct mathematical order of operations: PEMDAS. This stands for</p>
-<ul>
-<li><strong>P</strong>arentheses/brackets</li>
-<li><strong>E</strong>xponents</li>
-<li><strong>M</strong>ultiplication</li>
-<li><strong>D</strong>ivision</li>
-<li><strong>A</strong>ddition</li>
-<li><strong>S</strong>ubtraction</li>
-</ul>
-<p>Because of this, using exra parenthesis is <strong><em>never</em></strong> a bad idea. <code>R</code> also automatically closes a set of brackets, parenthesis, or braces (<code>{}</code>) when you open them, but if you’re debugging and deleting make sure that you delete with caution. <code>R</code> will highlight the corresponding parenthesis when you highlight a different one, but these minor details can become major pains. Coder have caution!</p>
-<p><a name = 'boolops'></a></p>
-</div>
-<div id="logical-boolean-operators" class="section level2">
-<h2><span class="header-section-number">4.2</span> Logical (Boolean) Operators</h2>
-<p>As we talked about before, <code>R</code> can evaluate logical statements in addition to performing math operations. Here’s how this part works:</p>
+<p>Awesome, now let’s start having some fun with them. We’ll start with a simple example. Let’s pretend that we want to know the probability of drawing randomly from our deck of cards and getting a card that’s 9 or higher (we’ll say the ace is the lowest card). No problem, we just count up how many cards are a 9 or higher.</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:center;">
-Symbol
+Clubs
 </th>
 <th style="text-align:center;">
-Meaning
+Spades
 </th>
 <th style="text-align:center;">
-Example
+Hearts
+</th>
+<th style="text-align:center;">
+Diamonds
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-&gt;
+<td style="text-align:center;font-weight: bold;">
+A
 </td>
-<td style="text-align:center;">
-greater than
+<td style="text-align:center;font-weight: bold;">
+A
 </td>
-<td style="text-align:center;">
-3 &gt; 4 <span class="math inline">\(\implies\)</span> <code>FALSE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+A
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-&lt;
-</td>
-<td style="text-align:center;">
-less than
-</td>
-<td style="text-align:center;">
-2 &lt; 9 <span class="math inline">\(\implies\)</span> <code>TRUE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+A
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-&gt;=
+<td style="text-align:center;font-weight: bold;">
+2
 </td>
-<td style="text-align:center;">
-greater than or equal to (<span class="math inline">\(\geq\)</span>)
+<td style="text-align:center;font-weight: bold;">
+2
 </td>
-<td style="text-align:center;">
-13 &lt;= 13 <span class="math inline">\(\implies\)</span> <code>TRUE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+2
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-&lt;=
-</td>
-<td style="text-align:center;">
-less than or equal to (<span class="math inline">\(\leq\)</span>)
-</td>
-<td style="text-align:center;">
-14 &gt;= 12 <span class="math inline">\(\implies\)</span> <code>FALSE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-==
+<td style="text-align:center;font-weight: bold;">
+3
 </td>
-<td style="text-align:center;">
-is <strong><em>exactly equal</em></strong> to
+<td style="text-align:center;font-weight: bold;">
+3
 </td>
-<td style="text-align:center;">
-60 == 61 <span class="math inline">\(\implies\)</span> <code>FALSE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+3
 </td>
-</tr>
-<tr>
-<td style="text-align:center;">
-!=
-</td>
-<td style="text-align:center;">
-is <strong><em>not</em></strong> equal to (<span class="math inline">\(\ne\)</span>)
-</td>
-<td style="text-align:center;">
-69 != 818 <span class="math inline">\(\implies\)</span> <code>TRUE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+3
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-&amp;
+<td style="text-align:center;font-weight: bold;">
+4
 </td>
-<td style="text-align:center;">
-logical AND (used in conjunction with one of the above)
+<td style="text-align:center;font-weight: bold;">
+4
 </td>
-<td style="text-align:center;">
-x &gt; 12 &amp; y == <code>TRUE</code> <span class="math inline">\(\implies\)</span> <code>x</code> is <code>TRUE</code> and <code>y</code> is <code>TRUE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+4
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+4
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-|
+<td style="text-align:center;font-weight: bold;">
+5
 </td>
-<td style="text-align:center;">
-logical OR (used in conjunction with one of the above)
+<td style="text-align:center;font-weight: bold;">
+5
 </td>
-<td style="text-align:center;">
-x == TRUE | y == <code>TRUE</code> <span class="math inline">\(\implies\)</span> <code>x</code> is <code>TRUE</code> or <code>y</code> is <code>TRUE</code>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+5
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+6
+</td>
+<td style="text-align:center;font-weight: bold;">
+6
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+6
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+J
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+Q
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+K
 </td>
 </tr>
 </tbody>
 </table>
+<p>If you count up how many numbers we highlighted, you’ll see that there’s 20 possible cards that are 9 or higher. This means that the probability of getting a card of 9 or higher is <span class="math inline">\(P(\text{9 or higher}) = \frac{20}{52}\)</span>. So far, so good.</p>
 </div>
-<div id="vectorization" class="section level2">
-<h2><span class="header-section-number">4.3</span> Vectorization</h2>
-<p><a name = 'vectorization'></a></p>
-<p>Now it’s time to talk about one of the most useful features of <code>R</code>: the fact that it’s a <span class="vocab">vectorized language</span>. This sounds very complex, but what it really means is that you can operate on entire vectors at a time using the operators we just went through. Let’s see a few examples using a vector of length 25. We’ll create a vector <code>v1</code> that has the numbers 1 through 25, and we’ll do a few operations on it to really see how powerful vectorized operations are.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 =<span class="st"> </span><span class="dv">1</span>:<span class="dv">25</span></code></pre></div>
-<p><a name = '04-vectorization-ex1'></a></p>
-<p>First, let’s see what simple addition does to the vector. Pretend we want to add 5 to each element?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 +<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<pre><code>##  [1]  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
-## [24] 29 30</code></pre>
-<p>What about doubling each element?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 *<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>##  [1]  2  4  6  8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46
-## [24] 48 50</code></pre>
-<p>Cool! But what about that boolean thing we were talking about? Well, let’s try an example. What if we want to find where all the values are greater than 12?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 &gt;<span class="st"> </span><span class="dv">12</span></code></pre></div>
-<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [12] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [23]  TRUE  TRUE  TRUE</code></pre>
-<p>This is the power of vectorization: you can do things to really large amounts of data in a relatively short amount of time. Obviously, the more complex the operation is, the longer it will take, but it still beats the alternative of having to do the manipulations and calculations by hand.</p>
-<p>There’s one last important point to make about vectorization, and that’s what happens when you add vectors of unequal length. We’ve actually already seen <a href="#04-vectorization-ex1">examples</a> of this, but we just didn’t realize it. What’s happening is that <code>R</code> is treating the numbers that we’ve supplied above (5, 2, and 12 respectively) as vectors of length 1, and <span class="vocab">recycling</span> them over and over in its calculations. If instead we had tried to do <code>v1 + c(5, 10)</code>, we’d wind up with something different.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 +<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">10</span>)</code></pre></div>
-<pre><code>##  [1]  6 12  8 14 10 16 12 18 14 20 16 22 18 24 20 26 22 28 24 30 26 32 28
-## [24] 34 30</code></pre>
-<p>This is something that we need to be aware of: even though <code>R</code> can do a vectorized calculation, we need to make sure that it’s performing the calculation we actually want it to do. Again, the <code>length()</code> function is your friend here!</p>
+<div id="replacement" class="section level2">
+<h2><span class="header-section-number">20.2</span> Replacement</h2>
+<p>So far, we’ve only played our game or repeated our experiment one time and found the probability. But what about if we want to get the probability of a series of <span class="vocab">events</span>, or repetitions? No problem! We’ll cover that in just a minute, but before we do we need to talk about <span class="vocab">replacement</span>. What we mean by replacement is what we do after each time we play the game. Do we put the card back in the deck? Is it possible to get the exact same outcome? If yes, we’re doing our experiment <em>with</em> replacement. Otherwise, we say that we’re doing it <em>without</em> replacement. When we do something with replacement, the total number of possible outcomes doesn’t change. When we do the same thing without replacement, the number of possible outcomes decreases by one (since we made one of those outcomes happen).</p>
+</div>
+<div id="the-multiplication-rule" class="section level2">
+<h2><span class="header-section-number">20.3</span> The Multiplication Rule</h2>
+<p>Now that we understand some basics about probability, we can start to talk about probability over multiple , or repetitions of our experiment/plays of our game. The idea here is that we need things to happen together, like drawing twice from our deck and getting a King and then getting a Queen. To do this, we find the probability of each and use the <span class="vocab">multiplication rule</span>, where we multiply the probability of each event together. The key word that should trigger us to use it is <strong><em>and</em></strong>.</p>
+<p>If we wanted to play our die game twice and know what the chance is we win each time. Because of the multiplcation rule, this is easy!</p>
+<p><span class="math display">\[P(\text{Win first time AND win second time}) = P(\text{Win first time}) \cdot P(\text{Win second time}) = \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}\]</span></p>
+<p>Notice that the game is played with replacement, since we can’t get rid of a number on a die after it turns up on a roll.</p>
+<p>If instead we wanted to draw two cards from a deck with replacement and get the probability we get a number bigger than 9 on our first draw and a Spade on our second draw, we could calculate it as follows:</p>
+<p><span class="math display">\[P(\text{Bigger than 9 AND Spade}) = P(\text{Bigger than 9}) \cdot P(\text{Spade}) = \frac{20}{52} \cdot \frac{13}{52}\]</span></p>
+</div>
+<div id="the-addition-rule" class="section level2">
+<h2><span class="header-section-number">20.4</span> The Addition Rule</h2>
+<p>The other rule to remember is the <span class="vocab">addition rule</span>, which we use when we want the probability of event A <strong><em>OR</em></strong> event B, <strong><em>but not both</em></strong>. We define the addition rule as</p>
+<p><span class="math display">\[P(\text{Event A OR Event B}) = P(\text{Event A}) + P(\text{Event B}) - P(\text{Event A AND Event B})\]</span></p>
+<p>That last term may seem confusing, but it should make sense with an example. Let’s say we want the probability we draw one card out of our deck, and we want it to either be a King or a Spade.</p>
+<p>Here’s all of the cards that meet the criteria:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Clubs
+</th>
+<th style="text-align:center;">
+Spades
+</th>
+<th style="text-align:center;">
+Hearts
+</th>
+<th style="text-align:center;">
+Diamonds
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+A
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+A
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+A
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+2
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+2
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+2
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+3
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+3
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+3
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+4
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+4
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+4
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+5
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+5
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+5
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+6
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+6
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+6
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+7
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+8
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+9
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+10
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+J
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+J
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+Q
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;">
+Q
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05;background-color: #ffcb05;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+K
+</td>
+<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+K
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that there’s 16 unique cards that are highlighted: 3 unique Kings, 12 unique Spades, and 1 King of Spades. This means that the probability of getting a King or a Spade is <span class="math inline">\(\frac{16}{52\)</span>.</p>
+<p>But let’s see the addition rule in action! First, we know that the probability of a King is given by <span class="math inline">\(P(\text{King}) = \frac{4}{52}\)</span>, and the probability of a spade is <span class="math inline">\(P(\text{Spade}) = \frac{13}{52}\)</span>. Lastly, we know that there’s one card that’s both a King and a Spade: the King of Spades, which we can draw with probability <span class="math inline">\(P(\text{King AND Spade}) = \frac{1}{52}\)</span>. All together, we have:</p>
+<p><span class="math display">\[P(\text{King OR Spade}) = P(\text{King}) + P(\text{Spade}) - P(\text{King AND Spade}) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52}\]</span></p>
+<p><img src="img/20-chance-cash.gif" style="display: block; margin: auto;" /></p>
+</div>
+<div id="all-and-none" class="section level2">
+<h2><span class="header-section-number">20.5</span> All and None</h2>
+<p>One point we haven’t explicitly made yet about probability is that the total probability, or the probability of events we want to have happen plus the probability of all the other possible events, needs to add up to 1, or 100%. This usually doesn’t matter, but it’s a really important fact that we’ll take advantage of when we want to calculate the probability that <em>at least one</em> event is what we want, or the probability that <em>not all</em> events are what we want. The rules are as follows:</p>
+<p><span class="math display">\[P(\text{All}) + P(\text{Not all}) = 1\]</span></p>
+<p><span class="math display">\[P(\text{None}) + P(\text{At least one}) = 1\]</span></p>
+<p>It’s easier to find the probability that all events or no events meet our criteria than it is to calculate the probability that not all or at least one does. As an example, if we roll a die three times we can easily calculate the probability that all three rolls are a 2, since there’s only one scenario in which all three rolls are a 2. If we wanted to calculate the probability that <em>not</em> all three rolls are 2s, we’d have to find the probability that 0 rolls, 1 roll, or 2 rolls were a 2 and combine them.</p>
+</div>
+<div id="box-models" class="section level2">
+<h2><span class="header-section-number">20.6</span> Box Models</h2>
+<p>Another way (and a better way in terms of <code>R</code>) to conceptulaize probability is in the form of a <span class="vocab">box model</span>. What’s a box model, you ask? It’s a way to represent <em>one</em> play of a game, or trial of an experiment, or roll of a die as if we were randomly picking a number written on a ticket out of a hat. Let’s switch to roulette. Roulette is played by spinning a wheel with 38 spaces, dropping a ball into the wheel, and finding out where the ball lands. There are 18 red spaces, 18 black spaces, and 2 green spaces.</p>
+<p><img src="img/20-roulette.jpeg" style="display: block; margin: auto;" /></p>
+<p>What’s the chance of the roulette ball landing on a red space? Let’s use a box model to represent a single play of the game. There’s 18 ways for the ball to land on a red space, and there’s 20 ways for it to land on a black or green space. The box model looks like this.</p>
+<p><img src="STAT_100_Honors_Project_files/figure-html/box-model-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p>Now it’s easy to find the probability of the ball landing on a red space! There’s 18 tickets that are red, and there’s 38 tickets overall. Any time we play the game, we’d have to <em>replace</em> the ticket in the box (see why it’s called “with/without replacement” now?), and it’s easy to conceptualize the scenario graphically. <span class="math inline">\(P(\text{Red}) = \frac{18}{38}\)</span>.</p>
+<p>Want the probability of landing on red twice in a row? Easy! Pick a red on your first draw, replace the ticket, and then pick a red on your next draw. Use the multiplication rule to combine them together. <span class="math inline">\(P(\text{Red AND Red}) = \frac{18}{38} \cdot \frac{18}{38}\)</span>. Your thoughts, Chance the Rapper?</p>
+<p><img src="img/20-chance-thats-whats-up.gif" style="display: block; margin: auto;" /></p>
+</div>
+<div id="sample" class="section level2">
+<h2><span class="header-section-number">20.7</span> <code>sample()</code></h2>
+<p>Now, why is this a better way to think about probability for <code>R</code>? It’s because of the way that <code>R</code> can randomly sample things for you. To do this, you want to use the <code>sample()</code> function. The first argument you should pass to it (it’s called <code>x</code> in the help file) should be the vector of things you’d like to sample, whether that’s numbers, colors, <code>TRUE/FALSE</code> values, or whatever else it may be. The second argument, <code>n</code>, is the number of items to pull out, or the number of times to draw out of the box. <code>replace</code> is the third argument, which can be either <code>TRUE</code> or <code>FALSE</code>, indicating whether or not to do the draws with replacement. Lastly, you can change how likely each item you passed to <code>x</code> is via the <code>prob</code> argument, but usually you’ll want to leave this argument alone. It defaults to have each item be equally likely.</p>
+<p>A few examples before we move on to sampling.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>) <span class="co"># Set seed for reproducibility</span>
+
+<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">6</span>, <span class="dv">3</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="co"># Rolling a die 3 times</span></code></pre></div>
+<pre><code>[1] 6 6 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">52</span>, <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>) <span class="co"># Draw 5 cards without replacement</span></code></pre></div>
+<pre><code>[1] 44 33 26 37  7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;Hot Dog&#39;</span>, <span class="st">&#39;Hamburger&#39;</span>, <span class="st">&#39;Quesadilla&#39;</span>, <span class="st">&#39;Ribs&#39;</span>, <span class="st">&#39;Soup&#39;</span>), <span class="dv">1</span>) <span class="co"># Help me decide what to eat for dinner</span></code></pre></div>
+<pre><code>[1] &quot;Ribs&quot;</code></pre>
 
 </div>
 </div>
@@ -569,8 +956,8 @@ x == TRUE | y == <code>TRUE</code> <span class="math inline">\(\implies\)</span>
           </div>
         </div>
       </div>
-<a href="variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="packages-and-getting-help.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="document-creation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
