@@ -10,22 +10,33 @@ favicon: img/favicon.png
 #biblio-style: apalike
 link-citations: yes
 highlight: haddock
-github-repo: rstudio/bookdown-demo
+github-repo: rossdrucker/STAT-100-Honors-Project
 ---
-# Preface {-}
+# Intro {-}
 
 ```{r index-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 library(magrittr)
 ```
 
-Welcome to the STAT 100 Honors Project! Make sure that you've gotten your HCLA approved and submitted to your college.
 
-## Overview {-}
+**The who**: This project is available to James Scholars interested in learning the statistical computing language `R`. Please sign up ASAP because this is a pilot project and enrollment is limited to 50 students.
+
+**The what**: Our James Scholar Honors Project teaches you to use the statistical software, `R`. Be prepared to spend approximately 2 hours per week on this project.
+
+**The when**: Sign up ASAP by getting a HCLA form from your dean/advisor. As soon as the paperwork goes through, you're ready to go! The deadline to sign up is **Monday, January 29^th^ at 11:59pm**.
+
+**The how**: The project consists of weekly notes to read ($\approx$ 1 hour) and weekly assignments to do on Lon-Capa ($\approx$ 1 hour). You need to complete all the assignments and turn them in before the due date each week. Late assignments will not be accepted on Lon-Capa, so make sure to keep a close eye on the calendar. All assignments are due on Sundays at 11:59pm. The first one is due **Sunday February 4^th^, 2018**. It will be posted on Friday January 19th.
+
+**The where**: No need to leave home and get out of your PJs for this one. All notes and assignments can be found online!
+
+**The why**: Why not!? It's a great way to get your James Scholar credit, as well as to learn a useful program in the process. Knowledge of `R` is a very marketable skill. Also, the project is in sync with class. You'll be able to see how what you learn in class can be done in `R`. This will help reinforce the concepts that you need to know to succeed in Stat 100 and give you an introduction to programming
+
+## About This Book {-}
 
 This book is meant to run parallel to the [STAT 100](http://courses.las.illinois.edu/stat/stat100/) course notes. The hope is that STAT 100 students learn how the concepts they learned are put to use in modern statistical settings. Throughout, students will not only gain familiarity with the concepts in the notebook, but will also gain an understanding on how to use the `R` programming language to solve every-day problems in the real world.
 
-## Conventions {-}
+## Conventions For This Book {-}
 
 A few things to note throughout this book:
 
@@ -43,11 +54,80 @@ sqrt(4)
 
 - Vocab words will appear like <span class = 'vocab'>this</span> throughout the text
 
-- <span class = 'tip'>*Helpful hints ("Pro tips") will appear in this color and be in italics. They are usually shortcuts to use in*</span> <span style = 'color: #00ce45'>`R`</span> <span class = 'tip'>*to help make code writing and editing easier to do*</span>
+- <span class = 'tip'>Helpful hints ("Pro tips") will appear in this color and be in italics. They are usually shortcuts to use in</span> <span style = 'color: #00ce45'>`R`</span> <span class = 'tip'>to help make code writing and editing easier to do</span>
 
-- <span class = 'note'>*Things to keep in mind or pay attention to will look like this. They'll usually begin "Note:"*</span>
+- <span class = 'note'>Things to keep in mind or pay attention to will look like this. They'll usually begin "Note:"</span>
 
 <!--chapter:end:index.Rmd-->
+
+# Syllabus {-}
+
+**Coordinator**: Ross Drucker
+
+**Email**: ross.a.drucker@gmail.com
+
+**Email Policy**: Start your subject with [STAT 100 Honors Project]. Also provide a quick synopsis of what you're emailing about. For example, a few subject lines could look like:
+
+- [STAT 100 Honors Project] Homework 1 Problem 2
+
+- [STAT 100 Honors Project] Question about histograms
+
+Bad subject lines can look like this:
+
+- HELP ME PLZ
+
+- idk wut i'm doing 4 hw1
+
+In your email, please include a description of the problem you're having and any relevant code and/or error messages in the form of scripts or screenshots. Failure to do so may result in longer response times and/or no response altogether. You can send emails from any email address you have. Allow up to 24 hours for a response if you send an email Monday through Thursday. Over the weekend, response times may be longer. Please be patient. 
+
+**Office Hours**: MWF from 2:00pm-5:00pm, TR from 3:30pm-5:00pm in 23 Illini Hall (CITES Computer Lab), or by appointment
+
+**Website(s)**: General information about the project will be posted on [Compass2g](https://compass2g.illinois.edu/webapps/login/). Assignments will be posted on [Lon-Capa](lon-capa.illinois.edu) under the James Scholar folder. The textbook can be found at https://rossdrucker.github.io/STAT-100-Honors-Project/
+
+**Project Objective**: The goal of this project is to make students comfortable using the R programming language for a variety of uses. By the end, students should be able to perform basic calculations in R for both STAT 100 concepts and personal use.
+
+**HCLA**: In order to receive credit for this project, you must get an HCLA (either paper form or electronic) signed no later than **Monday, January 29th at 11:59pm**. Since the project is meant to run alongside class material, signups after this date will not be accepted.
+
+**Topics** (not in order; these may be updated throughout the semester):
+
+1)	R's interface and using R as a calculator
+
+2)	Data types
+
+3)	Descriptive statistics
+
+4)	Regression and model creation
+
+5)	Plotting, histograms, and visualization
+
+6)	Functions and control structures
+
+7)	Document rendering and scripting
+
+8)	Coding Style
+
+9)	Hypothesis testing
+
+10)	Probability
+
+**Grading Policy**: 
+-	Since this is the first semester for this version of the honors project, there's not a set number of assignments. There will most likely be around 8-12 assignments (due every 1 to 1.5 weeks)
+
+-	Each week, students should expect to spend 2-3 hours on readings and assignments
+
+-	All assignments will be posted on (and therefore submitted to) Lon-Capa. 
+
+-	Point values will vary by assignment
+
+-	In order to receive credit for the project, you must complete all assignments with an (combined) average of 80% or higher
+
+-	Assignments will be available for one week after posting. No late assignments will be accepted
+
+**Academic Integrity**: All students are expected to abide by the campus regulations on academic integrity, which can be found [here](http://studentcode.illinois.edu/article1_part4_1-401.html). These standards will be enforced and infractions of these rules will not be tolerated in this course. Such behavior includes sharing or copying any part of another student's assignment or allowing another student to copy any part of your assignment.
+
+**Changes**: The coordinator reserves the right to change any of the information in this syllabus. It is the student's responsibility to refer back to the syllabus to see pending changes.
+
+<!--chapter:end:00-syllabus.Rmd-->
 
 # (PART) The Basics {-}
 
@@ -60,16 +140,16 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE, fig.height = 7, fig.widt
 The first thing you'll need to do in order to begin using `R` is to actually download `R` itself. You can do this [from this link](https://cran.r-project.org/). It's <span class = 'vocab'>open-source</span>, which means anyone can access and use it for free!
 
 ```{r 01-free-gif, echo = FALSE}
-knitr::include_graphic('img/01-free-dance.gif')
+knitr::include_graphics('img/01-free-dance.gif')
 ```
 
-Make sure that you install it for the type of operating system you have. That is, if you have a Windows computer, don't download the Mac or Linux versions. This downloads what's called a <span class = 'vocab'>**terminal**</span>, or the bare minimum interface that you need to write and run code in R. You're not encouraged to use this terminal when writing code.
+Make sure that you install it for the type of operating system you have. That is, if you have a Windows computer, don't download the Mac or Linux versions. This downloads what's called a <span class = 'vocab'>terminal</span>, or the bare minimum interface that you need to write and run code in R. You're not encouraged to use this terminal when writing code.
 
 > "Wait, I thought you just said that this is how to write and run my code, and that's what this project is."
 >
 > <div style = "text-align: right"> --- You (probably) </div>
 
-This is because you should use RStudio to write, edit, and run your code. RStudio is what's called an <span class = 'vocab'>**IDE**</span> (Integrated Development Environment), and it relies on what you just downloaded to run in the background to run properly. You can download RStudio [here](https://www.rstudio.com/products/RStudio/). It makes *everything* in `R` --  from importing, manipulating, vizualizing, and analyzing data, to writing and debugging code, to creating documents (like this book!) -- significantly easier to do.
+This is because you should use RStudio to write, edit, and run your code. RStudio is what's called an <span class = 'vocab'>IDE</span> (Integrated Development Environment), and it relies on what you just downloaded to run in the background to run properly. You can download RStudio [here](https://www.rstudio.com/products/RStudio/). It makes *everything* in `R` --  from importing, manipulating, vizualizing, and analyzing data, to writing and debugging code, to creating documents (like this book!) -- significantly easier to do.
 
 ## Getting Familiar with RStudio
 
@@ -89,9 +169,9 @@ While this may seem like a good place to write your code, it's a better practice
 
 ## `Source` {#src}
 
-This pane is where you will do a majority of your work in what's called a <span class = 'vocab'>**script**</span>. Think of a script like a Microsoft Word document, but instead of writing essays, you're writing code. To open a new script, go to `File`, then select `New File`, then `New R Script`. On a Mac, you can press `Cmd + Shift + N`, or on a Windows/Linux computer, you can press `Ctrl + Shift + N`. The beauty of using a script is that you can save what you do and easily edit it later, whereas writing directly into the console will be much more difficult to save, edit, or view later. To run code that you write in a script, highlight the line(s) that you'd like to run and click `Run` at the top of the script. You can also hold `Cmd + Enter` (Mac) or `Ctrl + Enter` (PC).
+This pane is where you will do a majority of your work in what's called a <span class = 'vocab'>script</span>. Think of a script like a Microsoft Word document, but instead of writing essays, you're writing code. To open a new script, go to `File`, then select `New File`, then `New R Script`. On a Mac, you can press `Cmd + Shift + N`, or on a Windows/Linux computer, you can press `Ctrl + Shift + N`. The beauty of using a script is that you can save what you do and easily edit it later, whereas writing directly into the console will be much more difficult to save, edit, or view later. To run code that you write in a script, highlight the line(s) that you'd like to run and click `Run` at the top of the script. You can also hold `Cmd + Enter` (Mac) or `Ctrl + Enter` (PC).
 
-In addition to a script, you can also create a <span class = 'vocab'>**markdown document**</span>. Markdown documents allow you to combine plain text, code, and equations. We'll cover this in more detail later, but these allow you to explain your analysis as you do it. Just to give you an idea of how powerful markdown documents are, this entire book was made using markdown documents.
+In addition to a script, you can also create a <span class = 'vocab'>markdown document</span>. Markdown documents allow you to combine plain text, code, and equations. We'll cover this in more detail later, but these allow you to explain your analysis as you do it. Just to give you an idea of how powerful markdown documents are, this entire book was made using markdown documents.
 
 Lastly, this pane will be where the results from the `View()` command will display, and where you can view the actual contents of the datasets you're working with. Again, more on this in a little bit.
 
@@ -99,13 +179,13 @@ Lastly, this pane will be where the results from the `View()` command will displ
 
 ## `Environment, History, Build, VCS, Presentation`
 
-This pane is where you'll be able to see all of the datasets that you've imported, variables that you've created, and functions that you've written. They are stored in something called your <span class = 'vocab'>**global environment**</span>, or environment for short. Think of your environment as a folder on your computer that keeps track of all of the files you've created.
+This pane is where you'll be able to see all of the datasets that you've imported, variables that you've created, and functions that you've written. They are stored in something called your <span class = 'vocab'>global environment</span>, or environment for short. Think of your environment as a folder on your computer that keeps track of all of the files you've created.
 
 While none of that will probably mean much to you at the moment, they will in the span of a few chapters. The more code you write and the more variables you create, the harder it will be to remember all of these components. This pane keeps track of them, as well as basic information that you may find useful later.
 
 ## `Files, Plots, Packages, Help, Viewer`
 
-Lastly, the `Files, Plots, Packages, Help, Viewer` pane will display any plots, graphs, or other images you create in R. Plots will display in this pane under the `Plots` tab. If they don't pop up right away, try to increase the size of the pane by dragging the boundaries (like you'd resize your web browser). Markdown documents will be available in the `Viewer` tab, and help files will be in the `Help` tab. The `Files` tab shows the files in the <span class = 'vocab'>**directory**</span> (folder on your computer) that you're working in. We'll cover these in more detail later, but it's good to become familiar with this pane as well.
+Lastly, the `Files, Plots, Packages, Help, Viewer` pane will display any plots, graphs, or other images you create in R. Plots will display in this pane under the `Plots` tab. If they don't pop up right away, try to increase the size of the pane by dragging the boundaries (like you'd resize your web browser). Markdown documents will be available in the `Viewer` tab, and help files will be in the `Help` tab. The `Files` tab shows the files in the <span class = 'vocab'>directory</span> (folder on your computer) that you're working in. We'll cover these in more detail later, but it's good to become familiar with this pane as well.
 
 <!--chapter:end:01-setup.Rmd-->
 
@@ -119,13 +199,13 @@ knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fi
 
 ## Functions
 
-A <span class = 'vocab'>**function**</span> in `R` is a set of steps, operations, and procedures that are done to data in a specific order. `R` has some functions that are built into the language (many of which we'll go through in this book), but you are also able to write your own functions as well.
+A <span class = 'vocab'>function</span> in `R` is a set of steps, operations, and procedures that are done to data in a specific order. `R` has some functions that are built into the language (many of which we'll go through in this book), but you are also able to write your own functions as well.
 
-Functions take <span class = 'vocab'>**arguments**</span>, which are data points and other items that the function needs to do its job. Think of them like a variable, where you can change the value that they take each time you need to run the function. These can be anything from data points themselves, to colors and sizes for plots, to even other functions if necessary. After performing the steps and calculations that they're supposed to do, they <span class = 'vocab'>**return**</span>, or give out, the information.
+Functions take <span class = 'vocab'>arguments</span>, which are data points and other items that the function needs to do its job. Think of them like a variable, where you can change the value that they take each time you need to run the function. These can be anything from data points themselves, to colors and sizes for plots, to even other functions if necessary. After performing the steps and calculations that they're supposed to do, they <span class = 'vocab'>return</span>, or give out, the information.
 
 <a name = 'default-argument-note'></a>
 
-<span class = 'note'>*Note: in *</span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>*, arguments of functions may have pre-defined values. In this case, unless you specify differently when you*</span> <span class = 'vocab'>call</span> <span class = 'note'>*(use) the function, this pre-defined, or*</span> <span class = 'vocab'>default</span><span class = 'note'>*, value will be used instead.*</span>
+<span class = 'note'>Note: in </span><span style = 'color: #a21bd7'>`R`</span><span class = 'note'>, arguments of functions may have pre-defined values. In this case, unless you specify differently when you</span> <span class = 'vocab'>call</span> <span class = 'note'>(use) the function, this pre-defined, or </span><span class = 'vocab'>default</span><span class = 'note'>, value will be used instead.
 
 To write your own functions, you need to make use of the `function()` function. You give your function a name, then specify its arguments as the arguments in `function()`, and include your steps inside of a set of curly braces (`{}`). To tell `R` what to return as the output of your new function, you have two options: you can either just leave it as the last line inside of the curly braces, or you can explicitly state it inside the parenthesis of `return()`.
 
@@ -184,11 +264,11 @@ Each of the data types listed [above](#types) describes a single point of data, 
 
 <a name = 'vectors'></a>
 
-A <span class = 'vocab'>vector**</span> is a grouped set of data. Think about it as if it were the answer to a *single* question from a survey from all students in the class, or the heights of all basketball players in the NBA. We've actually been working with vectors all along! We'll discuss it more in [chapter 4](#Vectorization).
+A <span class = 'vocab'>vector</span> is a grouped set of data. Think about it as if it were the answer to a *single* question from a survey from all students in the class, or the heights of all basketball players in the NBA. We've actually been working with vectors all along! We'll discuss it more in [chapter 4](#Vectorization).
 
-`R` actually treats every value as a vector. That's why, as you may have noticed, lines of output begin with `[1]`. This indicates the <span class = 'vocab'>index**</span> (position) in the vector that is at the start of the line. Any time we've had any type of data, `R` has just treated it as a vector of length 1.
+`R` actually treats every value as a vector. That's why, as you may have noticed, lines of output begin with `[1]`. This indicates the <span class = 'vocab'>index</span> (position) in the vector that is at the start of the line. Any time we've had any type of data, `R` has just treated it as a vector of length 1.
 
-One important thing to note about vectors is that all members of the vector must be of the same type. If they aren't, they will be <span class = 'vocab'>coerced**</span> (changed) to be of the same type. To create a vector, we can use the `c()` function. This function combines the <span class = 'vocab'>elements**</span> (individual data points) and turns them into a vector. Separate the parts with a comma (`,`). Here's a few examples:
+One important thing to note about vectors is that all members of the vector must be of the same type. If they aren't, they will be <span class = 'vocab'>coerced</span> (changed) to be of the same type. To create a vector, we can use the `c()` function. This function combines the <span class = 'vocab'>elements</span> (individual data points) and turns them into a vector. Separate the parts with a comma (`,`). Here's a few examples:
 
 ```{r 02-vector-examples}
 c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
@@ -322,7 +402,7 @@ This function is very helpful when you want to check if two vectors or lists hav
 knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
-Pretend that you have a number that you don't want to keep typing over and over and want `R` to remember what it means. You can store that value as a <span class = 'vocab'>**variable**</span> in `R` by declaring it (giving it a name) and assigning it a value. To make the assignment, you can use either `=` or `<-`. It's really personal preference as to which one you'd like to use, but for the duration of the book we'll use `=` (mostly out of habit). To assign a variable a value, we put the variable name on the left side of the assignment operator, and we put the value on the right side. As an example, if we want `R` to remember that some variable that we'll call $x$ should have the value 5, you can do it like this:
+Pretend that you have a number that you don't want to keep typing over and over and want `R` to remember what it means. You can store that value as a <span class = 'vocab'>variable</span> in `R` by declaring it (giving it a name) and assigning it a value. To make the assignment, you can use either `=` or `<-`. It's really personal preference as to which one you'd like to use, but for the duration of the book we'll use `=` (mostly out of habit). To assign a variable a value, we put the variable name on the left side of the assignment operator, and we put the value on the right side. As an example, if we want `R` to remember that some variable that we'll call $x$ should have the value 5, you can do it like this:
 
 ```{r 03-variable-ex1}
 x = 5
@@ -429,7 +509,7 @@ names(groceries)[2] = 'cost'
 
 As you can see, we did exactly what we wanted to do. Since data frames are really just lists, the same type of renaming applies.
 
-<span class = 'note'>*Note: *</span><span style = 'color: #a21bd7'>`R`</span> <span class = 'note'>*will treat a single value as a vector, even without using the *</span><span style = 'color: #a21bd7'>`c()`</span><span class = 'note'>*function. It's <a href = 'functions-and-data-types.html#coercion'>coercion</a> and <a href = 'operators.html#vectorization'>vectorization</a> in action.*</span>
+<span class = 'note'>Note: </span><span style = 'color: #a21bd7'>`R`</span> <span class = 'note'>will treat a single value as a vector, even without using the </span><span style = 'color: #a21bd7'>`c()`</span><span class = 'note'>function. It's <a href = 'functions-and-data-types.html#coercion'>coercion</a> and <a href = 'operators.html#vectorization'>vectorization</a> in action.</span>
 
 <!--chapter:end:03-variables.Rmd-->
 
@@ -534,7 +614,7 @@ knitr::kable(boolsymbs, format = 'html', align = 'c', booktabs = TRUE)
 
 <a name = 'vectorization'></a>
 
-Now it's time to talk about one of the most useful features of `R`: the fact that it's a <span class = 'vocab'>**vectorized language**</span>. This sounds very complex, but what it really means is that you can operate on entire vectors at a time using the operators we just went through. Let's see a few examples using a vector of length 25. We'll create a vector `v1` that has the numbers 1 through 25, and we'll do a few operations on it to really see how powerful vectorized operations are.
+Now it's time to talk about one of the most useful features of `R`: the fact that it's a <span class = 'vocab'>vectorized language</span>. This sounds very complex, but what it really means is that you can operate on entire vectors at a time using the operators we just went through. Let's see a few examples using a vector of length 25. We'll create a vector `v1` that has the numbers 1 through 25, and we'll do a few operations on it to really see how powerful vectorized operations are.
 
 ```{r 04-vectorization-ex-setup}
 v1 = 1:25
@@ -562,7 +642,7 @@ v1 > 12
 
 This is the power of vectorization: you can do things to really large amounts of data in a relatively short amount of time. Obviously, the more complex the operation is, the longer it will take, but it still beats the alternative of having to do the manipulations and calculations by hand.
 
-There's one last important point to make about vectorization, and that's what happens when you add vectors of unequal length. We've actually already seen [examples](#04-vectorization-ex1) of this, but we just didn't realize it. What's happening is that `R` is treating the numbers that we've supplied above (5, 2, and 12 respectively) as vectors of length 1, and <span class = 'vocab'>**recycling**</span> them over and over in its calculations. If instead we had tried to do `v1 + c(5, 10)`, we'd wind up with something different.
+There's one last important point to make about vectorization, and that's what happens when you add vectors of unequal length. We've actually already seen [examples](#04-vectorization-ex1) of this, but we just didn't realize it. What's happening is that `R` is treating the numbers that we've supplied above (5, 2, and 12 respectively) as vectors of length 1, and <span class = 'vocab'>recycling</span> them over and over in its calculations. If instead we had tried to do `v1 + c(5, 10)`, we'd wind up with something different.
 
 ```{r 04-recycling-vectors}
 v1 + c(5, 10)
@@ -580,7 +660,7 @@ knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, ca
 
 ## Packages
 
-A <span class = 'vocab'>**package**</span> is just a collection of functions, data, and already-written code that is in a well-defined format. We'll introduce a few packages as we go, but a lot of what we'll cover will rely on the `base` package, which is just the functions that `R` already comes with. They're the *base* of most analyses and other operations you'll want to do in R, hence the name of the package. To install a new package, you want to use the `install.packages()` function, with the name of the package quoted and inside of the parenthesis. 
+A <span class = 'vocab'>package</span> is just a collection of functions, data, and already-written code that is in a well-defined format. We'll introduce a few packages as we go, but a lot of what we'll cover will rely on the `base` package, which is just the functions that `R` already comes with. They're the *base* of most analyses and other operations you'll want to do in R, hence the name of the package. To install a new package, you want to use the `install.packages()` function, with the name of the package quoted and inside of the parenthesis. 
 
 One package that you'll want to install is the `swirl` package, which was developed as a self-guided class to help you learn R. To install this package, copy and paste the following line into your `Console`.
 
@@ -588,7 +668,7 @@ One package that you'll want to install is the `swirl` package, which was develo
 install.packages('swirl')
 ```
 
-Once the package is installed, you'll want to <span class = 'vocab'>**load**</span> the package (tell `R` that you'll be using commands, data, and other information from the package). Copy/paste or type the following into your console to do so, and follow the prompts:
+Once the package is installed, you'll want to <span class = 'vocab'>load</span> the package (tell `R` that you'll be using commands, data, and other information from the package). Copy/paste or type the following into your console to do so, and follow the prompts:
 
 ```{r 05-load-swirl, eval = FALSE}
 library(swirl)
@@ -596,7 +676,7 @@ library(swirl)
 
 ## Help Files {#helpfiles}
 
-Another great aspect of `R` is how well-documented the language is. If you don't know how to use a particular function, there are a lot of ways to learn how to use it and see it in action. The help files provide the <span class = 'vocab'>**syntax**</span> (what order to put things into the function), an explanation of the arguments, as well as information about the <span class = 'vocab'>**output**</span> (what the function gives back to you), and examples of the function in use.
+Another great aspect of `R` is how well-documented the language is. If you don't know how to use a particular function, there are a lot of ways to learn how to use it and see it in action. The help files provide the <span class = 'vocab'>syntax</span> (what order to put things into the function), an explanation of the arguments, as well as information about the <span class = 'vocab'>output</span> (what the function gives back to you), and examples of the function in use.
 
 ### An Example {-}
 
@@ -662,11 +742,11 @@ Like we learned <a href = 'downloading-r-and-rstudio.html#env'>before</a>, you'l
 
 ## Data Files
 
-Most of the time, you'll want to work with something called a <span class = 'vocab'>**CSV**</span> file. CSV stands for **C**omma **S**eparated **V**alue, which means that all of the data within an observation is separated by a comma. <a href = '/data/Combined Fall 2017 Survey 1.csv'>Here's an example CSV file</a> that you can download. To see the raw file, you can open it in a program like TextEdit on a Mac or Notepad on PC. Usually, a CSV file will default to open in a spreadsheet program like Excel since it's easy to <span class = 'vocab'>**parse**</span> (read in and break up) into columns -- this is because of the commas!
+Most of the time, you'll want to work with something called a <span class = 'vocab'>CSV</span> file. CSV stands for **C**omma **S**eparated **V**alue, which means that all of the data within an observation is separated by a comma [Here's an example CSV file](data/Combined Fall 2017 Survey 1.csv) that you can download. To see the raw file, you can open it in a program like TextEdit on a Mac or Notepad on PC. Usually, a CSV file will default to open in a spreadsheet program like Excel since it's easy to <span class = 'vocab'>parse</span> (read in and break up) into columns -- this is because of the commas!
 
 ## Reading in CSV Files
 
-To read a CSV into `R`, there's a great function called `read.csv()`. It will read in your file as a data frame. To read in the file, you just need to put the name of the file as a charachter string (remember your <a href = 'functions-and-data-types.html#02-character'>data types</a>?) in between the parenthesis. This is the only required <span class = 'vocab'>**argument**</span>, or input to a function, that you need to supply, however there are a few others to note:
+To read a CSV into `R`, there's a great function called `read.csv()`. It will read in your file as a data frame. To read in the file, you just need to put the name of the file as a charachter string (remember your <a href = 'functions-and-data-types.html#02-character'>data types</a>?) in between the parenthesis. This is the only required <span class = 'vocab'>argument</span>, or input to a function, that you need to supply, however there are a few others to note:
 
 - The `stringsAsFactors` argument can be either a `TRUE` or `FALSE` value. When `TRUE` (this argument's default value), it takes any character strings in the data and coerces them to be factors. Sometimes this may be okay, sometimes not
 
@@ -674,7 +754,7 @@ To read a CSV into `R`, there's a great function called `read.csv()`. It will re
 
 ### Directories {-}
 
-One common issue is the location on your computer where the CSV is located. If you just type the name of the file as the argument for `read.csv()`, `R` will look for it in your <span class = 'vocab'>**working directory**</span>, or default file lookup location. However, if your file isn't present in the working directory, you'll likely get an error message. If this is the case, you have a few options:
+One common issue is the location on your computer where the CSV is located. If you just type the name of the file as the argument for `read.csv()`, `R` will look for it in your <span class = 'vocab'>working directory</span>, or default file lookup location. However, if your file isn't present in the working directory, you'll likely get an error message. If this is the case, you have a few options:
 
 1) You can supply the full filepath to the data as the string. Watch [this video](https://www.youtube.com/watch?v=kIhGavBqXYc) to find how to find the full filepath for Mac or [this one](https://www.youtube.com/watch?v=th23yuZ9fOw) for PC. While it may be more work to find, it'll guarantee that you import the right file.
 
@@ -722,9 +802,9 @@ The code that you write will be read by `R`, which will ignore extra spaces, cor
 
 ## Comments
 
-There's one important symbol/operator that we left out in <a href = 'operators.html#operators'>chapter 5</a>, and that's the comment symbol. A <span class = 'vocab'>**comment**</span> is just a note for yourself so that you can explain what a block of code does, why you wrote the code a particular way, or really just anything else that you'd like to note at that point in the code. They won't be evaluated by `R` as commands, so it may be useful to even <span class = 'vocab'>**comment out**</span> parts of your code (make line(s) of code into comments to prevent them from running but save yourself from retyping). To make a comment in `R`, use `#`.
+There's one important symbol/operator that we left out in <a href = 'operators.html#operators'>chapter 5</a>, and that's the comment symbol. A <span class = 'vocab'>comment</span> is just a note for yourself so that you can explain what a block of code does, why you wrote the code a particular way, or really just anything else that you'd like to note at that point in the code. They won't be evaluated by `R` as commands, so it may be useful to even <span class = 'vocab'>comment out</span> parts of your code (make line(s) of code into comments to prevent them from running but save yourself from retyping). To make a comment in `R`, use `#`.
 
-<span class = 'tip'>***Pro tip: You can highlight whole lines of code, then go to the***</span> <span style = 'color: #00ce45'>`Code`</span> <span class = 'tip'>***menu at the top and select***</span> <span style = 'color: #00ce45'>`Comment/Uncomment Lines`</span> <span class = 'tip'>***to comment out (or uncomment) sections of code at a time. The shortcut on a Mac is***</span> <span style = 'color: #00ce45'>`Cmd + Shift + C`</span><span class = 'tip'>***, and on a PC it's***</span> <span style = 'color: #00ce45'>`Ctrl + Shift + C`</span><span class = 'tip'>***.***</span>
+<span class = 'tip'>Pro tip: You can highlight whole lines of code, then go to the</span> <span style = 'color: #00ce45'>`Code`</span> <span class = 'tip'>menu at the top and select</span> <span style = 'color: #00ce45'>`Comment/Uncomment Lines`</span> <span class = 'tip'>to comment out (or uncomment) sections of code at a time. The shortcut on a Mac is</span> <span style = 'color: #00ce45'>`Cmd + Shift + C`</span><span class = 'tip'>, and on a PC it's</span> <span style = 'color: #00ce45'>`Ctrl + Shift + C`</span><span class = 'tip'>.</span>
 
 Get in the habit of commenting frequently as you code. As we said before, these are ways for you to remember what you did so that when you revisit your code, you remember what your thought process was.
 
@@ -755,7 +835,7 @@ This may seem like a lot of very specific things to keep in mind. Luckily, RStud
 # (PART) Exploring Data {-}
 
 ```{r 08-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 library(magrittr)
 ```
 
@@ -1075,7 +1155,7 @@ sd(c(0, 1, 2, 3, 4, 5, 6))
 knitr::include_graphics('img/09-surprise.gif')
 ```
 
-Hmmm... That's not quite right. By hand, we got 4, but with `sd()`, we got `r sd(c(0, 1, 2, 3, 4, 5, 6))`. This is where we need to start being a little careful. Earlier, we defined standard deviation as the standard deviation of the *population* (frequently referred to as $\sigma$), which is given by
+Hmmm... That's not quite right. By hand, we got 2, but with `sd()`, we got `r sd(c(0, 1, 2, 3, 4, 5, 6))`. This is where we need to start being a little careful. Earlier, we defined standard deviation as the standard deviation of the *population* (frequently referred to as $\sigma$), which is given by
 
 $$ \sigma = \sqrt{\frac{1}{n} \sum_{i = 1}^n \left(x_i - \bar{x} \right)^2} $$
 
@@ -1152,21 +1232,21 @@ polygon(c(-2, seq(-2, 2, .01), 2), c(0, dnorm(seq(-2, 2, .01)), 0), col = '#1329
 polygon(c(-1, seq(-1, 1, .01), 1), c(0, dnorm(seq(-1, 1, .01)), 0), col = '#e04e39')
 ```
 
-The <span class = 'vocab'>**SD 1-2-3 Rule**</span> tells us how much data is within 1, 2, and 3 standard deviations of the average. The <span style = 'color: #e04e39; font-weight: bold'>orange</span> area of the above normal curve is <span style = 'color: #e04e39'; font-weight: bold'>1 standard deviation</span> of the average, or roughly <span style = 'color: #e04e39; font-weight: bold''>68%</span>. Within 2 standard deviations of the average (the <span style = 'color: #13294b; font-weight: bold''>blue</span> area, plus the middle <span style = 'color: #e04e39; font-weight: bold''>orange</span> area), gives us approximately <span style = 'color: #13294b; font-weight: bold''>95%</span> of the data, and the <span style = 'color: #a5acaf; font-weight: bold''>grey</span> area, plus the <span style = 'color: #e04e39; font-weight: bold''>orange</span> and <span style = 'color: #13294b; font-weight: bold''>blue</span> areas, give <span style = '#a5acaf; font-weight: bold''>99.7%</span> of the data.
+The <span class = 'vocab'>**SD 1-2-3 Rule**</span> tells us how much data is within 1, 2, and 3 standard deviations of the average. The <span style = 'color: #e04e39; font-weight: bold'>orange</span> area of the above normal curve is <span style = 'color: #e04e39; font-weight: bold'>1 standard deviation</span> of the average, or roughly <span style = 'color: #e04e39; font-weight: bold'>68%</span>. Within 2 standard deviations of the average (the <span style = 'color: #13294b; font-weight: bold'>blue</span> area, plus the middle <span style = 'color: #e04e39; font-weight: bold'>orange</span> area), gives us approximately <span style = 'color: #13294b; font-weight: bold'>95%</span> of the data, and the <span style = 'color: #a5acaf; font-weight: bold'>grey</span> area, plus the <span style = 'color: #e04e39; font-weight: bold'>orange</span> and <span style = 'color: #13294b; font-weight: bold'>blue</span> areas, give <span style = '#a5acaf; font-weight: bold'>99.7%</span> of the data.
 
 Quick summary:
 
 <div style = 'text-align: center'>
 
-<span style = 'color: #e04e39; font-weight: bold''>orange</span> = <span style = 'color: #e04e39; font-weight: bold''>68%</span>
+<span style = 'color: #e04e39; font-weight: bold'>orange</span> = <span style = 'color: #e04e39; font-weight: bold'>68%</span>
 
-<span style = 'color: #e04e39; font-weight: bold''>orange</span> + <span style = 'color: #13294b; font-weight: bold''>blue</span> = <span style = 'color: #13294b; font-weight: bold''>95%</span>
+<span style = 'color: #e04e39; font-weight: bold'>orange</span> + <span style = 'color: #13294b; font-weight: bold'>blue</span> = <span style = 'color: #13294b; font-weight: bold'>95%</span>
 
-<span style = 'color: #e04e39; font-weight: bold''>orange</span> + <span style = 'color: #13294b; font-weight: bold''>blue</span> + <span style = 'color: #a5acaf; font-weight: bold''>grey</span> = <span style = 'color: #a5acaf; font-weight: bold''>99%</span>
+<span style = 'color: #e04e39; font-weight: bold'>orange</span> + <span style = 'color: #13294b; font-weight: bold'>blue</span> + <span style = 'color: #a5acaf; font-weight: bold'>grey</span> = <span style = 'color: #a5acaf; font-weight: bold'>99%</span>
 
 </div>
 
-In other words, <span style = 'color: #e04e39; font-weight: bold''>68%</span> of the data is between <span style = 'color: #e04e39; font-weight: bold''>-1</span> and <span style = 'color: #e04e39; font-weight: bold''>1</span>, <span style = 'color: #13294b; font-weight: bold''>95%</span> of the data is between <span style = 'color: #13294b; font-weight: bold''>-2</span> and <span style = 'color: #13294b; font-weight: bold''>2</span>, and <span style = 'color: #a5acaf; font-weight: bold''>99%</span> of the data is between <span style = 'color: #a5acaf; font-weight: bold''>-3</span> and <span style = 'color: #a5acaf; font-weight: bold''>3</span>.
+In other words, <span style = 'color: #e04e39; font-weight: bold'>68%</span> of the data is between <span style = 'color: #e04e39; font-weight: bold'>-1</span> and <span style = 'color: #e04e39; font-weight: bold'>1</span>, <span style = 'color: #13294b; font-weight: bold'>95%</span> of the data is between <span style = 'color: #13294b; font-weight: bold'>-2</span> and <span style = 'color: #13294b; font-weight: bold'>2</span>, and <span style = 'color: #a5acaf; font-weight: bold'>99%</span> of the data is between <span style = 'color: #a5acaf; font-weight: bold'>-3</span> and <span style = 'color: #a5acaf; font-weight: bold'>3</span>.
 
 Now this is great and all, but what about if the data isn't exactly 1, 2, or 3 standard deviations away from the average? Glad you asked. That's where Z-scores make their money.
 
@@ -1247,7 +1327,7 @@ rnorm(3)
 # Percentiles and Box Plots
 
 ```{r 11-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 ## Percentiles
@@ -1404,7 +1484,7 @@ There you have it! A quick, easy way to get the information you need about the d
 # (PART) Linear Regression {-}
 
 ```{r 12-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 # Scatter Plots and Correlation
@@ -1463,7 +1543,7 @@ This is great, but it's kind of general to just talk about associations. How do 
 
 If the points fall perfectly on a line and are negatively associated, $r$ = -1. If the points fall perfectly on a line and are positively associated, $r$ = +1. If there's no association between the independent and dependent variables, the correlation is 0.
 
-In other words, a correlation of $r = \pm$1 means that you can know *exactly* what $y$ is for any given $x$ value. Examples are converting units (i.e. temperature from Fahrenheit to Celsius or vice versa) or anything that's described by a line (i.e. the $x$ and $y$ values from the equation $y = 6x + 9$). Things that aren't related, such as weight of college freshmen and ACT scores or class attendance and number of pets you own, have a correlation coefficient of $r$ = 0.
+In other words, a correlation of $r$ = $\pm$ 1 means that you can know *exactly* what $y$ is for any given $x$ value. Examples are converting units (i.e. temperature from Fahrenheit to Celsius or vice versa) or anything that's described by a line (i.e. the $x$ and $y$ values from the equation $y = 6x + 9$). Things that aren't related, such as weight of college freshmen and ACT scores or class attendance and number of pets you own, have a correlation coefficient of $r$ = 0.
 
 ```{r 12-correlation-plot-examples, echo = FALSE}
 set.seed(696969696)
@@ -1883,7 +1963,7 @@ If you don't believe any of these facts, go ahead and prove them to yourself, or
 # Linear Regression
 
 ```{r 13-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 Statistics tries to do two things:
@@ -2176,7 +2256,7 @@ However, for Method 2, your $x$ and $y$ variables changed. This means that your 
 ## Residuals
 
 ```{r 14-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 Not every prediction is going to be perfect. That's actually built into the fabric of regression! What regression is *really* doing is predicting the average $y$ for each value of $x$. Have a quick look at the plot from the last chapter.
@@ -2363,7 +2443,7 @@ legend('bottomright',
 # (PART) More on Programming {-}
 
 ```{r 15-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 # Uses of `R`
@@ -2387,14 +2467,14 @@ knitr::include_graphics('img/15-hit-it.gif')
 # `for` Loops
 
 ```{r 16-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 In order to clean up our datasets, we'll have to make use of <span class = 'vocab'>control structures</span>. This sounds super technical, but really what they help us do is navigate our way through the data in an organized, controlled fashion. They can do anything from helping us perform a series of operations on each observation to doing different operations based on criteria that we determine. There's two main components to control structures: `for` loops and conditional statements.
 
 <span style = 'color: #e04e39'>`for`</span> <span class = 'vocab'>loops</span> allow us to <span class = 'vocab'>iterate</span>, or cycle through, our data set. Inside of a `for` loop, we can create variables, do calculations, or even put other `for` loops (this is called nesting, and we'll come back to it in a little bit).
 
-We'll do a few simple examples of `for` loops just to demonstrate their usefulness. Let's take a a vector of numbers called `v1` and use a `for` loop to do something simple: add 1 to each of the numbers. 
+We'll do a few simple examples of `for` loops just to demonstrate their usefulness. Let's take a vector of numbers called `v1` and use a `for` loop to do something simple: add 1 to each of the numbers. 
 
 ## Algorithms
 
@@ -2417,7 +2497,7 @@ Our algorithm for this process looks like this:
 3) Save this new number in the same place as the original number
 4) Repeat for all remaining numbers
 
-<span class = 'note'>While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style = 'color: #a21bd7'>`for`</span> <span class = 'note'>loop.</span>
+<span class = 'note'>Note: While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style = 'color: #a21bd7'>`for`</span> <span class = 'note'>loop.</span>
 
 ```{r 16-create-v1}
 (v1 = seq(1, 100, by = 7))
@@ -2513,7 +2593,7 @@ multiplication_table = data.frame(
 
 ```{r 16-multiplication-table-view, echo = FALSE}
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
 knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
 ```
 
@@ -2530,7 +2610,7 @@ for(i in 1:nrow(multiplication_table)){
 <div style = 'text-align: center'>After Nested `for` Loops</div>
 ```{r 16-multiplication-table-after-loops, echo = FALSE}
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
 knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
 ```
 
@@ -2545,7 +2625,7 @@ Great, everything worked! To check if it did, just take any number in the table,
 ## Simple Conditions
 
 ```{r 17-setup, echo = FALSE}
-knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
 ```
 
 Going hand in hand with `for` loops are what we call <span class = 'vocab'>conditional statements</span>, or statements that evaluate to `TRUE` or `FALSE`. These are really important, especially inside of `for` loops (and nested `for` loops too!), because what they allow us to do is operate only on certain observations of data that meet our criteria.
@@ -2582,7 +2662,7 @@ multiplication_table = data.frame(
 )
 
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
 knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
 ```
 
@@ -2600,7 +2680,7 @@ for(i in 1:nrow(multiplication_table)){
 
 ```{r 17-updated-multiplication-table, echo = FALSE}
 names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-row.names(multiplication_table) = c('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
+row.names(multiplication_table) = c('**1**', '**2**', '**3**', '**4**', '**5**', '**6**', '**7**', '**8**', '**9**', '**10**', '**11**', '**12**')
 knitr::kable(multiplication_table, format = 'html', align = 'c', row.names = TRUE)
 ```
 
@@ -2665,6 +2745,10 @@ A few quick points things to remember:
 <!--chapter:end:17-conditional-statements.Rmd-->
 
 # Functions
+
+```{r 18-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
 
 We've been using a ton of functions throughout the text, and we were very quickly introduced to them in <a href = 'functions-and-data-types.html#functions'>chapter 2</a>, but as promised, we're going to take a deep dive into functions so that we can write and use our own. We'll go into more depth about things that we've already talked about and show you how to combine everything to make a function to do anything you'd like it to.
 
@@ -2800,4 +2884,330 @@ averageCalc2.0(c(1, 2, 3))
 Beautiful, it all works! Functions are meant to make your life a lot easier, so the better you get at writing functions, the more the world of `R` will open up for you. You'll get plenty of pratice writing functions in the homework for this section.
 
 <!--chapter:end:18-functions.Rmd-->
+
+# Document Creation
+
+```{r 19-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+```
+
+Another great feature of `R` is the ability to make nicely-formatted documents through the use of the `rmarkdown` package. This allows you to become a literate programmer, where you can write code and explain what you're doing, why you're doing it, and explain the results all in the same place. Before we can really start showing how powerful these documents are, you need to install `rmarkdown`.
+
+```{r 19-install-rmarkdown, eval = FALSE}
+install.packages('rmarkdown')
+```
+
+This package allows you to create an <span class = 'vocab'>R markdown</span> document. (They'll have the file extension <span style = 'color: #e04e39'>`.Rmd`</span>). We'll refer to them as markdown documents since they make use of markdown syntax (we'll go over this; hang tight for now!). They allow you to weave together code and commentary/explanation into a single file, allowing you to explain your work as you go. To create a markdown document, go to `File > New File > R Markdown...`.
+
+R Markdown documents can be <span class = 'vocab'>rendered</span>, or put together, into 3 formats: HTML, PDF, and Word. When you create your document, you'll be asked which format you'd like it to render as. For our purposes, we'll use HTML, since they open very nicely in a web browser. You'll be asked to pick a format when you create a new markdown file. You'll also be asked to title your document. Don't freak out about naming it; you can always change it later.
+
+Just to give you an idea of how powerful R Markdown is, it's what was used to create this entire textbook. Seriously! If you want to see them, you can find the source files by clicking <a href = 'https://github.com/rossdrucker/STAT-100-Honors-Project'>this link</a>. To download them, click any file that ends in `.Rmd`, then right click the `Raw` button, and click `Save Link As...`. This will save the file for you to see how the whole document is put together.
+
+<span class = 'note'>Note: the markdown files that make up this book are actually from a package called</span> <span style = 'color: #a21bd7'> `bookdown` </span><span class = 'note'>, which you can read more about [here](https://bookdown.org/yihui/bookdown/) if you want to learn more. While </span><span style = 'color: #a21bd7'> `bookdown` </span><span class = 'note'> is way beyond the focus of this project, it's a really cool way to combine markdown files.</span>
+
+Since this *is* going to be one of the longer chapters in the book, we've provided a <a href = 'https://github.com/rossdrucker/STAT-100-Honors-Project/blob/master/R%20Markdown%20Example.zip?raw=true'>downloadable example</a> for you to look at as you go. While the content of the document itself doesn't exactly mean anything, we've tried to demonstrate as much of the formatting we cover and usefulness of R Markdown as we possibly can within it.
+
+## Knitting
+
+We're going to start a little bit backwards and teach you how to <span class = 'vocab'>knit</span> a document first before we teach you how to write them and make good use of them. In `R`, knitting a document means *knitting* together the code and the context that the document contains and rendering the document in the format that you specified when you created it. You can render it in other formats after you create it too! To knit your document, you can use the knit button ![](img/19-knit-button.png).
+
+<span class = 'tip'>Pro tip: you can also knit your documents using keyboard shortcuts. On a Mac, use</span> <span style = 'color: #00ce45'>`Cmd + Shift + K`</span><span class = 'tip'>, or on a PC, use</span> <span style = 'color: #00ce45'>`Ctrl + Shift + K`</span><span class = 'tip'>.</span>
+
+We have one more point to make before we go and start with the components of a markdown document, and that is where the markdown file looks for files that it needs to run (like data files, images, etc.). When knitting your document, `R` will look for any files in the *same* directory that the document is contained in unless you tell it otherwise.
+
+What this means is that if the markdown file is contained in the directory `/User/Desktop/STAT 100`, `R` will automatically look for any files just specified by name in the `/User/Desktop/STAT 100` directory. If inside of this directory, there's a folder called `data` that we want to get data from (the data is saved as `data-to-use.csv`), we can specify a <span class = 'vocab'>relative filepath</span>, or a filepath that's *relative* to the one that we're working in. We could say `data = read.csv('data/data-to-use.csv')` in our file, and it would work identically to `data = read.csv('User/Desktop/STAT 100/data/data-to-use.csv')`. It's preferred to use the relative filepath, since the full one may be more specific to your computer.
+
+Now that we know how to create and render a markdown file, let's take a closer look at its parts and how to make the best use of them.
+
+## Document Elements
+
+When you create a document, the first thing that gets put at the top is what's called a <span class = 'vocab'>YAML header</span>. This header contains some very basic information about the document that follows, such as the author, the title of the document, the date it was created, and what kind of output should be created. You're welcome to edit this header as you need to. For example, if you'd like to change the title from the one you originally gave, just change what goes inside the quotation marks next to `title:` in the YAML header. This header is always enclosed by three dashes on each side of it (`---`). In your YAML header, you can also create a table of contents, like so:
+
+```
+---
+title: "Your title here"
+author: "Your name here"
+output:
+    html_document:
+        toc: yes
+---
+```
+
+Any first-level section headers (which you'll read about in a minute) will be used as the indexes, with second-level headers being nested inside of those, and so on.
+
+Next, we can put <span class = 'vocab'>(section) headers</span> to create different sections of our document. To create a header, we start the line with a pound sign (`#`), then follow it with the header you'd like to use. Headers of the same level nest inside each other. Depending on the number of pound signs you use, your header will be a different <span class = 'vocab'>level</span>, or size. More `#`s means a smaller size header, or a lower header level. Play around with them to see what we mean!
+
+```
+# This is a first-level header
+## This is a second-level header
+## A nested second-level header here
+### This is a third-level header
+# Now we're back to a first-level header
+```
+
+After a header, we may want to give a little overview of what we're going to be talking about throughout the rest of the document. There's nothing really special about this body of text, but we *know* that it's not meant to be interpreted as a section header or as code. We can just type regular text in the section, skipping 2 lines to do so. For example, if our header is "Overview", we could put this into our markdown document and start writing our problem up.
+
+```
+# Overview
+
+In this section, we'll provide a brief overview of the problem. 
+We used methods x, y, and z to solve it, and we're having a lot 
+of fun writing up this markdown document to explain what we did 
+as we did it!
+```
+
+## Text Formatting, Lists Links, and Images
+
+There's also a few special characters in markdown that you may find helpful as you write your documents. If you use [reddit](https://www.reddit.com/r/UIUC/), these should all be fairly familiar, as this is how you can create and format a text post.
+
+One of the most common is the asterisk (`*`). Surrounding any regular text in a single set of asterisks italicizes the text. For example, `*this text will be italicized*` will appear as *this text will be italicized* in your final document. Using two asterisks will keep the text in a regular font, but will make it bold. `**Bolded Phrase**` will become **Bolded Phrase**. Using a triple set of asterisks will both italicize and bold the enclosed text: `***bolded and italicized***` becomes ***bolded and italicized***. Putting three (or more) asterisks on their own line will create a horizontal line on the page, like the one right below this paragraph.
+
+***
+
+<span class = 'note'>Note: instead of using asterisks, you could also use the same number of underscores</span> <span style = 'color: #a21bd7'> (`_`) </span><span class = 'note'> to accomplish the same stylization.
+
+Another common markdown character is the caret (`^`). Enclosing text in a single set of carets will superscript the text. As an example, `i^th^` will become i^th^ when we're all done here.
+
+The last common character is the tilde (`~`) character. A single set will subscript the enclosed text (`X~i~` will look like X~i~), and a double set of tildes strikes through whatever it encloses. To see an example, include `~~strikethrough~~` in your document and it should appear as ~~strikethrough~~.
+
+> Starting a line with `>` will make it look like a block quote, and will appear like this line in your text.
+
+Should you want to provide a hyperlink to something in your document, put the text you'd like displayed inside a single set of square brackets (`[]`), followed immediately by a set of parentheses that contain the link you'd like it to go to. If we wanted a link that says "Click Here" and have it take us to Google, for example, we'd put `[Click Here](www.google.com)` into our document. We can also link to files using the same syntax, but instead of putting a website in the parentheses, we'd put the filepath.
+
+Images work the same way as links, we just lead with a `!`. So, if we have an image file called `image-to-use.png` in a subdirectory called `img` that's inside our working directory, we'd want to put `![](img/image-to-use.png)` in our text where we want the image to be displayed. If you want your image to have a caption, you can put it inside of the brackets.
+
+Items in a bulleted, unnumbered/unordered list should begin with `-` and each be put on their own line. To create a sublisted item, move down two lines, tab twice, and put another `-`, like so:
+
+```
+- Main item
+
+    - Sub-item 1
+```
+
+Numbered lists work the same way, but instead of starting the item with a `-`, start the item with the number it should take in the list.
+
+## Code Chunks
+
+Great! Now we can write as much text as we want, but how's that better than a Word document? Well, Word documents can't process `R` code like R markdown documents can. To include code, you need to make use of a <span class = 'vocab'>code chunk</span>. You can create them by creating a <span class = 'vocab'>fence</span>, which is just three backticks (`` ` ``) in a row.
+
+Chunks need a <span class = 'vocab'>chunk header</span>, which just tells the document that whatever's inside the fence should be processed as `R` code. The header goes next to the opening fence and inside a set of curly braces (`{}`), and should begin with `r`. Inside this header, you can include a <span class = 'vocab'>chunk label</span> and other <span class = 'vocab'>chunk options</span> that help control output (these should be separated by a comma). While only the `r` is necessary, the chunk label helps you to remember what that chunk does, and the chunk options allow you to format the code and output accordingly. You can learn more about chunk options <a href = 'https://yihui.name/knitr/options/'>here</a>.
+
+<div style = 'text-align: center'>A template of a code chunk with a label and chunk options</div>
+```{r 19-chunk-example, echo = FALSE}
+knitr::include_graphics('img/19-chunk-example.png')
+```
+
+While chunks can contain as much or as little code as you'd like them to, it's a better practice to keep chunks short in your document and explain the parts as you go. Part of the beauty of R Markdown documents is that the code/results from a previous chunk is saved and can be accessed/used later in the document. Again, they're great at allowing you to be a *literate* programmer, explaining code and results as you go.
+
+In addition to having code chunks like the one illustrated above, you can also have code run directly in your document. Instead of having to calculate a value or type out the full value of a variable, you can use an <span class = 'vocab'>in-line code chunk</span> to do the dirty work for you. It will just display that value in your document as if it were the values you typed yourself! Just type `` `r ` ``, but before that closing backtick, just put the code you'd like to run (example: `mean(x)`).
+
+Another quick note about using backticks: if you want to just have text in monospace font within a paragraph (like we've done to show the difference between code and regular commentary), you can just enclose it in a set of backticks. As long as you don't start it with `` `r` `` followed by a space, it will just appear as plain text.
+
+One last thing: in a script, you've probably been using the `View()` command to look at the data. **DO NOT DO THIS IN MARKDOWN**. Instead, use the `kable()` function from the `knitr` package. Everything formats nicely with it. To make one, call `knitr::kable(DATA FRAME GOES HERE)` in a code chunk, and set `echo = FALSE` in that chunk's header. While hiding the code is arbitrary, we don't necessarily need to see every line of code you wrote. We just need to see how you got to your final answer. Being able to see the raw data most likely didn't help you like a `for` loop did, so we'd rather see the `for` loop and save the space on the document.
+
+Again, markdown allows you to be a *literate* programmer. This means that *you* get to decide what the important parts of your code are, and what code the reader sees. R Markdown will still run all of the code you wrote in the background, but adding lines of output or extra code actually weaken the strength of your document (and cause it to take longer to render).
+
+## $\LaTeX$ and Equation Formatting
+
+The final stylistic element of an R Markdown document is being able to quickly and easily include <span class = 'vocab'>$\LaTeX$</span> (pronounced as LAY-tek)</span> formatting. What is $\LaTeX$ formatting? Glad you asked! Essentially $\LaTeX$ formatting allows us to include equations, other special characters (i.e. characters from other languages), mathematical expressions, constants, and other operations easily into our document. To format something with $\LaTeX$ in the line you're working on, just enclose it in a set of `$`s. For example, if you wanted to make the letter $\pi$ appear, you'd use the $\LaTeX$ command `$\pi$`. Note the `\`: this tells $\LaTeX$ that the following part (the `pi`) is actually a code word for something that $\LaTeX$ understands. Some other common ones you may see are as follows:
+
+- `{}` essentially means "Whatever's enclosed in here, treat together and do the $\LaTeX$ command to it"
+
+- `\sqrt{}` puts everything inside of the curly braces under a radical. `$\sqrt{4}$` will appear as $\sqrt{4}$
+
+- `\frac{}{}` nicely formats fractions. The numerator goes in the first set of braces, and the denominator goes in the second set. If you wanted to express 0.5 as a fraction, you could write in in $\LaTeX$ as `$\frac{1}{2}$`
+
+- `\cdot` puts a multiplication operator ($\cdot$) into your equation
+
+- `\text{}` reformats anything inside of the braces to appear as plain text. For example, using the $\LaTeX$ command `$Z-score = \frac{Val - Avg}{SD}$` will appear as $Z-score = \frac{Val - Avg}{SD}$, however enclosing the phrases in the equation in the `\text{}` command (i.e. using `$\text{Z-score} = \frac{\text{Val} - \text{Avg}}{\text{SD}}$`) we get $\text{Z-score} = \frac{\text{Val} - \text{Avg}}{\text{SD}}$, which is how we're used to seeing it.
+
+- `^` and `_` are superscript and subscript respectively. Without using `{}`, these will only take the first character that follows them and super/subscript it. Remember: `{}` means "treat as a group"
+
+If instead of enclosing the $\LaTeX$ commands in one `$`, and instead they were enclosed by `$$`, the $\LaTeX$ would still work fine, but would actually format to be centered and on it's own line.
+
+## HTML Tags and CSS
+
+If you're familiar with HTML and/or CSS, you can use these to customize your R Markdown documents. We won't go over how to do this, but you can feel free to look it up and use it as you want to. We've used both to help style the textbook, so if you see something in a .Rmd file that looks like `<a name/href = 'something in here'></a>` or `<span class = 'class name here'></span>`, that's what these are.
+
+## Cheat Sheets
+
+This chapter contained a TON of information. Feel free to refer back to it as you need to, but (as always in `R`) there's a good resource or two to use. Specifically for R Markdown, there are cheat sheets that have pretty much everything that we've covered in this chapter, plus a few extra bits, for you to refer back to. You can find it [here](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf). It's a really good idea to get comfortable in markdown, since we'll be doing more and more with it now that you've learned about it.
+
+<!--chapter:end:19-rmarkdown.Rmd-->
+
+# (PART) Probability and Surveys {-}
+
+```{r 20-setup, echo = FALSE}
+knitr::opts_chunk$set(fig.align = "center", comment = '', warning = FALSE, message = FALSE, fig.height = 7, fig.width = 12, cache = TRUE)
+library(ggplot2)
+```
+
+# Probability And Chance
+
+In the last few chapters, we've been talking about how to make predictions using features in data, such as predicting weight from height, GPA from hours studied, or how many pairs of shoes you own based on how big your foot is. Now, let's change what we're predicting. Rather than predicting what a particular value is going to be, let's talk about chance.
+
+```{r 20-chance-gif, echo = FALSE}
+knitr::include_graphics('img/20-chance-what-up.gif')
+```
+
+No, not *that* Chance... We meant chance as in <span class = 'vocab'>probability</span>, or how likely we are to observe a particular number in our data. But maybe Chance the Rapper can still help us out. Whaddaya say, Chance?
+
+```{r 20-chance-gas-me-up, echo = FALSE}
+knitr::include_graphics('img/20-chance-lets-go.gif')
+```
+
+## Probability
+
+We'll define probability according to this definition:
+
+$$\text{Probability} = \frac{\text{Outcomes we want to happen}}{\text{All possible outcomes that could happen}}$$
+
+One of the easiest probability scenarios to think about is a rolling a die. Let's pretend we're playing a game against each other with a fair, six-sided die. If we roll an odd number, we win the game. If we roll an even number, Chance wins the game. What's the probability, or what's the chance, that Chance wins the game?
+
+Start by listing out all of the possible outcomes of our roll: 1, 2, 3, 4, 5, or a 6. Of those possible outcomes, if the die comes up a 2, a 4, or a 6, Chance wins. So that gives 3 outcomes out of 6 total outcomes. We write this as $P(\text{You win}) = \frac{3}{6} = \frac{1}{2}$. Simple stuff.
+
+```{r chance-simple, echo = FALSE}
+knitr::include_graphics('img/20-chance-clapping.gif')
+```
+
+Let's move on to something a little more challenging: casino games. We'll start with a standard deck of 52 playing cards. For the unfamiliar, a deck of cards has 4 different suits, or pictures, and each suit is made up of 13 unique cards. They look like this:
+
+```{r cards, echo = FALSE}
+knitr::include_graphics('img/20-cards.jpg')
+```
+
+We'll represent them in the following table to make them easier to visualize.
+
+```{r card-table, echo = FALSE}
+card_vals = c('A', 2:10, 'J', 'Q', 'K')
+
+cards = data.frame(
+  Clubs = card_vals,
+  Spades = card_vals,
+  Hearts = card_vals,
+  Diamonds = card_vals
+)
+
+knitr::kable(cards, format = 'html', align = 'c') %>% kableExtra::column_spec(1:4, bold = TRUE) %>% kableExtra::column_spec(3:4, color = '#ff0000')
+```
+
+Awesome, now let's start having some fun with them. We'll start with a simple example. Let's pretend that we want to know the probability of drawing randomly from our deck of cards and getting a card that's 9 or higher (we'll say the ace is the lowest card). No problem, we just count up how many cards are a 9 or higher.
+
+```{r 9-or-higher, echo = FALSE}
+knitr::kable(cards, format = 'html', align = 'c') %>% kableExtra::column_spec(1:4, bold = TRUE) %>% kableExtra::column_spec(3:4, color = '#ff0000') %>% kableExtra::row_spec(9:13, background = '#ffcb05')
+```
+
+If you count up how many numbers we highlighted, you'll see that there's 20 possible cards that are 9 or higher. This means that the probability of getting a card of 9 or higher is $P(\text{9 or higher}) = \frac{20}{52}$. So far, so good.
+
+## Replacement
+
+So far, we've only played our game or repeated our experiment one time and found the probability. But what about if we want to get the probability of a series of <span class = 'vocab'>events</span>, or repetitions? No problem! We'll cover that in just a minute, but before we do we need to talk about <span class = 'vocab'>replacement</span>. What we mean by replacement is what we do after each time we play the game. Do we put the card back in the deck? Is it possible to get the exact same outcome? If yes, we're doing our experiment *with* replacement. Otherwise, we say that we're doing it *without* replacement. When we do something with replacement, the total number of possible outcomes doesn't change. When we do the same thing without replacement, the number of possible outcomes decreases by one (since we made one of those outcomes happen).
+
+## The Multiplication Rule
+
+Now that we understand some basics about probability, we can start to talk about probability over multiple , or repetitions of our experiment/plays of our game. The idea here is that we need things to happen together, like drawing twice from our deck and getting a King and then getting a Queen. To do this, we find the probability of each and use the <span class = 'vocab'>multiplication rule</span>, where we multiply the probability of each event together. The key word that should trigger us to use it is ***and***.
+
+If we wanted to play our die game twice and know what the chance is we win each time. Because of the multiplcation rule, this is easy!
+
+$$P(\text{Win first time AND win second time}) = P(\text{Win first time}) \cdot P(\text{Win second time}) = \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$$
+
+Notice that the game is played with replacement, since we can't get rid of a number on a die after it turns up on a roll.
+
+If instead we wanted to draw two cards from a deck with replacement and get the probability we get a number bigger than 9 on our first draw and a Spade on our second draw, we could calculate it as follows:
+
+$$P(\text{Bigger than 9 AND Spade}) = P(\text{Bigger than 9}) \cdot P(\text{Spade}) = \frac{20}{52} \cdot \frac{13}{52}$$
+
+## The Addition Rule
+
+The other rule to remember is the <span class = 'vocab'>addition rule</span>, which we use when we want the probability of event A ***OR*** event B, ***but not both***. We define the addition rule as
+
+$$P(\text{Event A OR Event B}) = P(\text{Event A}) + P(\text{Event B}) - P(\text{Event A AND Event B})$$
+
+That last term may seem confusing, but it should make sense with an example. Let's say we want the probability we draw one card out of our deck, and we want it to either be a King or a Spade.
+
+Here's all of the cards that meet the criteria:
+
+```{r King-or-Spade, echo = FALSE}
+knitr::kable(cards, format = 'html', align = 'c') %>% kableExtra::column_spec(1:4, bold = TRUE) %>% kableExtra::column_spec(3:4, color = '#ff0000') %>% kableExtra::row_spec(13, background = '#ffcb05') %>% kableExtra::column_spec(2, background = '#ffcb05')
+```
+
+We can see that there's 16 unique cards that are highlighted: 3 unique Kings, 12 unique Spades, and 1 King of Spades. This means that the probability of getting a King or a Spade is $\frac{16}{52$. 
+
+But let's see the addition rule in action! First, we know that the probability of a King is given by $P(\text{King}) = \frac{4}{52}$, and the probability of a spade is $P(\text{Spade}) = \frac{13}{52}$. Lastly, we know that there's one card that's both a King and a Spade: the King of Spades, which we can draw with probability $P(\text{King AND Spade}) = \frac{1}{52}$. All together, we have:
+
+$$P(\text{King OR Spade}) = P(\text{King}) + P(\text{Spade}) - P(\text{King AND Spade}) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52}$$
+
+```{r chance-money, echo = FALSE}
+knitr::include_graphics('img/20-chance-cash.gif')
+```
+
+## All and None
+
+One point we haven't explicitly made yet about probability is that the total probability, or the probability of events we want to have happen plus the probability of all the other possible events, needs to add up to 1, or 100%. This usually doesn't matter, but it's a really important fact that we'll take advantage of when we want to calculate the probability that *at least one* event is what we want, or the probability that *not all* events are what we want. The rules are as follows:
+
+$$P(\text{All}) + P(\text{Not all}) = 1$$
+
+$$P(\text{None}) + P(\text{At least one}) = 1$$
+
+It's easier to find the probability that all events or no events meet our criteria than it is to calculate the probability that not all or at least one does. As an example, if we roll a die three times we can easily calculate the probability that all three rolls are a 2, since there's only one scenario in which all three rolls are a 2. If we wanted to calculate the probability that *not* all three rolls are 2s, we'd have to find the probability that 0 rolls, 1 roll, or 2 rolls were a 2 and combine them.
+
+## Box Models
+
+Another way (and a better way in terms of `R`) to conceptulaize probability is in the form of a <span class = 'vocab'>box model</span>. What's a box model, you ask? It's a way to represent *one* play of a game, or trial of an experiment, or roll of a die as if we were randomly picking a number written on a ticket out of a hat. Let's switch to roulette. Roulette is played by spinning a wheel with 38 spaces, dropping a ball into the wheel, and finding out where the ball lands. There are 18 red spaces, 18 black spaces, and 2 green spaces.
+
+```{r roulette, echo = FALSE, fig.height = 7, fig.width = 12}
+knitr::include_graphics('img/20-roulette.jpeg')
+```
+
+What's the chance of the roulette ball landing on a red space? Let's use a box model to represent a single play of the game. There's 18 ways for the ball to land on a red space, and there's 20 ways for it to land on a black or green space. The box model looks like this.
+
+```{r box-model, echo = FALSE}
+ggplot() + 
+  theme_bw() + 
+  theme(
+    panel.background = element_blank(),
+    panel.border = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  geom_rect(aes(xmin = 0, xmax = 20, ymin = 0, ymax = 20), col = '#000000', fill = '#ffffff') + 
+  geom_rect(aes(xmin = 2, xmax = 8, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_rect(aes(xmin = 12, xmax = 18, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_segment(aes(x = 2, xend = 8, y = 17, yend = 17), col = '#000000') +
+  geom_segment(aes(x = 12, xend = 18, y = 17, yend = 17), col = '#000000') +
+  annotate('text', label = '18', x = 5, y = 18.2, size = 13) +
+  annotate('text', label = '20', x = 15, y = 18.2, size = 13) + 
+  annotate('text', label = 'Win', x = 5, y = 8.5, size = 13) + 
+  annotate('text', label = 'Lose', x = 15, y = 8.5, size = 13)
+
+```
+
+Now it's easy to find the probability of the ball landing on a red space! There's 18 tickets that are red, and there's 38 tickets overall. Any time we play the game, we'd have to *replace* the ticket in the box (see why it's called "with/without replacement" now?), and it's easy to conceptualize the scenario graphically. $P(\text{Red}) = \frac{18}{38}$.
+
+Want the probability of landing on red twice in a row? Easy! Pick a red on your first draw, replace the ticket, and then pick a red on your next draw. Use the multiplication rule to combine them together. $P(\text{Red AND Red}) = \frac{18}{38} \cdot \frac{18}{38}$. Your thoughts, Chance the Rapper?
+
+```{r thats-whats-up, echo = FALSE}
+knitr::include_graphics('img/20-chance-thats-whats-up.gif')
+```
+
+## `sample()`
+
+Now, why is this a better way to think about probability for `R`? It's because of the way that `R` can randomly sample things for you. To do this, you want to use the `sample()` function. The first argument you should pass to it (it's called `x` in the help file) should be the vector of things you'd like to sample, whether that's numbers, colors, `TRUE/FALSE` values, or whatever else it may be. The second argument, `n`, is the number of items to pull out, or the number of times to draw out of the box. `replace` is the third argument, which can be either `TRUE` or `FALSE`, indicating whether or not to do the draws with replacement. Lastly, you can change how likely each item you passed to `x` is via the `prob` argument, but usually you'll want to leave this argument alone. It defaults to have each item be equally likely.
+
+A few examples before we move on to sampling.
+
+```{r}
+set.seed(42) # Set seed for reproducibility
+
+sample(1:6, 3, replace = TRUE) # Rolling a die 3 times
+
+sample(1:52, 5, replace = FALSE) # Draw 5 cards without replacement
+
+sample(c('Hot Dog', 'Hamburger', 'Quesadilla', 'Ribs', 'Soup'), 1) # Help me decide what to eat for dinner
+```
+
+<!--chapter:end:20-probability.Rmd-->
 
