@@ -94,7 +94,7 @@ Here's all of the cards that meet the criteria:
 knitr::kable(cards, format = 'html', align = 'c') %>% kableExtra::column_spec(1:4, bold = TRUE) %>% kableExtra::column_spec(3:4, color = '#ff0000') %>% kableExtra::row_spec(13, background = '#ffcb05') %>% kableExtra::column_spec(2, background = '#ffcb05')
 ```
 
-We can see that there's 16 unique cards that are highlighted: 3 unique Kings, 12 unique Spades, and 1 King of Spades. This means that the probability of getting a King or a Spade is $\frac{16}{52$. 
+We can see that there's 16 unique cards that are highlighted: 3 unique Kings, 12 unique Spades, and 1 King of Spades. This means that the probability of getting a King or a Spade is $\frac{16}{52}$. 
 
 But let's see the addition rule in action! First, we know that the probability of a King is given by $P(\text{King}) = \frac{4}{52}$, and the probability of a spade is $P(\text{Spade}) = \frac{13}{52}$. Lastly, we know that there's one card that's both a King and a Spade: the King of Spades, which we can draw with probability $P(\text{King AND Spade}) = \frac{1}{52}$. All together, we have:
 
