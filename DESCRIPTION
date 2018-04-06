@@ -8,5 +8,6 @@ Imports:
   knitr,
   kableExtra,
   magrittr,
-  MASS
+  MASS,
+  ggplot2
 Remotes: rstudio/bookdown
