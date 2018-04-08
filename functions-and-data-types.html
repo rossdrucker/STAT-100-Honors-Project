@@ -125,6 +125,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#coercing-to-other-types"><i class="fa fa-check"></i><b>2.4</b> Coercing To Other Types</a></li>
 <li class="chapter" data-level="2.5" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#identical"><i class="fa fa-check"></i><b>2.5</b> <code>identical()</code></a></li>
+<li class="chapter" data-level="2.6" data-path="functions-and-data-types.html"><a href="functions-and-data-types.html#the-which-family"><i class="fa fa-check"></i><b>2.6</b> The <code>which()</code> Family</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>3</b> Variables</a><ul>
 <li class="chapter" data-level="3.1" data-path="variables.html"><a href="variables.html#naming"><i class="fa fa-check"></i><b>3.1</b> Naming</a></li>
@@ -618,6 +619,18 @@ y =<span class="st"> </span><span class="dv">2</span>:<span class="dv">10</span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(x[<span class="dv">10</span>], y[<span class="dv">9</span>])</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>This function is very helpful when you want to check if two vectors or lists have the same information. It’s also particularly useful when you want to check if the outputs or results of different functions are the same if you’re reorganizing/rewriting code.</p>
+</div>
+<div id="the-which-family" class="section level2">
+<h2><span class="header-section-number">2.6</span> The <code>which()</code> Family</h2>
+<p>In addition to the <code>identical()</code> function, another useful family of functions is the <code>which()</code> family: <code>which()</code>, <code>which.min()</code>, and <code>which.max()</code>. When used on a vector, they’ll give you the <em>index</em> of the the specified condition. <code>which()</code> can be used for any condition you’d like, while <code>which.min()</code> and <code>which.max()</code> return the minimum and maximum values of the vector. Here’s a quick example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">13</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">15</span>)
+<span class="kw">which</span>(z ==<span class="st"> </span><span class="dv">4</span>) <span class="co"># Returns the index where z is 4 (should be 7)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.min</span>(z) <span class="co"># Should return 1</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.max</span>(z) <span class="co"># Should return 2 (biggest value is 16 at index 2)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Since the columns of a data frame are really just vectors, the <code>which()</code> family of functions, when used on a data frame, will return the <em>row</em> corresponding to the condition. Not something we’ll spend a ton of time with right now, but a good thing to keep in mind going forward.</p>
 
 </div>
 </div>

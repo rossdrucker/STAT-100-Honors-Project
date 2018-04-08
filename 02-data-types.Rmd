@@ -202,3 +202,16 @@ identical(x[10], y[9])
 ```
 
 This function is very helpful when you want to check if two vectors or lists have the same information. It's also particularly useful when you want to check if the outputs or results of different functions are the same if you're reorganizing/rewriting code.
+
+## The `which()` Family
+
+In addition to the `identical()` function, another useful family of functions is the `which()` family: `which()`, `which.min()`, and `which.max()`. When used on a vector, they'll give you the *index* of the  the specified condition. `which()` can be used for any condition you'd like, while `which.min()` and `which.max()` return the minimum and maximum values of the vector. Here's a quick example:
+
+```{r 02-which-examples}
+z = c(1, 16, 8, 9, 5, 12, 4, 13, 6, 11, 3, 14, 7, 10, 2, 15)
+which(z == 4) # Returns the index where z is 4 (should be 7)
+which.min(z) # Should return 1
+which.max(z) # Should return 2 (biggest value is 16 at index 2)
+```
+
+Since the columns of a data frame are really just vectors, the `which()` family of functions, when used on a data frame, will return the *row* corresponding to the condition. Not something we'll spend a ton of time with right now, but a good thing to keep in mind going forward.
