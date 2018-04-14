@@ -124,6 +124,8 @@ knitr::include_graphics('img/20-roulette.jpeg')
 
 What's the chance of the roulette ball landing on a red space? Let's use a box model to represent a single play of the game. There's 18 ways for the ball to land on a red space, and there's 20 ways for it to land on a black or green space. The box model looks like this.
 
+<a name = 'roulette-box'></a>
+
 ```{r box-model, echo = FALSE}
 ggplot() + 
   theme_bw() + 
