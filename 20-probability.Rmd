@@ -29,19 +29,19 @@ One of the easiest probability scenarios to think about is a rolling a die. Let'
 
 Start by listing out all of the possible outcomes of our roll: 1, 2, 3, 4, 5, or a 6. Of those possible outcomes, if the die comes up a 2, a 4, or a 6, Chance wins. So that gives 3 outcomes out of 6 total outcomes. We write this as $P(\text{You win}) = \frac{3}{6} = \frac{1}{2}$. Simple stuff.
 
-```{r chance-simple, echo = FALSE}
+```{r 20-chance-simple, echo = FALSE}
 knitr::include_graphics('img/20-chance-clapping.gif')
 ```
 
 Let's move on to something a little more challenging: casino games. We'll start with a standard deck of 52 playing cards. For the unfamiliar, a deck of cards has 4 different suits, or pictures, and each suit is made up of 13 unique cards. They look like this:
 
-```{r cards, echo = FALSE}
+```{r 20-cards, echo = FALSE}
 knitr::include_graphics('img/20-cards.jpg')
 ```
 
 We'll represent them in the following table to make them easier to visualize.
 
-```{r card-table, echo = FALSE}
+```{r 20-card-table, echo = FALSE}
 card_vals = c('A', 2:10, 'J', 'Q', 'K')
 
 cards = data.frame(
@@ -56,7 +56,7 @@ knitr::kable(cards, format = 'html', align = 'c') %>% kableExtra::column_spec(1:
 
 Awesome, now let's start having some fun with them. We'll start with a simple example. Let's pretend that we want to know the probability of drawing randomly from our deck of cards and getting a card that's 9 or higher (we'll say the ace is the lowest card). No problem, we just count up how many cards are a 9 or higher.
 
-```{r 9-or-higher, echo = FALSE}
+```{r 20-9-or-higher, echo = FALSE}
 knitr::kable(cards, format = 'html', align = 'c') %>% kableExtra::column_spec(1:4, bold = TRUE) %>% kableExtra::column_spec(3:4, color = '#ff0000') %>% kableExtra::row_spec(9:13, background = '#ffcb05')
 ```
 
@@ -90,7 +90,7 @@ That last term may seem confusing, but it should make sense with an example. Let
 
 Here's all of the cards that meet the criteria:
 
-```{r King-or-Spade, echo = FALSE}
+```{r 20-King-or-Spade, echo = FALSE}
 knitr::kable(cards, format = 'html', align = 'c') %>% kableExtra::column_spec(1:4, bold = TRUE) %>% kableExtra::column_spec(3:4, color = '#ff0000') %>% kableExtra::row_spec(13, background = '#ffcb05') %>% kableExtra::column_spec(2, background = '#ffcb05')
 ```
 
@@ -100,7 +100,7 @@ But let's see the addition rule in action! First, we know that the probability o
 
 $$P(\text{King OR Spade}) = P(\text{King}) + P(\text{Spade}) - P(\text{King AND Spade}) = \frac{4}{52} + \frac{13}{52} - \frac{1}{52} = \frac{16}{52}$$
 
-```{r chance-money, echo = FALSE}
+```{r 20-chance-money, echo = FALSE}
 knitr::include_graphics('img/20-chance-cash.gif')
 ```
 
@@ -118,7 +118,7 @@ It's easier to find the probability that all events or no events meet our criter
 
 Another way (and a better way in terms of `R`) to conceptulaize probability is in the form of a <span class = 'vocab'>box model</span>. What's a box model, you ask? It's a way to represent *one* play of a game, or trial of an experiment, or roll of a die as if we were randomly picking a number written on a ticket out of a hat. Let's switch to roulette. Roulette is played by spinning a wheel with 38 spaces, dropping a ball into the wheel, and finding out where the ball lands. There are 18 red spaces, 18 black spaces, and 2 green spaces.
 
-```{r roulette, echo = FALSE, fig.height = 7, fig.width = 12}
+```{r 20-roulette, echo = FALSE, fig.height = 7, fig.width = 12}
 knitr::include_graphics('img/20-roulette.jpeg')
 ```
 
@@ -126,7 +126,7 @@ What's the chance of the roulette ball landing on a red space? Let's use a box m
 
 <a name = 'roulette-box'></a>
 
-```{r box-model, echo = FALSE}
+```{r 20-box-model, echo = FALSE}
 ggplot() + 
   theme_bw() + 
   theme(
@@ -154,7 +154,7 @@ Now it's easy to find the probability of the ball landing on a red space! There'
 
 Want the probability of landing on red twice in a row? Easy! Pick a red on your first draw, replace the ticket, and then pick a red on your next draw. Use the multiplication rule to combine them together. $P(\text{Red AND Red}) = \frac{18}{38} \cdot \frac{18}{38}$. Your thoughts, Chance the Rapper?
 
-```{r thats-whats-up, echo = FALSE}
+```{r 20-thats-whats-up, echo = FALSE}
 knitr::include_graphics('img/20-chance-thats-whats-up.gif')
 ```
 
@@ -164,7 +164,7 @@ Now, why is this a better way to think about probability for `R`? It's because o
 
 A few examples before we move on to sampling.
 
-```{r}
+```{r 20-sample-examples}
 set.seed(42) # Set seed for reproducibility
 
 # Rolling a die 3 times
