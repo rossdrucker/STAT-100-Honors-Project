@@ -187,6 +187,6 @@ This same kind of an interval can be computed for random variables. We call them
 
 $$\text{Interval: } \hspace{2mm} \text{EV} \pm \text{Z} \times \text{SE}$$
 
-The Z in the formula controls how wide the interval is, and just corresponds to the middle area of our level of confidence. As an example, if we want to have 95% confidence in our estimate of the EV, we'd use Z = 2 since the <a href = 'img/10-z-chart.png'>chart</span> tells us that 95% of the area under the normal curve is between -2 and 2.
+The Z in the formula controls how wide the interval is, and just corresponds to the middle area of our level of confidence. As an example, if we want to have 95% confidence in our estimate of the EV, we'd use Z = 2 since the <a href = 'img/10-z-chart.png'>chart</a> tells us that 95% of the area under the normal curve is between -2 and 2.
 
 We interpret the interval (i.e. a 75% confidence interval) to mean that if we were to repeat the experiment 100 times, we'd capture the EV (and the actual value) 75 times.
