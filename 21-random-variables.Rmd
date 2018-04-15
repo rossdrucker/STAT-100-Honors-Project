@@ -1,0 +1,192 @@
+# Random Variables
+
+Let's keep going with our "Randomly draw everything out of a box" philosophy and talk about surveys and <span class = 'vocab'>random variables</span>. All this means is that the numbers/results we get are due to chance.
+
+## Connecting the Dots
+
+We'll use our box models from <a href = 'probability-and-chance.html#box-models'>before</a> to describe a wide array of scenarios. While these may be easy to understand and use to talk about probabilities, wouldn't it be nice if there was a way to summarize their results in a neat way like we did with our <a href = 'scatter-plots-and-correlation.html#statistics-of-the-cloud-scatter-plot'>summary statistics</a>? Of course it would!
+
+For example, let's pretend that we're going to play roulette $n$ times and want to know how much money we're going to win (or lose). In this case, we'd want to find the sum of the $n$ draws. If we're doing a survey of a class, we may be interested in the average of the $n$ draws (i.e. the average height of a large class on campus), or we may want to find out what percentage of people feel a particular way on an issue (i.e. what percentage prefer hamburgers to hot dogs).
+
+Luckily for us, such summaries exist! Let's see what those are.
+
+## Expected Value
+
+The first type of a summary we'll talk about is the <span class = 'vocab'>expected value (EV)</span>. This helps us to understand the distribution of values in our box, similar to how the average helped us get a baseline for the population in Chapter 12. As we outlined above, there's three likely scenarios of wanting to summarize when we'd like a box model: when we want the sum of $n$ draws, the average of $n$ draws, or the percent of the time we get a particular value in $n$ draws. 
+
+We'll start with the sum of $n$ draws. If we know what the values of the tickets are in the box, we can quickly compute their average by adding up the values on the tickets, then dividing by the number of tickets in the box. Remember how in regression, when we didn't know anything else about a person we were making a prediction for, we'd predict the average? The same is true here! We don't necessarily know what number we're going to get on any of our given $n$ draws, so we'll just say that we'll get the average value of *all* the tickets on each of our draws. To figure out our sum, we'll just add our average the number of times ($n$) that we draw out of our box. But adding the same number over and over again is just multiplication! We can thus get the following formula for the EV~sum~:
+
+$$\text{EV}_\text{sum} = n \cdot \text{Average of the box}$$
+
+Finding the EV~sum~ is useful in situations where we're interested in adding up numbers we get based on the probabilities of each number. A perfect use case is with gambling. We'll use our roulette example from the last chapter, but instead of finding the probability of winning, we want to find out how much money we expect to win if we play 76 times. Let's say we bet \$1 on any red space. If the ball lands on a red space, we win \$1. Otherwise, we lose our \$1. First, let's make a box. Remember: your box should represent *one* time you play the game. We'll make our draws with replacement, since we can't get rid of a spot on a roulette wheel after the ball lands on it.
+
+<span class = 'note'>Note: if you have more draws than tickets in your box, you should always be drawing *with* replacement.</span>
+
+```{r 21-box-roulette, echo = FALSE}
+ggplot() + 
+  theme_bw() + 
+  theme(
+    panel.background = element_blank(),
+    panel.border = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  geom_rect(aes(xmin = 0, xmax = 20, ymin = 0, ymax = 20), col = '#000000', fill = '#ffffff') + 
+  geom_rect(aes(xmin = 2, xmax = 8, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_rect(aes(xmin = 12, xmax = 18, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_segment(aes(x = 2, xend = 8, y = 17, yend = 17), col = '#000000') +
+  geom_segment(aes(x = 12, xend = 18, y = 17, yend = 17), col = '#000000') +
+  annotate('text', label = '18', x = 5, y = 18.2, size = 13) +
+  annotate('text', label = '20', x = 15, y = 18.2, size = 13) + 
+  annotate('text', label = '$1', x = 5, y = 8.5, size = 13) + 
+  annotate('text', label = '-$1', x = 15, y = 8.5, size = 13)
+```
+
+To find the average of the box, we take the value on the ticket times the number on each ticket, add up those products, and divide by however many tickets are in our box. This means the average is $\frac{\left( 18 \cdot 1 \right) + \left( 20 \cdot -1 \right)}{38} = \frac{18 - 20}{38} = \frac{-2}{38}$. All that's left to find the EV~sum~ is to multiply by the number of times we play ($n = 76$), so our EV~sum~ is $76 \cdot \frac{-2}{38}$ = -\$4. Guess the phrase "Vegas wasn't built on winners" was right ¯\\\_(ツ)_/¯
+
+To find the EV~sum~ in `R` is super easy! You can think of the box as being a vector, with the elements corresponding to the tickets. This makes finding the EV~sum~ simple: take the number of draws times the average of the vector. Our example above can then be done like so:
+
+```{r 21-ev-sum-roulette}
+# Create box with 18 1s and 20 -1s
+box = c(rep(1, 18), rep(-1, 20))
+
+# Calculate EVsum for 76 draws
+76 * mean(box)
+```
+
+Another common thing to find would be the expected value of the *average* -- EV~average~ or EV~avg~ -- of the number of draws. Spoiler alert: you already found this! It's just the average of the box. Nothing tricky about it, and it should make sense intuitively: if you want the average of *all* the draws, you should just take the average of the box, add it up $n$ times (for $n$ draws), then divide by the number of draws. So $\text{EV}_\text{avg} = \frac{n \cdot \text{Average of the box}}{n} = \text{Average of the box}$. As we saw in the last example, `R` makes this easy to find because of the `mean()` function. Just to prove it to you, let's do a quick demonstration. We'll use the `sample()` function to make our 76 random draws out of `box` with replacement, and we'll calculate the average of these 76 draws. We'll repeat this process 100,000 times (thanks, `for` loops!), saving the average of the 76 draws in a vector called `means` each time. Lastly, we'll compare the average of these 100,000 averages to the average of the box, and we'll notice that they're *very* close to each other. 
+
+```{r 21-proof-avg}
+# Set seed for reproducibility
+set.seed(42)
+
+means = c()
+
+for(i in 1:100000){
+  means[i] = mean(sample(box, 76, replace = TRUE))
+}
+
+mean(means)
+mean(box)
+```
+
+The last type of expected value we may be interested in is for the percentage of draws that are what we're looking for, and we'll call it the EV~percent~, or EV~%~ for short. This is easy to find, but to make it easier to do, we should switch our box up ever so slightly. If we wanted to know the percentage of time that we would win our game of roulette instead of how much money we won, we should change our box from <a href = 'probability-and-chance.html#roulette-box'>before</a> to be a "Yes/No", or a 0-1 box. That is, if we win, we drew a 1, and if we lose we drew a 0.
+
+```{r 21-new-box-model, echo = FALSE}
+ggplot() + 
+  theme_bw() + 
+  theme(
+    panel.background = element_blank(),
+    panel.border = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  geom_rect(aes(xmin = 0, xmax = 20, ymin = 0, ymax = 20), col = '#000000', fill = '#ffffff') + 
+  geom_rect(aes(xmin = 2, xmax = 8, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_rect(aes(xmin = 12, xmax = 18, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_segment(aes(x = 2, xend = 8, y = 17, yend = 17), col = '#000000') +
+  geom_segment(aes(x = 12, xend = 18, y = 17, yend = 17), col = '#000000') +
+  annotate('text', label = '18', x = 5, y = 18.2, size = 13) +
+  annotate('text', label = '20', x = 15, y = 18.2, size = 13) + 
+  annotate('text', label = '1', x = 5, y = 8.5, size = 13) + 
+  annotate('text', label = '0', x = 15, y = 8.5, size = 13)
+```
+
+Then, we just find the percentage of 1s in our box to find the EV~%~. There are 18 wins out of 38 outcomes, so our EV~%~ is `r 100 * round(18/38, 3)`%. Using `box` from above, we can find this in `R` by taking the mean of a condition:
+
+```{r 21-ev-pct}
+# Multiply by 100 to get percent
+100 * mean(box == 1)
+```
+
+<span class = 'note'>Note: this is the same as finding the EV~avg~ of the 0-1 box.</span>
+
+## The SD Shortcut
+
+If we have a box model that looks like this:
+```{r 21-sd-shortcut-box, echo = FALSE}
+ggplot() + 
+  theme_bw() + 
+  theme(
+    panel.background = element_blank(),
+    panel.border = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  geom_rect(aes(xmin = 0, xmax = 20, ymin = 0, ymax = 20), col = '#000000', fill = '#ffffff') + 
+  geom_rect(aes(xmin = 2, xmax = 8, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_rect(aes(xmin = 12, xmax = 18, ymin = 2, ymax = 15), col = '#000000', fill = '#ffffff') +
+  geom_segment(aes(x = 2, xend = 8, y = 17, yend = 17), col = '#000000') +
+  geom_segment(aes(x = 12, xend = 18, y = 17, yend = 17), col = '#000000') +
+  annotate('text', label = 'Number of A tickets', x = 5, y = 18.2, size = 13) +
+  annotate('text', label = 'Number of B tickets', x = 15, y = 18.2, size = 13) + 
+  annotate('text', label = 'a', x = 5, y = 8.5, size = 13) + 
+  annotate('text', label = 'b', x = 15, y = 8.5, size = 13)
+```
+
+we can compute the SD of the box quickly using the following formula
+$$ \text{SD}_\text{box} = | a - b | \sqrt{\frac{\text{Number of A tickets}}{\text{Total number of tickets}} \times \frac{\text{Number of B tickets}}{\text{Total number of tickets}}}$$
+
+where $a$ and $b$ are the values on the tickets. Why are we introducing this? Keep reading and you'll see why!
+
+## Standard Error
+
+> "I understand how the average and expected value are the same, but what about the standard deviation?"
+> <div style = 'text-align:right'> -You, probably
+
+Wonder no more! Just like the standard deviation describes the spread for a set of data, we can calculate the <span class = 'vocab'>standard error (SE)</span> for all of the above situations to describe the spread of our standard error.
+
+To calculate the SE~sum~, we'll start with the SD of the box (which you can use the SD formula above to find), and multiply it by the square root of the number of draws. That is,
+
+$$ \text{SE}_\text{sum} = \text{SD}_\text{box} \hspace{1mm} \cdot \sqrt{n} $$
+
+<span class = 'note'>Note: this is called the **square root law**.</span>
+
+To find the EV~avg~ from the EV~sum~, we just divided by $n$. Following the same logic, we'll divide the SE~sum~ by $n$ and we'll get the SE~avg~:
+
+$$\text{SE}_\text{sum} = \text{SD}_\text{box} \hspace{1mm} \cdot \sqrt{n}$$
+
+$$\text{SE}_\text{avg} =  \frac{\text{SE}_\text{sum}}{n} = \frac{\text{SD}_\text{box} \hspace{1mm} \cdot \sqrt{n}}{n} =  \frac{\text{SD}_\text{box} \hspace{1mm} \cdot \sqrt{n}}{\sqrt{n}\sqrt{n}}$$
+
+$$\text{SE}_\text{avg} = \frac{\text{SD}_\text{box}}{\sqrt{n}}$$
+
+And just like we said about getting the EV~%~ from the EV~avg~, we convert to a 0-1 box and multiply the new average by 100. Same logic tells us that to get the SE~%~ from the SE~avg~, we can just multiply the SE~avg~ by 100.
+
+$$\text{SE}_\% = \frac{\text{SD}_\text{box}}{\sqrt{n}} \times 100%$$
+
+```{r 21-alright, echo = FALSE}
+knitr::include_graphics('img/21-alright.gif')
+```
+
+## Law of Averages
+
+We can see from the above definitions of standard error that as $n$ increases, the SE~sum~ also increases, while the SE~avg~ (and therefore the SE~%~) decrease by a factor of $sqrt{n}$. We call this the <span class = 'vocab'>law of averages</span>. It should make intuitive sense: the more times you repeat an experiment, the more possible values you have (a bigger SE~sum~), but because you have a wider possible range of numbers, you'll most likely be closer to the average since more numbers should lie closer to the average.
+
+Take flipping a coin as an example. If we start by flipping a coin 4 times and counting the number of heads, we may not get *exactly* 2 heads, but the range of possible heads is smaller (it'd be 0, 1, 2, 3, or 4 heads). Our spread would be pretty small, but getting 0 heads on 4 flips isn't close to our expected value. If, however, we flipped the coin 4 million times, we'd be much closer to that 50% mark we'd expect (SE~avg/%~), but the spread of the number of heads (SE~sum~) would be bigger since there are way more possible numbers of heads.
+
+## Intervals
+
+So why does that law of average stuff we just talked about matter? Because we can now combine the EV and SE to talk about an interval for our experiments!
+
+In <a href = 'the-normal-approximation.html#z-scores'>Chapter 10.2</a>, we learned how to find the area between -Z and +Z on a normal curve. Since we've concluded that the EV is a random variable equivalent to the average, and the SE is a random variable equivalent to the SD, we can calculate Z-scores just as before. Our new formula for this is
+
+$$\text{Z} = \frac{\text{Value} - \text{EV}}{SE}$$
+
+where the EV and SE are both for either the sum, average, or percent. For example, if the EV is the EV~sum~, then the SE is the SE~sum~.
+
+This same kind of an interval can be computed for random variables. We call them <span class = 'vocab'>confidence intervals</span>, since they describe how sure (condfident) we are that our random variable will fall in that range. We used to calculate them by rearranging the Z-score formula to find the values, using both positive and negative Z. We'll do the same, keeping in mind that the EV and SE are both for either the sum, average, or percent.
+
+$$\text{Interval: } \hspace{2mm} \text{EV} \pm \text{Z} \times \text{SE}$$
+
+The Z in the formula controls how wide the interval is, and just corresponds to the middle area of our level of confidence. As an example, if we want to have 95% confidence in our estimate of the EV, we'd use Z = 2 since the <a href = 'img/10-z-chart.png'>chart</span> tells us that 95% of the area under the normal curve is between -2 and 2.
+
+We interpret the interval (i.e. a 75% confidence interval) to mean that if we were to repeat the experiment 100 times, we'd capture the EV (and the actual value) 75 times.
