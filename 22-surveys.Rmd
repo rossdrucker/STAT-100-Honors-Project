@@ -1,0 +1,63 @@
+# Surveys
+
+## The Truth and Chocolate Milk
+
+So why do we do all this EV and SE stuff? Well, Tom Cruise said it best.
+
+```{r 21-truth, echo = FALSE}
+knitr::include_graphics('img/22-truth.gif')
+```
+
+But what do we mean by the truth? We're looking for what we'll call the <span class = 'vocab'>grand truth</span>, or the <span class = 'vocab'>overall truth</span>. This is the truth about some really big population, group, or other large mass of subjects. But it's not logical, practical, or cheap to ask the entire population, so we only ask some members of that population and use them to represent the overall group.
+
+Think about it this way: if you had a pitcher of an unknown drink, you wouldn't have to drink the entire gallon of the drink to figure out that it's chocolate milk. You'd pour out a little into a glass, see it looks like chocolate milk, smells like chocolate milk, tastes like chocolate milk, and determine with a reasonable degree of certainty you're drinking chocolate milk.
+
+That small glass of chocolate milk represents our <span class = 'vocab'>sample</span>, or the group that we're taking a survey of. We're going to use them to represent the overall population, and we'll use what we determine about the sample group to make some conclusions about the overall population.
+
+## Surveying the Population
+
+The best way to sample the population is to give each person in our population an equal probability of participating. If you think of sampling in terms of box models, this means that each person in our population represents 1 single ticket in our box. We make our sample by pulling out $n$ tickets, and we should do this *without* replacement. If we replaced a participant in our box, we'd have a chance of getting that same person over and over again, and then we haven't actually learned anything about the overall population.
+
+With surveys, we'll usually think about them in terms of "Yes/No", "Agree/Disagree", or "Candidate 1/Candidate 2" responses, which can be represented as 0-1 boxes. We'll assume 1 is "Yes/Agree/Candidate 1" and 0 is "No/Disagree/Candidate 2."
+
+## Margin of Error
+
+In the last chapter, we talked about <a href = 'random-variables.html#Intervals'>intervals</a>, called confidence intervals, where values typically fall. We're confident to a certain level, based on a Z-score, and have some spread in our random variable called a standard error. We defined it as
+
+$$\text{Interval: } \hspace{2mm} \text{EV} \pm \text{Z} \times \text{SE}$$
+
+and with surveys, we're going to be dealing with the EV~%~ and SE~%~ specifically. We'll call the last term in our interval ($\text{Z} \times \text{SE}_\%$) the <span class = 'vocab'>margin of error</span>, since this is what controls how wide the confidence interval is. In other words, is how "wrong" we're willing to be in our estimate.
+
+But just like the law of averages tells us, the more times we repeat our experiment, the smaller the SE~%~ is. This begs the question, "How many people should we sample to achieve a certain margin of error?" Let's find out with a little bit of algebra!
+
+## Sample Size
+
+We know that the margin of error (MoE) is given by
+
+$$\text{Margin of Error} = \text{Z} \times \text{SE}_\%$$
+
+and we know that the SE~%~ is given by
+
+$$\text{SE}_\% = \frac{\text{SD}_\text{box}}{\sqrt{n}} \times 100\%$$
+
+so we can rewrite the margin of error as
+
+$$\text{Margin of Error} = \text{Z} \times \frac{\text{SD}_\text{box}}{\sqrt{n}} \times 100\%$$
+
+We're interested in finding how many people to sample, so we want to find $n$. Let's rearrange:
+
+$$\sqrt{n} \times \text{Margin of Error} = \text{Z} \times \text{SD}_\text{box} \times 100\%$$
+
+$$\sqrt{n} = \frac{\text{Z} \times \text{SD}_\text{box} \times 100\%}{\text{Margin of Error}}$$
+
+Almost there! This gives us the square root of the number of people to ask. But it doesn't make sense to ask the square root of a person, so we'll square both sides and get our final result.
+
+$$n = \left( \frac{\text{Z} \times \text{SD}_\text{box} \times 100\%}{\text{Margin of Error}} \right) ^ 2$$
+
+One important thing to note: $n$ may not always work out to be a whole number. If it's not a whole number (say we determine we need to sample 1234.5 people), you should **always** round up. Just like we said about it not making sense to ask the square root of a number of people, it doesn't make sense to ask a fraction of a person. In our example, since you need to ask 1234 "whole" people and .5 other people, this means you need to ask a 1235 person.
+
+## Who Do Sample Results Apply To?
+
+In short: only the population you drew it from. Using our chocolate milk example from earlier, we can't use our gallon of chocolate milk to represent the entirety of the selection of drinks at the grocery store.
+
+Samples also can't be used to represent a subset of the population. For example, if our survey is taken from a population that has both males and females in it, we can't make any declaration about only the men in the larger population or only the women in the larger population.
