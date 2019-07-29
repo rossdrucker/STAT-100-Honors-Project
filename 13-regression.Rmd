@@ -16,7 +16,7 @@ So far, much of what we've covered goes to objective #1. Let's start working on 
 
 ## Regression
 
-<span class = 'vocab'>**Regression**</span> is the process of using a relationship between two or more variables (the predictor(s) and response variables) to make a better prediction of the response than guessing. We're focused on what's called <span class = 'vocab'>**simple linear regression (SLR)**</span>, which just means doing regression with one predictor. Knowing the <a href = 'correlation.html#correlation'>correlation</a> between two variables definitely helps make a better prediction since we know the trend between the two variables, but it doesn't really help us make a prediction... Yet.
+<span class = 'vocab'>**Regression**</span> is the process of using a relationship between two or more variables (the predictor(s) and response variables) to make a better prediction of the response than guessing. We're focused on what's called <span class = 'vocab'>**simple linear regression (SLR)**</span>, which just means doing regression with one predictor. Knowing the <a href = 'scatter-plots-and-correlation.html#correlation'>correlation</a> between two variables definitely helps make a better prediction since we know the trend between the two variables, but it doesn't really help us make a prediction... Yet.
 
 Now it's time to put $r$ to use. What the correlation coefficient *really* tells us is how much, on average, how many standard deviations of the response we move up (or down) when we increase by one standard deviation in the predictor. Admittedly, that's confusing to type and involves a lot of math words, and it's probably easier to understand with an example anyways, so we'll go right to one.
 
