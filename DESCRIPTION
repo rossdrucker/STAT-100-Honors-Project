@@ -2,6 +2,7 @@ Package: stat-100-honors-project
 Type: Book
 Title: STAT 100 Honors Project.
 Version: 0.0.1
+Depends: R (>= 3.3.0)
 Imports:
   bookdown, 
   rmarkdown,
@@ -10,4 +11,5 @@ Imports:
   magrittr,
   MASS,
   ggplot2
-Remotes: rstudio/bookdown
+Remotes:
+  rstudio/bookdown
