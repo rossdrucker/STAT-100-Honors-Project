@@ -10,5 +10,5 @@ Imports:
   magrittr,
   MASS,
   ggplot2
--Remotes:
-  -rstudio/bookdown
+Remotes:
+  rstudio/bookdown
