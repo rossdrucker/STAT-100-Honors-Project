@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>STAT 100 Honors Project</title>
-  <meta name="description" content="STAT 100 Honors Project">
-  <meta name="generator" content="bookdown 0.7.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Measures of Central Tendency | STAT 100 Honors Project</title>
+  <meta name="description" content="Chapter 9 Measures of Central Tendency | STAT 100 Honors Project" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:title" content="Chapter 9 Measures of Central Tendency | STAT 100 Honors Project" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="rossdrucker/STAT-100-Honors-Project" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  <meta name="twitter:title" content="Chapter 9 Measures of Central Tendency | STAT 100 Honors Project" />
   
   
   
 
-<meta name="author" content="Ross Drucker">
+<meta name="author" content="Ross Drucker" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
 <link rel="prev" href="hists.html">
 <link rel="next" href="the-normal-approximation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,44 +46,72 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -111,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
-<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#src"><i class="fa fa-check"></i><b>1.3</b> <code>Source</code></a></li>
 <li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
 <li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
 </ul></li>
@@ -162,13 +190,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>II Exploring Data</b></span></li>
 <li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
-<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li><a href="hists.html#drawing-bar-graphs-and-histograms-in-r">Drawing Bar Graphs and Histograms in <code>R</code></a></li>
 <li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
 <li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
 <li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
-<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+<li><a href="measures-of-central-tendency.html#mean-with-truefalse"><code>mean()</code> with <code>TRUE</code>/<code>FALSE</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
 <li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
@@ -184,8 +212,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
 <li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
 <li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
-<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
-<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code>boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#sum"><i class="fa fa-check"></i><b>11.4</b> Summary and <code>summary()</code></a></li>
 </ul></li>
 <li class="part"><span><b>III Linear Regression</b></span></li>
 <li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
@@ -296,31 +324,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 \bar{x} = \frac{0 + 5 + \left( -5 \right) + 10 + \left( -10 \right) + 40 + 100}{7} = \frac{140}{7} = 20
 \]</span></p>
 <p>This may seem trivial, so let’s get to the fun part of doing it in <code>R</code>. First thing is first: we need our numbers to get loaded into <code>R</code>. Aha! A perfect time for a vector. Since we called the average <span class="math inline">\(\bar{x}\)</span>, let’s name this vector <code>x</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, -<span class="dv">5</span>, <span class="dv">10</span>, -<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">100</span>)</code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">-5</span>, <span class="dv">10</span>, <span class="dv">-10</span>, <span class="dv">40</span>, <span class="dv">100</span>)</a></code></pre></div>
 <p>Now we need to go and actually <em>calculate</em> <span class="math inline">\(\bar{x}\)</span>. Well we’re calculating the <em>mean</em>, so we should try the <code>mean()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">mean</span>(x)</a></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <p>This <span class="vocab"><strong>returns</strong></span> (gives back) the mean of <code>x</code>, and we can see that it is, in fact, 20. Another way that we could have done this is more like we would have done by hand: first we would have to <em>sum</em> the numbers, then we’d have to <em>divide</em> them by the number of numbers we just added together. Luckily, the <code>sum()</code> and <code>length()</code> functions save us a lot of time and energy.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(x) /<span class="st"> </span><span class="kw">length</span>(x)</code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">sum</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(x)</a></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <p>Again, we get that the average is 20, thus both methods are valid.</p>
 <div id="handling-na-values" class="section level3 unnumbered">
 <h3>Handling <code>NA</code> Values</h3>
 <p>What would happen in functions like <code>mean()</code>, <code>sum()</code>, <code>length()</code>, <code>min()</code>, or <code>max()</code> when <code>NA</code>s are present? Well let’s find out. We’ve inserted a few <code>NA</code>s into the same vector as above, but we’ve called it <code>y</code> now so as not to confuse the two.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="ot">NA</span>, -<span class="dv">5</span>, <span class="dv">10</span>, -<span class="dv">10</span>, <span class="ot">NA</span>, <span class="dv">40</span>, <span class="dv">100</span>)
-<span class="kw">mean</span>(y)</code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">y =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="ot">NA</span>, <span class="dv">-5</span>, <span class="dv">10</span>, <span class="dv">-10</span>, <span class="ot">NA</span>, <span class="dv">40</span>, <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb115-2" data-line-number="2"><span class="kw">mean</span>(y)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(y)</code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">sum</span>(y)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>They return <code>NA</code>! You may be asking yourself, <a href="https://www.youtube.com/watch?v=sluHwh3hJhI">why?</a> Well, the reason this happens is because you haven’t told <code>R</code> how to deal with a non-existent value (<a href = 'functions-and-data-types.html#na'>We told you they’d be pesky!</a>). You most likely want <code>R</code> to ignore the <code>NA</code> altogether, so we can take advantage of an argument called <code>na.rm</code> and set it equal to <code>TRUE</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">mean</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sum</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="kw">sum</span>(y, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 140</code></pre>
 <p>Great, everything is working again! Problem solved.</p>
 </div>
-<div id="mean-with-truefalse" class="section level3">
-<h3><span class="header-section-number">9.1.1</span> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></h3>
+<div id="mean-with-truefalse" class="section level3 unnumbered">
+<h3><code>mean()</code> with <code>TRUE</code>/<code>FALSE</code></h3>
 <p>It’s also good to note that <code>R</code> can take the mean of <code>logical</code> vectors. What happens is that <code>TRUE</code> is coerced to be 1, and <code>FALSE</code> is coerced to be 0. Then, the mean is taken just as before. This may seem boring, but it allows us to determine percentages quickly. Let’s say we want to find the percentage of students that responded to Survey 1 that maintained at least a 3.0 GPA. How would we figure this out if we were doing it by hand? Probably like this:</p>
 <ol style="list-style-type: decimal">
 <li>Get an observation of data (that is, go to the first response)</li>
@@ -332,19 +360,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>After going through all observations, take the final tally and divide by the number of observations we observed (that had values)</li>
 </ol>
 <p>Luckily, there’s a very good way to do this in <code>R</code>, and it involves the <code>mean()</code> function. In addition to evaluating the mean of a vector of numbers, it can compute the percentage of observations that meet a certain condition, given by something called a <span class="vocab"><strong>conditional statement</strong></span>. We talked about them <a href = 'operators.html#booloops'>before</a>, so now it’s time to see why we spent the time learning how to write them. We’ll show the “complete” version of the process we just outlined, and then we’ll go through and do it the short way.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create TRUE/FALSE vector of places where students have GPAs above 3.0</span>
-bool_vec =<span class="st"> </span>survey1$GPA &gt;<span class="st"> </span><span class="fl">3.0</span>
-<span class="kw">head</span>(bool_vec)</code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="co"># Create TRUE/FALSE vector of places where students have GPAs above 3.0</span></a>
+<a class="sourceLine" id="cb123-2" data-line-number="2">bool_vec =<span class="st"> </span>survey1<span class="op">$</span>GPA <span class="op">&gt;</span><span class="st"> </span><span class="fl">3.0</span></a>
+<a class="sourceLine" id="cb123-3" data-line-number="3"><span class="kw">head</span>(bool_vec)</a></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Coerce the TRUE/FALSE vector to be 1s and 0s</span>
-bool_as_binary =<span class="st"> </span><span class="kw">as.numeric</span>(bool_vec)
-<span class="kw">head</span>(bool_as_binary)</code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="co"># Coerce the TRUE/FALSE vector to be 1s and 0s</span></a>
+<a class="sourceLine" id="cb125-2" data-line-number="2">bool_as_binary =<span class="st"> </span><span class="kw">as.numeric</span>(bool_vec)</a>
+<a class="sourceLine" id="cb125-3" data-line-number="3"><span class="kw">head</span>(bool_as_binary)</a></code></pre></div>
 <pre><code>## [1] 1 1 1 1 0 0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the percentage</span>
-<span class="kw">sum</span>(bool_as_binary) /<span class="st"> </span><span class="kw">length</span>(bool_as_binary)</code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="co"># Calculate the percentage</span></a>
+<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="kw">sum</span>(bool_as_binary) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(bool_as_binary)</a></code></pre></div>
 <pre><code>## [1] 0.7800983</code></pre>
 <p>This works, but there’s a faster way to do it. We can see that the last step of summing and dividing by the length is the same as the <code>mean()</code> function, so we can just change that to be <code>mean(bool_as_binary)</code> and get the same result. But <code>bool_as_binary</code> is just the numeric coersions of <code>bool_vec</code>, and <code>R</code> knows to do this coersion automatically when using a function like <code>mean()</code> on a vector of type logical. So it’s equally valid to say <code>mean(bool_vec)</code>, although we’ll take it one step farther. We’ll put the conditional statement that created <code>bool_vec</code> directly into the <code>mean()</code> function, and we <em>should</em> get the same result.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(survey1$GPA &gt;<span class="st"> </span><span class="fl">3.0</span>)</code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="kw">mean</span>(survey1<span class="op">$</span>GPA <span class="op">&gt;</span><span class="st"> </span><span class="fl">3.0</span>)</a></code></pre></div>
 <pre><code>## [1] 0.7800983</code></pre>
 <p>Not only did we save four lines of code to get the same result, but we saved a little <span class="vocab"><strong>memory</strong></span> (storage space) in the process. This is because we didn’t need to store the result of the conditional or its coersion as vectors to be used later. <code>R</code> just handled it all internally. This exact procedure is very useful when you want to check how much data is above a threshhold in a quick way.</p>
 </div>
@@ -380,7 +408,7 @@ bool_as_binary =<span class="st"> </span><span class="kw">as.numeric</span>(bool
 </div>
 <p>We’re down to two numbers, so we just take the average of the remaining numbers, which are 6 and 10. We get <strong>8</strong>, so this is our median.</p>
 <p>As was the case with <code>mean()</code>, <code>R</code> comes with a great function – the <code>median()</code> function – to calculate the median of a list of numbers. We can supply the vector directly to <code>median()</code> and immediately get the median.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">median</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">11</span>))</code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">median</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">11</span>))</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <div id="skewed-histograms" class="section level3 unnumbered">
 <h3>Skewed Histograms</h3>
@@ -516,7 +544,7 @@ Figure 9.1: Skewed and Symmetric Distributions
 </table>
 <p>We then average the last column to get 4, and take the square root to get a standard deviation of 2.</p>
 <p>Now that we see how the process works and can do it by hand, we’re ready to use the <code>R</code> function <code>sd()</code> to speed the process along. Just pass the vector of values to <code>sd()</code> and the standard deviation will be computed.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">sd</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</a></code></pre></div>
 <pre><code>## [1] 2.160247</code></pre>
 <p><img src="img/09-surprise.gif" style="display: block; margin: auto;" /></p>
 <p>Hmmm… That’s not quite right. By hand, we got 2, but with <code>sd()</code>, we got 2.1602469. This is where we need to start being a little careful. Earlier, we defined standard deviation as the standard deviation of the <em>population</em> (frequently referred to as <span class="math inline">\(\sigma\)</span>), which is given by</p>
@@ -526,13 +554,13 @@ Figure 9.1: Skewed and Symmetric Distributions
 <p>The the <code>sd()</code> function is actually computing <span class="math inline">\(s\)</span> and not <span class="math inline">\(\sigma\)</span>. That’s okay though! A quick bit of algebra helps us to make the conversion between the sample and the population.</p>
 <p><img src="img/09-do-the-math.gif" style="display: block; margin: auto;" /></p>
 <p>To get from <span class="math inline">\(s\)</span> to <span class="math inline">\(\sigma\)</span>, we just need to multiply by <span class="math inline">\(\sqrt{\frac{n - 1}{n}}\)</span>. The <span class="math inline">\(n - 1\)</span> in the numerator cancels the <span class="math inline">\(n - 1\)</span> in the denominator of <span class="math inline">\(s\)</span>, and then the <span class="math inline">\(n\)</span> in the denominator is the <span class="math inline">\(n\)</span> in <span class="math inline">\(\sigma\)</span>. So, to get the <em>population</em> standard deviation, we need to do this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) *<span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) -<span class="st"> </span><span class="dv">1</span>) /<span class="st"> </span><span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)))</code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="kw">sd</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)))</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>All fixed! Let’s put this into a function so that we can do it on any data set we’d like. We’ll call the function <code>stdv()</code>, which takes one argument (the <code>numeric</code> vector <code>x</code>), and returns the population standard deviation.</p>
 <p><a name = 'stdv-function'></a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stdv =<span class="st"> </span>function(x){
-  <span class="kw">sd</span>(x) *<span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(x) -<span class="st"> </span><span class="dv">1</span>) /<span class="st"> </span><span class="kw">length</span>(x))
-}</code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1">stdv =<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb137-2" data-line-number="2">  <span class="kw">sd</span>(x) <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="kw">length</span>(x) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(x))</a>
+<a class="sourceLine" id="cb137-3" data-line-number="3">}</a></code></pre></div>
 <p>The larger the standard deviation is, the more spread out our data is. The smaller the standard deviation, the less spread the deviation is. As an extreme case, a standard deviation of 0 means that there is no spread whatsoever. This is because all of the data would be located at the average.</p>
 </div>
 <div id="mean-and-standard-deviation-after-changing-the-data" class="section level2">
@@ -569,7 +597,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -579,6 +607,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -595,8 +627,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

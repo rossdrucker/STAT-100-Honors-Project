@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>STAT 100 Honors Project</title>
-  <meta name="description" content="STAT 100 Honors Project">
-  <meta name="generator" content="bookdown 0.7.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Functions and Data Types | STAT 100 Honors Project</title>
+  <meta name="description" content="Chapter 2 Functions and Data Types | STAT 100 Honors Project" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:title" content="Chapter 2 Functions and Data Types | STAT 100 Honors Project" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="rossdrucker/STAT-100-Honors-Project" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  <meta name="twitter:title" content="Chapter 2 Functions and Data Types | STAT 100 Honors Project" />
   
   
   
 
-<meta name="author" content="Ross Drucker">
+<meta name="author" content="Ross Drucker" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
 <link rel="prev" href="downloading-r-and-rstudio.html">
 <link rel="next" href="variables.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,44 +46,72 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -111,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
-<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#src"><i class="fa fa-check"></i><b>1.3</b> <code>Source</code></a></li>
 <li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
 <li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
 </ul></li>
@@ -162,13 +190,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>II Exploring Data</b></span></li>
 <li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
-<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li><a href="hists.html#drawing-bar-graphs-and-histograms-in-r">Drawing Bar Graphs and Histograms in <code>R</code></a></li>
 <li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
 <li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
 <li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
-<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+<li><a href="measures-of-central-tendency.html#mean-with-truefalse"><code>mean()</code> with <code>TRUE</code>/<code>FALSE</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
 <li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
@@ -184,8 +212,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
 <li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
 <li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
-<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
-<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code>boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#sum"><i class="fa fa-check"></i><b>11.4</b> Summary and <code>summary()</code></a></li>
 </ul></li>
 <li class="part"><span><b>III Linear Regression</b></span></li>
 <li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
@@ -298,15 +326,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>To write your own functions, you need to make use of the <code>function()</code> function. You give your function a name, then specify its arguments as the arguments in <code>function()</code>, and include your steps inside of a set of curly braces (<code>{}</code>). To tell <code>R</code> what to return as the output of your new function, you have two options: you can either just leave it as the last line inside of the curly braces, or you can explicitly state it inside the parenthesis of <code>return()</code>.</p>
 <p>We’ll put a simple example of a <span class="vocab">user-defined function</span> here to illustrate how simple and useful writing a function can be, although you may not completely understand what’s going on right now. And <strong>that’s okay, and honestly that’s <em>expected</em> at this point.</strong> We haven’t covered what’s going on here (it’s only Chapter 2!), but if we don’t introduce functions conceptually, we can’t refer to and/or write and teach them them as we go through the book. They’re helpful tools that can save you a <em>ton</em> of time as you get better in <code>R</code>.</p>
 <p>The function we’re going to build is called <code>doubler</code>. It will take one argument, <code>x</code>, and return whatever the double of <code>x</code> is. See if you can match the parts in this function to the process we just outlined and with the information about <code>doubler()</code> that we just gave you!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">doubler =<span class="st"> </span>function(x){
-  <span class="dv">2</span> *<span class="st"> </span>x
-}</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">doubler =<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">}</a></code></pre></div>
 <p>Then, to call the function, you simply put the name of the function, then without a space, put a set of parenthesis. Inside of these parenthesis, specify the arguments required to make the function run properly. Here’s an example of how to call the <code>doubler()</code> function we just wrote:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">doubler</span>(<span class="dt">x =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">doubler</span>(<span class="dt">x =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">doubler</span>(<span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">doubler</span>(<span class="dv">4</span>)</a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">doubler</span>(<span class="dv">100</span>)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">doubler</span>(<span class="dv">100</span>)</a></code></pre></div>
 <pre><code>## [1] 200</code></pre>
 <p>As you can see, <code>x</code> can be any number, and <code>doubler()</code> just takes the number (<code>x</code>) and doubles it.</p>
 <p><span class="tip"><em>Pro tip: you don’t always need to specify the name of an argument. In the second example of using</em></span> <span style="color: #00ce45"><code>doubler()</code></span><span class="tip">,</span> <span style="color: #00ce45"><code>R</code></span> <span class="tip"><em>interprets</em></span> <span style="color: #00ce45"><code>4</code></span> <span class="tip"><em>to be what</em></span> <span style="color: #00ce45"><code>x</code></span> <span class="tip"><em>is supposed to be. When there’s more than one argument needed for a function, you can either give them in the same order the function looks for them (which you’ll learn about <a href="packages-and-getting-help.html#helpfiles">here</a>), or you can specify them by name.</em></span></p>
@@ -321,9 +349,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><code>character</code>: Character data is anything that involves a letter or special character. These will be denoted by <code>''</code> (single quotation marks) or <code>&quot;&quot;</code> (double quotation marks). Characters are also called <span class="vocab">strings</span>. It’s important to note that <code>2</code> is of type <code>numeric</code>, while <code>'2'</code> is of type <code>character</code>. A quick check using the <code>class()</code> function:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">class</span>(<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="st">&#39;2&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">class</span>(<span class="st">&#39;2&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p><a name = 'logical'></a></p>
 <ul>
@@ -344,43 +372,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A <span class="vocab">vector</span> is a grouped set of data. Think about it as if it were the answer to a <em>single</em> question from a survey from all students in the class, or the heights of all basketball players in the NBA. We’ve actually been working with vectors all along! We’ll discuss it more in <a href="#Vectorization">chapter 4</a>.</p>
 <p><code>R</code> actually treats every value as a vector. That’s why, as you may have noticed, lines of output begin with <code>[1]</code>. This indicates the <span class="vocab">index</span> (position) in the vector that is at the start of the line. Any time we’ve had any type of data, <code>R</code> has just treated it as a vector of length 1.</p>
 <p>One important thing to note about vectors is that all members of the vector must be of the same type. If they aren’t, they will be <span class="vocab">coerced</span> (changed) to be of the same type. To create a vector, we can use the <code>c()</code> function. This function combines the <span class="vocab">elements</span> (individual data points) and turns them into a vector. Separate the parts with a comma (<code>,</code>). Here’s a few examples:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, T, F, T, <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, T, F, T, <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&#39;R&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;fun&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">c</span>(<span class="st">&#39;R&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;fun&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;R&quot;   &quot;is&quot;  &quot;fun&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&#39;apple&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;banana&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="st">&#39;apple&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;banana&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;1&quot;      &quot;apple&quot;  &quot;2&quot;      &quot;banana&quot;</code></pre>
 <p>Note how in the last example, everything appears inside of double quotation marks. This is an example of coersion in action. <code>1</code> and <code>2</code> are recognized as type <code>integer</code>, and <code>'apple'</code> and <code>'banana'</code> are recognized as type <code>character</code>. Since it’s easier to change a number to a character than it is to go the other way, <code>1</code> and <code>2</code> become characters.</p>
 <p>It may seem cumbersome, time-consuming, and tedious to type out numbers in order as we did in the first vector. <code>:</code> to the rescue! Another way that we can create that vector is by putting the first number we’d like in our vector on the left side of the <code>:</code>, and the last number on the right.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span>:<span class="dv">10</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>As you can see, they both produce the same output. Let’s say we wanted to only include even numbers. Luckily, there’s a function that allows us to do that as well, and that’s the <code>seq()</code> function. To use it, we start by putting the first number in our vector, then the last number we want in the vector, and finally the amount we want to increment by in each place. To get the even numbers between 1 and 10, we want the following sequence:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1]  2  4  6  8 10</code></pre>
 <p>Now, let’s say that we want to actually get at the contents of a part of a vector. We can accesss it by using its index. Unlike some other languages (Python, for example), <code>R</code> starts its indexing at 1, not 0. If we want to access the 3<span class="math inline">\(^{\text{rd}}\)</span> element of the vector we just created, use the index of the part we’re interested in (3) and put it inside of a single set of square brackets (<code>[]</code>) next to the vector. This will return the element in that location.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)[<span class="dv">3</span>]</code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>)[<span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>To figure out how many elements are contained in a vector, we can use the <code>length()</code> function. This information is also displayed in the <code>Environment</code> tab we configured in <a href="#env">chapter 1</a>, assuming that the vector is stored as something in the global environment.</p>
 <p>The last function we should mention here is the <code>rep()</code> function. Similar to <code>seq()</code>, this function allows you to create a vector of the same number, repeated any number of times. Want the number 10 to be repeated 30 times? <code>rep()</code> makes this easy, as you can write <code>rep(10, 30)</code>. The first argument is the number or vector you’d like to repeat, and the second is the number of times you’d like to repeat it. If the first argument is a vector, and you’d like to repeat each element a certain number of times, include the <code>each =</code> argument, with the number of times that you’d like each element to repeat. Let’s see <code>rep()</code> in action:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="dv">2</span>, <span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">rep</span>(<span class="dv">2</span>, <span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##  [1] 2 2 2 2 2 2 2 2 2 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 1 2 3 1 2 3 1 2 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>##  [1] 1 1 2 2 3 3 1 1 2 2 3 3 1 1 2 2 3 3</code></pre>
 </div>
 <div id="lists" class="section level3 unnumbered">
 <h3>Lists</h3>
 <p><a name = 'lists'></a></p>
 <p>On the surface, there’s not much difference between a list and a vector. The biggest difference is that a list can contain different types of data, whereas a vector cannot. To create a list, we can simply use the <code>list()</code> function, again putting all the different parts we want included inside the parenthesis, separated by a comma.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">list</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&#39;apple&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;banana&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&#39;apple&#39;</span>, <span class="dv">2</span>, <span class="st">&#39;banana&#39;</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -393,11 +421,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## [[4]]
 ## [1] &quot;banana&quot;</code></pre>
 <p>Lists can be made up of vectors as well. That is, each element of a list is able to be a vector, since a list doesn’t care what type of data each of its elements is. To access a list’s elements, we want to use a double set of square brackets (<code>[[]]</code>) with the index we’d like to access.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dv">3</span>)[[<span class="dv">2</span>]]</code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">list</span>(<span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dv">3</span>)[[<span class="dv">2</span>]]</a></code></pre></div>
 <pre><code>## [1] 1.25 2.50</code></pre>
 <p>The above example also illustrates that lists don’t need all list elements to be of the same length. Note that the third element of the list is only of length 1 (it’s just the number 3), but the other two elements are of length 2.</p>
 <p>Lastly, lists are able to have named elements. To name an element, all you have to do is type <code>NAME OF ELEMENT =</code> before each element, where <code>NAME OF ELEMENT</code> is whatever name you’d like to assign it. In the above example, let’s say we wanted to call the first element <code>fruits</code>, the second element <code>prices</code>, and the third element <code>aisle</code>. Then, our list would look like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)</code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## $fruits
 ## [1] &quot;apple&quot;  &quot;banana&quot;
 ## 
@@ -407,9 +435,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## $aisle
 ## [1] 3</code></pre>
 <p>We can then use a <code>$</code> to go into the list and “pull out” that element (the vector with the corresponding name). We can then use vector indexing rules to get a particular element from the vector. If we wanted to get <code>'banana'</code> from our list above, we have two options.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)$fruits[<span class="dv">2</span>]</code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)<span class="op">$</span>fruits[<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;banana&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]</code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">list</span>(<span class="dt">fruits =</span> <span class="kw">c</span>(<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>), <span class="dt">prices =</span> <span class="kw">c</span>(<span class="fl">1.25</span>, <span class="fl">2.50</span>), <span class="dt">aisle =</span> <span class="dv">3</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;banana&quot;</code></pre>
 <p>As you can see, both options return <code>'banana'</code>, so these options are equivalent.</p>
 </div>
@@ -618,32 +646,32 @@ M
 <div id="coercing-to-other-types" class="section level2">
 <h2><span class="header-section-number">2.4</span> Coercing To Other Types</h2>
 <p>The last point we’ll make about different kinds of data is that you can coerce it yourself to be of another type. There are a lot of functions, the <code>as._()</code> functions, that are helpful here. Have a character string that’s just a number? No problem! we saw before that <code>class('2')</code> was of type <code>character</code>. What about if we wanted it to be of type <code>numeric</code>?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="kw">as.numeric</span>(<span class="st">&#39;2&#39;</span>))</code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">class</span>(<span class="kw">as.numeric</span>(<span class="st">&#39;2&#39;</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>Awesome.</p>
 </div>
 <div id="identical" class="section level2">
 <h2><span class="header-section-number">2.5</span> <code>identical()</code></h2>
 <p>This is as good a time as any to introduce the <code>identical()</code> function. What this does is checks if the things supplied to it are the identical. It returns <code>TRUE</code> if the arguments are identical, and <code>FALSE</code> if they’re different. Examples, with some of the syntax described above, are as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(<span class="dv">1</span>, <span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">identical</span>(<span class="dv">1</span>, <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="dv">1</span>:<span class="dv">10</span> <span class="co"># This has length 10</span>
-y =<span class="st"> </span><span class="dv">2</span>:<span class="dv">10</span> <span class="co"># This has length 9</span>
-<span class="kw">identical</span>(x, y)</code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">x =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span> <span class="co"># This has length 10</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">y =<span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="dv">10</span> <span class="co"># This has length 9</span></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="kw">identical</span>(x, y)</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(x[<span class="dv">10</span>], y[<span class="dv">9</span>])</code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="kw">identical</span>(x[<span class="dv">10</span>], y[<span class="dv">9</span>])</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>This function is very helpful when you want to check if two vectors or lists have the same information. It’s also particularly useful when you want to check if the outputs or results of different functions are the same if you’re reorganizing/rewriting code.</p>
 </div>
 <div id="the-which-family" class="section level2">
 <h2><span class="header-section-number">2.6</span> The <code>which()</code> Family</h2>
 <p>In addition to the <code>identical()</code> function, another useful family of functions is the <code>which()</code> family: <code>which()</code>, <code>which.min()</code>, and <code>which.max()</code>. When used on a vector, they’ll give you the <em>index</em> of the the specified condition. <code>which()</code> can be used for any condition you’d like, while <code>which.min()</code> and <code>which.max()</code> return the minimum and maximum values of the vector. Here’s a quick example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">z =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">13</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">15</span>)
-<span class="kw">which</span>(z ==<span class="st"> </span><span class="dv">4</span>) <span class="co"># Returns the index where z is 4 (should be 7)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">z =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">13</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="kw">which</span>(z <span class="op">==</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># Returns the index where z is 4 (should be 7)</span></a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.min</span>(z) <span class="co"># Should return 1</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">which.min</span>(z) <span class="co"># Should return 1</span></a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">which.max</span>(z) <span class="co"># Should return 2 (biggest value is 16 at index 2)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">which.max</span>(z) <span class="co"># Should return 2 (biggest value is 16 at index 2)</span></a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Since the columns of a data frame are really just vectors, the <code>which()</code> family of functions, when used on a data frame, will return the <em>row</em> corresponding to the condition. Not something we’ll spend a ton of time with right now, but a good thing to keep in mind going forward.</p>
 
@@ -675,7 +703,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -685,6 +713,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -701,8 +733,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

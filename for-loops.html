@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>STAT 100 Honors Project</title>
-  <meta name="description" content="STAT 100 Honors Project">
-  <meta name="generator" content="bookdown 0.7.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 16 for Loops | STAT 100 Honors Project</title>
+  <meta name="description" content="Chapter 16 for Loops | STAT 100 Honors Project" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:title" content="Chapter 16 for Loops | STAT 100 Honors Project" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="rossdrucker/STAT-100-Honors-Project" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  <meta name="twitter:title" content="Chapter 16 for Loops | STAT 100 Honors Project" />
   
   
   
 
-<meta name="author" content="Ross Drucker">
+<meta name="author" content="Ross Drucker" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
 <link rel="prev" href="uses-of-r.html">
 <link rel="next" href="conditional-statements.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,44 +46,72 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -111,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
-<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#src"><i class="fa fa-check"></i><b>1.3</b> <code>Source</code></a></li>
 <li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
 <li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
 </ul></li>
@@ -162,13 +190,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>II Exploring Data</b></span></li>
 <li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
-<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li><a href="hists.html#drawing-bar-graphs-and-histograms-in-r">Drawing Bar Graphs and Histograms in <code>R</code></a></li>
 <li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
 <li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
 <li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
-<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+<li><a href="measures-of-central-tendency.html#mean-with-truefalse"><code>mean()</code> with <code>TRUE</code>/<code>FALSE</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
 <li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
@@ -184,8 +212,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
 <li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
 <li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
-<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
-<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code>boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#sum"><i class="fa fa-check"></i><b>11.4</b> Summary and <code>summary()</code></a></li>
 </ul></li>
 <li class="part"><span><b>III Linear Regression</b></span></li>
 <li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
@@ -309,30 +337,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Repeat for all remaining numbers</li>
 </ol>
 <p><span class="note">Note: While using <a href = 'operators.html#vectorization'>vectorization</a> is the faster, more elegant way to do this same task, this is still possible (and easy to understand) in a</span> <span style="color: #a21bd7"><code>for</code></span> <span class="note">loop.</span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">v1 =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>))</code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">(<span class="dt">v1 =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>))</a></code></pre></div>
 <pre><code>##  [1]  1  8 15 22 29 36 43 50 57 64 71 78 85 92 99</code></pre>
 </div>
 <div id="syntax" class="section level2">
 <h2><span class="header-section-number">16.2</span> Syntax</h2>
 <p>To <span class="vocab">declare</span> or <span class="vocab">initialize</span> (make use of) a <code>for</code> loop, start the line with the word <code>for</code>, followed immediately by parentheses (<code>()</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for()</code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1"><span class="cf">for</span>()</a></code></pre></div>
 <p>Inside of the parentheses, we need to make use of an <span class="vocab">iterable index</span>. You should be familiar with indexes from <a href = 'functions-and-data-types.html#vectors'>before</a>, but as a refresher, the index is just the location in the vector/data frame of the point that we’re talking about. We’ve been using indicies that we knew we wanted (i.e. the 3rd location we used <code>[3]</code>), but now we want this iterable index to be “generally specific.” That is, we want it to be specific enough to know what location we’re at, but general enough so we don’t have to write the same line of code for each different index. Essentially, this iterable index is just a variable, and each time we go through the <code>for</code> loop, the variable will increase by 1. We’ll call this iterable index <code>i</code>.</p>
 <p>The other thing we need to supply is the boundaries (that are inclusive) we want to iterate over. If we want to go over all of the elements of <code>v1</code>, for example, we’d want to specify that by putting <code>in 1:15</code>, since there are 15 elements in <code>v1</code>.</p>
 <p><span class="tip">Pro tip: it’s a better idea to fill in the boundries as</span> <span style="color: #00ce45"><code>1:length(v1)</code></span> <span class="tip">in case we need to change the number of elements in</span> <span style="color: #00ce45"><code>v1</code></span><span class="tip"> (maybe we meant to put 10 or 1000 instead of 100?). Writing the boundaries in this way is more flexible in the code while still providing the same desired output, so that’s what we’ll do.</span></p>
 <p>To finish off this line and specify the exact operations we’d like to do to <code>v1</code>, we need to enclose the operations in curly braces (<code>{}</code>). Each time <code>R</code> hits that last, closing brace, it will increase <code>i</code> by 1 and go back to the top. As long as <code>i</code> stays within the boundaries, <code>R</code> will keep running the code inside the loop. All together, we’ve got this as our <code>for</code> loop declaration:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){}</code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(v1)){}</a></code></pre></div>
 <p>Inside of the curly braces is where the metaphorical magic happens. We’ll put our operations in there, and let <code>R</code> handle the rest. We want to add 1 to each element of <code>v1</code> and save it in its same location. Step-by-step, we’re saying to replace the i<sup>th</sup> element of <code>v1</code> with 1 + the i<sup>th</sup> element of <code>v1</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){v1[i] =<span class="st"> </span>v1[i] +<span class="st"> </span><span class="dv">1</span>}
-v1</code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(v1)){v1[i] =<span class="st"> </span>v1[i] <span class="op">+</span><span class="st"> </span><span class="dv">1</span>}</a>
+<a class="sourceLine" id="cb197-2" data-line-number="2">v1</a></code></pre></div>
 <pre><code>##  [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
 <p>This is gross-looking, so let’s practice good coding style like we talked about <a href = 'coding-style.html'>earlier</a> and show good spacing and indentation. Since we just acted on the initial <code>v1</code> and made our replacements in-place, we need to recreate the original <code>v1</code> vector.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>)
-
-for(i in <span class="dv">1</span>:<span class="kw">length</span>(v1)){
-  v1[i] =<span class="st"> </span>v1[i] +<span class="st"> </span><span class="dv">1</span>
-}
-
-v1</code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1">v1 =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dt">by =</span> <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb199-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb199-3" data-line-number="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(v1)){</a>
+<a class="sourceLine" id="cb199-4" data-line-number="4">  v1[i] =<span class="st"> </span>v1[i] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb199-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb199-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb199-7" data-line-number="7">v1</a></code></pre></div>
 <pre><code>##  [1]   2   9  16  23  30  37  44  51  58  65  72  79  86  93 100</code></pre>
 <p>Another quick example following: let’s reverse the order of a set of numbers. We’ll create a vector called <code>numbers</code>, which will have the numbers 1 through 10. Our goal is to reverse the order. Think like a computer and see if you agree with our algorithm:</p>
 <ol style="list-style-type: decimal">
@@ -343,14 +371,14 @@ v1</code></pre></div>
 <li>Repeat steps 1-4 until we get to the halfway point of <code>numbers</code> (since then we’d start switching everything back)</li>
 </ol>
 <p>All together, this is the resulting <code>for</code> loop. Match it up to make sure you agree!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dt">numbers =</span> <span class="dv">1</span>:<span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1">(<span class="dt">numbers =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:(<span class="kw">length</span>(numbers) /<span class="st"> </span><span class="dv">2</span>)){
-  temp =<span class="st"> </span>numbers[<span class="kw">length</span>(numbers) -<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>]
-  numbers[<span class="kw">length</span>(numbers) -<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span>numbers[i]
-  numbers[i] =<span class="st"> </span>temp
-}
-numbers</code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>(<span class="kw">length</span>(numbers) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>)){</a>
+<a class="sourceLine" id="cb203-2" data-line-number="2">  temp =<span class="st"> </span>numbers[<span class="kw">length</span>(numbers) <span class="op">-</span><span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb203-3" data-line-number="3">  numbers[<span class="kw">length</span>(numbers) <span class="op">-</span><span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span>numbers[i]</a>
+<a class="sourceLine" id="cb203-4" data-line-number="4">  numbers[i] =<span class="st"> </span>temp</a>
+<a class="sourceLine" id="cb203-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb203-6" data-line-number="6">numbers</a></code></pre></div>
 <pre><code>##  [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
 <p><span class="note">Note: We used the index</span> <span style="color: #a21bd7"><code>length(numbers) - i + 1</code></span> <span class="note">since the first element we wanted to replace was the last element, or at position</span> <span style="color: #a21bd7"><code>length(numbers)</code></span><span class="note">. Since</span> <span style="color: #a21bd7"><code>i</code></span><span class="note"> started at 1, and we needed it to change each time, we subtracted</span> <span style="color: #a21bd7"><code>i</code></span><span class="note"> and then added the 1 back in to take care of the first case. You can</span> <span class="vocab">trace</span> <span class="note"> (follow) it if you write out the values that</span> <span style="color: #a21bd7"><code>i</code></span> <span class="note"> takes in each iteration.</span></p>
 <p><a name = 'nested-for-loops'></a></p>
@@ -359,20 +387,20 @@ numbers</code></pre></div>
 <h2><span class="header-section-number">16.3</span> Nesting</h2>
 <p>The last point we’ll make about loops is that you can <span class="vocab">nest</span> them, or put a <code>for</code> loop inside of another <code>for</code> loop. Just be sure that your indexes are different! Some example of when you may want to nest two <code>for</code> loops would be if you wanted to count the number of matching values in two different vectors, or if you wanted to go through each feature of each observation (i.e. go through each row, and within each row, go through each value) of a data frame. Again, be careful with your indentation. Check out this example, where we check go through the rows and columns of a data frame and add the row number plus the column number to it. That is, the data in the <code>i</code><sup>th</sup> row and the <code>j</code><sup>th</sup> column will have <code>i</code> + <code>j</code> added to it.</p>
 <p>First, we need to create all of the vectors and merge them together as a data frame:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">multiplication_table =<span class="st"> </span><span class="kw">data.frame</span>(
-  <span class="dt">ones =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">12</span>, <span class="dt">by =</span> <span class="dv">1</span>),
-  <span class="dt">twos =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">24</span>, <span class="dt">by =</span> <span class="dv">2</span>),
-  <span class="dt">threes =</span> <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">36</span>, <span class="dt">by =</span> <span class="dv">3</span>),
-  <span class="dt">fours =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">48</span>, <span class="dt">by =</span> <span class="dv">4</span>),
-  <span class="dt">fives =</span> <span class="kw">seq</span>(<span class="dv">5</span>, <span class="dv">60</span>, <span class="dt">by =</span> <span class="dv">5</span>),
-  <span class="dt">sixes =</span> <span class="kw">seq</span>(<span class="dv">6</span>, <span class="dv">72</span>, <span class="dt">by =</span> <span class="dv">6</span>),
-  <span class="dt">sevens =</span> <span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">84</span>, <span class="dt">by =</span> <span class="dv">7</span>),
-  <span class="dt">eights =</span> <span class="kw">seq</span>(<span class="dv">8</span>, <span class="dv">96</span>, <span class="dt">by =</span> <span class="dv">8</span>),
-  <span class="dt">nines =</span> <span class="kw">seq</span>(<span class="dv">9</span>, <span class="dv">108</span>, <span class="dt">by =</span> <span class="dv">9</span>),
-  <span class="dt">tens =</span> <span class="kw">seq</span>(<span class="dv">10</span>, <span class="dv">120</span>, <span class="dt">by =</span> <span class="dv">10</span>),
-  <span class="dt">elevens =</span> <span class="kw">seq</span>(<span class="dv">11</span>, <span class="dv">132</span>, <span class="dt">by =</span> <span class="dv">11</span>),
-  <span class="dt">twelves =</span> <span class="kw">seq</span>(<span class="dv">12</span>, <span class="dv">144</span>, <span class="dt">by =</span> <span class="dv">12</span>)
-)</code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">multiplication_table =<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb205-2" data-line-number="2">  <span class="dt">ones =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">12</span>, <span class="dt">by =</span> <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb205-3" data-line-number="3">  <span class="dt">twos =</span> <span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">24</span>, <span class="dt">by =</span> <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb205-4" data-line-number="4">  <span class="dt">threes =</span> <span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">36</span>, <span class="dt">by =</span> <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb205-5" data-line-number="5">  <span class="dt">fours =</span> <span class="kw">seq</span>(<span class="dv">4</span>, <span class="dv">48</span>, <span class="dt">by =</span> <span class="dv">4</span>),</a>
+<a class="sourceLine" id="cb205-6" data-line-number="6">  <span class="dt">fives =</span> <span class="kw">seq</span>(<span class="dv">5</span>, <span class="dv">60</span>, <span class="dt">by =</span> <span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb205-7" data-line-number="7">  <span class="dt">sixes =</span> <span class="kw">seq</span>(<span class="dv">6</span>, <span class="dv">72</span>, <span class="dt">by =</span> <span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb205-8" data-line-number="8">  <span class="dt">sevens =</span> <span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">84</span>, <span class="dt">by =</span> <span class="dv">7</span>),</a>
+<a class="sourceLine" id="cb205-9" data-line-number="9">  <span class="dt">eights =</span> <span class="kw">seq</span>(<span class="dv">8</span>, <span class="dv">96</span>, <span class="dt">by =</span> <span class="dv">8</span>),</a>
+<a class="sourceLine" id="cb205-10" data-line-number="10">  <span class="dt">nines =</span> <span class="kw">seq</span>(<span class="dv">9</span>, <span class="dv">108</span>, <span class="dt">by =</span> <span class="dv">9</span>),</a>
+<a class="sourceLine" id="cb205-11" data-line-number="11">  <span class="dt">tens =</span> <span class="kw">seq</span>(<span class="dv">10</span>, <span class="dv">120</span>, <span class="dt">by =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb205-12" data-line-number="12">  <span class="dt">elevens =</span> <span class="kw">seq</span>(<span class="dv">11</span>, <span class="dv">132</span>, <span class="dt">by =</span> <span class="dv">11</span>),</a>
+<a class="sourceLine" id="cb205-13" data-line-number="13">  <span class="dt">twelves =</span> <span class="kw">seq</span>(<span class="dv">12</span>, <span class="dv">144</span>, <span class="dt">by =</span> <span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb205-14" data-line-number="14">)</a></code></pre></div>
 <div style="text-align: center">
 Multiplication Table for Numbers 1 through 12
 </div>
@@ -915,11 +943,11 @@ Multiplication Table for Numbers 1 through 12
 </tbody>
 </table>
 <p>Now, our nested loops:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">for(i in <span class="dv">1</span>:<span class="kw">nrow</span>(multiplication_table)){
-  for(j in <span class="dv">1</span>:<span class="kw">ncol</span>(multiplication_table)){
-    multiplication_table[i, j] =<span class="st"> </span>multiplication_table[i, j] +<span class="st"> </span>i +<span class="st"> </span>j
-  }
-}</code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(multiplication_table)){</a>
+<a class="sourceLine" id="cb206-2" data-line-number="2">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(multiplication_table)){</a>
+<a class="sourceLine" id="cb206-3" data-line-number="3">    multiplication_table[i, j] =<span class="st"> </span>multiplication_table[i, j] <span class="op">+</span><span class="st"> </span>i <span class="op">+</span><span class="st"> </span>j</a>
+<a class="sourceLine" id="cb206-4" data-line-number="4">  }</a>
+<a class="sourceLine" id="cb206-5" data-line-number="5">}</a></code></pre></div>
 <div style="text-align: center">
 After Nested <code>for</code> Loops
 </div>
@@ -1491,7 +1519,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1501,6 +1529,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -1517,8 +1549,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

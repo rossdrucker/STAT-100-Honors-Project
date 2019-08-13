@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>STAT 100 Honors Project</title>
-  <meta name="description" content="STAT 100 Honors Project">
-  <meta name="generator" content="bookdown 0.7.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 20 Probability And Chance | STAT 100 Honors Project</title>
+  <meta name="description" content="Chapter 20 Probability And Chance | STAT 100 Honors Project" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="STAT 100 Honors Project" />
+  <meta property="og:title" content="Chapter 20 Probability And Chance | STAT 100 Honors Project" />
   <meta property="og:type" content="book" />
   
   
@@ -17,24 +16,25 @@
   <meta name="github-repo" content="rossdrucker/STAT-100-Honors-Project" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="STAT 100 Honors Project" />
+  <meta name="twitter:title" content="Chapter 20 Probability And Chance | STAT 100 Honors Project" />
   
   
   
 
-<meta name="author" content="Ross Drucker">
+<meta name="author" content="Ross Drucker" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
 <link rel="prev" href="document-creation.html">
 <link rel="next" href="random-variables.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,44 +46,72 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -111,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> Downloading <code>R</code> and RStudio</a><ul>
 <li class="chapter" data-level="1.1" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#getting-familiar-with-rstudio"><i class="fa fa-check"></i><b>1.1</b> Getting Familiar with RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>1.2</b> <code>Console</code></a></li>
-<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#source"><i class="fa fa-check"></i><b>1.3</b> <code id="src">Source</code></a></li>
+<li class="chapter" data-level="1.3" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#src"><i class="fa fa-check"></i><b>1.3</b> <code>Source</code></a></li>
 <li class="chapter" data-level="1.4" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#environment-history-build-vcs-presentation"><i class="fa fa-check"></i><b>1.4</b> <code>Environment, History, Build, VCS, Presentation</code></a></li>
 <li class="chapter" data-level="1.5" data-path="downloading-r-and-rstudio.html"><a href="downloading-r-and-rstudio.html#files-plots-packages-help-viewer"><i class="fa fa-check"></i><b>1.5</b> <code>Files, Plots, Packages, Help, Viewer</code></a></li>
 </ul></li>
@@ -162,13 +190,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="part"><span><b>II Exploring Data</b></span></li>
 <li class="chapter" data-level="8" data-path="hists.html"><a href="hists.html"><i class="fa fa-check"></i><b>8</b> Bar Graphs vs. Histograms</a><ul>
-<li class="chapter" data-level="8.1" data-path="hists.html"><a href="hists.html#drawing-bar-graphs-and-histograms-in-r"><i class="fa fa-check"></i><b>8.1</b> Drawing Bar Graphs and Histograms in <code class="unnumbered">R</code></a></li>
+<li><a href="hists.html#drawing-bar-graphs-and-histograms-in-r">Drawing Bar Graphs and Histograms in <code>R</code></a></li>
 <li class="chapter" data-level="" data-path="hists.html"><a href="hists.html#extracting-information-from-histograms"><i class="fa fa-check"></i>Extracting Information From Histograms</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html"><i class="fa fa-check"></i><b>9</b> Measures of Central Tendency</a><ul>
 <li class="chapter" data-level="9.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-mean-and-mean"><i class="fa fa-check"></i><b>9.1</b> The Mean and <code>mean()</code></a><ul>
 <li><a href="measures-of-central-tendency.html#handling-na-values">Handling <code>NA</code> Values</a></li>
-<li class="chapter" data-level="9.1.1" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#mean-with-truefalse"><i class="fa fa-check"></i><b>9.1.1</b> <code>mean()</code> with <code>TRUE</code>/<code class="unnumbered">FALSE</code></a></li>
+<li><a href="measures-of-central-tendency.html#mean-with-truefalse"><code>mean()</code> with <code>TRUE</code>/<code>FALSE</code></a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#the-median-and-median"><i class="fa fa-check"></i><b>9.2</b> The Median and <code>median()</code></a><ul>
 <li class="chapter" data-level="" data-path="measures-of-central-tendency.html"><a href="measures-of-central-tendency.html#skewed-histograms"><i class="fa fa-check"></i>Skewed Histograms</a></li>
@@ -184,8 +212,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html"><i class="fa fa-check"></i><b>11</b> Percentiles and Box Plots</a><ul>
 <li class="chapter" data-level="11.1" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#percentiles"><i class="fa fa-check"></i><b>11.1</b> Percentiles</a></li>
 <li class="chapter" data-level="11.2" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#quartiles"><i class="fa fa-check"></i><b>11.2</b> Quartiles</a></li>
-<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#box-plots-and-boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code id="boxplot">boxplot()</code></a></li>
-<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#summary-and-summary"><i class="fa fa-check"></i><b>11.4</b> Summary and <code id="sum">summary()</code></a></li>
+<li class="chapter" data-level="11.3" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#boxplot"><i class="fa fa-check"></i><b>11.3</b> Box Plots and <code>boxplot()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="percentiles-and-box-plots.html"><a href="percentiles-and-box-plots.html#sum"><i class="fa fa-check"></i><b>11.4</b> Summary and <code>summary()</code></a></li>
 </ul></li>
 <li class="part"><span><b>III Linear Regression</b></span></li>
 <li class="chapter" data-level="12" data-path="scatter-plots-and-correlation.html"><a href="scatter-plots-and-correlation.html"><i class="fa fa-check"></i><b>12</b> Scatter Plots and Correlation</a><ul>
@@ -327,10 +355,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 A
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 A
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 A
 </td>
 </tr>
@@ -341,10 +369,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 2
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 2
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 2
 </td>
 </tr>
@@ -355,10 +383,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 3
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 3
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 3
 </td>
 </tr>
@@ -369,10 +397,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 4
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 4
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 4
 </td>
 </tr>
@@ -383,10 +411,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 5
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 5
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 5
 </td>
 </tr>
@@ -397,10 +425,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 6
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 6
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 6
 </td>
 </tr>
@@ -411,10 +439,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 7
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 7
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 7
 </td>
 </tr>
@@ -425,10 +453,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 8
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 8
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 8
 </td>
 </tr>
@@ -439,10 +467,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 9
 </td>
 </tr>
@@ -453,10 +481,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 10
 </td>
 </tr>
@@ -467,10 +495,10 @@ J
 <td style="text-align:center;font-weight: bold;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 J
 </td>
 </tr>
@@ -481,10 +509,10 @@ Q
 <td style="text-align:center;font-weight: bold;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 Q
 </td>
 </tr>
@@ -495,10 +523,10 @@ K
 <td style="text-align:center;font-weight: bold;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 K
 </td>
 </tr>
@@ -530,10 +558,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 A
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 A
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 A
 </td>
 </tr>
@@ -544,10 +572,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 2
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 2
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 2
 </td>
 </tr>
@@ -558,10 +586,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 3
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 3
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 3
 </td>
 </tr>
@@ -572,10 +600,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 4
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 4
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 4
 </td>
 </tr>
@@ -586,10 +614,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 5
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 5
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 5
 </td>
 </tr>
@@ -600,10 +628,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 6
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 6
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 6
 </td>
 </tr>
@@ -614,10 +642,10 @@ A
 <td style="text-align:center;font-weight: bold;">
 7
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 7
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 7
 </td>
 </tr>
@@ -628,80 +656,80 @@ A
 <td style="text-align:center;font-weight: bold;">
 8
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 8
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 8
 </td>
 </tr>
 <tr>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 9
 </td>
 </tr>
 <tr>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 10
 </td>
 </tr>
 <tr>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 J
 </td>
 </tr>
 <tr>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 Q
 </td>
 </tr>
 <tr>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 K
 </td>
 </tr>
@@ -750,13 +778,13 @@ Diamonds
 <td style="text-align:center;font-weight: bold;">
 A
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 A
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 A
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 A
 </td>
 </tr>
@@ -764,13 +792,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 2
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 2
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 2
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 2
 </td>
 </tr>
@@ -778,13 +806,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 3
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 3
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 3
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 3
 </td>
 </tr>
@@ -792,13 +820,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 4
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 4
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 4
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 4
 </td>
 </tr>
@@ -806,13 +834,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 5
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 5
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 5
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 5
 </td>
 </tr>
@@ -820,13 +848,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 6
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 6
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 6
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 6
 </td>
 </tr>
@@ -834,13 +862,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 7
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 7
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 7
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 7
 </td>
 </tr>
@@ -848,13 +876,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 8
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 8
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 8
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 8
 </td>
 </tr>
@@ -862,13 +890,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 9
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 9
 </td>
 </tr>
@@ -876,13 +904,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 10
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 10
 </td>
 </tr>
@@ -890,13 +918,13 @@ A
 <td style="text-align:center;font-weight: bold;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 J
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 J
 </td>
 </tr>
@@ -904,27 +932,27 @@ J
 <td style="text-align:center;font-weight: bold;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 Q
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;">
 Q
 </td>
 </tr>
 <tr>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;background-color: #ffcb05;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;background-color: #ffcb05 !important;background-color: #ffcb05 !important;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 K
 </td>
-<td style="text-align:center;font-weight: bold;color: #ff0000;background-color: #ffcb05;">
+<td style="text-align:center;font-weight: bold;color: #ff0000 !important;background-color: #ffcb05 !important;">
 K
 </td>
 </tr>
@@ -948,7 +976,7 @@ K
 <p><img src="img/20-roulette.jpeg" style="display: block; margin: auto;" /></p>
 <p>What’s the chance of the roulette ball landing on a red space? Let’s use a box model to represent a single play of the game. There’s 18 ways for the ball to land on a red space, and there’s 20 ways for it to land on a black or green space. The box model looks like this.</p>
 <p><a name = 'roulette-box'></a></p>
-<p><img src="STAT_100_Honors_Project_files/figure-html/20-box-model-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="STAT-100-Honors-Project_files/figure-html/20-box-model-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Now it’s easy to find the probability of the ball landing on a red space! There’s 18 tickets that are red, and there’s 38 tickets overall. Any time we play the game, we’d have to <em>replace</em> the ticket in the box (see why it’s called “with/without replacement” now?), and it’s easy to conceptualize the scenario graphically. <span class="math inline">\(P(\text{Red}) = \frac{18}{38}\)</span>.</p>
 <p>Want the probability of landing on red twice in a row? Easy! Pick a red on your first draw, replace the ticket, and then pick a red on your next draw. Use the multiplication rule to combine them together. <span class="math inline">\(P(\text{Red AND Red}) = \frac{18}{38} \cdot \frac{18}{38}\)</span>. Your thoughts, Chance the Rapper?</p>
 <p><img src="img/20-chance-thats-whats-up.gif" style="display: block; margin: auto;" /></p>
@@ -957,20 +985,20 @@ K
 <h2><span class="header-section-number">20.7</span> <code>sample()</code></h2>
 <p>Now, why is this a better way to think about probability for <code>R</code>? It’s because of the way that <code>R</code> can randomly sample things for you. To do this, you want to use the <code>sample()</code> function. The first argument you should pass to it (it’s called <code>x</code> in the help file) should be the vector of things you’d like to sample, whether that’s numbers, colors, <code>TRUE/FALSE</code> values, or whatever else it may be. The second argument, <code>n</code>, is the number of items to pull out, or the number of times to draw out of the box. <code>replace</code> is the third argument, which can be either <code>TRUE</code> or <code>FALSE</code>, indicating whether or not to do the draws with replacement. Lastly, you can change how likely each item you passed to <code>x</code> is via the <code>prob</code> argument, but usually you’ll want to leave this argument alone. It defaults to have each item be equally likely.</p>
 <p>A few examples before we move on to sampling.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>) <span class="co"># Set seed for reproducibility</span>
-
-<span class="co"># Rolling a die 3 times</span>
-<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">6</span>, <span class="dv">3</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## [1] 6 6 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Draw 5 cards without replacement</span>
-<span class="co"># 1-13 is A-K of Clubs</span>
-<span class="co"># 14-26 is A-K of Spades</span>
-<span class="co"># 27-39 is A-K of Hearts</span>
-<span class="co"># 40-52 is A-K of Diamonds</span>
-<span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">52</span>, <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>## [1] 44 33 26 37  7</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Help me decide what to eat for dinner</span>
-<span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;Hot Dog&#39;</span>, <span class="st">&#39;Hamburger&#39;</span>, <span class="st">&#39;Quesadilla&#39;</span>, <span class="st">&#39;Ribs&#39;</span>, <span class="st">&#39;Soup&#39;</span>), <span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">42</span>) <span class="co"># Set seed for reproducibility</span></a>
+<a class="sourceLine" id="cb231-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb231-3" data-line-number="3"><span class="co"># Rolling a die 3 times</span></a>
+<a class="sourceLine" id="cb231-4" data-line-number="4"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dv">3</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>## [1] 1 5 1</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="co"># Draw 5 cards without replacement</span></a>
+<a class="sourceLine" id="cb233-2" data-line-number="2"><span class="co"># 1-13 is A-K of Clubs</span></a>
+<a class="sourceLine" id="cb233-3" data-line-number="3"><span class="co"># 14-26 is A-K of Spades</span></a>
+<a class="sourceLine" id="cb233-4" data-line-number="4"><span class="co"># 27-39 is A-K of Hearts</span></a>
+<a class="sourceLine" id="cb233-5" data-line-number="5"><span class="co"># 40-52 is A-K of Diamonds</span></a>
+<a class="sourceLine" id="cb233-6" data-line-number="6"><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">52</span>, <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>## [1] 25 10 36 18 47</code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="co"># Help me decide what to eat for dinner</span></a>
+<a class="sourceLine" id="cb235-2" data-line-number="2"><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;Hot Dog&#39;</span>, <span class="st">&#39;Hamburger&#39;</span>, <span class="st">&#39;Quesadilla&#39;</span>, <span class="st">&#39;Ribs&#39;</span>, <span class="st">&#39;Soup&#39;</span>), <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Ribs&quot;</code></pre>
 
 </div>
@@ -1001,7 +1029,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1011,6 +1039,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -1027,8 +1059,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
