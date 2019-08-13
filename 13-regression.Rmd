@@ -71,7 +71,7 @@ where $x$ is the value we're making the prediction at, $m$ is the <span class = 
 
 $$ r \cdot \frac{\text{SD}_\text{y}}{\text{SD}_\text{x}} $$
 
-Great! Now all we need to do is figure out the intercept of the equation, and we'll be on auto-pilot for predictions. Luckily, this isn't hard to do. Just like the <a href = 'correlation.html#sd-line'>SD line</a>, the regression line also has to go through the point of averages. Since this point falls on the line, its $x$ and $y$ values are great to plug in. We then know $y$, $m$, and $x$, which leaves us with one equation with one unknown variable. Thus, we can solve for $b$ and be on our merry way.
+Great! Now all we need to do is figure out the intercept of the equation, and we'll be on auto-pilot for predictions. Luckily, this isn't hard to do. Just like the <a href = 'scatter-plots-and-correlation.html#the-sd-line'>SD line</a>, the regression line also has to go through the point of averages. Since this point falls on the line, its $x$ and $y$ values are great to plug in. We then know $y$, $m$, and $x$, which leaves us with one equation with one unknown variable. Thus, we can solve for $b$ and be on our merry way.
 
 Let's try it with the example from above. We're trying to predict shoe size from height, so our equation should take the form
 
